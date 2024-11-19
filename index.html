@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        @keyframes progress {
+        0% { width: 0; }
+        100% { width: 100%; }
+    }
+    .animate-progress {
+        animation: progress 1.5s ease-in-out forwards;
+    }
+    @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        .animate-slide-in {
+            animation: slide-in 1s ease-out forwards;
+        }
+        /* Dark Mode Styles */
+    .dark {
+        background-color: #1a202c; /* Dark background color */
+        color: #cbd5e0; /* Light text color */
+    }
+
+    .dark .bg-yellow-50 {
+        background-color: #2d3748; /* Dark mode background for sections */
+    }
+
+    .dark .text-gray-800 {
+        color: #e2e8f0; /* Light text for dark mode */
+    }
+
+    .dark .bg-white {
+        background-color: #2d3748; /* Darker background for cards */
+    }
+
+    .dark .text-gray-600 {
+        color: #a0aec0; /* Subtle light text for dark mode */
+    }
+
+    .dark .bg-blue-600 {
+        background-color: #2b6cb0; /* Adjust navbar color for dark mode */
+    }
+
+    .dark .hover\:text-yellow-300:hover {
+        color: #f6e05e;
+    }
+
+    .dark .border-blue-500 {
+        border-color: #63b3ed; /* Border color adjustments for dark mode */
+    }
+
+    .dark .bg-gradient-to-r {
+        background-image: linear-gradient(to right, #3182ce, #2b6cb0);
+    }
+
+    .dark .bg-gray-200 {
+        background-color: #4a5568; /* Darker progress bars */
+    }
+
+    .dark .bg-blue-400 {
+        background-color: #63b3ed;
+    }
+
+    .dark .bg-blue-700 {
+        background-color: #2c5282;
+    }
+
+    .dark .text-white {
+        color: #e2e8f0;
+    }
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+    /* Scrollbar customization */
+#chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+#chat-messages::-webkit-scrollbar-thumb {
+    background-color: #63b3ed; /* Customize scrollbar color */
+    border-radius: 4px;
+}
+
+.testimonial-slide {
+        transition: all 0.5s ease-in-out;
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+
+    /* Glowing effect */
+    .skill-item:hover .progress-bar {
+            animation: glow 1s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.5);
+            }
+
+            to {
+                box-shadow: 0 0 20px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.7);
+            }
+        }
+
+        /* Popup animation */
+        .animate-glow {
+            animation: popup 0.5s ease-out forwards;
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out forwards;
+        }
+
+        /* Glowing effect for the popup */
+        #popup .shadow-lg {
+            box-shadow: 0 0 25px rgba(0, 112, 243, 0.5);
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fade-out {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-20px); }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out forwards;
+        }
+
+        .animate-fade-out {
+            animation: fade-out 0.5s ease-out forwards;
+        }
+    </style>
+    <!-- Navbar -->
+<nav class="bg-blue-600 text-white fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+        <!-- Brand Name -->
+        <div class="text-2xl font-bold">Aditya</div>
+
+        <!-- Links for Desktop -->
+        <ul class="hidden md:flex space-x-8">
+            <li><a href="#about" class="hover:text-yellow-300">About</a></li>
+            <li><a href="#skills" class="hover:text-yellow-300">Skills</a></li>
+            <li><a href="#experience" class="hover:text-yellow-300">Experience</a></li>
+            <li><a href="#projects" class="hover:text-yellow-300">Projects</a></li>
+            <li><a href="#blog" class="hover:text-yellow-300">Blog</a></li>
+            <li><a href="#achievements" class="hover:text-yellow-300">Achievements</a></li>
+            <li><a href="#certifications" class="hover:text-yellow-300">Certifications</a></li>
+            <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+        </ul>
+
+        <!-- Dark Mode Toggle & Hamburger Menu for Mobile -->
+        <div class="flex items-center space-x-4">
+            <!-- Dark Mode Toggle Button -->
+            <button id="dark-mode-toggle" class="text-2xl">
+                <span id="toggle-icon">🌙</span>
+            </button>
+
+            <!-- Hamburger Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none">
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-500 p-4">
+        <ul class="space-y-4">
+            <li><a href="#about" class="block hover:text-yellow-300">About</a></li>
+            <li><a href="#skills" class="block hover:text-yellow-300">Skills</a></li>
+            <li><a href="#experience" class="block hover:text-yellow-300">Experience</a></li>
+            <li><a href="#projects" class="block hover:text-yellow-300">Projects</a></li>
+            <li><a href="#blog" class="block hover:text-yellow-300">Blog</a></li>
+            <li><a href="#achievements" class="block hover:text-yellow-300">Achievements</a></li>
+            <li><a href="#certifications" class="block hover:text-yellow-300">Certifications</a></li>
+            <li><a href="#contact" class="block hover:text-yellow-300">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20">
+        <h1 class="text-5xl font-bold">Aditya</h1>
+        <p class="mt-4 text-lg">Cybersecurity Enthusiast | Web Developer | Lifelong Learner</p>
+        <button class="bg-blue-700 hover:bg-blue-800 px-6 py-3 mt-6 rounded-lg">Connect with me on LinkedIn</button>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="p-10">
+        <h2 class="text-3xl font-bold">About Me</h2>
+        <div class="flex flex-col md:flex-row mt-8 items-center">
+            <img src="1.png" alt="Profile" class="rounded-full w-48 h-48 shadow-lg">
+            <p class="mt-6 md:mt-0 md:ml-10 text-lg">
+                I'm Aditya, a passionate cybersecurity expert and web developer with a knack for building secure and scalable web applications. I love solving complex problems and continuously learning new technologies.
+            </p>
+        </div>
+    </section>
+
+    <!-- Work Video Introduction -->
+    <section class="p-10 bg-white">
+        <h2 class="text-3xl font-bold">Work Introduction</h2>
+        <div class="mt-6">
+            <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+   <!-- Skills Section -->
+   <section id="skills" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">Skills</h2>
+
+    <!-- Advanced Skills -->
+    <div class="mb-8">
+        <h3 class="text-2xl font-semibold mb-4">Advanced</h3>
+        <div class="space-y-6">
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>Digital Forensics</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>HTML</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>Linux</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intermediate Skills -->
+    <div class="mb-8">
+        <h3 class="text-2xl font-semibold mb-4">Intermediate</h3>
+        <div class="space-y-6">
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>CSS</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-green-400 to-green-600 h-4 rounded-full" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>Python</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-green-400 to-green-600 h-4 rounded-full" style="width: 65%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beginner Skills -->
+    <div>
+        <h3 class="text-2xl font-semibold mb-4">Beginner</h3>
+        <div class="space-y-6">
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>JavaScript</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-red-400 to-red-600 h-4 rounded-full" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div onclick="showPopup(this)" class="group cursor-pointer skill-item">
+                <p>Firebase</p>
+                <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-red-400 to-red-600 h-4 rounded-full" style="width: 45%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popup Modal -->
+<div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-md w-11/12 animate-fade-in relative">
+        <!-- Close Button -->
+        <button onclick="closePopup(false)" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+
+        <!-- Popup Content -->
+        <h3 class="text-2xl font-bold text-center mb-4">Connect with Me!</h3>
+        <p class="text-gray-600 text-center mb-6">Follow me on my social platforms:</p>
+
+        <!-- Social Media Links -->
+        <div class="flex justify-center space-x-6 mb-6">
+            <a href="https://www.instagram.com/i__aditya7/" target="_blank" class="hover:text-pink-600">
+                <i class="fab fa-instagram text-3xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="hover:text-blue-600">
+                <i class="fab fa-linkedin text-3xl"></i>
+            </a>
+            <a href="https://github.com/Xenonesis" target="_blank" class="hover:text-gray-800">
+                <i class="fab fa-github text-3xl"></i>
+            </a>
+        </div>
+
+        <!-- Countdown Timer -->
+        <p class="text-gray-600 text-center mb-6">
+            This popup will close in <span id="countdown" class="font-semibold text-blue-600">5</span> seconds.
+        </p>
+
+        <!-- Manual Close Button -->
+        <button onclick="closePopup(false)" class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 w-full">
+            Close Now
+        </button>
+    </div>
+</div>
+
+   <!-- Professional Experience Section -->
+<section id="experience" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block">Professional Experience</h2>
+    
+    <!-- Experience Entry 1 -->
+    <div class="mt-8">
+        <h3 class="text-2xl font-semibold animate-fade-in">Mentor (Part-time)</h3>
+        <p class="text-gray-700 font-semibold">JhaMobii Technologies Pvt. Ltd., Remote</p>
+        <p class="text-gray-600">Aug 2024 - Present</p>
+        <ul class="list-disc ml-6 mt-4 space-y-2">
+            <li>Provided technical mentorship in cybersecurity to junior professionals and interns.</li>
+            <li>Guided team members through vulnerability assessments, threat analysis, and incident response strategies.</li>
+            <li>Supported learners in mastering security frameworks, cloud security, and penetration testing.</li>
+            <li>Ensured mentees understood best practices for securing networks and applications in real-world environments.</li>
+        </ul>
+    </div>
+
+    <!-- Experience Entry 2 -->
+    <div class="mt-10 animate-fade-in">
+        <h3 class="text-2xl font-semibold">Cybersecurity Intern</h3>
+        <p class="text-gray-700 font-semibold">Null, Remote</p>
+        <p class="text-gray-600">Jun 2024 - Present</p>
+        <ul class="list-disc ml-6 mt-4 space-y-2">
+            <li>Conducted vulnerability assessments and implemented robust network security protocols.</li>
+            <li>Monitored network traffic and responded to security incidents with a focus on intrusion detection.</li>
+            <li>Worked with remote teams to secure client systems, ensuring compliance with industry standards.</li>
+            <li>Gained hands-on experience with SIEM tools, firewall configurations, and incident response strategies.</li>
+        </ul>
+    </div>
+</section>
+    <!-- Projects Section -->
+<section id="projects" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Projects</h2>
+    
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+        <!-- Project Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">Flappy</h3>
+            <p class="mt-4 text-gray-600">A 2D game built using HTML, CSS, and JavaScript.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">Movie Website (Cinesphere)</h3>
+            <p class="mt-4 text-gray-600">A movie website developed to provide high-rated movies for free.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">Innova</h3>
+            <p class="mt-4 text-gray-600">A modern, responsive e-commerce website designed for a seamless shopping experience.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 4 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">SEO Optimized Website</h3>
+            <p class="mt-4 text-gray-600">An SEO-optimized website to improve search engine visibility using best practices.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 5 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">MovieVerse Explorer</h3>
+            <p class="mt-4 text-gray-600">A movie exploration site with dynamic content fetched from APIs to provide the latest movie info.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 6 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">Animate Responsive Tales</h3>
+            <p class="mt-4 text-gray-600">A responsive and animated website showcasing creative storytelling techniques using animations.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 7 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">PropDekho</h3>
+            <p class="mt-4 text-gray-600">A real estate website that helps users find and explore properties easily.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Project Card 8 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold">Real Estate Chatbot</h3>
+            <p class="mt-4 text-gray-600">A chatbot developed for real estate inquiries, offering users assistance in finding properties.</p>
+            <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="p-10 bg-white">
+        <h2 class="text-3xl font-bold">Blog</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-gray-100 p-5 rounded-lg">
+                <h3 class="text-xl font-bold">Blog Post Title</h3>
+                <p class="mt-4">A brief introduction to the blog post content.</p>
+                <a href="#" class="text-blue-500 mt-4">Read More</a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Achievements and Certifications Section -->
+<section id="achievements" class="p-10 bg-yellow-50">
+    <!-- Achievements Section -->
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Achievements</h2>
+    <div class="space-y-10 animate-fade-in">
+        <!-- Achievement Entry 1 -->
+        <div>
+            <h3 class="text-2xl font-semibold">University Sports Leader</h3>
+            <p class="text-gray-600">Sushant University | 2023 - 2024</p>
+            <ul class="list-disc ml-6 mt-3 space-y-2">
+                <li>Led the university’s sports teams, organizing and managing multiple events that increased student participation by 30%.</li>
+                <li>Spearheaded inter-university competitions, securing top positions in regional tournaments.</li>
+            </ul>
+        </div>
+
+        <!-- Achievement Entry 2 -->
+        <div>
+            <h3 class="text-2xl font-semibold">NSS Leader</h3>
+            <p class="text-gray-600">National Service Scheme | 2024 - Present</p>
+            <ul class="list-disc ml-6 mt-3 space-y-2">
+                <li>Coordinated and led various community service initiatives, driving awareness on key social issues.</li>
+                <li>Managed a team of 50+ volunteers, organizing events and workshops focusing on health and education.</li>
+            </ul>
+        </div>
+
+        <!-- Achievement Entry 3 -->
+        <div>
+            <h3 class="text-2xl font-semibold">Subhead at Gaming Nexus (Gaming Club)</h3>
+            <p class="text-gray-600">Gaming Nexus | 2023 - Present</p>
+            <ul class="list-disc ml-6 mt-3 space-y-2">
+                <li>Oversaw gaming tournaments and interactive workshops aimed at promoting esports on campus.</li>
+                <li>Facilitated strategic partnerships with external gaming sponsors, leading to a 50% increase in club funding.</li>
+                <li>Mentored new members in strategy-based games, focusing on team-building and competitive gaming skills.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Certifications Section -->
+<section id="certifications" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Certifications</h2>
+    
+    <!-- Certifications List -->
+    <div class="space-y-10 animate-fade-in">
+        <!-- Certification Items -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Digital Footprint Certification</h3>
+                <p class="text-gray-600 mt-2">Issued by United Latino Students Association. Obtained in August 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Cisco Cyber Threat Management</h3>
+                <p class="text-gray-600 mt-2">Issued by CISCO. Currently in progress as of July 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">OSForensics Triage Certification</h3>
+                <p class="text-gray-600 mt-2">Issued by OSForensics by PassMark Software. Currently in progress as of July 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Certified Cisco Ethical Hacker (CEH)</h3>
+                <p class="text-gray-600 mt-2">Issued by CISCO. Currently in progress as of June 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Foundations Of Computer Security</h3>
+                <p class="text-gray-600 mt-2">Issued by Google. Currently in progress as of August 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Technical Support Fundamentals</h3>
+                <p class="text-gray-600 mt-2">Issued by Google. Currently in progress as of August 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Computer Architecture</h3>
+                <p class="text-gray-600 mt-2">Issued by Great Learning. Currently in progress as of July 2024.</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold">Excel For Intermediate Level</h3>
+                <p class="text-gray-600 mt-2">Issued by Great Learning. Currently in progress as of July 2024.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Chatbot Toggle Button -->
+ <button id="bot-toggle" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none z-50">
+    💬
+</button>
+
+<!-- Chatbot Window -->
+<div id="chatbot" class="hidden fixed bottom-20 right-6 bg-white border border-gray-300 shadow-lg rounded-lg w-80 md:w-96 h-[450px] flex flex-col z-50">
+    <!-- Chatbot Header -->
+    <div class="bg-blue-600 text-white p-4 flex justify-between items-center rounded-t-lg">
+        <span class="text-lg font-bold">Chatbot</span>
+        <button id="bot-close" class="text-2xl focus:outline-none">✖️</button>
+    </div>
+    <!-- Chatbot Messages Area -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+        <!-- Placeholder for messages -->
+        <div class="text-gray-700">Hello! How can I assist you today?</div>
+    </div>
+    <!-- Chatbot Input Area -->
+    <div class="p-4 border-t border-gray-200 flex items-center">
+        <input type="text" id="chat-input" class="w-full p-2 border border-gray-300 rounded focus:outline-none" placeholder="Type your message...">
+        <button id="send-message" class="ml-2 bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Send</button>
+    </div>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-md w-11/12 animate-fade-in relative">
+        <!-- Close Button -->
+        <button onclick="closePopup()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+
+        <!-- Popup Content -->
+        <h3 class="text-2xl font-bold text-center mb-4">Connect with Me!</h3>
+        <p class="text-gray-600 text-center mb-6">
+            Stay connected and follow me on my social platforms.
+        </p>
+
+        <!-- Social Media Links -->
+        <div class="flex justify-center space-x-6 mb-6">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/i__aditya7/?utm_source=ig_web_button_share_sheet" target="_blank" class="hover:text-pink-600">
+                <i class="fab fa-instagram text-3xl"></i>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="hover:text-blue-600">
+                <i class="fab fa-linkedin text-3xl"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Xenonesis" target="_blank" class="hover:text-gray-800">
+                <i class="fab fa-github text-3xl"></i>
+            </a>
+        </div>
+
+        <!-- Countdown and Close Button -->
+        <p class="text-gray-600 text-center mb-6">This popup will close in <span id="countdown" class="font-semibold text-blue-600">5</span> seconds.</p>
+        <button onclick="closePopup()" class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 w-full">
+            Close Now
+        </button>
+    </div>
+</div>
+
+
+  <!-- Testimonials Section -->
+<section id="testimonials" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Testimonials</h2>
+    
+    <!-- Carousel Container -->
+    <div class="relative bg-white rounded-lg shadow-lg p-6 mx-auto max-w-2xl">
+        <!-- Testimonials Wrapper -->
+        <div id="testimonial-carousel" class="overflow-hidden relative">
+            <!-- Testimonial Items -->
+            <div class="testimonial-slide">
+                <p class="text-gray-700 text-lg italic">"Aditya is a stellar student and proficient future technology professional. He has all the qualities to become an influential leader and a professional game changer..."</p>
+                <p class="text-right mt-4 font-semibold">- Siddharth Anand (Aditya's Teacher)</p>
+            </div>
+            <div class="testimonial-slide hidden">
+                <p class="text-gray-700 text-lg italic">"Aditya’s dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."</p>
+                <p class="text-right mt-4 font-semibold">- Rahul Sharma (Mentor)</p>
+            </div>
+            <div class="testimonial-slide hidden">
+                <p class="text-gray-700 text-lg italic">"A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team..."</p>
+                <p class="text-right mt-4 font-semibold">- Priya Verma (Colleague)</p>
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-gray-700 hover:bg-gray-400 p-2 rounded-full shadow focus:outline-none">
+            ❮
+        </button>
+        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-gray-700 hover:bg-gray-400 p-2 rounded-full shadow focus:outline-none">
+            ❯
+        </button>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="p-10">
+        <h2 class="text-3xl font-bold">Contact Me</h2>
+        <form class="mt-8 space-y-4">
+            <input type="text" placeholder="Name" class="w-full p-3 border rounded">
+            <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+            <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
+            <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+<footer class="bg-yellow-50 text-gray-800 py-6 border-t border-gray-200">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
+        <!-- Social Media Icons -->
+        <div class="flex space-x-6 justify-center md:justify-start">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-blue-600 transition duration-300">
+                <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition duration-300">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" aria-label="GitHub" class="hover:text-gray-600 transition duration-300">
+                <i class="fab fa-github text-2xl"></i>
+            </a>
+        </div>
+
+        <!-- Copyright Text -->
+        <div class="text-center md:text-right">
+            &copy; 2024 Aditya. All rights reserved.
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+<script src="testimonials.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
