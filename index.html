@@ -111,16 +111,18 @@
 }
 
 .testimonial-slide {
-        transition: all 0.5s ease-in-out;
-    }
+    transition: all 0.5s ease-in-out;
+}
 
-    @keyframes fade-in {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-        animation: fade-in 1s ease-out forwards;
-    }
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+}
+
 
     /* Glowing effect */
     .skill-item:hover .progress-bar {
@@ -645,36 +647,65 @@
 
   <!-- Testimonials Section -->
 <section id="testimonials" class="p-10 bg-yellow-50">
-    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Testimonials</h2>
+    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-500 inline-block mb-12">
+        Testimonials
+    </h2>
     
     <!-- Carousel Container -->
-    <div class="relative bg-white rounded-lg shadow-lg p-6 mx-auto max-w-2xl">
+    <div class="relative bg-white rounded-lg shadow-xl p-8 mx-auto max-w-3xl">
         <!-- Testimonials Wrapper -->
         <div id="testimonial-carousel" class="overflow-hidden relative">
             <!-- Testimonial Items -->
-            <div class="testimonial-slide">
-                <p class="text-gray-700 text-lg italic">"Aditya is a stellar student and proficient future technology professional. He has all the qualities to become an influential leader and a professional game changer..."</p>
-                <p class="text-right mt-4 font-semibold">- Siddharth Anand (Aditya's Teacher)</p>
+            <div class="testimonial-slide animate-fade-in">
+                <p class="text-gray-700 text-lg italic leading-relaxed">
+                    "Aditya is a stellar student and proficient future technology professional..he has all the qualities to become an influential leader and a professional game changer... he is actively able to perform the most daunting tasks with enormous ease....as a mentor it is a privilege to impart professional skills to this stupendous future leader and top performer.... 11 on 10 to Aditya...keep rocking and kick ass..👍👍👍"
+                </p>
+                <p class="text-right mt-6 font-semibold text-blue-600">
+                    - <a href="https://www.linkedin.com/in/siddhartth-anand-b175011b/" target="_blank" class="hover:underline">
+                        Siddharth Anand (Aditya's Teacher)
+                    </a>
+                </p>
             </div>
-            <div class="testimonial-slide hidden">
-                <p class="text-gray-700 text-lg italic">"Aditya’s dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."</p>
-                <p class="text-right mt-4 font-semibold">- Rahul Sharma (Mentor)</p>
+
+            <div class="testimonial-slide animate-fade-in">
+                <p class="text-gray-700 text-lg italic leading-relaxed">
+                    "Aditya exemplifies resilience, curiosity, and purpose-driven learning. With a rare blend of humility and leadership, he turns challenges into opportunities for growth, inspiring those around him. A lifelong learner, Aditya is destined to make a meaningful impact, reminding us that true success is built with purpose, Practice and heart..."
+                </p>
+                <p class="text-right mt-6 font-semibold text-blue-600">
+                    - <a href="https://www.linkedin.com/in/pratik-yadav-1a769b90/" target="_blank" class="hover:underline">
+                        Prateek Yadav(Aditya's Teacher)
+                    </a>
+                </p>
             </div>
-            <div class="testimonial-slide hidden">
-                <p class="text-gray-700 text-lg italic">"A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team..."</p>
-                <p class="text-right mt-4 font-semibold">- Priya Verma (Colleague)</p>
+
+            <div class="testimonial-slide hidden animate-fade-in">
+                <p class="text-gray-700 text-lg italic leading-relaxed">
+                    "Aditya’s dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."
+                </p>
+                <p class="text-right mt-6 font-semibold text-blue-600">
+                    - Rahul Sharma (Mentor)
+                </p>
+            </div>
+            <div class="testimonial-slide hidden animate-fade-in">
+                <p class="text-gray-700 text-lg italic leading-relaxed">
+                    "A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team..."
+                </p>
+                <p class="text-right mt-6 font-semibold text-blue-600">
+                    - Hidden
+                </p>
             </div>
         </div>
         
         <!-- Navigation Buttons -->
-        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-gray-700 hover:bg-gray-400 p-2 rounded-full shadow focus:outline-none">
+        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
             ❮
         </button>
-        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-gray-700 hover:bg-gray-400 p-2 rounded-full shadow focus:outline-none">
+        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
             ❯
         </button>
     </div>
 </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="p-10">
