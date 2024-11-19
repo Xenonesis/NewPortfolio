@@ -41,13 +41,17 @@
         .animate-slide-in {
             animation: slide-in 1s ease-out forwards;
         }
-       /* Dark Mode Styles */
+      /* General Styles */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Styles */
 .dark {
     background-color: #121212; /* Overall dark background */
     color: #e4e4e4; /* Light text for readability */
 }
 
-/* Section Backgrounds */
 .dark .bg-yellow-50,
 .dark .bg-gray-50 {
     background-color: #1e1e1e; /* Consistent dark background for sections */
@@ -111,38 +115,37 @@
 
 /* Gradients */
 .dark .bg-gradient-to-r {
-    background-image: linear-gradient(to right, #1d4ed8, #2563eb); /* Horizontal gradient */
+    background-image: linear-gradient(to right, #1d4ed8, #2563eb);
 }
 
 .dark .bg-gradient-to-b {
-    background-image: linear-gradient(to bottom, #1e293b, #111827); /* Vertical gradient */
+    background-image: linear-gradient(to bottom, #1e293b, #111827);
 }
 
 /* Borders */
 .dark .border-blue-500 {
-    border-color: #3b82f6; /* Highlight border */
+    border-color: #3b82f6;
 }
 
 .dark .border-gray-200 {
-    border-color: #4b5563; /* Muted border */
+    border-color: #4b5563;
 }
 
 /* Shadows */
 .dark .shadow-lg {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Elevated shadows for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
 }
 
 .dark .hover\:shadow-lg:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Hover shadow effect */
-}
-
-/* Link Styling */
-.dark .hover\:underline:hover {
-    text-decoration: underline; /* Emphasize links on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
 }
 
 /* Animations */
-.dark .animate-fade-in {
+body, button, input, iframe {
+    transition: all 0.3s ease-in-out;
+}
+
+.animate-fade-in {
     animation: fade-in 1s ease-out forwards;
 }
 
@@ -160,6 +163,11 @@
     }
 }
 
+/* Improved Hover Animations */
+button:hover, iframe:hover {
+    transform: scale(1.05); /* Slight enlargement */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
  /* General Scrollbar Customization */
 .custom-scrollbar {
@@ -412,9 +420,7 @@ html {
         </ul>
     </div>
 </nav>
-   <!-- Header Section -->
-<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900">
-    <!-- Animated Background Shapes -->
+<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900"> 
     <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
     <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
     <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full opacity-10 blur-xl dark:bg-gradient-to-br dark:from-gray-800 dark:to-blue-700"></div>
@@ -426,14 +432,13 @@ html {
         Cybersecurity Enthusiast | Web Developer | Lifelong Learner
     </p>
     <a 
-        href="https://www.linkedin.com/in/your-profile/" 
+        href="https://www.linkedin.com/in/itisaddy/" 
         target="_blank"
         class="bg-blue-700 hover:bg-blue-800 px-8 py-4 mt-8 rounded-full inline-block text-lg font-semibold shadow-lg transition-transform transform hover:scale-105 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100">
         Connect with me on LinkedIn
     </a>
 </header>
 
-<!-- About Section -->
 <section id="about" class="p-10 bg-gray-100 relative overflow-hidden dark:bg-gray-800">
     <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-blue-500 inline-block mb-12 dark:text-gray-200 dark:border-blue-400">
         About Me
@@ -450,22 +455,26 @@ html {
             </p>
         </div>
         <p class="mt-6 md:mt-0 md:ml-12 text-lg text-gray-700 leading-relaxed max-w-2xl dark:text-gray-300">
-            I'm Aditya, a passionate cybersecurity expert and web developer with a knack for building secure and scalable web applications. I love solving complex problems and continuously learning new technologies. I strive to stay ahead of the curve, leveraging modern tools and best practices to deliver exceptional results.
+            I'm Aditya, a passionate cybersecurity expert and web developer with a knack for building secure and scalable web applications. I love solving complex problems and continuously learning new technologies.
         </p>
     </div>
 </section>
 
-<!-- Work Video Introduction -->
+
+
 <section class="p-10 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800">
     <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-pink-500 inline-block mb-12 dark:text-gray-200 dark:border-pink-400">
         Work Introduction
     </h2>
     <div class="mt-6 flex justify-center">
         <iframe 
+            src="https://www.youtube.com/embed/ScMzIvxBSi4" 
             class="w-full h-64 md:h-96 rounded-lg shadow-xl transform hover:scale-105 hover:shadow-2xl transition duration-500 dark:shadow-lg dark:hover:shadow-md">
         </iframe>
     </div>
 </section>
+
+
 
    <!-- Skills Section -->
    <section id="skills" class="p-10 bg-yellow-50">
@@ -844,20 +853,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 </div>
 </div>
 
-<!-- Custom Scrollbar CSS -->
-<style>
-.custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #63b3ed, #4299e1);
-    border-radius: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background-color: #e5e5e5;
-    border-radius: 6px;
-}
-</style>
+
 
 <!-- Popup Modal -->
 <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
