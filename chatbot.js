@@ -7,14 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendMessageButton = document.getElementById('send-message');
     const pdfUpload = document.getElementById('upload-pdf');
     const suggestedPromptsContainer = document.createElement('div');
+
     suggestedPromptsContainer.id = "suggested-prompts";
-    suggestedPromptsContainer.className = "p-2 border-t border-gray-200 bg-gray-50 flex gap-2 flex-wrap";
+    suggestedPromptsContainer.className = "p-2 border-t border-gray-200 bg-gray-50 flex gap-2 flex-wrap overflow-x-auto";
     chatbot.appendChild(suggestedPromptsContainer);
 
     let responses = JSON.parse(localStorage.getItem('botResponses')) || {
         "hello": "Hi there! How can I assist you today?",
         "help": "Sure, let me know what you need help with.",
-        "default": "I'm not sure about that. Try asking about the uploaded PDF or sharing more details.",
+        "default": "I'm not sure about that. Can you provide more details?",
+    };
+
+    let analyticsData = JSON.parse(localStorage.getItem('botAnalytics')) || {
+        interactions: 0,
+        feedback: [],
     };
 
     let userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || {
@@ -30,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let pdfContent = ""; // Stores extracted PDF content
+    let pendingQuestion = null; // To store the unanswered question
 
     loadChatFromLocalStorage();
     loadUserPreferences();
@@ -75,20 +82,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function sendMessage() {
-        const messageText = chatInput.value.trim().toLowerCase();
+        const messageText = chatInput.value.trim();
         if (!messageText) return;
 
         appendMessage(userPreferences.name, messageText, 'bg-blue-100');
         saveChatToLocalStorage(userPreferences.name, messageText);
 
         chatInput.value = '';
+        analyticsData.interactions++; // Increment interaction count
+        saveAnalyticsData();
+
         showTypingIndicator();
 
         setTimeout(async () => {
-            const botResponse = await generateBotResponse(messageText);
+            let botResponse;
+            if (pendingQuestion) {
+                // User is answering a pending question
+                responses[pendingQuestion.toLowerCase()] = messageText;
+                localStorage.setItem('botResponses', JSON.stringify(responses));
+                botResponse = `Thank you! I've learned that "${pendingQuestion}" means "${messageText}".`;
+                pendingQuestion = null; // Clear pending question
+            } else {
+                botResponse = await generateBotResponse(messageText);
+            }
             hideTypingIndicator();
             appendMessage('Bot', botResponse, 'bg-gray-200');
             saveChatToLocalStorage('Bot', botResponse);
+            if (botResponse !== responses.default) requestFeedback(botResponse); // Request feedback for known responses
         }, 1000);
     }
 
@@ -99,7 +119,32 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('p-2', 'rounded', 'mb-2', bgColor);
         messageElement.innerHTML = `<strong>${sender}:</strong> ${message}<div class="text-xs text-gray-500">${timestamp}</div>`;
         chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Ensure latest message is visible
+    }
+
+    function requestFeedback(botResponse) {
+        const feedbackElement = document.createElement('div');
+        feedbackElement.classList.add('p-2', 'rounded', 'bg-gray-100', 'flex', 'justify-between', 'items-center', 'mb-2');
+
+        feedbackElement.innerHTML = `
+            <span class="text-gray-600">Was this response helpful?</span>
+            <div>
+                <button class="feedback-btn bg-green-100 text-green-800 px-2 py-1 rounded mr-2" data-feedback="yes">👍 Yes</button>
+                <button class="feedback-btn bg-red-100 text-red-800 px-2 py-1 rounded" data-feedback="no">👎 No</button>
+            </div>
+        `;
+
+        chatMessages.appendChild(feedbackElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        feedbackElement.querySelectorAll('.feedback-btn').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const feedback = e.target.getAttribute('data-feedback');
+                analyticsData.feedback.push({ response: botResponse, feedback });
+                saveAnalyticsData();
+                feedbackElement.remove();
+            });
+        });
     }
 
     function displaySuggestedPrompts() {
@@ -107,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         predefinedPrompts.forEach((prompt) => {
             const promptButton = document.createElement('button');
             promptButton.textContent = prompt;
-            promptButton.className = "bg-blue-100 text-blue-800 px-3 py-1 rounded hover:bg-blue-200 cursor-pointer";
+            promptButton.className = "bg-blue-100 text-blue-800 px-2 py-1 text-sm rounded hover:bg-blue-200 cursor-pointer";
             promptButton.addEventListener('click', () => {
                 chatInput.value = prompt;
                 sendMessage();
@@ -117,17 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function generateBotResponse(message) {
-        if (responses[message]) {
-            return responses[message];
+        const lowerCaseMessage = message.toLowerCase();
+        if (responses[lowerCaseMessage]) {
+            return responses[lowerCaseMessage];
         } else {
-            const newPrompt = message.trim();
-            if (!predefinedPrompts.includes(newPrompt)) {
-                predefinedPrompts.push(newPrompt);
-                localStorage.setItem('botPrompts', JSON.stringify(predefinedPrompts));
-                displaySuggestedPrompts();
-            }
-            return `I’ve added "${newPrompt}" as a new prompt. You can now use it or modify it.`;
+            pendingQuestion = message; // Store question for user to answer
+            return `I don't know the answer to "${message}". Can you tell me what it means?`;
         }
+    }
+
+    function saveAnalyticsData() {
+        localStorage.setItem('botAnalytics', JSON.stringify(analyticsData));
     }
 
     async function extractTextFromPDF(file) {

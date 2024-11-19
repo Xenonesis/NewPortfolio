@@ -17,17 +17,12 @@ Access the live preview of the website here (replace with actual link).
 
 Download and Setup
 Step 1: Clone or Download the Repository
-Download the project using the button below or clone it via Git:
-
-Download Link: Aditya's Portfolio (replace with the actual download link)
-
-bash
-Copy code
 git clone https://github.com/Xenonesis/NewPortfolio
+
+
 Step 2: Navigate to the Project Directory
-bash
-Copy code
 cd portfolio-website
+
 Step 3: Open in Browser
 Simply open the index.html file in your favorite browser to view the project.
 

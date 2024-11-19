@@ -161,28 +161,115 @@
 }
 
 
-    /* Scrollbar customization */
+ /* General Scrollbar Customization */
+.custom-scrollbar {
+    scrollbar-width: thin; /* Standard for modern browsers */
+    scrollbar-color: linear-gradient(90deg, #63b3ed, #4299e1) #e5e5e5; /* Thumb and track colors */
+}
+
+/* Scrollbar Customization for Webkit Browsers */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Slightly smaller width for a cleaner look */
+    height: 8px; /* For horizontal scrollbars if needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #63b3ed, #4299e1); /* Gradient scrollbar for a modern look */
+    border-radius: 6px; /* Smooth thumb edges */
+    border: 2px solid #f9f9f9; /* Contrast border with track background */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Slightly lighter track for better contrast */
+    border-radius: 6px; /* Match track radius with thumb */
+}
+
+/* Specific Scrollbar Customization for #chat-messages */
+#chat-messages {
+    background-color: #ffffff; /* Light background */
+    color: #000000; /* Black text color */
+}
 #chat-messages::-webkit-scrollbar {
-    width: 8px;
+    width: 10px; /* Wider scrollbar for accessibility */
+    height: 10px; /* Allow horizontal scrolling if needed */
 }
+
 #chat-messages::-webkit-scrollbar-thumb {
-    background-color: #63b3ed; /* Customize scrollbar color */
-    border-radius: 4px;
+    background: linear-gradient(90deg, #63b3ed, #4299e1); /* Maintain modern gradient */
+    border-radius: 6px; /* Rounded scrollbar thumb */
+    border: 2px solid #f9f9f9; /* Adds border for improved visibility */
 }
 
+#chat-messages::-webkit-scrollbar-track {
+    background-color: #e5e5e5; /* Light background for contrast */
+    border-radius: 6px; /* Rounded edges for consistency */
+}
+
+/* Testimonials Animation */
 .testimonial-slide {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition with an ease-out effect */
 }
 
+/* Fade-In Animation */
 @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
 .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
+    animation: fade-in 1.2s ease-out forwards;
 }
 
+/* Bounce-In Animation for Chat Button */
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.animate-bounce-in {
+    animation: bounce-in 0.8s ease-out forwards;
+}
+
+/* Button Hover Effects */
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    #chat-messages {
+        background-color: #ffffff; /* Light background */
+        color: #000000; /* Black text color */
+    }
+    #chat-messages::-webkit-scrollbar {
+        width: 6px; /* Narrow scrollbar for mobile */
+    }
+    #chat-messages::-webkit-scrollbar-thumb {
+        background: #4299e1; /* Simpler scrollbar on smaller screens */
+    }
+    .testimonial-slide {
+        transition: all 0.4s ease-in-out; /* Faster animations for smaller devices */
+    }
+}
 
     /* Glowing effect */
     .skill-item:hover .progress-bar {
@@ -671,56 +758,106 @@
 </section>
 
   <!-- Chatbot Toggle Button -->
-<button id="bot-toggle" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none z-50">
-    💬
+<button
+id="bot-toggle"
+class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none z-50"
+>
+💬
 </button>
 
 <!-- Chatbot Window -->
-<div id="chatbot" class="hidden fixed bottom-20 right-6 bg-white border border-gray-300 shadow-lg rounded-lg w-80 md:w-96 h-[500px] flex flex-col z-50">
-    <!-- Chatbot Header -->
-    <div class="bg-blue-600 text-white p-4 flex justify-between items-center rounded-t-lg">
-        <span class="text-lg font-bold">Chatbot</span>
-        <button id="bot-close" class="text-2xl focus:outline-none hover:text-gray-200">✖️</button>
-    </div>
+<div
+id="chatbot"
+class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border border-gray-300 shadow-lg rounded-lg w-[90%] max-w-md md:w-96 h-[75vh] md:h-[500px] flex flex-col z-50"
+>
+<!-- Chatbot Header -->
+<div class="bg-blue-600 text-white p-4 flex justify-between items-center rounded-t-lg">
+    <span class="text-lg font-bold">Chatbot</span>
+    <button id="bot-close" class="text-2xl focus:outline-none hover:text-gray-200">✖️</button>
+</div>
 
+<!-- Chatbot Content Area -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 custom-scrollbar">
     <!-- Chatbot Messages Area -->
-    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-        <!-- Dynamic messages will appear here -->
+    <div id="chat-messages" class="space-y-4">
+        <!-- Welcome Message -->
         <div class="bg-gray-200 p-2 rounded text-gray-700 italic">
-            Welcome to your chatbot! How can I assist you today? 
-        </div>
-    </div>
-
-    <!-- Chatbot Input and PDF Upload Section -->
-    <div class="border-t border-gray-200 p-4 space-y-4">
-        <!-- User Input Area -->
-        <div class="flex items-center space-x-2">
-            <input 
-                type="text" 
-                id="chat-input" 
-                class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                placeholder="Type your message..."
-            >
-            <button 
-                id="send-message" 
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-            >
-                Send
-            </button>
-        </div>
-
-        <!-- PDF Upload Area -->
-        <div>
-            <label for="upload-pdf" class="block text-sm font-medium text-gray-700 mb-2">Upload PDF to learn</label>
-            <input 
-                type="file" 
-                id="upload-pdf" 
-                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100"
-                accept="application/pdf"
-            >
+            Welcome to your chatbot! How can I assist you today?
         </div>
     </div>
 </div>
+
+<!-- Feedback Section (Dynamic) -->
+<div id="feedback-container" class="hidden p-4 border-t border-gray-200 bg-gray-50">
+    <div class="flex justify-between items-center">
+        <span class="text-gray-700">Was the response helpful?</span>
+        <div>
+            <button
+                id="feedback-yes"
+                class="bg-green-100 text-green-800 px-2 py-1 rounded hover:bg-green-200"
+            >
+                👍 Yes
+            </button>
+            <button
+                id="feedback-no"
+                class="bg-red-100 text-red-800 px-2 py-1 rounded hover:bg-red-200"
+            >
+                👎 No
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Input and PDF Upload Section -->
+<div class="border-t border-gray-200 pt-4 space-y-4 px-4 pb-4">
+    <!-- User Input Area -->
+    <div class="flex items-center space-x-2">
+        <input
+            type="text"
+            id="chat-input"
+            class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Type your message..."
+        >
+        <button
+            id="send-message"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+            Send
+        </button>
+    </div>
+
+    <!-- PDF Upload Area -->
+    <div>
+        <label
+            for="upload-pdf"
+            class="block text-sm font-medium text-gray-700 mb-2"
+        >
+            Upload PDF to learn
+        </label>
+        <input
+            type="file"
+            id="upload-pdf"
+            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100"
+            accept="application/pdf"
+        >
+    </div>
+</div>
+</div>
+
+<!-- Custom Scrollbar CSS -->
+<style>
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #63b3ed, #4299e1);
+    border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #e5e5e5;
+    border-radius: 6px;
+}
+</style>
 
 <!-- Popup Modal -->
 <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
