@@ -46,26 +46,26 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Dark Mode Styles */
+/* Dark Mode Base Styles */
 .dark {
     background-color: #121212; /* Overall dark background */
-    color: #e4e4e4; /* Light text for readability */
+    color: #e4e4e4; /* General light text for readability */
 }
 
+/* Background and Text Color Adjustments */
 .dark .bg-yellow-50,
 .dark .bg-gray-50 {
-    background-color: #1e1e1e; /* Consistent dark background for sections */
+    background-color: #1e1e1e; /* Darker background for sections in dark mode */
 }
 
-/* Text Colors */
 .dark .text-gray-800,
 .dark .text-gray-700 {
-    color: #d1d5db; /* Neutral light text */
+    color: #d1d5db; /* Lighter gray text for higher contrast */
 }
 
 .dark .text-gray-600,
 .dark .text-gray-500 {
-    color: #9ca3af; /* Muted text for subtle areas */
+    color: #9ca3af; /* Muted text for less prominent areas */
 }
 
 .dark .text-blue-600 {
@@ -73,11 +73,11 @@ body {
 }
 
 .dark .hover\:text-yellow-300:hover {
-    color: #facc15; /* Highlight hover text */
+    color: #facc15; /* Bright yellow for important hover text */
 }
 
 .dark .hover\:text-gray-200:hover {
-    color: #e4e4e4; /* Subtle hover text */
+    color: #e4e4e4; /* Light gray for subtle hover text */
 }
 
 .dark .text-white {
@@ -86,11 +86,11 @@ body {
 
 /* Background Colors */
 .dark .bg-white {
-    background-color: #262626; /* Card and container background */
+    background-color: #262626; /* Dark card and container background */
 }
 
 .dark .bg-blue-600 {
-    background-color: #2563eb; /* Navbar and buttons */
+    background-color: #2563eb; /* Navbar and primary buttons */
 }
 
 .dark .hover\:bg-blue-600:hover {
@@ -98,19 +98,19 @@ body {
 }
 
 .dark .bg-blue-400 {
-    background-color: #60a5fa; /* Button hover */
+    background-color: #60a5fa; /* Lighter blue for secondary buttons */
 }
 
 .dark .bg-blue-700 {
-    background-color: #1e3a8a; /* CTA buttons */
+    background-color: #1e3a8a; /* Darker blue for CTA buttons */
 }
 
 .dark .bg-gray-200 {
-    background-color: #374151; /* Muted areas and progress bars */
+    background-color: #374151; /* Muted background for low emphasis areas */
 }
 
 .dark .hover\:bg-gray-200:hover {
-    background-color: #2d2d2d; /* Card hover background */
+    background-color: #2d2d2d; /* Card hover background in dark mode */
 }
 
 /* Gradients */
@@ -124,34 +124,34 @@ body {
 
 /* Borders */
 .dark .border-blue-500 {
-    border-color: #3b82f6;
+    border-color: #3b82f6; /* Blue border for emphasized elements */
 }
 
 .dark .border-gray-200 {
-    border-color: #4b5563;
+    border-color: #4b5563; /* Gray border for subtle separation */
 }
 
 /* Shadows */
 .dark .shadow-lg {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Strong shadow for depth */
 }
 
 .dark .hover\:shadow-lg:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Enhanced hover shadow */
 }
 
 /* Animations */
 body, button, input, iframe {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all interactive elements */
 }
 
 .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
+    animation: fade-in 1s ease-out forwards; /* Fade in animation for elements */
 }
 
 /* Progress Bar Glow Effect */
 .dark .skill-item:hover .progress-bar {
-    animation: glow 1s infinite alternate;
+    animation: glow 1s infinite alternate; /* Glowing effect for skill bars on hover */
 }
 
 @keyframes glow {
@@ -162,6 +162,7 @@ body, button, input, iframe {
         box-shadow: 0 0 20px rgba(96, 165, 250, 0.7), 0 0 30px rgba(96, 165, 250, 0.7);
     }
 }
+
 
 /* Improved Hover Animations */
 button:hover, iframe:hover {
@@ -439,8 +440,9 @@ html {
     </a>
 </header>
 
-<section id="about" class="p-10 bg-gray-100 relative overflow-hidden dark:bg-gray-800">
-    <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-blue-500 inline-block mb-12 dark:text-gray-200 dark:border-blue-400">
+<!-- About Section -->
+<section id="about" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">
         About Me
     </h2>
     <div class="flex flex-col md:flex-row mt-8 items-center justify-between animate-fade-in">
@@ -448,36 +450,34 @@ html {
             <img 
                 src="1.png" 
                 alt="Profile" 
-                class="rounded-full w-48 h-48 shadow-lg transform group-hover:scale-110 transition duration-300">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition duration-300 rounded-full dark:from-gray-700 dark:to-black"></div>
-            <p class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white opacity-0 group-hover:opacity-100 text-center font-semibold dark:text-gray-100">
+                class="rounded-full w-48 h-48 shadow-lg transform group-hover:scale-110 transition duration-300 ease-in-out">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition duration-300 ease-in-out rounded-full"></div>
+            <p class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white opacity-0 group-hover:opacity-100 text-center font-semibold">
                 Cybersecurity & Development
             </p>
         </div>
-        <p class="mt-6 md:mt-0 md:ml-12 text-lg text-gray-700 leading-relaxed max-w-2xl dark:text-gray-300">
+        <p class="mt-6 md:mt-0 md:ml-12 text-lg text-gray-800 leading-relaxed max-w-2xl">
             I'm Aditya, a passionate cybersecurity expert and web developer with a knack for building secure and scalable web applications. I love solving complex problems and continuously learning new technologies.
         </p>
     </div>
 </section>
 
-
-
-<section class="p-10 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800">
-    <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-pink-500 inline-block mb-12 dark:text-gray-200 dark:border-pink-400">
+<!-- Work Introduction Section -->
+<section class="p-10 bg-yellow-50">
+    <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-pink-500 inline-block mb-12">
         Work Introduction
     </h2>
     <div class="mt-6 flex justify-center">
         <iframe 
             src="https://www.youtube.com/embed/ScMzIvxBSi4" 
-            class="w-full h-64 md:h-96 rounded-lg shadow-xl transform hover:scale-105 hover:shadow-2xl transition duration-500 dark:shadow-lg dark:hover:shadow-md">
+            class="w-full h-64 md:h-96 rounded-lg shadow-xl transform hover:scale-105 hover:shadow-2xl transition duration-500 ease-in-out">
         </iframe>
     </div>
 </section>
 
 
-
-   <!-- Skills Section -->
-   <section id="skills" class="p-10 bg-yellow-50">
+<!-- Skills Section -->
+<section id="skills" class="p-10 bg-yellow-50">
     <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">Skills</h2>
 
     <!-- Advanced Skills -->
@@ -543,6 +543,7 @@ html {
         </div>
     </div>
 </section>
+
 
 <!-- Popup Modal -->
 <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
