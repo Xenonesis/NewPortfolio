@@ -1,4 +1,5 @@
-Aditya's Portfolio Website
+## Aditya's Portfolio Website
+version 11
 A modern, interactive, and dark mode-friendly portfolio website showcasing Aditya's skills, experience, and projects.
 Features
 Dark Mode: Fully optimized dark mode for a better user experience, with improved readability and aesthetics.
@@ -15,7 +16,7 @@ Dark Mode Enhancements: Optimized for eye-friendly use.
 Live Preview
 Access the live preview of the website here (replace with actual link).
 
-Download and Setup
+## Download and Setup
 Step 1: Clone or Download the Repository
 git clone https://github.com/Xenonesis/NewPortfolio
 
@@ -31,9 +32,8 @@ HTML5: Structure and content.
 CSS3 (TailwindCSS): Styling with animations and responsiveness.
 JavaScript: Interactivity and chatbot functionality.
 PDF.js: Processing and extracting text from uploaded PDFs.
-Project Structure
-plaintext
-Copy code
+
+## Project Structure
 project-root/
 ├── index.html          # Main HTML file
 ├── style.css           # Custom styles and TailwindCSS
@@ -42,6 +42,11 @@ project-root/
 ├── popup.js            # Popup modal logic
 ├── assets/             # Images, icons, and other assets
 └── README.md           # Project documentation
+
+## Live Preview
+
+Access the live preview of the website [here](https://iaddy.netlify.app/).
+
 Contributions
 Feel free to fork the repository and submit pull requests for any improvements or feature suggestions.
 

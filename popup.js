@@ -51,16 +51,17 @@ function closePopup(auto) {
         popup.classList.remove('flex');
     }, 500); // Allow fade-out animation to complete
 
-    // Alert only if the popup was closed automatically
+    // Alert only if the popup was not closed automatically
     if (!auto) {
         autoClosed = false;
+        alert('Popup was closed manually!');
     }
 }
 
-// Loop to show the popup every 60 seconds
+// Loop to show the popup every 75 seconds
 function startPopupLoop() {
     showPopup(); // Show the popup immediately on page load
-    popupInterval = setInterval(showPopup, 60000); // Show popup every 60 seconds
+    popupInterval = setInterval(showPopup, 75000); // Show popup every 75 seconds
 }
 
 // Start the popup loop when the page loads
