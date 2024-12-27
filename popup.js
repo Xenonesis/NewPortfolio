@@ -61,7 +61,7 @@ function closePopup(auto) {
 // Loop to show the popup every 75 seconds
 function startPopupLoop() {
     showPopup(); // Show the popup immediately on page load
-    popupInterval = setInterval(showPopup, 75000); // Show popup every 75 seconds
+    popupInterval = setInterval(showPopup, 175000); // Show popup every 175 seconds
 }
 
 // Start the popup loop when the page loads
