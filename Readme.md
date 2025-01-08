@@ -1,6 +1,6 @@
 ## Aditya's Portfolio Website
 
-## version 11
+## version 14
 A modern, interactive, and dark mode-friendly portfolio website showcasing Aditya's skills, experience, and projects.
 Features
 Dark Mode: Fully optimized dark mode for a better user experience, with improved readability and aesthetics.
@@ -35,6 +35,7 @@ JavaScript: Interactivity and chatbot functionality.
 PDF.js: Processing and extracting text from uploaded PDFs.
 
 ## Project Structure
+
 project-root/
 ├── index.html          # Main HTML file
 ├── style.css           # Custom styles and TailwindCSS

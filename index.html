@@ -755,42 +755,105 @@ html {
         </div>
     </section>
 
-   <!-- Achievements and Certifications Section -->
+   <!-- Achievements Section -->
 <section id="achievements" class="p-10 bg-yellow-50">
-    <!-- Achievements Section -->
-    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Achievements</h2>
-    <div class="space-y-10 animate-fade-in">
-        <!-- Achievement Entry 1 -->
-        <div>
-            <h3 class="text-2xl font-semibold">University Sports Leader</h3>
-            <p class="text-gray-600">Sushant University | 2023 - 2024</p>
-            <ul class="list-disc ml-6 mt-3 space-y-2">
+    <h2 class="text-4xl font-bold text-center mb-10 border-b-4 border-blue-500 inline-block animate-fade-in">
+        Achievements
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Achievement Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ease-in-out animate-card">
+            <h3 class="text-2xl font-semibold text-gray-800">University Sports Leader</h3>
+            <p class="text-gray-600 mt-2 italic">Sushant University | 2023 - 2024</p>
+            <ul class="list-disc ml-4 mt-4 space-y-2">
                 <li>Led the university’s sports teams, organizing and managing multiple events that increased student participation by 30%.</li>
                 <li>Spearheaded inter-university competitions, securing top positions in regional tournaments.</li>
             </ul>
         </div>
 
-        <!-- Achievement Entry 2 -->
-        <div>
-            <h3 class="text-2xl font-semibold">NSS Leader</h3>
-            <p class="text-gray-600">National Service Scheme | 2024 - Present</p>
-            <ul class="list-disc ml-6 mt-3 space-y-2">
+        <!-- Achievement Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ease-in-out animate-card">
+            <h3 class="text-2xl font-semibold text-gray-800">NSS Leader</h3>
+            <p class="text-gray-600 mt-2 italic">National Service Scheme | 2024 - Present</p>
+            <ul class="list-disc ml-4 mt-4 space-y-2">
                 <li>Coordinated and led various community service initiatives, driving awareness on key social issues.</li>
                 <li>Managed a team of 50+ volunteers, organizing events and workshops focusing on health and education.</li>
             </ul>
         </div>
 
-        <!-- Achievement Entry 3 -->
-        <div>
-            <h3 class="text-2xl font-semibold">Subhead at Gaming Nexus (Gaming Club)</h3>
-            <p class="text-gray-600">Gaming Nexus | 2023 - Present</p>
-            <ul class="list-disc ml-6 mt-3 space-y-2">
+        <!-- Achievement Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ease-in-out animate-card">
+            <h3 class="text-2xl font-semibold text-gray-800">Subhead at Gaming Nexus (Gaming Club)</h3>
+            <p class="text-gray-600 mt-2 italic">Gaming Nexus | 2023 - Present</p>
+            <ul class="list-disc ml-4 mt-4 space-y-2">
                 <li>Oversaw gaming tournaments and interactive workshops aimed at promoting esports on campus.</li>
                 <li>Facilitated strategic partnerships with external gaming sponsors, leading to a 50% increase in club funding.</li>
                 <li>Mentored new members in strategy-based games, focusing on team-building and competitive gaming skills.</li>
             </ul>
         </div>
     </div>
+</section>
+
+<!-- CSS Animation and Hover Effects -->
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Fade-In Effect for Heading */
+    .animate-fade-in {
+        animation: fade-in 1s ease-out;
+    }
+
+    /* Scroll Triggered Animation */
+    .animate-card {
+        animation: fade-in 1s ease-out;
+    }
+
+    /* Card Hover Effects */
+    .hover\:shadow-xl:hover {
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .hover\:scale-105:hover {
+        transform: scale(1.05);
+    }
+
+    /* 3D Hover Effect */
+    .transform:hover {
+        transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+    }
+
+    /* Card Hover Transitions */
+    .transition {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    /* Smooth Fade In for Card on Scroll */
+    @keyframes card-scroll {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-card {
+        animation: card-scroll 1s ease-out;
+        animation-delay: 0.3s; /* Delay for staggered effect */
+    }
+</style>
 
     <!-- Certifications Section -->
 <section id="certifications" class="p-10 bg-yellow-50">
