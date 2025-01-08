@@ -375,52 +375,92 @@ html {
 }
 
     </style>
-    <!-- Navbar -->
-<nav class="bg-blue-600 text-white fixed top-0 w-full z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <!-- Brand Name -->
-        <div class="text-2xl font-bold">Aditya</div>
+    <!-- Modern Stylish Navbar -->
+<nav class="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <!-- Brand Name with Hover Animation -->
+        <a href="#" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group">
+            <span class="group-hover:text-yellow-300 transition duration-500 ease-in-out">Aditya</span>
+        </a>
 
         <!-- Links for Desktop -->
-        <ul class="hidden md:flex space-x-8">
-            <li><a href="#about" class="hover:text-yellow-300">About</a></li>
-            <li><a href="#skills" class="hover:text-yellow-300">Skills</a></li>
-            <li><a href="#experience" class="hover:text-yellow-300">Experience</a></li>
-            <li><a href="#projects" class="hover:text-yellow-300">Projects</a></li>
-            <li><a href="#blog" class="hover:text-yellow-300">Blog</a></li>
-            <li><a href="#achievements" class="hover:text-yellow-300">Achievements</a></li>
-            <li><a href="#certifications" class="hover:text-yellow-300">Certifications</a></li>
-            <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+        <ul class="hidden md:flex space-x-6 text-lg">
+            <li><a href="#about" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">About</a></li>
+            <li><a href="#skills" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Skills</a></li>
+            <li><a href="#experience" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Experience</a></li>
+            <li><a href="#projects" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Projects</a></li>
+            <li><a href="#blog" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Blog</a></li>
+            <li><a href="#achievements" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Achievements</a></li>
+            <li><a href="#certifications" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Certifications</a></li>
+            <li><a href="#contact" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Contact</a></li>
         </ul>
 
-        <!-- Dark Mode Toggle & Hamburger Menu for Mobile -->
-        <div class="flex items-center space-x-4">
-            <!-- Dark Mode Toggle Button -->
-            <button id="dark-mode-toggle" class="text-2xl">
+        <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
+        <div class="flex items-center space-x-6">
+            <!-- Dark Mode Toggle with Animation -->
+            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180">
                 <span id="toggle-icon">🌙</span>
             </button>
 
-            <!-- Hamburger Menu Button -->
-            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none">
+            <!-- Hamburger Menu -->
+            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110">
                 ☰
             </button>
         </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-blue-500 p-4">
-        <ul class="space-y-4">
-            <li><a href="#about" class="block hover:text-yellow-300">About</a></li>
-            <li><a href="#skills" class="block hover:text-yellow-300">Skills</a></li>
-            <li><a href="#experience" class="block hover:text-yellow-300">Experience</a></li>
-            <li><a href="#projects" class="block hover:text-yellow-300">Projects</a></li>
-            <li><a href="#blog" class="block hover:text-yellow-300">Blog</a></li>
-            <li><a href="#achievements" class="block hover:text-yellow-300">Achievements</a></li>
-            <li><a href="#certifications" class="block hover:text-yellow-300">Certifications</a></li>
-            <li><a href="#contact" class="block hover:text-yellow-300">Contact</a></li>
+    <!-- Animated Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg">
+        <ul class="space-y-6 text-lg">
+            <li><a href="#about" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">About</a></li>
+            <li><a href="#skills" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Skills</a></li>
+            <li><a href="#experience" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Experience</a></li>
+            <li><a href="#projects" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Projects</a></li>
+            <li><a href="#blog" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Blog</a></li>
+            <li><a href="#achievements" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Achievements</a></li>
+            <li><a href="#certifications" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Certifications</a></li>
+            <li><a href="#contact" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Contact</a></li>
         </ul>
     </div>
 </nav>
+
+<script>
+    // Toggle mobile menu visibility
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('animate-slide-in');
+    });
+
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        toggleIcon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    });
+</script>
+
+<style>
+    @keyframes slide-in {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .animate-slide-in {
+        animation: slide-in 0.3s ease-out;
+    }
+</style>
+
 <header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900"> 
     <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
     <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
@@ -441,26 +481,55 @@ html {
 </header>
 
 <!-- About Section -->
-<section id="about" class="p-10 bg-yellow-50">
-    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">
+<section id="about" class="p-10 bg-gradient-to-b from-yellow-50 to-white">
+    <h2 class="text-3xl md:text-4xl font-bold border-b-4 border-blue-500 inline-block mb-10 text-center">
         About Me
     </h2>
-    <div class="flex flex-col md:flex-row mt-8 items-center justify-between animate-fade-in">
-        <div class="relative group">
+    <div class="flex flex-col md:flex-row mt-8 items-center justify-between space-y-8 md:space-y-0 md:space-x-12 animate-fade-in">
+        <!-- Profile Image with Hover Effect -->
+        <div class="relative group w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72">
             <img 
                 src="1.png" 
                 alt="Profile" 
-                class="rounded-full w-48 h-48 shadow-lg transform group-hover:scale-110 transition duration-300 ease-in-out">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition duration-300 ease-in-out rounded-full"></div>
-            <p class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white opacity-0 group-hover:opacity-100 text-center font-semibold">
+                class="rounded-full w-full h-full object-cover shadow-xl transform group-hover:scale-105 transition duration-500 ease-in-out">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition duration-500 ease-in-out rounded-full"></div>
+            <p class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white opacity-0 group-hover:opacity-100 text-center font-semibold text-sm md:text-base lg:text-lg">
                 Cybersecurity & Development
             </p>
         </div>
-        <p class="mt-6 md:mt-0 md:ml-12 text-lg text-gray-800 leading-relaxed max-w-2xl">
-            I'm Aditya, a passionate cybersecurity expert and web developer with a knack for building secure and scalable web applications. I love solving complex problems and continuously learning new technologies.
-        </p>
+
+        <!-- About Text -->
+        <div class="text-center md:text-left max-w-2xl">
+            <p class="text-lg md:text-xl text-gray-800 leading-relaxed">
+                Hi, I'm <span class="font-bold text-blue-500">Aditya Kumar Tiwari</span>, a passionate <span class="font-semibold">Cybersecurity Specialist</span> and <span class="font-semibold">Full-Stack Developer</span>. I thrive at the intersection of technology and innovation, crafting secure and scalable solutions for real-world challenges.
+            </p>
+            <p class="mt-4 text-lg md:text-xl text-gray-800 leading-relaxed">
+                Currently pursuing a <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> at Sushant University, I specialize in <span class="font-semibold">Python</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Linux</span>, and <span class="font-semibold">Cloud Computing</span>. My mission is to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
+            </p>
+            <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                <a 
+                    href="https://github.com/Xenonesis" 
+                    target="_blank" 
+                    class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out font-semibold flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.091-.748.083-.733.083-.733 1.205.084 1.838 1.238 1.838 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.333-5.466-5.93 0-1.312.469-2.384 1.236-3.227-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.292-1.552 3.299-1.23 3.299-1.23.653 1.649.241 2.872.118 3.176.77.843 1.233 1.915 1.233 3.227 0 4.61-2.803 5.624-5.472 5.92.43.372.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 22.092 24 17.593 24 12.297c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>View My Work</span>
+                </a>
+                <a 
+                    href="https://www.linkedin.com/in/itisaddy/" 
+                    target="_blank" 
+                    class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition duration-300 ease-in-out font-semibold flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 20h-3v-10h3v10zm-1.5-11.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.25h-3v-5.571c0-3.978-4-3.683-4 0v5.571h-3v-10h3v1.528c1.396-2.586 7-2.777 7 2.476v5.996z"/>
+                    </svg>
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <!-- Work Introduction Section -->
 <section class="p-10 bg-yellow-50">
