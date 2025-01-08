@@ -461,24 +461,117 @@ html {
     }
 </style>
 
-<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900"> 
+<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900">
+    <!-- Background Effects: Adding more dynamic elements -->
     <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
     <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
     <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full opacity-10 blur-xl dark:bg-gradient-to-br dark:from-gray-800 dark:to-blue-700"></div>
+    <div class="absolute top-20 right-20 w-24 h-24 bg-pink-500 rounded-full opacity-40 animate-pulse dark:bg-blue-700"></div>
 
-    <h1 class="text-6xl md:text-7xl font-extrabold drop-shadow-lg animate-fade-in dark:text-gray-100">
-        Aditya
-    </h1>
-    <p class="mt-4 text-lg md:text-2xl animate-fade-in delay-200 dark:text-gray-300">
-        Cybersecurity Enthusiast | Web Developer | Lifelong Learner
-    </p>
-    <a 
-        href="https://www.linkedin.com/in/itisaddy/" 
-        target="_blank"
-        class="bg-blue-700 hover:bg-blue-800 px-8 py-4 mt-8 rounded-full inline-block text-lg font-semibold shadow-lg transition-transform transform hover:scale-105 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100">
-        Connect with me on LinkedIn
-    </a>
+    <!-- Main Content Section -->
+    <div class="relative z-10">
+        <!-- Heading with enhanced font and effects -->
+        <h1 class="text-6xl md:text-7xl font-extrabold drop-shadow-lg animate-fade-in transform hover:scale-110 hover:text-pink-400 dark:text-gray-100 dark:hover:text-pink-500 transition-all duration-500 ease-out">
+            Aditya
+        </h1>
+        
+        <!-- Subheading with subtle shadow for better readability -->
+        <p class="mt-4 text-lg md:text-2xl animate-fade-in delay-200 text-opacity-80 dark:text-gray-300">
+            Cybersecurity Enthusiast | Web Developer | Lifelong Learner
+        </p>
+
+        <!-- LinkedIn Button with glowing effects and smooth hover transitions -->
+        <a 
+            href="https://www.linkedin.com/in/itisaddy/" 
+            target="_blank"
+            class="bg-blue-700 hover:bg-blue-800 px-8 py-4 mt-8 rounded-full inline-block text-lg font-semibold shadow-lg transition-all transform hover:scale-110 hover:rotate-2 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100 dark:shadow-2xl hover:shadow-xl">
+            Connect with me on LinkedIn
+        </a>
+    </div>
 </header>
+
+<!-- Additional Styles for Effects -->
+<style>
+    /* Fade-in Animation */
+    .animate-fade-in {
+        animation: fade-in 1.5s ease-out;
+    }
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Parallax and Background Pulse Effects */
+    .animate-pulse {
+        animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.3;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 0.6;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0.3;
+        }
+    }
+
+    /* Hover Effects for Buttons */
+    .hover:scale-110 {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hover:rotate-2 {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .hover:text-pink-400 {
+        transition: color 0.3s ease-in-out;
+    }
+
+    .dark:hover:text-pink-500 {
+        transition: color 0.3s ease-in-out;
+    }
+
+    .dark:shadow-2xl {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Glowing Effect on Hover */
+    .hover:shadow-xl {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Background Gradient Transition */
+    .bg-gradient-to-r {
+        transition: background 0.5s ease-in-out;
+    }
+
+    /* Add animation for responsive design */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 4rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        a {
+            padding: 12px 24px;
+            font-size: 1rem;
+        }
+    }
+</style>
+
 
 <!-- About Section -->
 <section id="about" class="p-10 bg-gradient-to-b from-yellow-50 to-white">
