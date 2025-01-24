@@ -1,18 +1,19 @@
-let popupInterval;
+let popupInterval; 
 let closeAlertTimeout;
 let countdownInterval;
 let countdownValue = 5;
-let autoClosed = true; // To track if the popup was auto-closed
+let popupManuallyClosed = false; // Tracks if the popup was manually closed
 
 // Function to show the popup
 function showPopup() {
+    if (popupManuallyClosed) return; // Prevent showing popup if it was manually closed
+
     const popup = document.getElementById('popup');
     const countdownElement = document.getElementById('countdown');
 
     // Reset countdown value
     countdownValue = 5;
     countdownElement.textContent = countdownValue;
-    autoClosed = true;
 
     // Display the popup
     popup.classList.remove('hidden');
@@ -29,10 +30,12 @@ function showPopup() {
         }
     }, 1000);
 
-    // Set a timer to close the popup after 5 seconds automatically
+    // Set a timer to auto-close the popup after 5 seconds
     closeAlertTimeout = setTimeout(() => {
-        if (autoClosed) alert('Popup closed automatically!');
-        closePopup(true);
+        if (!popupManuallyClosed) {
+            alert('Popup closed automatically!');
+            closePopup(true);
+        }
     }, 5000);
 }
 
@@ -51,17 +54,20 @@ function closePopup(auto) {
         popup.classList.remove('flex');
     }, 500); // Allow fade-out animation to complete
 
-    // Alert only if the popup was not closed automatically
     if (!auto) {
-        autoClosed = false;
+        popupManuallyClosed = true; // Prevent popup from showing again until refresh
         alert('Popup was closed manually!');
     }
 }
 
-// Loop to show the popup every 75 seconds
+// Function to start the popup loop
 function startPopupLoop() {
     showPopup(); // Show the popup immediately on page load
-    popupInterval = setInterval(showPopup, 175000); // Show popup every 175 seconds
+    popupInterval = setInterval(() => {
+        if (!popupManuallyClosed) {
+            showPopup(); // Show the popup periodically if not manually closed
+        }
+    }, 175000); // Show popup every 175 seconds
 }
 
 // Start the popup loop when the page loads
