@@ -379,8 +379,8 @@ html {
 <nav class="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <!-- Brand Name with Hover Animation -->
-        <a href="#" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group">
-            <span class="group-hover:text-yellow-300 transition duration-500 ease-in-out">Aditya</span>
+        <a href="#" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+            <span class="group-hover:text-yellow-300">Aditya</span>
         </a>
 
         <!-- Links for Desktop -->
@@ -410,7 +410,7 @@ html {
     </div>
 
     <!-- Animated Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg">
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg transform transition duration-500">
         <ul class="space-y-6 text-lg">
             <li><a href="#about" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">About</a></li>
             <li><a href="#skills" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Skills</a></li>
@@ -425,7 +425,7 @@ html {
 </nav>
 
 <script>
-    // Toggle mobile menu visibility
+    // Toggle mobile menu visibility with animation
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -458,6 +458,15 @@ html {
 
     .animate-slide-in {
         animation: slide-in 0.3s ease-out;
+    }
+
+    /* Smooth transition for navbar items */
+    .hover\\:scale-110:hover {
+        transform: scale(1.1);
+    }
+
+    .hover\\:translate-x-2:hover {
+        transform: translateX(8px);
     }
 </style>
 
