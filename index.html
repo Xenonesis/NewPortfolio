@@ -1496,42 +1496,92 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 </section>
 
 
-    <!-- Contact Section -->
-    <section id="contact" class="p-10">
-        <h2 class="text-3xl font-bold">Contact Me</h2>
-        <form class="mt-8 space-y-4">
-            <input type="text" placeholder="Name" class="w-full p-3 border rounded">
-            <input type="email" placeholder="Email" class="w-full p-3 border rounded">
-            <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
-            <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded">Send Message</button>
-        </form>
-    </section>
+   <!-- Contact Section -->
+<section id="contact" class="p-10 bg-yellow-50 shadow-xl rounded-xl">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-black text-center animate__animated animate__fadeIn">Contact Me</h2>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-400 text-center animate__animated animate__fadeIn animate__delay-1s">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
+    
+    <!-- Form -->
+    <form class="mt-8 space-y-6 max-w-2xl mx-auto" method="POST" action="/submit" id="contact-form">
+        <div class="space-y-4">
+            <!-- Name Input -->
+            <input type="text" name="name" placeholder="Your Name" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your name" tabindex="1">
+            
+            <!-- Email Input -->
+            <input type="email" name="email" placeholder="Your Email" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your email" tabindex="2">
+            
+            <!-- Message Input -->
+            <textarea name="message" placeholder="Your Message" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your message" tabindex="3"></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" id="submit-btn" tabindex="4">
+            Send Message
+        </button>
+    </form>
 
-    <!-- Footer -->
-<footer class="bg-yellow-50 text-gray-800 py-6 border-t border-gray-200">
+    <!-- LinkedIn Link -->
+    <div class="mt-6 text-center">
+        <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition duration-300">
+            <i class="fab fa-linkedin text-2xl"></i>
+            <span>Direct Message Me on LinkedIn</span>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="p-10 bg-yellow-50 shadow-inner mt-10">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
         <!-- Social Media Icons -->
         <div class="flex space-x-6 justify-center md:justify-start">
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-blue-600 transition duration-300">
+            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300">
                 <i class="fab fa-linkedin text-2xl"></i>
             </a>
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition duration-300">
+            <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300">
                 <i class="fab fa-instagram text-2xl"></i>
             </a>
-            <!-- GitHub -->
-            <a href="https://github.com" target="_blank" aria-label="GitHub" class="hover:text-gray-600 transition duration-300">
+            <a href="https://github.com/Xenonesis" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300">
                 <i class="fab fa-github text-2xl"></i>
             </a>
         </div>
 
         <!-- Copyright Text -->
-        <div class="text-center md:text-right">
-            &copy; 2024 Aditya. All rights reserved.
+        <div class="text-center md:text-right mt-4 md:mt-0">
+            &copy; <span id="currentYear"></span> Aditya. All rights reserved.
         </div>
     </div>
 </footer>
+
+<!-- Loading Indicator -->
+<div id="loading-indicator" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="animate-spin rounded-full border-4 border-t-4 border-blue-600 h-16 w-16"></div>
+</div>
+
+<script>
+    // Auto-update year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Show loading spinner while submitting form
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-btn');
+    const loadingIndicator = document.getElementById('loading-indicator');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();  // Prevent form submission for demo purpose
+        submitButton.disabled = true;  // Disable the submit button
+        loadingIndicator.classList.remove('hidden');  // Show loading indicator
+        
+        setTimeout(() => {
+            form.reset();  // Reset form after submission
+            loadingIndicator.classList.add('hidden');  // Hide loading indicator
+            submitButton.disabled = false;  // Re-enable the submit button
+            alert('Message sent successfully!');
+        }, 2000);  // Simulate a network request (2 seconds)
+    });
+</script>
+
+
+
 <script src="script.js"></script>
 <script src="chatbot.js"></script>
 <script src="testimonials.js"></script>
