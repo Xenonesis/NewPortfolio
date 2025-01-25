@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya's Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
@@ -477,26 +478,33 @@ html {
     <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full opacity-10 blur-xl dark:bg-gradient-to-br dark:from-gray-800 dark:to-blue-700"></div>
     <div class="absolute top-20 right-20 w-24 h-24 bg-pink-500 rounded-full opacity-40 animate-pulse dark:bg-blue-700"></div>
 
+    
+
     <!-- Main Content Section -->
     <div class="relative z-10">
         <!-- Heading with enhanced font and effects -->
-        <h1 class="text-6xl md:text-7xl font-extrabold drop-shadow-lg animate-fade-in transform hover:scale-110 hover:text-pink-400 dark:text-gray-100 dark:hover:text-pink-500 transition-all duration-500 ease-out">
+        <h1 class="text-6xl md:text-7xl font-extrabold drop-shadow-lg animate-fade-in transform hover:scale-110 hover:text-pink-400 dark:text-gray-100 dark:hover:text-pink-500 transition-all duration-500 ease-out tracking-wide">
             Aditya
         </h1>
-        
+
         <!-- Subheading with subtle shadow for better readability -->
-        <p class="mt-4 text-lg md:text-2xl animate-fade-in delay-200 text-opacity-80 dark:text-gray-300">
+        <p class="mt-4 text-lg md:text-2xl animate-fade-in delay-200 text-opacity-80 dark:text-gray-300 font-medium">
             Cybersecurity Enthusiast | Web Developer | Lifelong Learner
         </p>
 
         <!-- LinkedIn Button with glowing effects and smooth hover transitions -->
-        <a 
-            href="https://www.linkedin.com/in/itisaddy/" 
-            target="_blank"
-            class="bg-blue-700 hover:bg-blue-800 px-8 py-4 mt-8 rounded-full inline-block text-lg font-semibold shadow-lg transition-all transform hover:scale-110 hover:rotate-2 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100 dark:shadow-2xl hover:shadow-xl">
+        <a href="https://www.linkedin.com/in/itisaddy/" target="_blank"
+            class="bg-blue-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-800 px-8 py-4 mt-8 rounded-full inline-block text-lg font-semibold shadow-lg transition-all transform hover:scale-110 hover:rotate-2 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100 dark:shadow-2xl hover:shadow-xl hover:text-white">
             Connect with me on LinkedIn
         </a>
     </div>
+
+    <script>
+        // Hide loader once content is fully loaded
+        window.onload = function() {
+            document.getElementById('loader').style.display = 'none';
+        };
+    </script>
 </header>
 
 <!-- Additional Styles for Effects -->
@@ -1051,11 +1059,11 @@ html {
 
         <!-- Achievement Card 2 -->
         <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ease-in-out animate-card">
-            <h3 class="text-2xl font-semibold text-gray-800">NSS Leader</h3>
-            <p class="text-gray-600 mt-2 italic">National Service Scheme | 2024 - Present</p>
+            <h3 class="text-2xl font-semibold text-gray-800">NSS Leader(President)</h3>
+            <p class="text-gray-600 mt-2 italic">National Service Scheme | 2023 - Present</p>
             <ul class="list-disc ml-4 mt-4 space-y-2">
                 <li>Coordinated and led various community service initiatives, driving awareness on key social issues.</li>
-                <li>Managed a team of 50+ volunteers, organizing events and workshops focusing on health and education.</li>
+                <li>Managed a team of 120+ volunteers, organizing events and workshops focusing on health and education.</li>
             </ul>
         </div>
 
