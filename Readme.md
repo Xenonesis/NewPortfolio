@@ -1,6 +1,6 @@
 ## Aditya's Portfolio Website
 
-## version 16
+## version 17
 A modern, interactive, and dark mode-friendly portfolio website showcasing Aditya's skills, experience, and projects.
 Features
 Dark Mode: Fully optimized dark mode for a better user experience, with improved readability and aesthetics.
