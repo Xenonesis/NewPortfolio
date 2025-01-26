@@ -4,29 +4,9 @@ let countdownInterval;
 let countdownValue = 5;
 let popupManuallyClosed = false; // Tracks if the popup was manually closed
 
-// Function to get a cookie value by name
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiry in days
-    document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
-}
-
-// Function to check if the popup has already been shown to the user
-function hasPopupBeenShown() {
-    return getCookie('popupShown') === 'true';
-}
-
 // Function to show the popup
 function showPopup() {
-    if (popupManuallyClosed || hasPopupBeenShown()) return; // Prevent showing popup if it was manually closed or already shown
+    if (popupManuallyClosed) return; // Prevent showing popup if it was manually closed
 
     const popup = document.getElementById('popup');
     const countdownElement = document.getElementById('countdown');
@@ -54,9 +34,6 @@ function showPopup() {
     closeAlertTimeout = setTimeout(() => {
         closePopup(true);
     }, 5000);
-
-    // Mark the popup as shown and store it in cookies
-    setCookie('popupShown', 'true', 7); // Store for 7 days
 }
 
 // Function to close the popup
@@ -81,11 +58,9 @@ function closePopup(auto) {
 
 // Function to start the popup loop
 function startPopupLoop() {
-    if (!hasPopupBeenShown()) {
-        showPopup(); // Show the popup immediately on page load
-    }
+    showPopup(); // Show the popup immediately on page load
     popupInterval = setInterval(() => {
-        if (!popupManuallyClosed && !hasPopupBeenShown()) {
+        if (!popupManuallyClosed) {
             showPopup(); // Show the popup periodically if not manually closed
         }
     }, 175000); // Show popup every 175 seconds

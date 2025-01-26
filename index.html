@@ -378,9 +378,9 @@ html {
     </style>
    <!-- Enhanced Stylish Navbar -->
 <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
         <!-- Brand Name with Neon Glow -->
-        <a href="#" class="text-4xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+        <a href="#" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
             <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
         </a>
 
@@ -397,21 +397,21 @@ html {
         </ul>
 
         <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
-        <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-4">
             <!-- Dark Mode Toggle with Glow -->
             <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
                 <span id="toggle-icon">🌙</span>
             </button>
 
             <!-- Hamburger Menu -->
-            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110">
+            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110 rotate-infinite">
                 ☰
             </button>
         </div>
     </div>
 
     <!-- Animated Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition duration-500 ease-in-out opacity-0 invisible">
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
         <ul class="space-y-6 text-lg">
             <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#skills" class="mobile-link">Skills</a></li>
@@ -434,7 +434,7 @@ html {
         const isHidden = mobileMenu.classList.contains('hidden');
         if (isHidden) {
             mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
-            mobileMenu.classList.add('animate-fade-in');
+            mobileMenu.classList.add('animate-slide-in');
         } else {
             mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
         }
@@ -453,7 +453,7 @@ html {
 <style>
     /* Gradient border for navbar */
     .navbar {
-        border-bottom: 4px solid;
+        border-bottom: 3px solid;
         border-image-slice: 1;
         border-image-source: linear-gradient(to right, #ff00ff, #ffcc00);
     }
@@ -468,7 +468,8 @@ html {
 
     .nav-link:hover {
         color: yellow;
-        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+        text-shadow: 0 0 15px yellow, 0 0 25px yellow, 0 0 35px yellow;
+        transform: scale(1.1);
     }
 
     /* Mobile menu link hover effect */
@@ -483,22 +484,37 @@ html {
         transform: translateX(10px);
     }
 
-    /* Mobile menu fade-in animation */
-    @keyframes fade-in {
+    /* Mobile menu slide-in animation */
+    @keyframes slide-in {
         from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateX(100%);
         }
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
     }
 
-    .animate-fade-in {
-        animation: fade-in 0.3s ease-out;
+    .animate-slide-in {
+        animation: slide-in 0.3s ease-out;
+    }
+
+    /* Infinite rotation for Hamburger icon on activity */
+    .rotate-infinite {
+        animation: rotate-infinite 4s infinite linear;
+    }
+
+    @keyframes rotate-infinite {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>
+
 
 <header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900">
     <!-- Dynamic Background Effects -->
