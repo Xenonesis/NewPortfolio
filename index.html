@@ -376,30 +376,30 @@ html {
 }
 
     </style>
-    <!-- Modern Stylish Navbar -->
-<nav class="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg">
+   <!-- Enhanced Stylish Navbar -->
+<nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        <!-- Brand Name with Hover Animation -->
-        <a href="#" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
-            <span class="group-hover:text-yellow-300">Aditya</span>
+        <!-- Brand Name with Neon Glow -->
+        <a href="#" class="text-4xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+            <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
         </a>
 
         <!-- Links for Desktop -->
         <ul class="hidden md:flex space-x-6 text-lg">
-            <li><a href="#about" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">About</a></li>
-            <li><a href="#skills" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Skills</a></li>
-            <li><a href="#experience" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Experience</a></li>
-            <li><a href="#projects" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Projects</a></li>
-            <li><a href="#blog" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Blog</a></li>
-            <li><a href="#achievements" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Achievements</a></li>
-            <li><a href="#certifications" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Certifications</a></li>
-            <li><a href="#contact" class="hover:text-yellow-300 transition-all duration-300 ease-in-out hover:scale-110">Contact</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#blog" class="nav-link">Blog</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
         <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
         <div class="flex items-center space-x-6">
-            <!-- Dark Mode Toggle with Animation -->
-            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180">
+            <!-- Dark Mode Toggle with Glow -->
+            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
                 <span id="toggle-icon">🌙</span>
             </button>
 
@@ -411,16 +411,16 @@ html {
     </div>
 
     <!-- Animated Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg transform transition duration-500">
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition duration-500 ease-in-out opacity-0 invisible">
         <ul class="space-y-6 text-lg">
-            <li><a href="#about" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">About</a></li>
-            <li><a href="#skills" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Skills</a></li>
-            <li><a href="#experience" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Experience</a></li>
-            <li><a href="#projects" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Projects</a></li>
-            <li><a href="#blog" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Blog</a></li>
-            <li><a href="#achievements" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Achievements</a></li>
-            <li><a href="#certifications" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Certifications</a></li>
-            <li><a href="#contact" class="block hover:text-yellow-300 transition-all duration-300 ease-in-out hover:translate-x-2">Contact</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#skills" class="mobile-link">Skills</a></li>
+            <li><a href="#experience" class="mobile-link">Experience</a></li>
+            <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#blog" class="mobile-link">Blog</a></li>
+            <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+            <li><a href="#certifications" class="mobile-link">Certifications</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
     </div>
 </nav>
@@ -431,8 +431,13 @@ html {
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('animate-slide-in');
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
+            mobileMenu.classList.add('animate-fade-in');
+        } else {
+            mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
+        }
     });
 
     // Dark mode toggle functionality
@@ -446,28 +451,52 @@ html {
 </script>
 
 <style>
-    @keyframes slide-in {
+    /* Gradient border for navbar */
+    .navbar {
+        border-bottom: 4px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, #ff00ff, #ffcc00);
+    }
+
+    /* Link hover effect with neon glow */
+    .nav-link {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        transition: all 0.4s ease;
+    }
+
+    .nav-link:hover {
+        color: yellow;
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+    }
+
+    /* Mobile menu link hover effect */
+    .mobile-link {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mobile-link:hover {
+        color: yellow;
+        text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+        transform: translateX(10px);
+    }
+
+    /* Mobile menu fade-in animation */
+    @keyframes fade-in {
         from {
-            transform: translateY(-20px);
             opacity: 0;
+            transform: translateY(-10px);
         }
         to {
-            transform: translateY(0);
             opacity: 1;
+            transform: translateY(0);
         }
     }
 
-    .animate-slide-in {
-        animation: slide-in 0.3s ease-out;
-    }
-
-    /* Smooth transition for navbar items */
-    .hover\\:scale-110:hover {
-        transform: scale(1.1);
-    }
-
-    .hover\\:translate-x-2:hover {
-        transform: translateX(8px);
+    .animate-fade-in {
+        animation: fade-in 0.3s ease-out;
     }
 </style>
 
