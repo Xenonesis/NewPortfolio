@@ -1083,7 +1083,7 @@ function closePopup() {
         </div>
     </section>
 
-   <!-- Achievements Section -->
+  <!-- Achievements Section -->
 <section id="achievements" class="p-10 bg-yellow-50">
     <h2 class="text-4xl font-bold text-center mb-10 border-b-4 border-blue-500 inline-block animate-fade-in">
         Achievements
@@ -1183,99 +1183,88 @@ function closePopup() {
     }
 </style>
 
-   <!-- Certifications Section -->
-<section id="certifications" class="p-10 bg-yellow-50">
-    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Certifications</h2>
-    
+<!-- Certifications Section -->
+<section id="certifications" class="p-10 bg-gradient-to-r from-yellow-50 to-yellow-100">
+    <h2 class="text-4xl font-extrabold text-left text-gray-800 mb-12 tracking-wide">Certifications</h2>
+
     <!-- Certifications List -->
-    <div class="space-y-10 animate-fade-in">
+    <div class="space-y-10">
         <!-- Certification Items -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Certification Card 1 -->
-            <div class="certification-card bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
-                <div class="certification-inner">
-                    <div class="certification-front">
-                        <h3 class="text-xl font-semibold">Digital Footprint Certification</h3>
-                        <p class="text-gray-600 mt-2">Issued by United Latino Students Association. Obtained in August 2024.</p>
+            <div class="certification-card bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-6 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-500">
+                <div class="certification-inner relative">
+                    <div class="certification-front p-5 flex flex-col justify-center items-start text-white rounded-lg bg-opacity-75 backdrop-blur-md">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Digital Footprint Certification</h3>
+                        <p class="text-lg">Issued by United Latino Students Association. Obtained in August 2024.</p>
                     </div>
-                    <div class="certification-back">
-                        <div class="text-center">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full" onclick="viewCertification('path_to_your_digital_footprint.pdf')">View</button>
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-full mt-2" onclick="downloadCertification('path_to_your_digital_footprint.pdf')">Download</button>
-                        </div>
+                    <div class="certification-back bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-6 flex flex-col justify-center items-center text-white absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <a href="https://example.com/view/digital-footprint" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-500">View</a>
+                        <a href="https://example.com/download/digital-footprint" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-500 mt-4">Download</a>
                     </div>
                 </div>
             </div>
 
             <!-- Certification Card 2 -->
-            <div class="certification-card bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
-                <div class="certification-inner">
-                    <div class="certification-front">
-                        <h3 class="text-xl font-semibold">Cisco Cyber Threat Management</h3>
-                        <p class="text-gray-600 mt-2">Issued by CISCO. Currently in progress as of July 2024.</p>
+            <div class="certification-card bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-6 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-500">
+                <div class="certification-inner relative">
+                    <div class="certification-front p-5 flex flex-col justify-center items-start text-white rounded-lg bg-opacity-75 backdrop-blur-md">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Cisco Cyber Threat Management</h3>
+                        <p class="text-lg">Issued by CISCO. Currently in progress as of July 2024.</p>
                     </div>
-                    <div class="certification-back">
-                        <div class="text-center">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full" onclick="viewCertification('path_to_your_cisco_certificate.pdf')">View</button>
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-full mt-2" onclick="downloadCertification('path_to_your_cisco_certificate.pdf')">Download</button>
-                        </div>
+                    <div class="certification-back bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-6 flex flex-col justify-center items-center text-white absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <a href="https://example.com/view/cyber-threat-management" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-500">View</a>
+                        <a href="https://example.com/download/cyber-threat-management" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-500 mt-4">Download</a>
                     </div>
                 </div>
             </div>
 
             <!-- Certification Card 3 -->
-            <div class="certification-card bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
-                <div class="certification-inner">
-                    <div class="certification-front">
-                        <h3 class="text-xl font-semibold">OSForensics Triage Certification</h3>
-                        <p class="text-gray-600 mt-2">Issued by OSForensics by PassMark Software. Currently in progress as of July 2024.</p>
+            <div class="certification-card bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-6 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-500">
+                <div class="certification-inner relative">
+                    <div class="certification-front p-5 flex flex-col justify-center items-start text-white rounded-lg bg-opacity-75 backdrop-blur-md">
+                        <h3 class="text-2xl font-semibold text-white mb-3">OSForensics Triage Certification</h3>
+                        <p class="text-lg">Issued by OSForensics by PassMark Software. Currently in progress as of July 2024.</p>
                     </div>
-                    <div class="certification-back">
-                        <div class="text-center">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full" onclick="viewCertification('pdf/os.pdf')">View</button>
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-full mt-2" onclick="downloadCertification('pdf/os.pdf')">Download</button>
-                        </div>
+                    <div class="certification-back bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-6 flex flex-col justify-center items-center text-white absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <a href="pdf/os.pdf" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-500">View</a>
+                        <a href="pdf/os.pdf" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-500 mt-4">Download</a>
                     </div>
                 </div>
             </div>
 
-             <!-- Certification Card 4 -->
-             <div class="certification-card bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
-                <div class="certification-inner">
-                    <div class="certification-front">
-                        <h3 class="text-xl font-semibold">Cisco Computer Hardware Basics and Troubleshooting Certification</h3>
-                        <p class="text-gray-600 mt-2">Issued by CISCO. Currently in progress as of July 2024.</p>
+            <!-- Certification Card 4 -->
+            <div class="certification-card bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-6 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-500">
+                <div class="certification-inner relative">
+                    <div class="certification-front p-5 flex flex-col justify-center items-start text-white rounded-lg bg-opacity-75 backdrop-blur-md">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Cisco Computer Hardware Basics</h3>
+                        <p class="text-lg">Issued by CISCO. Currently in progress as of July 2024.</p>
                     </div>
-                    <div class="certification-back">
-                        <div class="text-center">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full" onclick="viewCertification('pdf/chb.pdf')">View</button>
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-full mt-2" onclick="downloadCertification('pdf/chb.pdf')">Download</button>
-                        </div>
+                    <div class="certification-back bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-6 flex flex-col justify-center items-center text-white absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <a href="pdf/chb.pdf" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-500">View</a>
+                        <a href="pdf/chb.pdf" target="_blank" class="bg-transparent border-2 border-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-500 mt-4">Download</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Repeat for other certification cards -->
         </div>
     </div>
 </section>
 
+
 <!-- CSS -->
 <style>
-    /* Container for the certification cards */
     .certification-card {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 350px;
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    /* Make sure the content adjusts well to screens */
     .certification-inner {
         position: absolute;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
-        transition: transform 0.6s;
     }
 
     .certification-card:hover .certification-inner {
@@ -1289,16 +1278,15 @@ function closePopup() {
         backface-visibility: hidden;
     }
 
-    /* Front side of the card */
     .certification-front {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start; /* Align to the left */
         padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
     }
 
-    /* Back side of the card */
     .certification-back {
         display: flex;
         flex-direction: column;
@@ -1306,6 +1294,16 @@ function closePopup() {
         align-items: center;
         transform: rotateY(180deg);
         padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .certification-back button {
+        transition: all 0.5s ease;
+    }
+
+    .certification-back button:hover {
+        background-color: #ffffff;
+        color: #000000;
     }
 
     /* Responsive Layout */
@@ -1315,31 +1313,11 @@ function closePopup() {
         }
 
         .certification-front h3 {
-            font-size: 1.25rem; /* Smaller text on smaller screens */
+            font-size: 1.25rem;
         }
 
         .certification-back button {
-            font-size: 0.9rem; /* Adjust button size */
-        }
-    }
-
-    @media (min-width: 640px) and (max-width: 1024px) {
-        .certification-card {
-            height: 300px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .certification-card {
-            height: 350px;
-        }
-
-        .certification-front h3 {
-            font-size: 1.5rem; /* Larger text on larger screens */
-        }
-
-        .certification-back button {
-            font-size: 1rem; /* Larger buttons on larger screens */
+            font-size: 0.9rem;
         }
     }
 </style>
@@ -1347,16 +1325,16 @@ function closePopup() {
 <!-- JavaScript -->
 <script>
     function viewCertification(certificationPath) {
-        window.open(certificationPath, '_blank');  // Opens the PDF in a new tab
+        // Handle the action when user clicks the "View" button
+        alert("Viewing certification: " + certificationPath);
     }
 
     function downloadCertification(certificationPath) {
-        const link = document.createElement('a');
-        link.href = certificationPath;  // Path to your PDF
-        link.download = certificationPath.split('/').pop();  // Set the default file name for download
-        link.click();  // Initiates the download
+        // Handle the action when user clicks the "Download" button
+        alert("Downloading certification: " + certificationPath);
     }
 </script>
+
 
 
   <!-- Chatbot Toggle Button -->
