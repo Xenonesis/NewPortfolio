@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya's Portfolio</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
@@ -1797,32 +1798,40 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 </section>
 
 <!-- Footer -->
-<footer class="p-10 bg-yellow-50 shadow-inner mt-10">
+<footer class="p-10 bg-yellow-50 shadow-2xl mt-10">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
         <!-- Social Media Icons -->
         <div class="flex space-x-6 justify-center md:justify-start">
-            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300">
-                <i class="fab fa-linkedin text-2xl"></i>
+            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                <i class="fab fa-linkedin-in text-2xl"></i>
             </a>
-            <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300">
+            <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
                 <i class="fab fa-instagram text-2xl"></i>
             </a>
-            <a href="https://github.com/Xenonesis" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300">
+            <a href="https://github.com/Xenonesis" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
                 <i class="fab fa-github text-2xl"></i>
             </a>
         </div>
 
         <!-- Copyright Text -->
-        <div class="text-center md:text-right mt-4 md:mt-0">
+        <div class="text-center md:text-right mt-4 md:mt-0 text-gray-600">
             &copy; <span id="currentYear"></span> Aditya. All rights reserved.
         </div>
     </div>
 </footer>
 
+<!-- Scroll-to-Top Button -->
+<button id="scrollToTopBtn" class="fixed bottom-10 left-10 bg-blue-500 text-white p-3 rounded-full shadow-lg hidden hover:bg-blue-700 transition duration-300 transform hover:scale-110">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <!-- Loading Indicator -->
 <div id="loading-indicator" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
     <div class="animate-spin rounded-full border-4 border-t-4 border-blue-600 h-16 w-16"></div>
 </div>
+
+<!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 <script>
     // Auto-update year
@@ -1845,9 +1854,24 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
             alert('Message sent successfully!');
         }, 2000);  // Simulate a network request (2 seconds)
     });
+
+    // Scroll-to-Top Button Functionality
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Show the button when scrolling down
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.classList.remove('hidden');
+        } else {
+            scrollToTopBtn.classList.add('hidden');
+        }
+    };
+
+    // Scroll smoothly to the top
+    scrollToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 </script>
-
-
 
 <script src="script.js"></script>
 <script src="chatbot.js"></script>
