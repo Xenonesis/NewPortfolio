@@ -1,7 +1,7 @@
 
 ## Aditya's Portfolio Website
 
-### Version 30
+### Version 31
 
 A modern, interactive, and dark mode-friendly portfolio website showcasing Aditya's skills, experience, and projects.
 
@@ -18,6 +18,23 @@ A modern, interactive, and dark mode-friendly portfolio website showcasing Adity
   - **Achievements and Certifications**: List of accomplishments with visually appealing design.
   - **Contact Form**: Easy-to-use form for getting in touch.
 - **Dark Mode Enhancements**: Optimized for eye-friendly use.
+
+### Latest Updates & Fixes
+
+- **January 27, 2025**: 
+  - Improved dark mode functionality with smoother transitions and better compatibility with various devices.
+  - Enhanced animations in the skills section for a more engaging user experience.
+  - Fixed alignment issues in the projects section for better grid display on all devices.
+  - Minor performance improvements for faster load times.
+
+- **January 20, 2025**: 
+  - Added "Latest Updates & Fixes" section to the README.md for better tracking of changes.
+  - Updated chatbot features to support new predefined prompts for a wider range of inquiries.
+  - Fixed issue with mobile view layout for testimonials carousel to improve usability on small screens.
+
+- **January 10, 2025**:
+  - Updated contact form design for improved accessibility.
+  - Minor bug fixes for video embedding on the work introduction section.
 
 ### Live Preview
 

@@ -1,8 +1,33 @@
-let popupInterval;  
+let popupInterval;
 let closeAlertTimeout;
 let countdownInterval;
 let countdownValue = 5;
 let popupManuallyClosed = false; // Tracks if the popup was manually closed
+
+// Function to check if the user is new or returning
+function checkUserStatus() {
+    const userStatus = localStorage.getItem('userStatus');
+
+    let greetingMessage = '';
+    let currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+        greetingMessage = 'Good morning! ☀️'; // Morning emoji
+    } else if (currentHour < 18) {
+        greetingMessage = 'Good afternoon! 🌞'; // Afternoon emoji
+    } else {
+        greetingMessage = 'Good evening! 🌙'; // Evening emoji
+    }
+
+    if (!userStatus) {
+        // New user: Show welcome message and set status
+        localStorage.setItem('userStatus', 'existingUser');
+        return `${greetingMessage} Welcome! 👋`;
+    } else {
+        // Returning user: Show a different message
+        return `${greetingMessage} Welcome back! 🙌`;
+    }
+}
 
 // Function to show the popup
 function showPopup() {
@@ -10,6 +35,10 @@ function showPopup() {
 
     const popup = document.getElementById('popup');
     const countdownElement = document.getElementById('countdown');
+    const welcomeMessageElement = document.getElementById('welcomeMessage');
+
+    // Set welcome message based on user status
+    welcomeMessageElement.textContent = checkUserStatus();
 
     // Reset countdown value
     countdownValue = 5;

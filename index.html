@@ -298,62 +298,19 @@ html {
         }
 
         /* Popup animation */
-        .animate-glow {
-            animation: popup 0.5s ease-out forwards;
-        }
+@keyframes popup {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-        @keyframes popup {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-    
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 0.5s ease-out forwards;
-        }
-
-        /* Glowing effect for the popup */
-        #popup .shadow-lg {
-            box-shadow: 0 0 25px rgba(0, 112, 243, 0.5);
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fade-out {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(-20px); }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 0.5s ease-out forwards;
-        }
-
-        .animate-fade-out {
-            animation: fade-out 0.5s ease-out forwards;
-        }
-
-        /* header */
-        @keyframes fade-in {
+/* Fade-in animation */
+@keyframes fade-in {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -364,16 +321,45 @@ html {
     }
 }
 
+/* Fade-out animation */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Apply the fade-in animation */
 .animate-fade-in {
     animation: fade-in 1s ease-out forwards;
 }
 
+/* Apply delay to fade-in */
 .animate-fade-in.delay-200 {
     animation-delay: 0.2s;
 }
 
 .animate-fade-in.delay-400 {
     animation-delay: 0.4s;
+}
+
+/* Apply the fade-out animation */
+.animate-fade-out {
+    animation: fade-out 0.5s ease-out forwards;
+}
+
+/* Glowing effect for the popup */
+#popup .shadow-lg {
+    box-shadow: 0 0 25px rgba(0, 112, 243, 0.5);
+}
+
+/* Popup animation - for scaling and opacity */
+.animate-glow {
+    animation: popup 0.5s ease-out forwards;
 }
 
     </style>
@@ -856,40 +842,47 @@ html {
         </div>
       </section>
       
-      <!-- Popup Modal -->
-      <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-md w-11/12 animate-fade-in relative">
-          <!-- Close Button -->
-          <button onclick="closePopup()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+    <!-- Popup Modal -->
+<div id="popup" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
+    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg max-w-md w-11/12 animate-fade-in relative transform transition-all duration-300 ease-in-out">
       
-          <!-- Popup Content -->
-          <h3 class="text-2xl font-bold text-center mb-4">Connect with Me!</h3>
-          <p class="text-gray-600 text-center mb-6">Follow me on my social platforms:</p>
-      
-          <!-- Social Media Links -->
-          <div class="flex justify-center space-x-6 mb-6">
-            <a href="https://www.instagram.com/i__aditya7/" target="_blank" class="hover:text-pink-600">
-              <i class="fab fa-instagram text-3xl"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="hover:text-blue-600">
-              <i class="fab fa-linkedin text-3xl"></i>
-            </a>
-            <a href="https://github.com/Xenonesis" target="_blank" class="hover:text-gray-800">
-              <i class="fab fa-github text-3xl"></i>
-            </a>
-          </div>
-      
-          <!-- Countdown Timer -->
-          <p class="text-gray-600 text-center mb-6">
-            This popup will close in <span id="countdown" class="font-semibold text-blue-600">5</span> seconds.
-          </p>
-      
-          <!-- Manual Close Button -->
-          <button onclick="closePopup()" class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 w-full">
-            Close Now
-          </button>
-        </div>
+      <!-- Close Button -->
+      <button onclick="closePopup()" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl transition-colors duration-300">
+        &times;
+      </button>
+  
+      <!-- Popup Content -->
+      <div class="text-center mb-6">
+        <h3 class="text-3xl font-semibold mb-4" id="welcomeMessage"></h3> <!-- Dynamic welcome message -->
+        <p class="text-gray-600 text-lg mb-6">Follow me on my social platforms:</p>
       </div>
+  
+      <!-- Social Media Links -->
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="https://www.instagram.com/i__aditya7/" target="_blank" class="hover:text-pink-600 transition-colors duration-300">
+          <i class="fab fa-instagram text-4xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="hover:text-blue-600 transition-colors duration-300">
+          <i class="fab fa-linkedin text-4xl"></i>
+        </a>
+        <a href="https://github.com/Xenonesis" target="_blank" class="hover:text-gray-800 transition-colors duration-300">
+          <i class="fab fa-github text-4xl"></i>
+        </a>
+      </div>
+  
+      <!-- Countdown Timer -->
+      <p class="text-gray-600 text-lg text-center mb-6">
+        This popup will close in <span id="countdown" class="font-semibold text-blue-600">5</span> seconds.
+      </p>
+  
+      <!-- Manual Close Button -->
+      <button onclick="closePopup()" class="bg-blue-600 text-white py-3 px-8 rounded-full hover:bg-blue-700 w-full text-lg transition-all duration-300 ease-in-out">
+        Close Now
+      </button>
+    </div>
+  </div>
+  
+  
       
       <script>
         function showMarks(element, score) {
