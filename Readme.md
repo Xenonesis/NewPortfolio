@@ -1,7 +1,7 @@
 
 ## Aditya's Portfolio Website
 
-### Version 31
+### Version 33
 
 A modern, interactive, and dark mode-friendly portfolio website showcasing Aditya's skills, experience, and projects.
 
