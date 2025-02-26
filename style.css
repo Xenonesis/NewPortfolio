@@ -1,0 +1,207 @@
+/* Testimonial Animations */
+.testimonial-slide {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.testimonial-slide.animate-fade-in {
+    animation: fadeUp 0.6s ease-out forwards;
+}
+
+.testimonial-slide p {
+    transition: all 0.3s ease;
+}
+
+.testimonial-slide:hover p {
+    transform: scale(1.02);
+}
+
+/* Navigation Button Animations */
+#prev-btn, #next-btn {
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    background: rgba(59, 130, 246, 0.9);
+}
+
+#prev-btn:hover, #next-btn:hover {
+    background: rgba(37, 99, 235, 1);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Testimonial Container Effects */
+#testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Quote Icon Animation */
+.testimonial-slide::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-size: 4em;
+    color: rgba(59, 130, 246, 0.2);
+    font-family: serif;
+    animation: floatQuote 3s ease-in-out infinite;
+}
+
+@keyframes floatQuote {
+    0%, 100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+}
+
+/* Author Attribution Animation */
+.testimonial-slide .text-right {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out 0.3s forwards;
+}
+
+/* Popup Styles */
+#popup {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+}
+
+#popup .popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+#popup .popup-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#popup .popup-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#popup .popup-content .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#popup .popup-content .social-links a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+#popup .popup-content .social-links a:hover {
+    color: #007bff;
+}
+
+#popup .popup-content .countdown {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#popup .popup-content .close-btn {
+    background: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+#popup .popup-content .close-btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #popup .popup-content {
+        padding: 1.5rem;
+    }
+
+    #popup .popup-content h3 {
+        font-size: 1.25rem;
+    }
+
+    #popup .popup-content p {
+        font-size: 0.875rem;
+    }
+
+    #popup .popup-content .social-links a {
+        font-size: 1.25rem;
+    }
+
+    #popup .popup-content .close-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Fade-in and Fade-out Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}

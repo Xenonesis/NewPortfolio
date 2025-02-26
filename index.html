@@ -1066,14 +1066,17 @@ function closePopup() {
 </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="p-10 bg-white">
-        <h2 class="text-3xl font-bold">Blog</h2>
+    <section id="blog" class="p-10 bg-gray-50 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-10 border-b-4 border-blue-500 inline-block animate-fade-in">
+            Blog
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div class="bg-gray-100 p-5 rounded-lg">
+            <div class="bg-white p-5 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
                 <h3 class="text-xl font-bold">Blog Post Title</h3>
                 <p class="mt-4">A brief introduction to the blog post content.</p>
-                <a href="#" class="text-blue-500 mt-4">Read More</a>
+                <a href="#" class="text-blue-500 mt-4 inline-block hover:underline">Read More</a>
             </div>
+            <!-- Add more blog post cards as needed -->
         </div>
     </section>
 
@@ -1089,7 +1092,7 @@ function closePopup() {
             <h3 class="text-2xl font-semibold text-gray-800">University Sports Leader</h3>
             <p class="text-gray-600 mt-2 italic">Sushant University | 2023 - 2024</p>
             <ul class="list-disc ml-4 mt-4 space-y-2">
-                <li>Led the university’s sports teams, organizing and managing multiple events that increased student participation by 30%.</li>
+                <li>Led the university's sports teams, organizing and managing multiple events that increased student participation by 30%.</li>
                 <li>Spearheaded inter-university competitions, securing top positions in regional tournaments.</li>
             </ul>
         </div>
@@ -1672,10 +1675,8 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
         <button onclick="closePopup()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
 
         <!-- Popup Content -->
-        <h3 class="text-2xl font-bold text-center mb-4">Connect with Me!</h3>
-        <p class="text-gray-600 text-center mb-6">
-            Stay connected and follow me on my social platforms.
-        </p>
+        <h3 class="text-2xl font-bold mb-4" id="welcomeMessage"></h3>
+        <p class="text-gray-600 mb-6">Stay connected and follow me on my social platforms.</p>
 
         <!-- Social Media Links -->
         <div class="flex justify-center space-x-6 mb-6">
@@ -1737,7 +1738,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 
             <div class="testimonial-slide hidden animate-fade-in">
                 <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya’s dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."
+                    "Aditya's dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."
                 </p>
                 <p class="text-right mt-6 font-semibold text-blue-600">
                     - Rahul Sharma (Mentor)
