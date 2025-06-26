@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Site Scripting (XSS): Understanding and Preventing Attacks</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Cross-Site Scripting (XSS): Understanding and Preventing Attacks</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>August 2, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>Cross-Site Scripting (XSS) is a type of security vulnerability commonly found in web applications. XSS attacks enable attackers to inject client-side scripts (most commonly JavaScript) into web pages viewed by other users. This can allow attackers to bypass access controls, impersonate users, steal cookies, deface websites, or redirect users to malicious sites. Understanding XSS and how to prevent it is crucial for web developers.</p>
+
+                <h2>How XSS Attacks Work</h2>
+                <p>XSS occurs when a web application takes untrusted input and includes it in the output HTML without proper validation or encoding. When a victim's browser loads the page, the malicious script executes in the context of the legitimate website, making it appear as if the script is part of the site itself.</p>
+
+                <h2>Types of XSS Attacks</h2>
+                <h3>1. Stored XSS (Persistent XSS)</h3>
+                <p>The most dangerous type. The malicious script is permanently stored on the target server (e.g., in a database, forum post, comment section). When a user requests the affected page, the stored script is retrieved and executed by their browser.</p>
+
+                <h3>2. Reflected XSS (Non-Persistent XSS)</h3>
+                <p>The malicious script is reflected off the web server to the user's browser. The script is typically embedded in a URL parameter. When a user clicks a specially crafted link, the server reflects the malicious input back to the user's browser, which then executes it.</p>
+
+                <h3>3. DOM-based XSS</h3>
+                <p>The vulnerability exists in the client-side code (JavaScript) rather than on the server. The malicious script is executed when the browser's Document Object Model (DOM) is modified based on user input without proper sanitization.</p>
+
+                <h2>Preventing XSS Attacks</h2>
+                <p>The core principle of XSS prevention is to never trust user input. Always validate and sanitize data before displaying it on a web page.</p>
+
+                <h3>1. Output Encoding/Escaping</h3>
+                <p>This is the primary defense. Before displaying user-supplied data in HTML, encode or escape it. This converts characters that have special meaning in HTML (like `<`, `>`, `&`, `"`, `'`) into their entity equivalents (e.g., `&lt;`, `&gt;`). This ensures the browser interprets the input as data, not as executable code.</p>
+                <pre><code class="language-html">
+&lt;!-- Example of vulnerable code --&gt;
+&lt;p&gt;Welcome, &lt;%= user_input %&gt;&lt;/p&gt;
+
+&lt;!-- Example of secure code (using a templating engine&#039;s auto-escaping or manual encoding) --&gt;
+&lt;p&gt;Welcome, &lt;%= escapeHtml(user_input) %&gt;&lt;/p&gt;
+                </code></pre>
+                <p>Different contexts require different encoding: HTML entity encoding for HTML content, URL encoding for URLs, JavaScript encoding for JavaScript strings, etc.</p>
+
+                <h3>2. Input Validation and Sanitization</h3>
+                <p>While output encoding is the primary defense, input validation and sanitization provide an additional layer of security.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Validation:</strong> Check if the input conforms to expected patterns (e.g., email format, numeric values).</li>
+                    <li><strong>Sanitization:</strong> Remove or neutralize potentially malicious characters or tags from the input. For rich text editors, use a robust sanitization library that allows only safe HTML tags and attributes.</li>
+                </ul></p>
+
+                <h3>3. Content Security Policy (CSP)</h3>
+                <p>A CSP is an added layer of security that helps mitigate XSS attacks. It allows web administrators to control resources the user agent is allowed to load for a given page. For example, you can restrict scripts to only load from trusted domains or disallow inline scripts.</p>
+                <pre><code class="language-html">
+&lt;meta http-equiv="Content-Security-Policy" content="default-src &#039;self&#039;; script-src &#039;self&#039; https://trusted.cdn.com;"&gt;
+                </code></pre>
+
+                <h3>4. Secure Cookie Flags</h3>
+                <p>Use `HttpOnly` flag for cookies that don't need to be accessed by client-side JavaScript. This prevents XSS attacks from stealing session cookies.</p>
+
+                <h2>Conclusion</h2>
+                <p>XSS remains a significant threat to web applications, but it is largely preventable with proper coding practices. The most effective defense is rigorous output encoding of all untrusted data before it's rendered in HTML. Combined with input validation, a strong Content Security Policy, and secure cookie flags, developers can build robust defenses against XSS and protect their users from malicious attacks.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Coding Practices: Building Software with Security in Mind</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Secure Coding Practices: Building Software with Security in Mind</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>September 18, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In an era of increasing cyber threats, writing secure code is no longer an optional extra; it's a fundamental requirement for every developer. Secure coding practices involve writing code in a way that minimizes vulnerabilities and protects against potential attacks. By embedding security considerations throughout the development lifecycle, developers can significantly reduce the risk of data breaches, system compromises, and reputational damage.</p>
+
+                <h2>Why Secure Coding Matters</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Preventing Vulnerabilities:</strong> Proactively addresses security flaws before they become exploitable.</li>
+                    <li><strong>Reducing Costs:</strong> Fixing security bugs early in the development cycle is far cheaper than fixing them in production.</li>
+                    <li><strong>Protecting Data:</strong> Safeguards sensitive user and business data.</li>
+                    <li><strong>Maintaining Trust:</strong> Builds user confidence in your application and organization.</li>
+                    <li><strong>Compliance:</strong> Helps meet regulatory requirements and industry standards.</li>
+                </ul>
+
+                <h2>Key Secure Coding Principles and Practices</h2>
+                <h3>1. Input Validation and Sanitization</h3>
+                <p>This is perhaps the most critical practice. Never trust any input from external sources (users, APIs, files). Validate all input against expected data types, formats, lengths, and ranges. Sanitize input by encoding or escaping special characters to prevent injection attacks (SQL Injection, XSS, Command Injection).</p>
+
+                <h3>2. Output Encoding</h3>
+                <p>Before displaying user-supplied data in HTML, JavaScript, or other contexts, always encode it appropriately. This ensures that the browser interprets the data as content, not as executable code.</p>
+
+                <h3>3. Secure Authentication and Authorization</h3>
+                <p>Implement strong authentication mechanisms (e.g., multi-factor authentication, strong password policies). Ensure proper authorization checks are performed on the server-side for every request to verify that a user has the necessary permissions to access a resource or perform an action.</p>
+
+                <h3>4. Error Handling and Logging</h3>
+                <p>Implement robust error handling that avoids revealing sensitive system information (e.g., stack traces, database errors) to users. Log security-relevant events (e.g., failed login attempts, access violations) and monitor these logs for suspicious activity.</p>
+
+                <h3>5. Cryptography Best Practices</h3>
+                <p>Use strong, up-to-date cryptographic algorithms for data encryption (in transit and at rest) and password hashing. Never store passwords in plain text; always use strong, one-way hashing functions with salts (e.g., bcrypt, Argon2).</p>
+
+                <h3>6. Dependency Management</h3>
+                <p>Regularly update all third-party libraries, frameworks, and components to their latest secure versions. Use tools to scan for known vulnerabilities in your dependencies.</p>
+
+                <h3>7. Principle of Least Privilege</h3>
+                <p>Grant applications, services, and users only the minimum necessary permissions to perform their functions. This limits the damage an attacker can cause if a component is compromised.</p>
+
+                <h3>8. Secure Configuration</h3>
+                <p>Ensure that all software and infrastructure components are securely configured. Disable unnecessary services, remove default credentials, and follow security hardening guidelines.</p>
+
+                <h3>9. Code Review and Security Testing</h3>
+                <p>Integrate security into your code review process. Conduct regular security testing, including static application security testing (SAST), dynamic application security testing (DAST), and penetration testing.</p>
+
+                <h2>Conclusion</h2>
+                <p>Secure coding is a continuous journey that requires a security-first mindset from every developer. By consistently applying these best practices—from rigorous input validation and proper authentication to secure dependency management and regular testing—you can significantly enhance the security posture of your software, protecting your users and your organization from the ever-present threat of cyberattacks. Make security an integral part of your development DNA.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Accessibility Basics: Building Inclusive Websites</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Web Accessibility Basics: Building Inclusive Websites</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>January 5, 2025</span>
+                    <span>•</span>
+                    <span>9 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>Web accessibility (often abbreviated as A11y) is the practice of making websites usable by as many people as possible, regardless of their abilities or disabilities. This includes people with visual, auditory, physical, speech, cognitive, and neurological disabilities. Building accessible websites is not just about compliance; it's about creating an inclusive digital environment for everyone.</p>
+
+                <h2>Why Web Accessibility Matters</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Inclusivity:</strong> Ensures everyone can access information and services online.</li>
+                    <li><strong>Legal Compliance:</strong> Many countries have laws requiring web accessibility (e.g., ADA in the US, EN 301 549 in Europe).</li>
+                    <li><strong>Improved SEO:</strong> Many accessibility best practices (like semantic HTML, clear headings) also benefit search engine optimization.</li>
+                    <li><strong>Better User Experience:</strong> Accessible sites are often more usable for everyone, including those without disabilities.</li>
+                    <li><strong>Broader Audience Reach:</strong> Expands your potential user base.</li>
+                </ul>
+
+                <h2>Key Principles of Web Accessibility (WCAG)</h2>
+                <p>The Web Content Accessibility Guidelines (WCAG) are the most widely recognized standard for web accessibility. They are organized around four main principles:</p>
+                <h3>1. Perceivable</h3>
+                <p>Information and user interface components must be presentable to users in ways they can perceive.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Text Alternatives:</strong> Provide `alt` text for images, transcripts for audio, and captions for video.</li>
+                    <li><strong>Adaptable:</strong> Content can be presented in different ways (e.g., simpler layout) without losing information.</li>
+                    <li><strong>Distinguishable:</strong> Make it easier for users to see and hear content, including separating foreground from background (e.g., sufficient color contrast).</li>
+                </ul></p>
+
+                <h3>2. Operable</h3>
+                <p>User interface components and navigation must be operable.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Keyboard Accessible:</strong> All functionality must be operable via a keyboard interface.</li>
+                    <li><strong>Enough Time:</strong> Provide users enough time to read and use content.</li>
+                    <li><strong>Seizures & Physical Reactions:</strong> Avoid designing content in a way that is known to cause seizures or physical reactions.</li>
+                    <li><strong>Navigable:</strong> Provide ways for users to navigate, find content, and determine where they are.</li>
+                </ul></p>
+
+                <h3>3. Understandable</h3>
+                <p>Information and the operation of user interface must be understandable.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Readable:</strong> Make text content readable and understandable.</li>
+                    <li><strong>Predictable:</strong> Make web pages appear and operate in predictable ways.</li>
+                    <li><strong>Input Assistance:</strong> Help users avoid and correct mistakes.</li>
+                </ul></p>
+
+                <h3>4. Robust</h3>
+                <p>Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Compatible:</strong> Maximize compatibility with current and future user agents, including assistive technologies.</li>
+                </ul></p>
+
+                <h2>Practical Tips for Developers</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Semantic HTML:</strong> Use HTML elements for their intended purpose (e.g., `&lt;h1&gt;` for headings, `&lt;button&gt;` for buttons).</li>
+                    <li><strong>ARIA Attributes:</strong> Use Accessible Rich Internet Applications (ARIA) attributes when semantic HTML isn't sufficient (e.g., for custom widgets).</li>
+                    <li><strong>Keyboard Navigation:</strong> Ensure all interactive elements are reachable and operable with the keyboard (`tabindex`, focus management).</li>
+                    <li><strong>Color Contrast:</strong> Use sufficient contrast between text and background colors.</li>
+                    <li><strong>Form Labels:</strong> Always associate labels with form inputs.</li>
+                    <li><strong>Clear Language:</strong> Write clear, concise, and easy-to-understand content.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Web accessibility is a crucial aspect of modern web development. By adhering to WCAG principles and implementing practical accessibility features, developers can create websites that are not only legally compliant but also truly inclusive, providing a positive and equitable experience for all users. Make accessibility a core part of your development process from the start.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

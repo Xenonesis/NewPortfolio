@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern JavaScript Features You Should Know</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Modern JavaScript Features You Should Know</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>May 9, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>JavaScript has evolved dramatically over the years, with new features and syntax additions making the language more powerful, readable, and enjoyable to write. Since the introduction of ES6 (ECMAScript 2015), JavaScript has seen annual updates that have reshaped how we write web applications. Here are some essential modern JavaScript features every developer should be familiar with.</p>
+
+                <h2>1. Arrow Functions (`=>`)</h2>
+                <p>A more concise way to write function expressions. They also handle the `this` keyword differently, inheriting `this` from the enclosing lexical context.</p>
+                <pre><code class="language-javascript">
+// Old way
+function add(a, b) {
+    return a + b;
+}
+
+// New way
+const add = (a, b) => a + b;
+                </code></pre>
+
+                <h2>2. `let` and `const`</h2>
+                <p>These keywords provide block-scoped variable declarations, addressing issues with `var`'s function-scoping and hoisting behavior. `const` declares a constant, read-only reference to a value.</p>
+                <pre><code class="language-javascript">
+if (true) {
+    let x = 10;
+    const y = 20;
+}
+                </code></pre>
+
+                <h2>3. Template Literals (`` ` ``)</h2>
+                <p>Allow for embedded expressions and multi-line strings, making string concatenation much cleaner.</p>
+                <pre><code class="language-javascript">
+const name = "Alice";
+const greeting = `Hello, ${name}!
+How are you today?`;
+console.log(greeting);
+                </code></pre>
+
+                <h2>4. Destructuring Assignment</h2>
+                <p>A powerful feature that allows you to unpack values from arrays or properties from objects into distinct variables.</p>
+                <pre><code class="language-javascript">
+// Array destructuring
+const colors = ["red", "green", "blue"];
+const [firstColor, secondColor] = colors;
+console.log(firstColor); // "red"
+
+// Object destructuring
+const person = { name: "Bob", age: 30 };
+const { name, age } = person;
+console.log(name, age); // "Bob" 30
+                </code></pre>
+
+                <h2>5. Spread and Rest Operators (`...`)</h2>
+                <p>The spread operator expands an iterable (like an array) into individual elements. The rest operator collects multiple elements into an array.</p>
+                <pre><code class="language-javascript">
+// Spread (for arrays)
+const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]
+
+// Spread (for objects)
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+
+// Rest (in function parameters)
+function sum(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3, 4)); // 10
+                </code></pre>
+
+                <h2>6. Promises and Async/Await</h2>
+                <p>Revolutionized asynchronous programming, making it much easier to handle operations that take time (like fetching data from an API) without "callback hell."</p>
+                <pre><code class="language-javascript">
+// Using Promises
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+// Using Async/Await
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+fetchData();
+                </code></pre>
+
+                <h2>7. Modules (`import`/`export`)</h2>
+                <p>Standardized way to organize JavaScript code into reusable modules, improving maintainability and preventing global scope pollution.</p>
+                <pre><code class="language-javascript">
+// math.js
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// app.js
+import { add } from './math.js';
+console.log(add(5, 3)); // 8
+                </code></pre>
+
+                <h2>Conclusion</h2>
+                <p>These modern JavaScript features are just a glimpse of how the language has evolved. Embracing them leads to cleaner, more efficient, and more maintainable code. Staying updated with the latest ECMAScript specifications is crucial for any web developer looking to write high-quality JavaScript.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

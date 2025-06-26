@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Aditya Kumar Tiwari</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    
+    <script src="./blog-script.js" defer></script>
+    <script src="./dark-mode.js" defer></script>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+    <link rel="stylesheet" href="./blog-style.css">
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        .animate-progress {
+            animation: progress 1.5s ease-in-out forwards;
+        }
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slide-in {
+            animation: slide-in 1s ease-out forwards;
+        }
+    </style>
+
+    <!-- Enhanced Stylish Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
+            <!-- Brand Name with Neon Glow -->
+            <a href="/" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+                <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
+            </a>
+
+            <!-- Links for Desktop -->
+            <ul class="hidden md:flex space-x-6 text-lg">
+                <li><a href="/#about" class="nav-link">About</a></li>
+                <li><a href="/#skills" class="nav-link">Skills</a></li>
+                <li><a href="/#experience" class="nav-link">Experience</a></li>
+                <li><a href="/#projects" class="nav-link">Projects</a></li>
+                <li><a href="/blog.html" class="nav-link">Blog</a></li>
+                <li><a href="/#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="/#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="/#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
+            <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle with Glow -->
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110 rotate-infinite">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- Animated Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
+            <ul class="space-y-6 text-lg">
+                <li><a href="/#about" class="mobile-link">About</a></li>
+                <li><a href="/#skills" class="mobile-link">Skills</a></li>
+                <li><a href="/#experience" class="mobile-link">Experience</a></li>
+                <li><a href="/#projects" class="mobile-link">Projects</a></li>
+                <li><a href="/blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="/#achievements" class="mobile-link">Achievements</a></li>
+                <li><a href="/#certifications" class="mobile-link">Certifications</a></li>
+                <li><a href="/#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<!-- Blog Section -->
+<section id="blog" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-4 relative blog-title">
+            <span class="relative inline-block pb-3">
+                Blog by Aditya Kumar Tiwari
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-full transform scale-x-0 origin-left transition-transform duration-500 ease-out animate-expand-underline"></span>
+            </span>
+        </h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Explore insights on cybersecurity, web development, and technology trends
+        </p>
+        <!-- Search Bar -->
+        <div class="flex justify-center mb-8">
+            <input type="text" id="blog-search" placeholder="Search blog posts..." class="w-full max-w-md px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+        </div>
+        <!-- Category Filter Buttons -->
+        <div class="flex justify-center space-x-4 mb-12">
+            <button class="filter-btn all active btn-glow">All</button>
+            <button class="filter-btn cybersecurity btn-glow">Cybersecurity</button>
+            <button class="filter-btn devops btn-glow">DevOps</button>
+            <button class="filter-btn web-development btn-glow">Web Development</button>
+            <button class="filter-btn cloud btn-glow">Cloud</button>
+            <button class="filter-btn ai btn-glow">AI</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 blog-grid">
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cybersecurity Basics: Protecting Your Digital Life</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Understanding the basics of cybersecurity can significantly reduce your risk of falling victim to cyberattacks.</p>
+            <a href="blog_posts/cybersecurity_basics.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Ethical Hacking: A Force for Good in Cybersecurity</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Ethical hackers use their skills to identify vulnerabilities in systems and networks with permission, strengthening security.</p>
+            <a href="blog_posts/ethical_hacking_intro.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">DevOps Fundamentals: Bridging Development and Operations</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">DevOps combines software development and IT operations to shorten the systems development life cycle and provide continuous delivery.</p>
+            <a href="blog_posts/devops_fundamentals.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Web Development Roadmap: Your Path to Becoming a Web Developer</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">A guide through the essential skills and technologies you'll need to master to become a web developer.</p>
+            <a href="blog_posts/web_dev_roadmap.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cloud">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cloud Security Best Practices: Securing Your Data in the Cloud</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Ensuring the security of your data and applications in the cloud requires a proactive approach and adherence to best practices.</p>
+            <a href="blog_posts/cloud_security_best_practices.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Introduction to Containerization: Docker and Kubernetes</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Containerization offers a lightweight, portable, and efficient way to package applications and their dependencies.</p>
+            <a href="blog_posts/introduction_to_containerization.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Modern JavaScript Features You Should Know</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">JavaScript has evolved dramatically, with new features making the language more powerful, readable, and enjoyable to write.</p>
+            <a href="blog_posts/modern_javascript_features.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Understanding Network Security: Protecting Your Digital Perimeter</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Network security involves protecting the integrity, confidentiality, and accessibility of computer networks and data.</p>
+            <a href="blog_posts/understanding_network_security.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">CI/CD Pipelines Explained: Automating Your Software Delivery</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">CI/CD automates the stages of software delivery, from code commit to production deployment.</p>
+            <a href="blog_posts/ci_cd_pipelines_explained.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Responsive Web Design: Building for Every Screen</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">RWD makes web pages render well on a variety of devices and window or screen sizes.</p>
+            <a href="blog_posts/responsive_web_design.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">API Security Best Practices: Protecting Your Digital Gateways</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Implementing robust API security is crucial to protect sensitive data and maintain the integrity of your services.</p>
+            <a href="blog_posts/api_security_best_practices.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cloud">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Serverless Architecture: Building Applications Without Managing Servers</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Serverless allows developers to build and run applications without having to manage servers.</p>
+            <a href="blog_posts/serverless_architecture.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">SQL Injection Prevention: Safeguarding Your Databases</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">SQL Injection allows attackers to interfere with database queries. Learn how to prevent it.</p>
+            <a href="blog_posts/sql_injection_prevention.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Frontend Performance Optimization: Making Your Websites Blazing Fast</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Techniques to improve how quickly web pages load and become interactive for users.</p>
+            <a href="blog_posts/frontend_performance_optimization.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">DevSecOps: Integrating Security into the DevOps Pipeline</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Embedding security practices and considerations into every stage of the DevOps pipeline.</p>
+            <a href="blog_posts/devsecops_integrating_security.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Web Accessibility Basics: Building Inclusive Websites</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Making websites usable by as many people as possible, regardless of their abilities or disabilities.</p>
+            <a href="blog_posts/web_accessibility_basics.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Microservices Architecture: Building Scalable and Resilient Systems</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Breaking down an application into a collection of small, independent, and loosely coupled services.</p>
+            <a href="blog_posts/microservices_architecture.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cross-Site Scripting (XSS): Understanding and Preventing Attacks</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">XSS enables attackers to inject client-side scripts into web pages viewed by other users.</p>
+            <a href="blog_posts/cross_site_scripting_xss.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Git for DevOps: Version Control and Collaboration</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Git is an indispensable tool for managing code, automating pipelines, and ensuring smooth deployments.</p>
+            <a href="blog_posts/git_for_devops.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Web Security Fundamentals: Protecting Your Web Applications</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Understanding and implementing fundamental web security practices is essential for developers.</p>
+            <a href="blog_posts/web_security_fundamentals.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Understanding Threat Modeling: Proactive Security Design</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">A structured approach to identifying potential threats, vulnerabilities, and countermeasures within a system.</p>
+            <a href="blog_posts/understanding_threat_modeling.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Introduction to Blockchain Security: Beyond Cryptocurrencies</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Blockchain's decentralized, immutable, and transparent nature provides inherent security benefits.</p>
+            <a href="blog_posts/introduction_to_blockchain_security.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="AI">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Rise of AI in Cybersecurity: A Double-Edged Sword</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">AI is revolutionizing cybersecurity defense but also presents new avenues for attackers to exploit.</p>
+            <a href="blog_posts/the_rise_of_ai_in_cybersecurity.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Continuous Monitoring in DevOps: Ensuring System Health and Performance</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Constantly observing and analyzing your IT environment to detect issues, identify trends, and ensure optimal operation.</p>
+            <a href="blog_posts/continuous_monitoring_devops.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Future of Web Development: Trends to Watch</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">New technologies, frameworks, and paradigms emerging at a rapid pace are shaping the future of web development.</p>
+            <a href="blog_posts/the_future_of_web_development.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Secure Coding Practices: Building Software with Security in Mind</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Writing code in a way that minimizes vulnerabilities and protects against potential attacks.</p>
+            <a href="blog_posts/secure_coding_practices.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Importance of Testing in DevOps: Ensuring Quality and Speed</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Testing is an integral, continuous activity that spans the entire pipeline, ensuring quality is built in from the start.</p>
+            <a href="blog_posts/the_importance_of_testing_in_devops.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Progressive Web Apps (PWAs): The Future of Web Experiences</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">PWAs bridge the gap between traditional websites and native mobile applications, offering reliability, speed, and engagement.</p>
+            <a href="blog_posts/progressive_web_apps_pwas.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">WebAssembly (Wasm): Bringing High Performance to the Web</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Wasm enables high-performance applications on the web, allowing code from languages like C++, Rust, and Go to run directly in the browser.</p>
+            <a href="blog_posts/web_assembly_wasm_intro.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Understanding Software Supply Chain Security: Protecting Your Code's Journey</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Securing the entire software delivery chain from source code to deployment infrastructure.</p>
+            <a href="blog_posts/understanding_software_supply_chain_security.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Evolution of Frontend Frameworks: From jQuery to Modern SPAs</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">A journey through the key milestones in frontend framework evolution, from simple libraries to powerful component-based systems.</p>
+            <a href="blog_posts/the_evolution_of_frontend_frameworks.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Kubernetes Security Best Practices: Hardening Your Container Orchestration</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Securing a Kubernetes cluster requires a multi-layered approach, from the underlying infrastructure to the applications running within it.</p>
+            <a href="blog_posts/kubernetes_security_best_practices.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="DevOps">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Role of SRE in DevOps: Bridging Reliability and Speed</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">SRE applies software engineering principles to operations, aiming to create highly reliable and scalable software systems.</p>
+            <a href="blog_posts/the_role_of_sre_in_devops.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Web Development">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Power of Web Components: Building Reusable UI Elements</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Web Components offer a native, browser-standard way to create encapsulated, reusable HTML elements.</p>
+            <a href="blog_posts/the_power_of_web_components.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Understanding Zero Trust Security: Never Trust, Always Verify</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">A security framework that requires all users and devices to be authenticated, authorized, and continuously validated.</p>
+            <a href="blog_posts/understanding_zero_trust_security.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cloud">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Fundamentals of Cloud-Native Development: Building for the Cloud</h3>
+            <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+            <p class="text-gray-600 text-base leading-relaxed">Designing systems that are resilient, scalable, and agile, leveraging cloud services and modern architectural patterns.</p>
+            <a href="blog_posts/the_fundamentals_of_cloud_native_development.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="p-10 bg-yellow-50 shadow-2xl mt-10">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
+        <!-- Social Media Icons -->
+        <div class="flex space-x-6 justify-center md:justify-start">
+            <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                <i class="fab fa-linkedin-in text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" rel="noopener" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="https://github.com/Xenonesis" target="_blank" rel="noopener" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                <i class="fab fa-github text-2xl"></i>
+            </a>
+        </div>
+
+        <!-- Copyright Text -->
+        <div class="text-center md:text-right mt-4 md:mt-0 text-gray-600">
+            &copy; <span id="currentYear"></span> Aditya. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto-update year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

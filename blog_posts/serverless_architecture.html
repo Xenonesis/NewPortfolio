@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless Architecture: Building Applications Without Managing Servers</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Serverless Architecture: Building Applications Without Managing Servers</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>February 8, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>Serverless architecture has emerged as a powerful paradigm in cloud computing, allowing developers to build and run applications without having to manage servers. While the name "serverless" might be misleading (there are still servers, just not ones you directly manage), it represents a significant shift in how applications are deployed and scaled, particularly beneficial for DevOps teams.</p>
+
+                <h2>What is Serverless?</h2>
+                <p>Serverless computing is a cloud execution model where the cloud provider dynamically manages the allocation and provisioning of servers. Developers write and deploy code (often as functions), and the cloud provider automatically scales the underlying infrastructure up or down based on demand. You only pay for the compute time consumed, not for idle server capacity.</p>
+
+                <h2>Key Components of Serverless Architecture</h2>
+                <h3>1. Functions as a Service (FaaS)</h3>
+                <p>FaaS is the core of serverless. It allows you to deploy individual functions (small, single-purpose pieces of code) that are triggered by events. Popular FaaS offerings include AWS Lambda, Azure Functions, and Google Cloud Functions.</p>
+
+                <h3>2. Backend as a Service (BaaS)</h3>
+                <p>BaaS provides pre-built backend services that developers can integrate into their applications without managing the server-side logic. Examples include authentication services, databases (like AWS DynamoDB, Google Firestore), and storage (like AWS S3).</p>
+
+                <h3>3. Event-Driven Architecture</h3>
+                <p>Serverless applications are typically event-driven. Functions are invoked in response to events such as HTTP requests, database changes, file uploads to storage, or messages from a queue.</p>
+
+                <h2>Benefits of Serverless Architecture</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Reduced Operational Overhead:</strong> No server provisioning, patching, or scaling to worry about. The cloud provider handles it all.</li>
+                    <li><strong>Cost Efficiency:</strong> Pay-per-execution model means you only pay for the actual compute time used, leading to significant cost savings for intermittent workloads.</li>
+                    <li><strong>Automatic Scaling:</strong> Applications automatically scale to handle varying loads without manual intervention.</li>
+                    <li><strong>Faster Time to Market:</strong> Developers can focus solely on writing code, accelerating development cycles.</li>
+                    <li><strong>Increased Developer Productivity:</strong> Less time spent on infrastructure management means more time for innovation.</li>
+                    <li><strong>High Availability:</strong> Cloud providers ensure high availability and fault tolerance for serverless functions.</li>
+                </ul>
+
+                <h2>Use Cases for Serverless</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Webhooks and API backends</li>
+                    <li>Data processing (e.g., image resizing, data transformations)</li>
+                    <li>Chatbots and virtual assistants</li>
+                    <li>IoT backend services</li>
+                    <li>Scheduled tasks (cron jobs)</li>
+                    <li>Real-time file processing</li>
+                </ul>
+
+                <h2>Challenges of Serverless</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Cold Starts:</strong> Functions might experience latency on their first invocation after a period of inactivity.</li>
+                    <li><strong>Vendor Lock-in:</strong> Relying heavily on a specific cloud provider's serverless ecosystem.</li>
+                    <li><strong>Debugging and Monitoring:</strong> Can be more complex due to distributed nature and ephemeral functions.</li>
+                    <li><strong>Statelessness:</strong> Functions are typically stateless, requiring external services for state management.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Serverless architecture offers a compelling alternative to traditional server management, empowering developers to build scalable, cost-effective, and highly available applications with less operational burden. While it comes with its own set of considerations, the benefits often outweigh the challenges, making it a valuable tool in the modern developer's arsenal, especially for those embracing DevOps principles.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>
