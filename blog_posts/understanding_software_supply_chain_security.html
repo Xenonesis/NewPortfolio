@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Software Supply Chain Security: Protecting Your Code's Journey</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Understanding Software Supply Chain Security: Protecting Your Code's Journey</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>October 27, 2024</span>
+                    <span>•</span>
+                    <span>10 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>In recent years, software supply chain attacks have become a significant threat, demonstrating that even highly secure organizations can be compromised through vulnerabilities in their software dependencies. A software supply chain encompasses everything that goes into delivering software to users, from source code and open-source components to build tools, CI/CD pipelines, and deployment infrastructure. Securing this entire chain is paramount to protecting your applications and users.</p>
+
+                <h2>What is a Software Supply Chain Attack?</h2>
+                <p>A software supply chain attack occurs when an attacker infiltrates any part of the software delivery process to inject malicious code or compromise the integrity of the software before it reaches the end-user. This could involve compromising open-source libraries, build systems, code repositories, or update mechanisms.</p>
+
+                <h2>Key Areas of Software Supply Chain Vulnerability</h2>
+                <h3>1. Open-Source Software (OSS) and Third-Party Dependencies</h3>
+                <p>Most modern applications rely heavily on open-source libraries and third-party components. These can contain known vulnerabilities (CVEs) or be intentionally backdoored by malicious actors (typosquatting, dependency confusion).</p>
+
+                <h3>2. Build and CI/CD Pipelines</h3>
+                <p>Compromised build servers, CI/CD tools, or misconfigured pipelines can allow attackers to inject malicious code into compiled artifacts or tamper with deployment processes.</p>
+
+                <h3>3. Source Code Repositories</h3>
+                <p>Weak access controls or compromised developer accounts can lead to unauthorized modifications of source code in Git repositories.</p>
+
+                <h3>4. Software Artifacts and Registries</h3>
+                <p>Vulnerabilities in package registries (e.g., npm, PyPI, Docker Hub) or compromised artifacts stored within them can lead to the distribution of malicious software.</p>
+
+                <h3>5. Developer Environments</h3>
+                <p>Compromised developer workstations can be a vector for injecting malicious code into the supply chain.</p>
+
+                <h2>Best Practices for Software Supply Chain Security</h2>
+                <h3>1. Software Composition Analysis (SCA)</h3>
+                <p>Use SCA tools to automatically identify and inventory all open-source and third-party components in your application. Continuously scan these components for known vulnerabilities and licensing issues.</p>
+
+                <h3>2. Secure Your Build Pipeline</h3>
+                <p>Implement strong access controls for CI/CD tools. Use immutable build environments. Sign your build artifacts to ensure their integrity. Implement least privilege for build agents.</p>
+
+                <h3>3. Code Signing and Verification</h3>
+                <p>Digitally sign your code and artifacts to verify their authenticity and integrity. Implement mechanisms to verify these signatures before deployment.</p>
+
+                <h3>4. Source Code Security</h3>
+                <p>Implement secure coding practices, conduct regular code reviews, and use Static Application Security Testing (SAST) tools to identify vulnerabilities in your own code. Enforce strong access controls on code repositories.</p>
+
+                <h3>5. Dependency Pinning and Auditing</h3>
+                <p>Pin your dependencies to specific versions to prevent unexpected updates. Regularly audit your dependencies for changes and potential malicious activity.</p>
+
+                <h3>6. Supply Chain Visibility (SBOM)</h3>
+                <p>Generate a Software Bill of Materials (SBOM) for your applications. An SBOM is a formal, machine-readable inventory of ingredients that make up software components, including open-source and commercial components.</p>
+
+                <h3>7. Runtime Protection</h3>
+                <p>Implement runtime application self-protection (RASP) or other runtime security measures to detect and block attacks even if vulnerabilities exist.</p>
+
+                <h2>Conclusion</h2>
+                <p>Software supply chain security is a complex but critical challenge in modern software development. By adopting a holistic approach that secures every stage of the supply chain—from source code and dependencies to build and deployment—organizations can significantly reduce their exposure to sophisticated attacks. It requires continuous vigilance, automation, and a commitment to security throughout the entire software delivery lifecycle.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

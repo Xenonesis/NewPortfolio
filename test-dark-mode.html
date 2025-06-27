@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Test</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        /* Light mode (default) */
+        body {
+            background-color: #fefce8; /* bg-yellow-50 equivalent */
+            color: #1f2937; /* text-gray-800 equivalent */
+        }
+        
+        footer {
+            background-color: #fefce8; /* bg-yellow-50 equivalent */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer .text-gray-600 {
+            color: #4b5563;
+        }
+        
+        /* Dark mode styles */
+        .dark body {
+            background-color: #121212;
+            color: #e4e4e4;
+        }
+        
+        .dark footer,
+        .dark footer.bg-yellow-50 {
+            background-color: #1e1e1e !important;
+            color: #e4e4e4 !important;
+        }
+        
+        .dark footer .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        
+        button {
+            background-color: #1d4ed8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dark Mode Footer Test</h1>
+    <p>This is a simplified test to verify that footer dark mode styling works correctly.</p>
+    
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button onclick="checkFooterStyles()">Check Footer Styles</button>
+    
+    <footer class="bg-yellow-50">
+        <div class="text-gray-600">
+            <p>This is a test footer with text-gray-600 class</p>
+            <p>Footer background should change from light yellow to dark gray in dark mode</p>
+            <p>Text should change from dark gray to light gray in dark mode</p>
+        </div>
+    </footer>
+    
+    <div id="debug-info" style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px;">
+        <h3>Debug Information:</h3>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            updateStatus();
+            
+            // Force footer style update (same as in main page)
+            const footer = document.querySelector('footer');
+            const isDark = document.documentElement.classList.contains('dark');
+            if (footer && isDark) {
+                footer.style.backgroundColor = '#1e1e1e';
+                footer.style.color = '#e4e4e4';
+            } else if (footer) {
+                footer.style.backgroundColor = '';
+                footer.style.color = '';
+            }
+        }
+        
+        function checkFooterStyles() {
+            const footer = document.querySelector('footer');
+            const computedStyles = window.getComputedStyle(footer);
+            const textElement = footer.querySelector('.text-gray-600');
+            const textStyles = window.getComputedStyle(textElement);
+            
+            console.log('Footer background:', computedStyles.backgroundColor);
+            console.log('Footer color:', computedStyles.color);
+            console.log('Text color:', textStyles.color);
+            
+            document.getElementById('status').innerHTML += `
+                <p><strong>Footer Background:</strong> ${computedStyles.backgroundColor}</p>
+                <p><strong>Footer Color:</strong> ${computedStyles.color}</p>
+                <p><strong>Text Color:</strong> ${textStyles.color}</p>
+                <hr>
+            `;
+        }
+        
+        function updateStatus() {
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('status').innerHTML = `
+                <p><strong>Dark Mode Active:</strong> ${isDark}</p>
+                <p><strong>HTML Classes:</strong> ${document.documentElement.className}</p>
+            `;
+        }
+        
+        // Initial status
+        updateStatus();
+    </script>
+</body>
+</html>

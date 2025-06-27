@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Pipelines Explained: Automating Your Software Delivery</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">CI/CD Pipelines Explained: Automating Your Software Delivery</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>March 3, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In the fast-paced world of software development, delivering high-quality software quickly and reliably is crucial. This is where CI/CD pipelines come into play. CI/CD, which stands for Continuous Integration and Continuous Delivery/Deployment, is a set of practices that automates the stages of software delivery, from code commit to production deployment.</p>
+
+                <h2>What is a CI/CD Pipeline?</h2>
+                <p>A CI/CD pipeline is an automated process that takes code changes from developers, runs them through various tests, and then prepares them for release or deploys them to production. It's a core component of DevOps, enabling teams to deliver software more frequently and with greater confidence.</p>
+
+                <h2>Components of a CI/CD Pipeline</h2>
+                <h3>1. Continuous Integration (CI)</h3>
+                <p>CI is the practice of frequently integrating code changes from multiple developers into a central repository. Each integration is then verified by an automated build and automated tests. The goal is to detect integration errors early and quickly.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Build:</strong> Compiling code, running linters, and packaging the application.</li>
+                    <li><strong>Test:</strong> Running unit tests, integration tests, and sometimes static code analysis.</li>
+                </ul>
+
+                <h3>2. Continuous Delivery (CD)</h3>
+                <p>Continuous Delivery is the practice of ensuring that software can be released to production at any time. After the CI stage, the application is automatically prepared for release, including packaging and configuration, and is ready for manual deployment to production.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Release:</strong> Creating a deployable artifact (e.g., Docker image, JAR file).</li>
+                    <li><strong>Staging/UAT Deployment:</strong> Deploying the artifact to a staging or User Acceptance Testing (UAT) environment for further testing and validation.</li>
+                </ul>
+
+                <h3>3. Continuous Deployment (CD)</h3>
+                <p>Continuous Deployment takes Continuous Delivery a step further by automatically deploying every change that passes all stages of the pipeline to production, without human intervention. This requires a high level of confidence in automated testing and monitoring.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Production Deployment:</strong> Automatically deploying the validated artifact to the live production environment.</li>
+                </ul>
+
+                <h2>Benefits of CI/CD Pipelines</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Faster Release Cycles:</strong> Automates repetitive tasks, allowing for more frequent deployments.</li>
+                    <li><strong>Improved Code Quality:</strong> Early detection of bugs and integration issues.</li>
+                    <li><strong>Reduced Risk:</strong> Smaller, more frequent changes are less risky than large, infrequent releases.</li>
+                    <li><strong>Better Collaboration:</strong> Encourages developers to integrate code often, reducing merge conflicts.</li>
+                    <li><strong>Increased Efficiency:</strong> Frees up developers and operations teams to focus on more complex tasks.</li>
+                    <li><strong>Faster Feedback:</strong> Quick feedback loops on code changes and their impact.</li>
+                </ul>
+
+                <h2>Popular CI/CD Tools</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Jenkins</li>
+                    <li>GitLab CI/CD</li>
+                    <li>GitHub Actions</li>
+                    <li>CircleCI</li>
+                    <li>Travis CI</li>
+                    <li>Azure DevOps Pipelines</li>
+                    <li>AWS CodePipeline</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>CI/CD pipelines are indispensable for modern software development. By automating the build, test, and deployment processes, they enable teams to deliver software faster, more reliably, and with higher quality. Embracing CI/CD is a key step towards achieving true DevOps maturity and staying competitive in today's digital landscape.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Containerization: Docker and Kubernetes</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Introduction to Containerization: Docker and Kubernetes</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>August 21, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>Containerization has become a cornerstone of modern software development and deployment, especially in DevOps environments. It offers a lightweight, portable, and efficient way to package applications and their dependencies, ensuring they run consistently across different computing environments. The two most prominent technologies in this space are Docker and Kubernetes.</p>
+
+                <h2>What is Containerization?</h2>
+                <p>Containerization is a form of operating system virtualization where applications are bundled with their own libraries and dependencies, creating a self-contained unit that can run anywhere. Unlike virtual machines (VMs), containers share the host OS kernel, making them much lighter and faster to start.</p>
+
+                <h2>Docker: The Container Platform</h2>
+                <p>Docker is an open-source platform that enables developers to build, ship, and run applications inside containers. It provides a simple and powerful way to create Docker images (read-only templates that contain the application and its environment) and run them as Docker containers.</p>
+                <h3>Key Concepts in Docker:</h3>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Dockerfile:</strong> A text file that contains instructions for building a Docker image.</li>
+                    <li><strong>Image:</strong> A lightweight, standalone, executable package of software that includes everything needed to run an application.</li>
+                    <li><strong>Container:</strong> A runnable instance of an image. You can create, start, stop, move, or delete a container.</li>
+                    <li><strong>Docker Hub:</strong> A cloud-based registry service for sharing and managing Docker images.</li>
+                </ul>
+
+                <h2>Kubernetes: The Container Orchestrator</h2>
+                <p>While Docker is excellent for creating and running individual containers, managing a large number of containers across multiple servers can become complex. This is where Kubernetes comes in. Kubernetes (often abbreviated as K8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.</p>
+                <h3>Key Concepts in Kubernetes:</h3>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Pod:</strong> The smallest deployable unit in Kubernetes, representing a single instance of a running process in your cluster. A Pod can contain one or more containers.</li>
+                    <li><strong>Deployment:</strong> An object that manages a set of identical Pods, ensuring that a specified number of replicas are always running.</li>
+                    <li><strong>Service:</strong> An abstract way to expose an application running on a set of Pods as a network service.</li>
+                    <li><strong>Node:</strong> A worker machine in a Kubernetes cluster, which can be a virtual or physical machine.</li>
+                    <li><strong>Cluster:</strong> A set of nodes that run containerized applications.</li>
+                </ul>
+
+                <h2>Why Use Containerization?</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Portability:</strong> Containers run consistently across different environments (development, testing, production).</li>
+                    <li><strong>Efficiency:</strong> Lighter than VMs, leading to faster startup times and better resource utilization.</li>
+                    <li><strong>Scalability:</strong> Easily scale applications up or down by deploying or removing containers.</li>
+                    <li><strong>Isolation:</strong> Applications and their dependencies are isolated from each other and the host system.</li>
+                    <li><strong>Faster Deployment:</strong> Streamlined CI/CD pipelines enable quicker releases.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Containerization, powered by tools like Docker and orchestrated by Kubernetes, has transformed how software is built, deployed, and managed. It provides a robust and agile foundation for modern applications, enabling developers and operations teams to work more efficiently and deliver value faster. Understanding these technologies is essential for anyone involved in contemporary software development and infrastructure management.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

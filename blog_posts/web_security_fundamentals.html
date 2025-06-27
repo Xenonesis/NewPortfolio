@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Security Fundamentals: Protecting Your Web Applications</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Web Security Fundamentals: Protecting Your Web Applications</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>April 15, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>Web applications are at the forefront of digital interaction, but they are also prime targets for cyberattacks. From data breaches to service disruptions, vulnerabilities in web applications can have severe consequences. Understanding and implementing fundamental web security practices is essential for developers to build robust and secure applications that protect user data and maintain trust.</p>
+
+                <h2>The OWASP Top 10</h2>
+                <p>The Open Web Application Security Project (OWASP) Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications. Familiarizing yourself with these risks is the first step towards building secure applications.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Broken Access Control</li>
+                    <li>Cryptographic Failures</li>
+                    <li>Injection (e.g., SQL Injection, XSS)</li>
+                    <li>Insecure Design</li>
+                    <li>Security Misconfiguration</li>
+                    <li>Vulnerable and Outdated Components</li>
+                    <li>Identification and Authentication Failures</li>
+                    <li>Software and Data Integrity Failures</li>
+                    <li>Security Logging and Monitoring Failures</li>
+                    <li>Server-Side Request Forgery (SSRF)</li>
+                </ul>
+
+                <h2>Core Web Security Principles</h2>
+                <h3>1. Input Validation and Sanitization</h3>
+                <p>Never trust user input. All data received from clients (forms, URL parameters, headers, cookies) must be validated against expected formats, types, and lengths. Sanitize input to remove or neutralize potentially malicious characters or code before processing or displaying it.</p>
+
+                <h3>2. Authentication and Session Management</h3>
+                <p>Implement strong authentication mechanisms (e.g., strong passwords, MFA). Securely manage user sessions by using secure, randomly generated session IDs, setting appropriate cookie flags (`HttpOnly`, `Secure`, `SameSite`), and implementing session timeouts.</p>
+
+                <h3>3. Authorization and Access Control</h3>
+                <p>Ensure that authenticated users can only access resources and perform actions for which they are authorized. Implement granular access control mechanisms (e.g., Role-Based Access Control - RBAC) and enforce them on the server-side.</p>
+
+                <h3>4. Data Protection (Encryption)</h3>
+                <p>Encrypt sensitive data both in transit (using HTTPS/TLS for all communication) and at rest (encrypting databases, files, and backups). Use strong, up-to-date cryptographic algorithms.</p>
+
+                <h3>5. Error Handling and Logging</h3>
+                <p>Implement robust error handling that provides generic error messages to users, avoiding the disclosure of sensitive system information. Implement comprehensive logging of security-relevant events (e.g., login attempts, access failures) and monitor these logs for suspicious activity.</p>
+
+                <h3>6. Security Headers</h3>
+                <p>Utilize HTTP security headers (e.g., Content-Security-Policy (CSP), X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security) to enhance browser-side security and mitigate common attacks.</p>
+
+                <h3>7. Secure Dependencies</h3>
+                <p>Keep all libraries, frameworks, and third-party components up to date to patch known vulnerabilities. Regularly scan your dependencies for security flaws.</p>
+
+                <h3>8. Regular Security Testing</h3>
+                <p>Conduct regular security audits, vulnerability assessments, and penetration testing (manual and automated) to identify and remediate vulnerabilities before attackers can exploit them.</p>
+
+                <h2>Conclusion</h2>
+                <p>Web security is an ongoing commitment, not a one-time task. By understanding common vulnerabilities (like those in the OWASP Top 10) and consistently applying fundamental security principles—input validation, strong authentication, proper authorization, data encryption, and continuous monitoring—developers can significantly enhance the security posture of their web applications. Building security into every stage of the development lifecycle is key to protecting users and maintaining a trustworthy online presence.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

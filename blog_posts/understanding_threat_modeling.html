@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Threat Modeling: Proactive Security Design</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Understanding Threat Modeling: Proactive Security Design</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>May 29, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>In the world of cybersecurity, being reactive to threats is no longer sufficient. Proactive security measures are essential, and one of the most effective is threat modeling. Threat modeling is a structured approach to identifying potential threats, vulnerabilities, and countermeasures within a system or application. It helps teams understand where their systems are most vulnerable and how to mitigate risks before they are exploited.</p>
+
+                <h2>What is Threat Modeling?</h2>
+                <p>Threat modeling is a process by which potential threats, such as structural vulnerabilities or the absence of appropriate safeguards, can be identified, enumerated, and prioritized. It's a systematic way to analyze the security of an application by identifying assets, potential attackers, and their possible attack vectors. The goal is to understand "what could go wrong" and "what we can do about it."</p>
+
+                <h2>Why is Threat Modeling Important?</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Early Detection:</strong> Identifies security flaws in the design phase, where they are cheapest and easiest to fix.</li>
+                    <li><strong>Proactive Security:</strong> Shifts security from a reactive "fix it later" approach to a proactive "build it securely" mindset.</li>
+                    <li><strong>Risk Prioritization:</strong> Helps teams focus on the most critical threats and allocate resources effectively.</li>
+                    <li><strong>Improved Design:</strong> Leads to more secure and resilient system architectures.</li>
+                    <li><strong>Compliance:</strong> Aids in meeting regulatory and industry security standards.</li>
+                    <li><strong>Enhanced Communication:</strong> Fosters collaboration between development, security, and operations teams.</li>
+                </ul>
+
+                <h2>Common Threat Modeling Methodologies</h2>
+                <h3>1. STRIDE</h3>
+                <p>Developed by Microsoft, STRIDE is a widely used methodology that categorizes threats based on six types:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>S</strong>poofing: Impersonating someone or something.</li>
+                    <li><strong>T</strong>ampering: Modifying data.</li>
+                    <li><strong>R</strong>epudiation: Denying an action.</li>
+                    <li><strong>I</strong>nformation Disclosure: Exposing sensitive data.</li>
+                    <li><strong>D</strong>enial of Service: Making a system unavailable.</li>
+                    <li><strong>E</strong>levation of Privilege: Gaining unauthorized higher-level access.</li>
+                </ul>
+
+                <h3>2. DREAD</h3>
+                <p>Often used in conjunction with STRIDE for risk ranking. It assesses threats based on five factors:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>D</strong>amage potential</li>
+                    <li><strong>R</strong>eproducibility</li>
+                    <li><strong>E</strong>xploitability</li>
+                    <li><strong>A</strong>ffected users</li>
+                    <li><strong>D</strong>iscoverability</li>
+                </ul>
+
+                <h3>3. PASTA (Process for Attack Simulation and Threat Analysis)</h3>
+                <p>A seven-step, risk-centric methodology that aims to align business objectives with technical requirements and identify and mitigate threats.</p>
+
+                <h3>4. LINDDUN</h3>
+                <p>Focuses specifically on privacy threats, categorizing them based on Linkability, Identifiability, Non-repudiation, Detectability, Disclosure of information, Unawareness, and Non-compliance.</p>
+
+                <h2>The Threat Modeling Process (General Steps)</h2>
+                <ol class="list-decimal list-inside ml-4">
+                    <li><strong>Define the System:</strong> Understand what you are building, its components, data flows, and trust boundaries. (e.g., using Data Flow Diagrams - DFDs).</li>
+                    <li><strong>Identify Threats:</strong> Brainstorm potential threats using methodologies like STRIDE.</li>
+                    <li><strong>Identify Vulnerabilities:</strong> Map threats to specific vulnerabilities in the system's design or implementation.</li>
+                    <li><strong>Determine Countermeasures:</strong> Propose security controls and mitigations to address identified vulnerabilities.</li>
+                    <li><strong>Verify Effectiveness:</strong> Ensure that the implemented countermeasures are effective.</li>
+                    <li><strong>Document and Iterate:</strong> Document the threat model and revisit it as the system evolves.</li>
+                </ol>
+
+                <h2>Conclusion</h2>
+                <p>Threat modeling is a powerful and essential practice for building secure software. By systematically identifying and analyzing potential threats early in the development lifecycle, teams can design more resilient systems, reduce security risks, and ultimately deliver more trustworthy applications. Integrating threat modeling into your development process is a significant step towards a proactive and mature security posture.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

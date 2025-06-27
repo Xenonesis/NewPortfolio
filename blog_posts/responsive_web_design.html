@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design: Building for Every Screen</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Responsive Web Design: Building for Every Screen</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>July 14, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In today's multi-device world, users access websites from a vast array of screens: desktops, laptops, tablets, and smartphones, each with different sizes and resolutions. Responsive Web Design (RWD) is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes. It's about creating a single website that adapts gracefully to its environment.</p>
+
+                <h2>What is Responsive Web Design?</h2>
+                <p>RWD is a design philosophy that aims to provide an optimal viewing and interaction experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices. This is achieved through a mix of flexible grids and layouts, images, and an intelligent use of CSS media queries.</p>
+
+                <h2>Key Principles of Responsive Web Design</h2>
+                <h3>1. Fluid Grids</h3>
+                <p>Instead of fixed-width layouts, responsive designs use fluid grids, which are built using relative units like percentages or `em`s. This allows the layout to stretch or shrink based on the viewport size.</p>
+                <pre><code class="language-css">
+.container {
+    width: 90%; /* Fluid width */
+    max-width: 1200px; /* Max width to prevent excessive stretching */
+    margin: 0 auto;
+}
+.column {
+    float: left;
+    width: 30%; /* Fluid column width */
+    margin-right: 5%;
+}
+                </code></pre>
+
+                <h3>2. Flexible Images and Media</h3>
+                <p>Images and other media (videos, iframes) should also scale proportionally to their containing elements. This is typically achieved by setting `max-width: 100%;` and `height: auto;` on images.</p>
+                <pre><code class="language-css">
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below image */
+}
+                </code></pre>
+
+                <h3>3. Media Queries</h3>
+                <p>Media queries are CSS rules that allow you to apply different styles based on device characteristics, such as screen width, height, orientation, and resolution. They are the backbone of responsive design, enabling layouts to change at specific breakpoints.</p>
+                <pre><code class="language-css">
+/* Styles for screens smaller than 768px */
+@media (max-width: 767px) {
+    .column {
+        width: 100%; /* Stack columns on small screens */
+        float: none;
+        margin-right: 0;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+/* Styles for screens between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .column {
+        width: 48%;
+        margin-right: 4%;
+    }
+    .column:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+                </code></pre>
+
+                <h3>4. Mobile-First Approach</h3>
+                <p>It's often recommended to design and develop for mobile devices first, then progressively enhance the design for larger screens. This ensures a solid foundation for smaller devices and helps prioritize content and performance.</p>
+
+                <h2>Benefits of Responsive Web Design</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Improved User Experience:</strong> Provides an optimal viewing experience across all devices.</li>
+                    <li><strong>Cost-Effective:</strong> One website to maintain instead of separate mobile and desktop versions.</li>
+                    <li><strong>SEO Benefits:</strong> Google recommends RWD as it makes it easier for search engines to crawl and index your site.</li>
+                    <li><strong>Future-Proof:</strong> Adapts to new devices and screen sizes as they emerge.</li>
+                    <li><strong>Increased Reach:</strong> Accessible to a wider audience, regardless of their device.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Responsive Web Design is no longer just a trend; it's a fundamental requirement for modern web development. By embracing fluid grids, flexible media, and media queries, developers can create websites that provide a seamless and enjoyable experience for users on any device, ensuring broader reach and better engagement.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

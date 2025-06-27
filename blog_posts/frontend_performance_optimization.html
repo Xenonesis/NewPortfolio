@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Performance Optimization: Making Your Websites Blazing Fast</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Frontend Performance Optimization: Making Your Websites Blazing Fast</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>July 27, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In today's digital landscape, website performance is paramount. Users expect fast-loading, highly responsive experiences, and search engines like Google prioritize performance in their ranking algorithms. Frontend performance optimization involves a set of techniques to improve how quickly web pages load and become interactive for users. A faster website leads to better user engagement, higher conversion rates, and improved SEO.</p>
+
+                <h2>Why Frontend Performance Matters</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>User Experience:</strong> Slow websites frustrate users, leading to high bounce rates.</li>
+                    <li><strong>SEO:</strong> Search engines favor fast-loading sites, impacting visibility.</li>
+                    <li><strong>Conversion Rates:</strong> Faster sites often translate to higher sales or sign-ups.</li>
+                    <li><strong>Accessibility:</strong> Ensures a good experience for users on slower networks or older devices.</li>
+                </ul>
+
+                <h2>Key Frontend Performance Optimization Techniques</h2>
+                <h3>1. Optimize Images</h3>
+                <p>Images are often the largest contributors to page size.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Compress Images:</strong> Use tools like TinyPNG or ImageOptim to reduce file size without significant quality loss.</li>
+                    <li><strong>Choose Right Format:</strong> Use WebP for modern browsers, JPEG for photos, PNG for graphics with transparency.</li>
+                    <li><strong>Lazy Loading:</strong> Load images only when they are about to enter the viewport.</li>
+                    <li><strong>Responsive Images:</strong> Serve different image sizes based on the user's device and screen resolution using `srcset` and `sizes` attributes.</li>
+                </ul></p>
+
+                <h3>2. Minify CSS and JavaScript</h3>
+                <p>Remove unnecessary characters (whitespace, comments) from your CSS and JavaScript files to reduce their file size. This makes them faster to download and parse.</p>
+                <pre><code class="language-javascript">
+// Before minification
+function greet(name) {
+    // This is a comment
+    console.log("Hello, " + name + "!");
+}
+
+// After minification
+function greet(name){console.log("Hello, "+name+"!")}
+                </code></pre>
+
+                <h3>3. Leverage Browser Caching</h3>
+                <p>Configure your server to set appropriate HTTP caching headers (e.g., `Cache-Control`, `Expires`) for static assets (CSS, JS, images). This allows browsers to store these assets locally, so they don't need to be re-downloaded on subsequent visits.</p>
+
+                <h3>4. Reduce HTTP Requests</h3>
+                <p>Each request to the server adds latency.
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Combine Files:</strong> Merge multiple CSS or JavaScript files into single files (though HTTP/2 and HTTP/3 reduce the impact of this).</li>
+                    <li><strong>CSS Sprites:</strong> Combine multiple small images into a single larger image.</li>
+                    <li><strong>Inline Small Assets:</strong> Embed small CSS or SVG directly into HTML.</li>
+                </ul></p>
+
+                <h3>5. Optimize Critical Rendering Path</h3>
+                <p>Prioritize the content that is visible "above the fold" (the initial view without scrolling).
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Inline Critical CSS:</strong> Embed essential CSS directly in the HTML to render the initial view quickly.</li>
+                    <li><strong>Defer Non-Critical JavaScript:</strong> Use `defer` or `async` attributes for scripts that don't block initial page rendering.</li>
+                </ul></p>
+
+                <h3>6. Use a Content Delivery Network (CDN)</h3>
+                <p>CDNs distribute your static assets across multiple servers globally. When a user requests your site, assets are served from the server closest to them, reducing latency.</p>
+
+                <h3>7. Eliminate Render-Blocking Resources</h3>
+                <p>CSS and JavaScript files can block the browser from rendering the page. Identify and optimize these resources.</p>
+
+                <h2>Tools for Performance Analysis</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Google Lighthouse</li>
+                    <li>Google PageSpeed Insights</li>
+                    <li>WebPageTest</li>
+                    <li>Chrome DevTools (Performance tab)</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Frontend performance optimization is an ongoing process that significantly impacts user satisfaction and business success. By implementing these techniques and regularly monitoring your website's performance, you can ensure a fast, smooth, and engaging experience for all your users, regardless of their device or network conditions.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

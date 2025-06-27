@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAssembly (Wasm): Bringing High Performance to the Web</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">WebAssembly (Wasm): Bringing High Performance to the Web</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>March 15, 2025</span>
+                    <span>•</span>
+                    <span>12 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>For years, JavaScript has been the sole language for client-side web programming. While incredibly versatile, JavaScript has limitations, especially for computationally intensive tasks. Enter WebAssembly (Wasm), a low-level binary instruction format for a stack-based virtual machine. Wasm enables high-performance applications on the web, allowing code written in languages like C, C++, Rust, and Go to run directly in the browser at near-native speeds.</p>
+
+                <h2>What is WebAssembly?</h2>
+                <p>WebAssembly is not a programming language itself, but a compilation target. It's a compact binary format that can be executed by modern web browsers. It's designed to complement JavaScript, not replace it, enabling web applications to achieve performance levels previously only possible with native desktop applications.</p>
+
+                <h2>Key Features and Benefits of Wasm</h2>
+                <h3>1. High Performance</h3>
+                <p>Wasm is designed for efficient execution. Its binary format is compact, loads quickly, and is optimized for fast parsing and execution by the browser's JavaScript engine. This makes it ideal for demanding tasks like gaming, video editing, CAD applications, and scientific simulations.</p>
+
+                <h3>2. Language Agnostic</h3>
+                <p>Developers can write code in their preferred languages (C/C++, Rust, Go, C#, etc.) and compile it to Wasm. This allows leveraging existing codebases and expertise, bringing a wider range of applications to the web.</p>
+
+                <h3>3. Secure</h3>
+                <p>Wasm runs in a sandboxed environment, similar to JavaScript, providing strong memory safety and preventing malicious code from accessing unauthorized parts of the system.</p>
+
+                <h3>4. Open Web Standards</h3>
+                <p>Wasm is an open web standard developed by the W3C, ensuring broad browser support and a collaborative development process.</p>
+
+                <h3>5. Interoperability with JavaScript</h3>
+                <p>Wasm modules can call and be called by JavaScript functions, allowing developers to combine the strengths of both technologies. JavaScript can handle DOM manipulation and UI, while Wasm handles computationally intensive tasks.</p>
+
+                <h3>6. Small File Sizes</h3>
+                <p>The binary format of Wasm is very compact, leading to smaller download sizes and faster load times compared to equivalent JavaScript code.</p>
+
+                <h2>Use Cases for WebAssembly</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Gaming:</strong> Running high-performance 3D games directly in the browser.</li>
+                    <li><strong>Image/Video Editing:</strong> Performing complex image and video manipulations client-side.</li>
+                    <li><strong>CAD/CAM Applications:</strong> Bringing desktop-grade engineering tools to the web.</li>
+                    <li><strong>Scientific Visualization:</strong> Running complex simulations and rendering data.</li>
+                    <li><strong>Cryptocurrency Wallets/Mining:</strong> Executing cryptographic operations efficiently.</li>
+                    <li><strong>Augmented Reality/Virtual Reality:</strong> Powering immersive web experiences.</li>
+                    <li><strong>Porting Desktop Applications:</strong> Bringing existing desktop software to the web.</li>
+                </ul>
+
+                <h2>Getting Started with Wasm</h2>
+                <p>To use WebAssembly, you typically write code in a language like Rust or C++, compile it to a `.wasm` module using tools like Emscripten (for C/C++) or `wasm-pack` (for Rust), and then load and interact with the module using JavaScript in your web application.</p>
+
+                <h2>Conclusion</h2>
+                <p>WebAssembly is a game-changer for web development, unlocking new possibilities for performance-intensive applications directly in the browser. By enabling developers to leverage a wider range of programming languages and achieve near-native speeds, Wasm is expanding the capabilities of the web and paving the way for a new generation of rich, interactive, and powerful online experiences. It's an exciting technology that every web developer should keep an eye on.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>
