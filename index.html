@@ -1374,6 +1374,30 @@ function closePopup() {
             <p class="mt-4 text-gray-600">A chatbot developed for real estate inquiries, offering users assistance in finding properties. Ideal for chatbot development enthusiasts.</p>
             <a href="https://github.com/Xenonesis/Real-state-BOT.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
         </div>
+        <!-- Project Card 9 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="ai">
+            <h3 class="text-xl font-semibold">Juris.AI</h3>
+            <p class="mt-4 text-gray-600">An AI-driven legal assistance platform built with TypeScript. Ideal for exploring AI applications in legal tech.</p>
+            <a href="https://github.com/Xenonesis/Juris.AI" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        <!-- Project Card 10 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="team">
+            <h3 class="text-xl font-semibold">Team-Blitz</h3>
+            <p class="mt-4 text-gray-600">A collaborative platform for team projects, developed with TypeScript. Great for team collaboration tools.</p>
+            <a href="https://github.com/Xenonesis/Team-Blitz" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        <!-- Project Card 11 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="web">
+            <h3 class="text-xl font-semibold">webllm</h3>
+            <p class="mt-4 text-gray-600">A web-based project focusing on language model integration. Perfect for web development and AI enthusiasts.</p>
+            <a href="https://github.com/Xenonesis/webllm" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        <!-- Project Card 12 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="system">
+            <h3 class="text-xl font-semibold">sysmonrust</h3>
+            <p class="mt-4 text-gray-600">A system monitoring tool developed in Rust for performance tracking. Ideal for system programming enthusiasts.</p>
+            <a href="https://github.com/Xenonesis/sysmonrust" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
     </div>
 </section>
 
@@ -2120,8 +2144,8 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 </section>
 
 
-   <!-- Contact Section -->
-<section id="contact" class="p-10 bg-yellow-50 shadow-xl rounded-xl">
+<!-- Contact Section -->
+<section id="contact" class="p-10 bg-gradient-to-r from-yellow-50 to-yellow-100 shadow-xl rounded-xl">
     <h2 class="text-3xl font-bold text-gray-900 dark:text-black text-center animate__animated animate__fadeIn">Contact Me</h2>
     <p class="mt-4 text-lg text-gray-700 dark:text-gray-400 text-center animate__animated animate__fadeIn animate__delay-1s">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
     
@@ -2129,28 +2153,31 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
     <form class="mt-8 space-y-6 max-w-2xl mx-auto" method="POST" action="/submit" id="contact-form">
         <div class="space-y-4">
             <!-- Name Input -->
-            <input type="text" name="name" placeholder="Your Name" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your name" tabindex="1">
+            <div class="relative">
+                <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
+                <input type="text" name="name" placeholder="Your Name" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your name" tabindex="1">
+            </div>
             
             <!-- Email Input -->
-            <input type="email" name="email" placeholder="Your Email" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your email" tabindex="2">
+            <div class="relative">
+                <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
+                <input type="email" name="email" placeholder="Your Email" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your email" tabindex="2">
+            </div>
             
             <!-- Message Input -->
-            <textarea name="message" placeholder="Your Message" class="w-full p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your message" tabindex="3"></textarea>
+            <div class="relative">
+                <i class="fas fa-comment absolute left-3 top-5 text-gray-400 text-lg"></i>
+                <textarea name="message" placeholder="Your Message" rows="4" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your message" tabindex="3"></textarea>
+            </div>
         </div>
         
         <!-- Submit Button -->
         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" id="submit-btn" tabindex="4">
-            Send Message
+            <i class="fas fa-paper-plane mr-2"></i>Send Message
         </button>
     </form>
 
-    <!-- LinkedIn Link -->
-    <div class="mt-6 text-center">
-        <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition duration-300">
-            <i class="fab fa-linkedin text-2xl"></i>
-            <span>Direct Message Me on LinkedIn</span>
-        </a>
-    </div>
+    <!-- Removed Social Media Links as per request -->
 </section>
 
 <!-- Footer -->
