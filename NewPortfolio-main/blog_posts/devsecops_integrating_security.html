@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps: Integrating Security into the DevOps Pipeline</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">DevSecOps: Integrating Security into the DevOps Pipeline</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>December 19, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>As organizations embrace DevOps to accelerate software delivery, the need to integrate security earlier and more frequently into the development lifecycle has become paramount. This is the essence of DevSecOps: "Security as Code" or "Shift Left" security. It's about embedding security practices and considerations into every stage of the DevOps pipeline, rather than treating it as an afterthought.</p>
+
+                <h2>What is DevSecOps?</h2>
+                <p>DevSecOps is a cultural shift that aims to bake security into the entire software development lifecycle (SDLC), from initial design and development to testing, deployment, and operations. It promotes collaboration between development, security, and operations teams to ensure that security is a shared responsibility and is automated wherever possible.</p>
+
+                <h2>Why DevSecOps Matters</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Early Vulnerability Detection:</strong> Finding and fixing security flaws early in the development cycle is significantly cheaper and less disruptive.</li>
+                    <li><strong>Faster Remediation:</strong> Automated security checks and feedback loops enable quicker fixes.</li>
+                    <li><strong>Reduced Risk:</strong> Proactive security measures reduce the attack surface and likelihood of breaches.</li>
+                    <li><strong>Compliance:</strong> Helps meet regulatory requirements and industry standards.</li>
+                    <li><strong>Improved Collaboration:</strong> Fosters a security-aware culture across all teams.</li>
+                </ul>
+
+                <h2>Key Principles and Practices of DevSecOps</h2>
+                <h3>1. Shift Left Security</h3>
+                <p>Integrate security testing and practices as early as possible in the development process. This means security is considered during planning, design, and coding, not just before deployment.</p>
+
+                <h3>2. Automation</h3>
+                <p>Automate security testing and checks within the CI/CD pipeline. This includes:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Static Application Security Testing (SAST):</strong> Analyzes source code for vulnerabilities without executing the code.</li>
+                    <li><strong>Dynamic Application Security Testing (DAST):</strong> Tests running applications for vulnerabilities by simulating attacks.</li>
+                    <li><strong>Software Composition Analysis (SCA):</strong> Identifies vulnerabilities in open-source and third-party components.</li>
+                    <li><strong>Container Security Scanning:</strong> Scans Docker images for known vulnerabilities.</li>
+                    <li><strong>Infrastructure as Code (IaC) Security Scanning:</strong> Checks configuration files for security misconfigurations.</li>
+                </ul>
+
+                <h3>3. Continuous Monitoring and Feedback</h3>
+                <p>Monitor applications and infrastructure in production for security incidents and anomalies. Establish feedback loops to inform development teams about new threats or vulnerabilities discovered in production.</p>
+
+                <h3>4. Security Training and Awareness</h3>
+                <p>Educate developers and operations teams on secure coding practices, common vulnerabilities, and the importance of security in their daily work.</p>
+
+                <h3>5. Threat Modeling</h3>
+                <p>Proactively identify potential threats and vulnerabilities in the application's design and architecture early in the development cycle.</p>
+
+                <h3>6. Immutable Infrastructure</h3>
+                <p>Build new infrastructure for every deployment rather than modifying existing ones. This reduces configuration drift and ensures a consistent, secure environment.</p>
+
+                <h2>Implementing DevSecOps</h2>
+                <p>Implementing DevSecOps requires a cultural shift and the adoption of appropriate tools. It's an iterative process that involves integrating security tools into your existing CI/CD pipeline, automating security gates, and fostering a collaborative environment where security is everyone's responsibility.</p>
+
+                <h2>Conclusion</h2>
+                <p>DevSecOps is no longer optional; it's a necessity for organizations aiming to deliver secure software at the speed of DevOps. By embedding security into every phase of the software delivery pipeline, teams can build more resilient applications, reduce risks, and respond more effectively to the ever-evolving threat landscape. It's about making security an integral part of the development culture.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

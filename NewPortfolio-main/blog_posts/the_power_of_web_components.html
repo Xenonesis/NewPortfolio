@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power of Web Components: Building Reusable UI Elements</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">The Power of Web Components: Building Reusable UI Elements</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>October 3, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In modern web development, the concept of reusable components is central to building scalable and maintainable user interfaces. While popular frameworks like React, Vue, and Angular provide their own component models, Web Components offer a native, browser-standard way to create encapsulated, reusable HTML elements. They provide a powerful foundation for building design systems and sharing UI elements across different projects and frameworks.</p>
+
+                <h2>What are Web Components?</h2>
+                <p>Web Components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps. They are framework-agnostic, meaning they can be used with any JavaScript library or framework, or even with vanilla JavaScript.</p>
+
+                <h2>The Four Pillars of Web Components</h2>
+                <h3>1. Custom Elements</h3>
+                <p>Allows you to define your own HTML tags (e.g., `&lt;my-button&gt;`, `&lt;user-card&gt;`). You can define their behavior and lifecycle using JavaScript classes.</p>
+                <pre><code class="language-javascript">
+class MyButton extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: &#039;open&#039; });
+        this.shadowRoot.innerHTML = `&lt;button&gt;Click Me&lt;/button&gt;`;
+    }
+}
+customElements.define(&#039;my-button&#039;, MyButton);
+                </code></pre>
+
+                <h3>2. Shadow DOM</h3>
+                <p>Provides encapsulation for the component's internal structure, style, and behavior. Content inside the Shadow DOM is isolated from the main document's DOM, preventing styles and scripts from leaking in or out. This ensures the component behaves consistently regardless of where it's used.</p>
+                <pre><code class="language-html">
+&lt;my-button&gt;&lt;/my-button&gt;
+&lt;!-- The actual button and its styles are encapsulated within the Shadow DOM --&gt;
+                </code></pre>
+
+                <h3>3. HTML Templates (`&lt;template&gt;` and `&lt;slot&gt;`)</h3>
+                <p>The `&lt;template&gt;` tag allows you to declare fragments of markup that are inert until instantiated. The `&lt;slot&gt;` element is used within a Shadow DOM to create placeholders where consumers of your component can inject their own content.</p>
+                <pre><code class="language-html">
+&lt;template id="user-card-template"&gt;
+    &lt;style&gt;
+        .card { border: 1px solid #ccc; padding: 10px; }
+    &lt;/style&gt;
+    &lt;div class="card"&gt;
+        &lt;h3&gt;&lt;slot name="name"&gt;Default Name&lt;/slot&gt;&lt;/h3&gt;
+        &lt;p&gt;&lt;slot name="email"&gt;No Email&lt;/slot&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+                </code></pre>
+
+                <h3>4. ES Modules</h3>
+                <p>While not strictly part of Web Components, ES Modules (`import`/`export`) are the standard way to import and export JavaScript code, including your custom element definitions, ensuring modularity and reusability.</p>
+
+                <h2>Benefits of Web Components</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Reusability:</strong> Build once, use anywhere, across different projects and frameworks.</li>
+                    <li><strong>Encapsulation:</strong> Styles and behavior are isolated, preventing conflicts and ensuring consistency.</li>
+                    <li><strong>Interoperability:</strong> Work seamlessly with any JavaScript framework or library.</li>
+                    <li><strong>Native Browser Support:</strong> No need for large framework runtimes; they leverage built-in browser capabilities.</li>
+                    <li><strong>Long-term Viability:</strong> As a web standard, they are less prone to becoming obsolete compared to framework-specific components.</li>
+                </ul>
+
+                <h2>When to Use Web Components</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Building design systems or component libraries for multiple projects.</li>
+                    <li>Creating shareable UI widgets that need to work in diverse environments.</li>
+                    <li>When you need strong encapsulation for styles and behavior.</li>
+                    <li>For projects that want to minimize reliance on a single large framework.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Web Components provide a powerful, native foundation for building reusable and encapsulated UI elements. By leveraging Custom Elements, Shadow DOM, and HTML Templates, developers can create robust components that are truly interoperable and future-proof. While they don't replace the need for frameworks for application-level concerns, Web Components are an essential tool in the modern web developer's arsenal for building modular, maintainable, and scalable user interfaces.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

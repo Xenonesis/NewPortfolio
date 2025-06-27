@@ -1,0 +1,77 @@
+<!-- Experience Section -->
+<section id="experience" class="p-10 bg-gradient-to-r from-blue-100 via-yellow-100 to-pink-100">
+    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-600 pb-2 mb-6 transform hover:scale-105 transition-all duration-300">Professional Experience</h2>
+
+    <!-- Experience Entry 1 -->
+    <div class="mt-8 rounded-lg shadow-2xl bg-white p-6 transition-all hover:shadow-2xl hover:scale-105 hover:translate-y-2 transform duration-300 ease-in-out animate-slide-in-left">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-2 animate-fade-in hover:text-blue-800 transition-all duration-300">Mentor (Part-time)</h3>
+        <p class="text-gray-800 font-medium">JhaMobii Technologies Pvt. Ltd., Remote</p>
+        <p class="text-gray-600">Aug 2024 - Present</p>
+        <ul class="list-disc ml-6 mt-4 space-y-2 text-gray-700">
+            <li class="transform transition-all hover:translate-x-2">Provided technical mentorship in cybersecurity to junior professionals and interns.</li>
+            <li class="transform transition-all hover:translate-x-2">Guided team members through vulnerability assessments, threat analysis, and incident response strategies.</li>
+            <li class="transform transition-all hover:translate-x-2">Supported learners in mastering security frameworks, cloud security, and penetration testing.</li>
+            <li class="transform transition-all hover:translate-x-2">Ensured mentees understood best practices for securing networks and applications in real-world environments.</li>
+        </ul>
+    </div>
+
+    <!-- Experience Entry 2 -->
+    <div class="mt-10 rounded-lg shadow-2xl bg-white p-6 transition-all hover:shadow-2xl hover:scale-105 hover:translate-y-2 transform duration-300 ease-in-out animate-slide-in-right">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-2 hover:text-blue-800 transition-all duration-300">Cybersecurity Intern</h3>
+        <p class="text-gray-800 font-medium">Null, Remote</p>
+        <p class="text-gray-600">Jun 2024 - Present</p>
+        <ul class="list-disc ml-6 mt-4 space-y-2 text-gray-700">
+            <li class="transform transition-all hover:translate-x-2">Conducted vulnerability assessments and implemented robust network security protocols.</li>
+            <li class="transform transition-all hover:translate-x-2">Monitored network traffic and responded to security incidents with a focus on intrusion detection.</li>
+            <li class="transform transition-all hover:translate-x-2">Worked with remote teams to secure client systems, ensuring compliance with industry standards.</li>
+            <li class="transform transition-all hover:translate-x-2">Gained hands-on experience with SIEM tools, firewall configurations, and incident response strategies.</li>
+        </ul>
+    </div>
+
+    <!-- Experience Entry 3 -->
+    <div class="mt-10 rounded-lg shadow-2xl bg-white p-6 transition-all hover:shadow-2xl hover:scale-105 hover:translate-y-2 transform duration-300 ease-in-out animate-slide-in-left">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-2 hover:text-blue-800 transition-all duration-300">Cybersecurity and AI/ML Intern</h3>
+        <p class="text-gray-800 font-medium">Quantam Pvt. Ltd., Gurugram, Haryana</p>
+        <p class="text-gray-600">Oct 2024 - Present</p>
+        <ul class="list-disc ml-6 mt-4 space-y-2 text-gray-700">
+            <li class="transform transition-all hover:translate-x-2">Focused on hands-on projects in cybersecurity and AI/ML, applying theoretical knowledge to real-world challenges.</li>
+            <li class="transform transition-all hover:translate-x-2">Collaborated with the Counseling Team and worked under the guidance of a dedicated mentor.</li>
+            <li class="transform transition-all hover:translate-x-2">Enhanced understanding of cybersecurity protocols, AI/ML applications, confidentiality, and data protection.</li>
+            <li class="transform transition-all hover:translate-x-2">Gained insights into corporate ethics and best practices for data security in a professional environment.</li>
+        </ul>
+        <!-- Dropdown for Additional Details -->
+        <div class="mt-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 flex items-center" onclick="toggleDetails(this)">
+                <span>View Projects</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="dropdown-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div class="hidden mt-4 space-y-4 text-gray-700 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200" id="dropdown-content">
+                <div class="hover:bg-gray-100 p-2 rounded-md">
+                    <h4 class="font-semibold">SEO Optimized Website</h4>
+                    <p>An SEO-optimized website to improve search engine visibility using best practices. Perfect for SEO and digital marketing enthusiasts.</p>
+                    <a href="https://github.com/Xenonesis/SEO-Website.git" class="text-blue-500 underline hover:text-blue-700">View Repository</a>
+                </div>
+                <div class="hover:bg-gray-100 p-2 rounded-md">
+                    <h4 class="font-semibold">PropDekho</h4>
+                    <p>A real estate website that helps users find and explore properties easily. Ideal for those interested in real estate or property search.</p>
+                    <a href="https://github.com/Xenonesis/Propdekho.git" class="text-blue-500 underline hover:text-blue-700">View Repository</a>
+                </div>
+                <div class="hover:bg-gray-100 p-2 rounded-md">
+                    <h4 class="font-semibold">Real Estate Chatbot</h4>
+                    <p>A chatbot developed for real estate inquiries, offering users assistance in finding properties. Ideal for chatbot development enthusiasts.</p>
+                    <a href="https://github.com/Xenonesis/Real-state-BOT.git" class="text-blue-500 underline hover:text-blue-700">View Repository</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDetails(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('#dropdown-icon');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</section>

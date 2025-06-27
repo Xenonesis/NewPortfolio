@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git for DevOps: Version Control and Collaboration</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Git for DevOps: Version Control and Collaboration</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>January 13, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In the world of DevOps, where continuous integration, continuous delivery, and collaboration are key, Git stands out as an indispensable tool. Git is a distributed version control system that allows multiple developers to work on the same codebase simultaneously without conflicts, tracking every change and enabling seamless collaboration. For DevOps engineers, a strong understanding of Git is fundamental to managing code, automating pipelines, and ensuring smooth deployments.</p>
+
+                <h2>What is Git?</h2>
+                <p>Git is a free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. It tracks changes in source code during software development, enabling multiple developers to work together on non-linear development.</p>
+
+                <h2>Key Git Concepts for DevOps</h2>
+                <h3>1. Repositories (Repos)</h3>
+                <p>A Git repository is a central place where all the code, files, and revision history for a project are stored. It can be local (on your machine) or remote (e.g., GitHub, GitLab, Bitbucket).</p>
+
+                <h3>2. Commits</h3>
+                <p>A commit is a snapshot of your repository at a specific point in time. Each commit has a unique ID, a message describing the changes, and points to its parent commit(s).</p>
+                <pre><code class="language-bash">
+git add .
+git commit -m "Add new feature for user authentication"
+                </code></pre>
+
+                <h3>3. Branches</h3>
+                <p>Branches allow developers to work on new features or bug fixes in isolation from the main codebase. This prevents breaking the main application while development is ongoing.</p>
+                <pre><code class="language-bash">
+git branch feature/new-login
+git checkout feature/new-login
+                </code></pre>
+
+                <h3>4. Merging and Rebasing</h3>
+                <p><strong>Merging:</strong> Combines changes from one branch into another, creating a new merge commit.
+                <strong>Rebasing:</strong> Rewrites commit history to apply commits from one branch onto another, creating a cleaner, linear history.</p>
+                <pre><code class="language-bash">
+# Merge
+git checkout main
+git merge feature/new-login
+
+# Rebase
+git checkout feature/new-login
+git rebase main
+git checkout main
+git merge feature/new-login # Fast-forward merge
+                </code></pre>
+
+                <h3>5. Pull Requests / Merge Requests</h3>
+                <p>A mechanism to propose changes from one branch to another (e.g., from a feature branch to `main`). It facilitates code review and discussion before changes are integrated.</p>
+
+                <h3>6. GitFlow / Trunk-Based Development</h3>
+                <p>These are branching strategies. GitFlow is more complex with long-lived branches (feature, develop, release, hotfix, main). Trunk-based development uses a single main branch with short-lived feature branches, promoting continuous integration.</p>
+
+                <h3>7. Git Hooks</h3>
+                <p>Scripts that Git executes before or after events like committing or pushing. Useful for automating tasks like linting, testing, or enforcing commit message standards.</p>
+
+                <h2>Git's Role in DevOps Pipelines</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Source of Truth:</strong> Git repositories serve as the single source of truth for all code.</li>
+                    <li><strong>Triggering CI/CD:</strong> Code pushes to Git repositories often trigger automated CI/CD pipelines.</li>
+                    <li><strong>Infrastructure as Code (IaC):</strong> Configuration files for infrastructure (e.g., Terraform, Ansible) are version-controlled in Git.</li>
+                    <li><strong>Rollbacks:</strong> Git's history allows for easy rollbacks to previous stable versions in case of issues.</li>
+                    <li><strong>Collaboration:</strong> Facilitates seamless collaboration among development, operations, and security teams.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Git is more than just a version control system; it's a foundational tool that underpins the collaborative and automated nature of DevOps. By mastering Git's core concepts and integrating it effectively into your workflows, you can streamline development, improve code quality, and accelerate software delivery, making it an essential skill for any modern tech professional.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

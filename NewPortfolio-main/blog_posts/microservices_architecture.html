@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices Architecture: Building Scalable and Resilient Systems</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Microservices Architecture: Building Scalable and Resilient Systems</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>March 29, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>In the evolution of software architecture, microservices have emerged as a popular approach for building complex applications. Moving away from monolithic structures, microservices break down an application into a collection of small, independent, and loosely coupled services. Each service runs in its own process and communicates with others through lightweight mechanisms, typically HTTP APIs.</p>
+
+                <h2>What is Microservices Architecture?</h2>
+                <p>Microservices architecture is an architectural style that structures an application as a collection of small, autonomous services, modeled around a business domain. Each service is independently deployable, scalable, and maintainable. This contrasts with traditional monolithic architectures where all components are tightly coupled within a single, large application.</p>
+
+                <h2>Key Characteristics of Microservices</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Decentralized:</strong> Services are developed and deployed independently by small, cross-functional teams.</li>
+                    <li><strong>Loosely Coupled:</strong> Services communicate via APIs, minimizing dependencies between them.</li>
+                    <li><strong>Independent Deployment:</strong> Each service can be deployed, updated, or rolled back without affecting other services.</li>
+                    <li><strong>Technology Diversity:</strong> Different services can be written in different programming languages and use different databases, allowing teams to choose the best tool for the job.</li>
+                    <li><strong>Resilience:</strong> Failure in one service does not necessarily bring down the entire application.</li>
+                    <li><strong>Scalability:</strong> Individual services can be scaled independently based on their specific load requirements.</li>
+                </ul>
+
+                <h2>Benefits of Microservices</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Improved Scalability:</strong> Scale only the services that need it, optimizing resource usage.</li>
+                    <li><strong>Increased Agility:</strong> Faster development and deployment cycles for individual services.</li>
+                    <li><strong>Enhanced Resilience:</strong> Fault isolation prevents cascading failures.</li>
+                    <li><strong>Easier Maintenance:</strong> Smaller codebases are easier to understand, debug, and modify.</li>
+                    <li><strong>Technology Flexibility:</strong> Teams can use the best technology stack for each service.</li>
+                    <li><strong>Better Team Autonomy:</strong> Small teams can own and manage their services end-to-end.</li>
+                </ul>
+
+                <h2>Challenges of Microservices</h2>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong>Increased Complexity:</strong> Distributed systems are inherently more complex to design, develop, and operate.</li>
+                    <li><strong>Inter-service Communication:</strong> Managing communication (e.g., REST, gRPC, message queues) and data consistency across services can be challenging.</li>
+                    <li><strong>Distributed Data Management:</strong> Ensuring data consistency across multiple databases owned by different services.</li>
+                    <li><strong>Monitoring and Debugging:</strong> Tracing requests across multiple services requires sophisticated logging and monitoring tools.</li>
+                    <li><strong>Deployment Complexity:</strong> Orchestrating deployments of many independent services (often with Kubernetes).</li>
+                </ul>
+
+                <h2>When to Consider Microservices</h2>
+                <p>Microservices are not a silver bullet and may not be suitable for all projects. They are generally a good fit for:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Large, complex applications that need to scale independently.</li>
+                    <li>Organizations with multiple, autonomous teams.</li>
+                    <li>Applications with diverse technology requirements.</li>
+                    <li>When rapid, continuous delivery is a high priority.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Microservices architecture offers significant advantages in building scalable, resilient, and agile applications. While it introduces operational complexities, the benefits of independent deployment, technology flexibility, and improved team autonomy often make it a compelling choice for modern software development. Understanding its principles and challenges is key to successfully adopting this powerful architectural style.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

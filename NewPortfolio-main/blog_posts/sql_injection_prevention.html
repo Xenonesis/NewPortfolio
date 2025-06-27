@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection Prevention: Safeguarding Your Databases</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">SQL Injection Prevention: Safeguarding Your Databases</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>May 7, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>SQL Injection (SQLi) remains one of the most prevalent and dangerous web application vulnerabilities. It allows attackers to interfere with the queries that an application makes to its database, potentially leading to unauthorized data access, data manipulation, or even complete compromise of the database server. Understanding and implementing effective prevention techniques is crucial for any developer working with databases.</p>
+
+                <h2>What is SQL Injection?</h2>
+                <p>SQL Injection is a code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution (e.g., to dump the database contents to the attacker). It occurs when an application constructs SQL statements using user-supplied input without proper validation or sanitization.</p>
+
+                <h2>How SQL Injection Works (Example)</h2>
+                <p>Consider a login form where a user enters their username and password. A vulnerable application might construct a SQL query like this:</p>
+                <pre><code class="language-sql">
+SELECT * FROM users WHERE username = &#039;[username]&#039; AND password = &#039;[password]&#039;;
+                </code></pre>
+                <p>If an attacker enters `admin' OR '1'='1` as the username, the query becomes:</p>
+                <pre><code class="language-sql">
+SELECT * FROM users WHERE username = &#039;admin&#039; OR &#039;1&#039;=&#039;1&#039; AND password = &#039;[password]&#039;;
+                </code></pre>
+                <p>The `'1'='1'` condition is always true, allowing the attacker to bypass authentication and log in as the first user (often an administrator).</p>
+
+                <h2>Effective SQL Injection Prevention Techniques</h2>
+                <h3>1. Prepared Statements with Parameterized Queries (The Gold Standard)</h3>
+                <p>This is the most effective defense against SQL injection. Instead of directly embedding user input into the SQL query string, you define the query structure first and then pass user input as parameters. The database engine then distinguishes between code and data.</p>
+                <pre><code class="language-php">
+// PHP PDO example
+$stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+$stmt->bindParam(&#039;:username&#039;, $username);
+$stmt->bindParam(&#039;:password&#039;, $password);
+$stmt->execute();
+                </code></pre>
+                <pre><code class="language-python">
+# Python psycopg2 example
+cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+                </code></pre>
+
+                <h3>2. Stored Procedures</h3>
+                <p>If properly implemented, stored procedures can also prevent SQL injection. When using stored procedures, ensure that the parameters are strongly typed and that the procedure itself does not dynamically build SQL queries using concatenated strings.</p>
+
+                <h3>3. Input Validation and Sanitization (Secondary Defense)</h3>
+                <p>While not a primary defense against SQLi, validating and sanitizing user input is still crucial for overall security. This involves checking data types, lengths, and allowed characters. However, never rely solely on input validation for SQLi prevention.</p>
+
+                <h3>4. Principle of Least Privilege</h3>
+                <p>Grant database users only the minimum necessary permissions. For example, a web application user should only have `SELECT`, `INSERT`, `UPDATE`, and `DELETE` permissions on specific tables, not `DROP TABLE` or `GRANT` privileges.</p>
+
+                <h3>5. Web Application Firewalls (WAFs)</h3>
+                <p>A WAF can help detect and block SQL injection attempts by inspecting HTTP traffic. While WAFs provide an additional layer of defense, they should not be considered a replacement for secure coding practices.</p>
+
+                <h2>Conclusion</h2>
+                <p>SQL Injection is a severe vulnerability that can have devastating consequences. The most effective way to prevent it is by consistently using prepared statements with parameterized queries for all database interactions. Combined with other security practices like input validation, least privilege, and WAFs, you can significantly strengthen your application's defense against this persistent threat.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>

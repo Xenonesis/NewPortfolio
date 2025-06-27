@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolution of Frontend Frameworks: From jQuery to Modern SPAs</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
+                Aditya Kumar Tiwari
+            </a>
+            
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
+                    <span id="toggle-icon">🌙</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
+            <ul class="space-y-4">
+                <li><a href="../index.html" class="mobile-link">Home</a></li>
+                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="../index.html#about" class="mobile-link">About</a></li>
+                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <a href="../blog.html" class="back-to-blog">Back to Blog</a>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">The Evolution of Frontend Frameworks: From jQuery to Modern SPAs</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>June 23, 2024</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+            <div class="article-content">
+                <p>The landscape of frontend web development has undergone a dramatic transformation over the past two decades. What started with simple HTML and CSS, augmented by basic JavaScript, has evolved into a complex ecosystem dominated by powerful frameworks and libraries. This evolution has been driven by the need to build more interactive, dynamic, and scalable web applications. Let's take a journey through the key milestones in frontend framework evolution.</p>
+
+                <h2>The Early Days: Vanilla JS and jQuery</h2>
+                <p>In the early 2000s, JavaScript was primarily used for simple client-side validations and minor DOM manipulations. Writing complex interactive features was cumbersome due to browser inconsistencies and verbose native APIs.</p>
+                <h3>jQuery (2006)</h3>
+                <p>jQuery revolutionized frontend development by simplifying DOM manipulation, event handling, animation, and AJAX interactions across different browsers. Its concise syntax (`$`) made JavaScript development much more accessible and productive. While not a "framework" in the modern sense, it became the de facto standard for web development for many years.</p>
+                <pre><code class="language-javascript">
+// jQuery example
+$(&#039;#myButton&#039;).on(&#039;click&#039;, function() {
+    $(&#039;#myDiv&#039;).hide();
+});
+                </code></pre>
+
+                <h2>The Rise of MVC/MVVM Frameworks (Early 2010s)</h2>
+                <p>As web applications grew in complexity, managing state and data flow became challenging. This led to the adoption of architectural patterns like Model-View-Controller (MVC) and Model-View-ViewModel (MVVM) on the frontend.</p>
+                <h3>AngularJS (2010)</h3>
+                <p>Google's AngularJS was one of the first comprehensive MVC frameworks for the frontend. It introduced concepts like two-way data binding, directives, and dependency injection, making it easier to build large, structured single-page applications (SPAs).</p>
+                <h3>Backbone.js (2010), Ember.js (2011)</h3>
+                <p>Other early contenders that provided structure and patterns for building client-side applications.</p>
+
+                <h2>The Component-Based Revolution (Mid-2010s)</h2>
+                <p>The focus shifted from full-fledged frameworks to more modular, component-based libraries, emphasizing declarative UI and virtual DOM for performance.</p>
+                <h3>React (2013)</h3>
+                <p>Developed by Facebook, React introduced the concept of a virtual DOM and a component-based architecture. Its one-way data flow and declarative approach (`render` method) simplified UI development and made it highly performant. React's popularity soared, influencing many subsequent libraries.</p>
+                <pre><code class="language-jsx">
+// React example
+function Welcome(props) {
+    return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+ReactDOM.render(&lt;Welcome name="Sara" /&gt;, document.getElementById(&#039;root&#039;));
+                </code></pre>
+                <h3>Vue.js (2014)</h3>
+                <p>Created by Evan You, Vue.js offers a progressive framework that is approachable, performant, and versatile. It combines the best ideas from React (component-based) and AngularJS (two-way data binding, directives) with a simpler API, making it a popular choice for many developers.</p>
+                <h3>Angular (2016 - Angular 2+)</h3>
+                <p>A complete rewrite of AngularJS, Angular (without "JS") is a comprehensive platform for building complex enterprise-grade applications. It's a full-fledged framework with a strong opinionated structure, TypeScript support, and a rich ecosystem.</p>
+
+                <h2>Modern Trends and Beyond</h2>
+                <h3>Server-Side Rendering (SSR) & Static Site Generation (SSG)</h3>
+                <p>Frameworks like Next.js (React), Nuxt.js (Vue), and SvelteKit (Svelte) combine the benefits of SPAs with improved SEO and initial load performance by rendering content on the server or at build time.</p>
+                <h3>Web Components</h3>
+                <p>A set of web platform APIs that allow you to create reusable custom elements with encapsulated functionality. While not a framework, they provide a native way to build components.</p>
+                <h3>Svelte (2016)</h3>
+                <p>A radical departure from traditional frameworks, Svelte is a compiler that converts your components into highly optimized vanilla JavaScript at build time, resulting in tiny bundles and blazing-fast performance.</p>
+
+                <h2>Conclusion</h2>
+                <p>The evolution of frontend frameworks reflects the growing demands for richer, faster, and more maintainable web experiences. From the simplicity of jQuery to the power of modern component-based libraries and compilers, each generation has pushed the boundaries of what's possible in the browser. Staying updated with these advancements is key for any frontend developer looking to build cutting-edge web applications.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script functionality moved to blog-script.js -->
+</body>
+</html>
