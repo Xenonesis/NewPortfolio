@@ -1,207 +1,139 @@
-/* Testimonial Animations */
-.testimonial-slide {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
+/* Skill Cards */
+.skill-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes fadeUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.skill-icon {
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
-.testimonial-slide.animate-fade-in {
-    animation: fadeUp 0.6s ease-out forwards;
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
-.testimonial-slide p {
-    transition: all 0.3s ease;
+.skill-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e40af;
 }
 
-.testimonial-slide:hover p {
-    transform: scale(1.02);
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Navigation Button Animations */
-#prev-btn, #next-btn {
-    transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
-    background: rgba(59, 130, 246, 0.9);
+.skill-tags span {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
 }
 
-#prev-btn:hover, #next-btn:hover {
-    background: rgba(37, 99, 235, 1);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+.skill-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Testimonial Container Effects */
-#testimonial-carousel {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.skill-tools span {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
 }
 
-/* Quote Icon Animation */
-.testimonial-slide::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: -10px;
-    font-size: 4em;
-    color: rgba(59, 130, 246, 0.2);
-    font-family: serif;
-    animation: floatQuote 3s ease-in-out infinite;
+.skill-progress {
+  background: #e5e7eb;
+  height: 0.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
 }
 
-@keyframes floatQuote {
-    0%, 100% {
-        transform: translateY(0) rotate(-10deg);
-    }
-    50% {
-        transform: translateY(-10px) rotate(-5deg);
-    }
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  transition: width 1s ease;
 }
 
-/* Author Attribution Animation */
-.testimonial-slide .text-right {
+/* Skill Card Colors */
+.skill-card:nth-child(1) .skill-icon {
+  color: #3b82f6;
+}
+
+.skill-card:nth-child(2) .skill-icon {
+  color: #10b981;
+}
+
+.skill-card:nth-child(3) .skill-icon {
+  color: #8b5cf6;
+}
+
+.skill-card:nth-child(4) .skill-icon {
+  color: #f59e0b;
+}
+
+.skill-card:nth-child(5) .skill-icon {
+  color: #0ea5e9;
+}
+
+.skill-card:nth-child(6) .skill-icon {
+  color: #6b7280;
+}
+
+/* Animations */
+@keyframes cardEntrance {
+  from {
     opacity: 0;
-    animation: slideIn 0.5s ease-out 0.3s forwards;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Popup Styles */
-#popup {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 50;
+.skill-card {
+  animation: cardEntrance 0.6s ease-out;
 }
 
-#popup .popup-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    animation: fadeIn 0.5s ease-out;
+.skill-card:nth-child(1) {
+  animation-delay: 0.1s;
 }
 
-#popup .popup-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.skill-card:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-#popup .popup-content p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+.skill-card:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
-#popup .popup-content .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+.skill-card:nth-child(4) {
+  animation-delay: 0.4s;
 }
 
-#popup .popup-content .social-links a {
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+.skill-card:nth-child(5) {
+  animation-delay: 0.5s;
 }
 
-#popup .popup-content .social-links a:hover {
-    color: #007bff;
-}
-
-#popup .popup-content .countdown {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-#popup .popup-content .close-btn {
-    background: #007bff;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background 0.3s ease;
-}
-
-#popup .popup-content .close-btn:hover {
-    background: #0056b3;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    #popup .popup-content {
-        padding: 1.5rem;
-    }
-
-    #popup .popup-content h3 {
-        font-size: 1.25rem;
-    }
-
-    #popup .popup-content p {
-        font-size: 0.875rem;
-    }
-
-    #popup .popup-content .social-links a {
-        font-size: 1.25rem;
-    }
-
-    #popup .popup-content .close-btn {
-        padding: 0.5rem 1rem;
-    }
-}
-
-/* Fade-in and Fade-out Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-fade-out {
-    animation: fadeOut 0.5s ease-out forwards;
+.skill-card:nth-child(6) {
+  animation-delay: 0.6s;
 }

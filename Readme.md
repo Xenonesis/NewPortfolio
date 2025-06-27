@@ -1,14 +1,14 @@
 <!--
 ╔════════════════════════════════════════════════════════════════╗
 ║                                                              ║
-║        🌟 Aditya's Portfolio Website — Version 36 🌟         ║
+║        🌟 Aditya's Portfolio Website — Version 37 🌟         ║
 ║                                                              ║
 ╚════════════════════════════════════════════════════════════════╝
 -->
 
 # 🚀 Aditya's Portfolio Website
 
-> **Version 36**  
+> **Version 37**  
 > _A showcase of modern UI/UX, accessibility, and best practices for web projects_
 
 ---
@@ -19,7 +19,7 @@
 ![Responsive](https://img.shields.io/badge/Responsive-Design-29b6f6?style=for-the-badge)
 ![Dark Mode](https://img.shields.io/badge/Dark%20Mode-Enabled-22223b?style=for-the-badge)
 ![Accessibility](https://img.shields.io/badge/Accessibility-AA%20WCAG%202.2-43a047?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-36-success?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-37-success?style=for-the-badge)
 
 </div>
 
@@ -63,7 +63,7 @@
 ## 🆕 Latest Updates
 
 - **June 27, 2025**  
-  - UI/UX overhaul for version 36: improved color contrast, spacing, and animation smoothness.
+  - UI/UX overhaul for version 37: improved color contrast, spacing, and animation smoothness.
   - Enhanced accessibility (WCAG 2.2 compliance).
   - Optimized mobile navigation and touch gestures.
   - Performance improvements for faster load and interaction.
@@ -130,13 +130,13 @@ project-root/
 - **Versioning & Release**:  
   - Tag releases for traceability:
     ```sh
-    git tag -a v36 -m "Release version 36"
+    git tag -a v37 -m "Release version 37"
     git push --tags
     ```
   - Compare versions:
     ```sh
-    git log v35..v36
-    git diff v35..v36
+    git log v35..v37
+    git diff v35..v37
     ```
 
 - **Documentation**:  

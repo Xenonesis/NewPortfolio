@@ -142,6 +142,90 @@ body {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Enhanced hover shadow */
 }
 
+/* Footer Dark Mode Styles - Higher Specificity */
+html.dark footer,
+html.dark footer.bg-yellow-50,
+.dark footer,
+.dark footer.bg-yellow-50,
+body.dark footer,
+body.dark footer.bg-yellow-50 {
+    background-color: #1e1e1e !important; /* Ensure footer background changes in dark mode */
+    color: #e4e4e4 !important; /* Ensure footer text is light in dark mode */
+}
+
+/* Additional specificity for Tailwind override */
+.dark .bg-yellow-50 {
+    background-color: #1e1e1e !important;
+}
+
+/* Dark footer class for JavaScript enforcement */
+.dark-footer {
+    background-color: #1e1e1e !important;
+    color: #e4e4e4 !important;
+}
+
+.dark-footer .text-gray-600,
+.dark-footer .text-gray-800 {
+    color: #9ca3af !important;
+}
+
+.dark-footer a {
+    color: #9ca3af !important;
+}
+
+.dark-footer a:hover {
+    color: #e4e4e4 !important;
+}
+
+/* Light mode footer enforcement */
+.light-footer {
+    background-color: #fefce8 !important;
+    color: #374151 !important;
+}
+
+.light-footer .text-gray-600,
+.light-footer .text-gray-800 {
+    color: #4b5563 !important;
+}
+
+.light-footer a {
+    color: #4b5563 !important;
+}
+
+html.dark footer .text-gray-600,
+html.dark footer .text-gray-800,
+.dark footer .text-gray-600,
+.dark footer .text-gray-800 {
+    color: #9ca3af !important; /* Ensure footer text is visible in dark mode */
+}
+
+html.dark footer a,
+html.dark footer a.text-gray-600,
+.dark footer a,
+.dark footer a.text-gray-600 {
+    color: #9ca3af !important; /* Ensure footer links are visible in dark mode */
+}
+
+html.dark footer a:hover,
+.dark footer a:hover {
+    color: #e4e4e4 !important; /* Brighter color on hover */
+}
+
+/* Social media icon specific colors in dark mode */
+html.dark footer a:hover i.fa-linkedin-in,
+.dark footer a:hover i.fa-linkedin-in {
+    color: #0077b5 !important; /* LinkedIn blue */
+}
+
+html.dark footer a:hover i.fa-instagram,
+.dark footer a:hover i.fa-instagram {
+    color: #e1306c !important; /* Instagram pink */
+}
+
+html.dark footer a:hover i.fa-github,
+.dark footer a:hover i.fa-github {
+    color: #f0f6fc !important; /* GitHub light */
+}
 
 /* Animations */
 body, button, input, iframe {
@@ -282,6 +366,164 @@ html {
         transition: all 0.4s ease-in-out; /* Faster animations for smaller devices */
     }
 }
+
+    /* Tech Stack Logo Styles */
+    .tech-logo {
+        position: relative;
+        padding: 1rem;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .tech-logo:hover {
+        transform: translateY(-10px) scale(1.1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .tech-logo::before {
+        content: attr(data-tech);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .tech-logo:hover::before {
+        opacity: 1;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+
+    .tech-logo:nth-child(2n) {
+        animation-delay: -1s;
+    }
+
+    .tech-logo:nth-child(3n) {
+        animation-delay: -2s;
+    }
+
+    /* Skill Card Enhancements */
+    .skill-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .skill-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .skill-card:hover::before {
+        left: 100%;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-icon {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .skill-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-tags span {
+        background: #f0f8ff;
+        color: #2563eb;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        border: 1px solid #e0e7ff;
+    }
+
+    .skill-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-tools span {
+        background: #f0fdf4;
+        color: #16a34a;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        border: 1px solid #dcfce7;
+    }
+
+    .skill-progress {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        border-radius: 4px;
+        transition: width 1s ease-in-out;
+        position: relative;
+    }
+
+    .progress-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
 
     /* Glowing effect */
     .skill-item:hover .progress-bar {
@@ -428,14 +670,66 @@ html {
         }
     });
 
-    // Dark mode toggle functionality
+    // Dark mode toggle functionality with localStorage support
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const toggleIcon = document.getElementById('toggle-icon');
 
-    darkModeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        toggleIcon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
-    });
+    // Function to apply the correct theme
+    const applyTheme = () => {
+        const isDark = localStorage.getItem('theme') === 'dark';
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '🌙';
+            }
+        }
+        
+        // Force footer style update will be handled by enforceFooterStyles
+    };
+
+    // Apply theme on initial load
+    applyTheme();
+    updateFooter();
+
+    // Event listener for the dark mode toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            // Save the user's preference to local storage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Update the toggle icon and apply theme
+            applyTheme();
+            updateFooter();
+        });
+    }
+
+    // Simple footer update function
+    function updateFooter() {
+        const footer = document.querySelector('footer');
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        if (footer) {
+            if (isDark) {
+                footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
+            } else {
+                footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
+            }
+        }
+    }
+
+    // Apply on page load
+    document.addEventListener('DOMContentLoaded', updateFooter);
 </script>
 
 <style>
@@ -685,163 +979,140 @@ html {
 
 <!-- Skills Section -->
 <section id="skills" class="p-10 bg-yellow-50">
-    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">Skills</h2>
+  <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-10">Skills & Expertise</h2>
 
-    <section class="p-6 md:p-10">
-        <!-- Advanced Skills -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Advanced</h3>
-          <div class="space-y-6">
-            <div
-              onmouseover="showMarks(this, 90)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>Digital Forensics</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full transition-all duration-1000"
-                  style="width: 90%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  90/100 marks
-                </span>
-              </div>
-            </div>
-            <div
-              onmouseover="showMarks(this, 85)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>HTML</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full transition-all duration-1000"
-                  style="width: 85%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  85/100 marks
-                </span>
-              </div>
-            </div>
-            <div
-              onmouseover="showMarks(this, 80)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>Linux</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full transition-all duration-1000"
-                  style="width: 80%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  80/100 marks
-                </span>
-              </div>
-            </div>
-          </div>
+  <!-- Tech Stack Showcase -->
+  <div class="mb-12">
+    <h3 class="text-2xl font-semibold mb-6 text-center">Tech Stack</h3>
+    
+    <!-- Cybersecurity Tools -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-blue-600">Cybersecurity</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="Kali Linux">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Kali Linux" class="w-10 h-10">
         </div>
-      
-        <!-- Intermediate Skills -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Intermediate</h3>
-          <div class="space-y-6">
-            <div
-              onmouseover="showMarks(this, 70)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>CSS</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-green-400 to-green-600 h-4 rounded-full transition-all duration-1000"
-                  style="width: 70%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  70/100 marks
-                </span>
-              </div>
-            </div>
-            <div
-              onmouseover="showMarks(this, 65)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>Python</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-green-400 to-green-600 h-4 rounded-full transition-all duration-1000"
-                  style="width: 65%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  65/100 marks
-                </span>
-              </div>
-            </div>
-          </div>
+        <div class="tech-logo" data-tech="Wireshark">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Wireshark_icon_new.png" alt="Wireshark" class="w-10 h-10">
         </div>
-      
-        <!-- Beginner Skills -->
-        <div>
-          <h3 class="text-2xl font-semibold mb-4">Beginner</h3>
-          <div class="space-y-6">
-            <div
-              onmouseover="showMarks(this, 50)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>JavaScript</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-red-400 to-red-600 h-4 rounded-full transition-all duration-1000"
-                  style="width: 50%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  50/100 marks
-                </span>
-              </div>
-            </div>
-            <div
-              onmouseover="showMarks(this, 45)"
-              onmouseout="hideMarks(this)"
-              onclick="showPopup(this)"
-              class="group cursor-pointer skill-item transform transition duration-300 hover:scale-105"
-            >
-              <p>Firebase</p>
-              <div class="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                <div
-                  class="progress-bar bg-gradient-to-r from-red-400 to-red-600 h-4 rounded-full transition-all duration-1000"
-                  style="width: 45%;"
-                ></div>
-                <span
-                  class="absolute inset-0 text-xs text-white flex justify-center items-center hidden"
-                >
-                  45/100 marks
-                </span>
-              </div>
-            </div>
-          </div>
+        <div class="tech-logo" data-tech="Metasploit">
+          <img src="https://www.kali.org/tools/metasploit-framework/images/metasploit-framework-logo.svg" alt="Metasploit" class="w-10 h-10">
         </div>
-      </section>
+        <div class="tech-logo" data-tech="Nmap">
+          <img src="https://nmap.org/images/nmap-logo-256x256.png" alt="Nmap" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- Programming Languages -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-green-600">Programming</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="JavaScript">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="C++">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Go">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="SQL">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-purple-600">Web Development</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="React">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Node.js">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Next.js">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="TailwindCSS">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="TailwindCSS" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="GraphQL">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- AI/ML -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-yellow-600">AI/ML</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="TensorFlow">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="PyTorch">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Pandas">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="NumPy">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="OpenCV">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- DevOps & Cloud -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-blue-400">DevOps & Cloud</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="Docker">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Kubernetes">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="AWS">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Google Cloud">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Azure">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- Operating Systems -->
+    <div class="mb-8">
+      <h4 class="text-lg font-medium mb-4 text-gray-600">Operating Systems</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="tech-logo" data-tech="Linux">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Ubuntu">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Windows">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="macOS">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="macOS" class="w-10 h-10">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
       
     <!-- Popup Modal -->
 <div id="popup" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
@@ -886,6 +1157,42 @@ html {
   
       
       <script>
+        // Tech Stack Logo Interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const techLogos = document.querySelectorAll('.tech-logo');
+            
+            techLogos.forEach((logo, index) => {
+                // Staggered animation on load
+                logo.style.animationDelay = `${index * 0.1}s`;
+                
+                // Click effect
+                logo.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Animate progress bars on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBars = entry.target.querySelectorAll('.progress-bar');
+                        progressBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 200);
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(document.getElementById('skills'));
+        });
+        
         function showMarks(element, score) {
   const span = element.querySelector('span');
   span.classList.remove('hidden');
@@ -1066,17 +1373,60 @@ function closePopup() {
 </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="p-10 bg-gray-50 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-center mb-10 border-b-4 border-blue-500 inline-block animate-fade-in">
-            Blog
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div class="bg-white p-5 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-xl font-bold">Blog Post Title</h3>
-                <p class="mt-4">A brief introduction to the blog post content.</p>
-                <a href="#" class="text-blue-500 mt-4 inline-block hover:underline">Read More</a>
+    <section id="blog" class="p-10 bg-yellow-50 animate-fade-in" aria-labelledby="blog-heading">
+        <div class="max-w-7xl mx-auto">
+            <h2 id="blog-heading" class="text-4xl font-bold text-center mb-8 border-b-4 border-blue-500 inline-block animate-slide-in">
+                Latest Blog Posts
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="relative bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group animate-fade-in delay-100 overflow-hidden">
+                    <!-- Shining overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-full group-hover:translate-x-full"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">Web Accessibility Basics</h3>
+                        <p class="text-gray-600 mb-4">Understanding the fundamentals of web accessibility and its importance in modern web development.</p>
+                        <a href="blog_posts/web_accessibility_basics.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors" aria-label="Read more about Web Accessibility Basics">
+                            Read More
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Glow effect -->
+                    <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);"></div>
+                </article>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">Web Security Fundamentals</h3>
+                    <p class="text-gray-600 mb-4">Exploring the core principles of web security and best practices for secure web development.</p>
+                    <a href="blog_posts/web_security_fundamentals.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        Read More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">The Rise of AI in Cybersecurity</h3>
+                    <p class="text-gray-600 mb-4">How artificial intelligence is transforming the cybersecurity landscape.</p>
+                    <a href="blog_posts/the_rise_of_ai_in_cybersecurity.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        Read More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <!-- Add more blog post cards as needed -->
+            <div class="text-center mt-12">
+                <a href="blog.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    View All Blog Posts
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 

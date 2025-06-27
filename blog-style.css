@@ -235,6 +235,7 @@ body {
     color: white;
     text-decoration: none;
     transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -249,88 +250,325 @@ body {
     font-size: 0.9rem;
 }
 
+/* Light Mode Styles (Default) */
+body:not(.dark) {
+    background-color: #fffbeb;
+    color: #1f2937;
+}
+
+:not(.dark) #blog {
+    background-color: transparent;
+}
+
+:not(.dark) .bg-yellow-50 {
+    background-color: #fffbeb;
+}
+
+:not(.dark) .bg-gray-100 {
+    background-color: #f3f4f6;
+}
+
+:not(.dark) .bg-white {
+    background-color: #ffffff;
+}
+
+/* Blog cards light mode */
+:not(.dark) .blog-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+:not(.dark) .blog-card:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Text colors light mode */
+:not(.dark) .text-gray-900 {
+    color: #111827;
+}
+
+:not(.dark) .text-gray-800 {
+    color: #1f2937;
+}
+
+:not(.dark) .text-gray-700 {
+    color: #374151;
+}
+
+:not(.dark) .text-gray-600 {
+    color: #4b5563;
+}
+
+:not(.dark) .text-gray-500 {
+    color: #6b7280;
+}
+
+/* Search bar light mode */
+:not(.dark) #blog-search {
+    background-color: #ffffff;
+    border-color: #d1d5db;
+    color: #1f2937;
+}
+
+:not(.dark) #blog-search::placeholder {
+    color: #6b7280;
+}
+
+:not(.dark) #blog-search:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Filter buttons light mode */
+:not(.dark) .filter-btn {
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+:not(.dark) .filter-btn:hover {
+    background-color: #f9fafb;
+}
+
+:not(.dark) .filter-btn.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* Navbar light mode */
+:not(.dark) .navbar {
+    background: linear-gradient(90deg, #fffbeb, #fef3c7);
+    border-bottom-color: #e5e7eb;
+}
+
+:not(.dark) .nav-link {
+    color: #374151;
+}
+
+:not(.dark) .mobile-link {
+    color: #374151;
+}
+
+/* Footer light mode */
+:not(.dark) .footer {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: white;
+}
+
+:not(.dark) footer {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: white;
+}
+
+/* Borders light mode */
+:not(.dark) hr {
+    border-color: #e5e7eb;
+}
+
+:not(.dark) .border {
+    border-color: #e5e7eb;
+}
+
+:not(.dark) .border-gray-300 {
+    border-color: #d1d5db;
+}
+
+/* Shadows light mode */
+:not(.dark) .shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+:not(.dark) .shadow-2xl {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
 /* Dark Mode Styles */
 .dark {
     background-color: #0f172a;
     color: #e2e8f0;
 }
 
-.dark .article-container {
-    background: #1e293b;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+/* Dark mode body and main sections */
+.dark body {
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
 }
 
-.dark .article-header {
-    border-bottom-color: #334155;
-}
-
-.dark .article-title {
-    color: #f1f5f9;
-}
-
-.dark .article-meta {
-    color: #94a3b8;
-}
-
-.dark .article-content {
-    color: #cbd5e1;
-}
-
-.dark .article-content h2 {
-    color: #f1f5f9;
-}
-
-.dark .article-content h3 {
-    color: #e2e8f0;
-}
-
-.dark .article-content strong {
-    color: #f1f5f9;
-}
-
-.dark .article-content code {
-    background: #334155;
-    color: #fbbf24;
+.dark #blog {
+    background-color: #0f172a !important;
 }
 
 .dark .bg-gray-100 {
-    background-color: #0f172a;
+    background-color: #1e293b !important;
 }
 
-.dark .bg-white {
-    background-color: #1e293b;
+.dark .bg-yellow-50 {
+    background-color: #0f172a !important;
 }
 
+/* Dark mode blog cards */
+.dark .blog-card {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .blog-card:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Dark mode text colors */
 .dark .text-gray-900 {
-    color: #f1f5f9;
+    color: #f1f5f9 !important;
 }
 
 .dark .text-gray-800 {
-    color: #e2e8f0;
+    color: #e2e8f0 !important;
+}
+
+.dark .text-gray-700 {
+    color: #cbd5e1 !important;
 }
 
 .dark .text-gray-600 {
-    color: #94a3b8;
+    color: #94a3b8 !important;
 }
 
-.dark .text-blue-700 {
-    color: #60a5fa;
+.dark .text-gray-500 {
+    color: #64748b !important;
 }
 
-.dark .text-blue-600 {
-    color: #3b82f6;
+/* Dark mode headings */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #f1f5f9 !important;
 }
 
-.dark .text-blue-500 {
-    color: #60a5fa;
+.dark .blog-title {
+    color: #f1f5f9 !important;
 }
 
+/* Dark mode search bar */
+.dark #blog-search {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+.dark #blog-search::placeholder {
+    color: #94a3b8 !important;
+}
+
+.dark #blog-search:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Dark mode filter buttons */
+.dark .filter-btn {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+    border: 1px solid #334155 !important;
+}
+
+.dark .filter-btn:hover {
+    background-color: #334155 !important;
+}
+
+.dark .filter-btn.active {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}
+
+/* Dark mode navbar */
+.dark .navbar {
+    background: linear-gradient(90deg, #1e293b, #0f172a) !important;
+    border-bottom-color: #334155 !important;
+}
+
+.dark .nav-link {
+    color: #e2e8f0 !important;
+}
+
+.dark .mobile-link {
+    color: #e2e8f0 !important;
+}
+
+/* Dark mode buttons */
 .dark .bg-blue-600 {
-    background-color: #2563eb;
+    background-color: #2563eb !important;
 }
 
-.dark .bg-gray-800 {
-    background-color: #1e293b;
+.dark .bg-blue-600:hover {
+    background-color: #1d4ed8 !important;
+}
+
+/* Dark mode borders and dividers */
+.dark hr {
+    border-color: #334155 !important;
+}
+
+.dark .border {
+    border-color: #334155 !important;
+}
+
+.dark .border-gray-300 {
+    border-color: #334155 !important;
+}
+
+/* Dark mode footer */
+.dark .footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    color: #e2e8f0 !important;
+}
+
+.dark footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    color: #e2e8f0 !important;
+}
+
+.dark .footer.bg-yellow-50 {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+}
+
+.dark footer.bg-yellow-50 {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+}
+
+.dark .copyright {
+    color: #94a3b8 !important;
+}
+
+/* Dark mode shadows */
+.dark .shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .shadow-2xl {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Dark mode for blog page body */
+.dark body.bg-yellow-50 {
+    background-color: #0f172a !important;
+}
+
+.dark section {
+    background-color: #0f172a !important;
+}
+
+.dark .blog-grid {
+    background-color: transparent !important;
+}
+
+/* Dark mode for all white backgrounds */
+.dark .bg-white {
+    background-color: #1e293b !important;
+}
+
+/* Override any remaining light backgrounds */
+.dark * {
+    scrollbar-color: #475569 #1e293b;
 }
 
 /* Responsive Design */
