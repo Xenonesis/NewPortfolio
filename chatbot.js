@@ -8,9 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const pdfUpload = document.getElementById('upload-pdf');
     const suggestedPromptsContainer = document.createElement('div');
 
+    // Add ARIA roles for accessibility
+    chatbot.setAttribute('role', 'dialog');
+    chatbot.setAttribute('aria-modal', 'true');
+    chatbot.setAttribute('aria-label', 'Chatbot window');
+    chatMessages.setAttribute('role', 'log');
+    chatMessages.setAttribute('aria-live', 'polite');
+    chatInput.setAttribute('aria-label', 'Type your message');
+    sendMessageButton.setAttribute('aria-label', 'Send message');
+    botClose.setAttribute('aria-label', 'Close chatbot');
+
     suggestedPromptsContainer.id = "suggested-prompts";
     suggestedPromptsContainer.className = "p-2 border-t border-gray-200 bg-gray-50 flex gap-2 flex-wrap overflow-x-auto";
     chatbot.appendChild(suggestedPromptsContainer);
+
+    // Add smooth open/close animation
+    chatbot.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1)';
+    chatbot.style.transform = chatbot.classList.contains('hidden') ? 'translateY(100%)' : 'translateY(0)';
+    chatbot.style.opacity = chatbot.classList.contains('hidden') ? '0' : '1';
 
     let responses = JSON.parse(localStorage.getItem('botResponses')) || {
         "hello": "Hi there! How can I assist you today?",
@@ -150,20 +165,55 @@ document.addEventListener('DOMContentLoaded', () => {
     displaySuggestedPrompts();
 
     botToggle.addEventListener('click', () => {
-        chatbot.classList.toggle('hidden');
-        if (!chatbot.classList.contains('hidden')) {
+        const isHidden = chatbot.classList.toggle('hidden');
+        if (!isHidden) {
+            chatbot.style.transform = 'translateY(0)';
+            chatbot.style.opacity = '1';
             displayWelcomeMessage();
+            setTimeout(() => chatInput.focus(), 200);
+        } else {
+            chatbot.style.transform = 'translateY(100%)';
+            chatbot.style.opacity = '0';
         }
-        chatInput.focus();
     });
 
     botClose.addEventListener('click', () => {
         chatbot.classList.add('hidden');
+        chatbot.style.transform = 'translateY(100%)';
+        chatbot.style.opacity = '0';
     });
 
     sendMessageButton.addEventListener('click', sendMessage);
     chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    // Keyboard accessibility: ESC to close, Tab trap
+    chatbot.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            chatbot.classList.add('hidden');
+            chatbot.style.transform = 'translateY(100%)';
+            chatbot.style.opacity = '0';
+            botToggle.focus();
+        }
+        // Trap focus inside chatbot
+        if (e.key === 'Tab') {
+            const focusable = chatbot.querySelectorAll('button, [tabindex]:not([tabindex="-1"]), input, select, textarea, a[href]');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        }
     });
 
     pdfUpload.addEventListener('change', async (event) => {
@@ -223,44 +273,123 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageElement = document.createElement('div');
         const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        messageElement.classList.add('p-2', 'rounded', 'mb-2', bgColor);
+        // Modern bubble style with fade-in animation
+        messageElement.classList.add('mb-2', 'flex', sender === 'Bot' ? 'justify-start' : 'justify-end', 'opacity-0', 'transition-opacity', 'duration-300');
+        setTimeout(() => messageElement.classList.remove('opacity-0'), 10);
+
+        // Avatar for sender
+        const avatar = document.createElement('div');
+        avatar.classList.add('w-4', 'h-4', 'flex-shrink-0', 'rounded-full', 'flex', 'items-center', 'justify-center', 'mr-2', 'mt-1');
+        if (sender === 'Bot') {
+            avatar.classList.add(
+              'bg-white/30', // glassmorphic background
+              'backdrop-blur-md',
+              'border', 'border-blue-300',
+              'shadow-lg',
+              'ring-2', 'ring-blue-400/60',
+              'relative',
+              'overflow-hidden',
+              'before:absolute', 'before:inset-0', 'before:rounded-full',
+              'before:bg-gradient-to-br', 'before:from-blue-400/40', 'before:to-blue-700/30',
+              'before:blur-md',
+              'after:absolute', 'after:inset-0', 'after:rounded-full',
+              'after:ring-2', 'after:ring-blue-400/40',
+              'justify-center', 'items-center'
+            );
+            // Even smaller SVG robot face with subtle animation
+            avatar.innerHTML = `
+              <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="z-index:1;position:relative;">
+                <defs>
+                  <radialGradient id="bot-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0.3"/>
+                  </radialGradient>
+                  <linearGradient id="bot-face" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#e0e7ef"/>
+                    <stop offset="1" stop-color="#60a5fa"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="16" cy="16" r="15" fill="url(#bot-glow)"/>
+                <ellipse cx="16" cy="18" rx="9" ry="7" fill="url(#bot-face)" stroke="#2563eb" stroke-width="1.5"/>
+                <ellipse cx="16" cy="12.5" rx="5.5" ry="3.5" fill="#fff" stroke="#60a5fa" stroke-width="1"/>
+                <circle cx="13.5" cy="18" r="1.3" fill="#2563eb">
+                  <animate attributeName="cy" values="18;17.7;18" dur="1.2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="18.5" cy="18" r="1.3" fill="#2563eb">
+                  <animate attributeName="cy" values="18;17.7;18" dur="1.2s" repeatCount="indefinite"/>
+                </circle>
+                <rect x="14.5" y="21" width="3" height="1.2" rx="0.6" fill="#2563eb" opacity="0.7">
+                  <animate attributeName="width" values="3;4;3" dur="1.5s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="15.25" y="7" width="1.5" height="2.5" rx="0.75" fill="#2563eb"/>
+              </svg>
+            `;
+        } else {
+            avatar.classList.add('bg-gradient-to-br', 'from-gray-200', 'to-gray-400', 'text-gray-900', 'font-bold', 'shadow');
+            avatar.textContent = userPreferences.name[0] ? userPreferences.name[0].toUpperCase() : 'U';
+        }
+
+        const bubble = document.createElement('div');
+        bubble.classList.add('p-3', 'rounded-2xl', 'shadow', 'max-w-[80%]', 'relative', bgColor, 'transition-colors', 'duration-200');
+        if (sender === 'Bot') {
+            bubble.classList.add('rounded-bl-none', 'border', 'border-gray-200', 'ring-2', 'ring-blue-100');
+        } else {
+            bubble.classList.add('rounded-br-none', 'border', 'border-blue-200', 'ring-2', 'ring-blue-50');
+        }
         // Prevent XSS by using textContent instead of innerHTML for user input
         const strongElement = document.createElement('strong');
         strongElement.textContent = `${sender}:`;
-        messageElement.appendChild(strongElement);
-        
+        bubble.appendChild(strongElement);
         const messageText = document.createTextNode(` ${message}`);
-        messageElement.appendChild(messageText);
-        
+        bubble.appendChild(messageText);
         const timestampDiv = document.createElement('div');
-        timestampDiv.classList.add('text-xs', 'text-gray-500');
+        timestampDiv.classList.add('text-xs', 'text-gray-400', 'mt-1', 'text-right');
         timestampDiv.textContent = timestamp;
-        messageElement.appendChild(timestampDiv);
-        
+        bubble.appendChild(timestampDiv);
+
+        // Layout: avatar left for bot, right for user
+        if (sender === 'Bot') {
+            messageElement.appendChild(avatar);
+            messageElement.appendChild(bubble);
+        } else {
+            messageElement.appendChild(bubble);
+            messageElement.appendChild(avatar);
+        }
+
         chatMessages.appendChild(messageElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Ensure latest message is visible
+        // Smooth scroll to bottom
+        chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+        // Auto-focus input after message
+        setTimeout(() => chatInput.focus(), 100);
+        // Highlight new bot message
+        if (sender === 'Bot') {
+            bubble.classList.add('bg-gradient-to-br', 'from-blue-50', 'to-blue-100');
+            setTimeout(() => bubble.classList.remove('bg-gradient-to-br', 'from-blue-50', 'to-blue-100'), 1200);
+        }
     }
 
     function requestFeedback(botResponse) {
         const feedbackElement = document.createElement('div');
-        feedbackElement.classList.add('p-2', 'rounded', 'bg-gray-100', 'flex', 'justify-between', 'items-center', 'mb-2');
+        feedbackElement.classList.add('p-2', 'rounded-xl', 'bg-gray-50', 'flex', 'justify-between', 'items-center', 'mb-2', 'shadow', 'border', 'border-gray-200');
 
         // Prevent XSS by using DOM elements instead of innerHTML
         const spanElement = document.createElement('span');
-        spanElement.classList.add('text-gray-600');
+        spanElement.classList.add('text-gray-700', 'font-medium');
         spanElement.textContent = 'Was this response helpful?';
         feedbackElement.appendChild(spanElement);
 
         const buttonContainer = document.createElement('div');
         const yesButton = document.createElement('button');
-        yesButton.classList.add('feedback-btn', 'bg-green-100', 'text-green-800', 'px-2', 'py-1', 'rounded', 'mr-2');
+        yesButton.classList.add('feedback-btn', 'bg-green-200', 'text-green-900', 'px-3', 'py-1', 'rounded-full', 'mr-2', 'focus:outline-none', 'focus:ring-2', 'focus:ring-green-400', 'transition', 'hover:bg-green-300');
         yesButton.setAttribute('data-feedback', 'yes');
+        yesButton.setAttribute('aria-label', 'Mark response as helpful');
         yesButton.textContent = '👍 Yes';
         buttonContainer.appendChild(yesButton);
 
         const noButton = document.createElement('button');
-        noButton.classList.add('feedback-btn', 'bg-red-100', 'text-red-800', 'px-2', 'py-1', 'rounded');
+        noButton.classList.add('feedback-btn', 'bg-red-200', 'text-red-900', 'px-3', 'py-1', 'rounded-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-red-400', 'transition', 'hover:bg-red-300');
         noButton.setAttribute('data-feedback', 'no');
+        noButton.setAttribute('aria-label', 'Mark response as not helpful');
         noButton.textContent = '👎 No';
         buttonContainer.appendChild(noButton);
 
@@ -283,13 +412,22 @@ document.addEventListener('DOMContentLoaded', () => {
         while (suggestedPromptsContainer.firstChild) {
             suggestedPromptsContainer.removeChild(suggestedPromptsContainer.firstChild);
         }
-        predefinedPrompts.forEach((prompt) => {
+        predefinedPrompts.forEach((prompt, idx) => {
             const promptButton = document.createElement('button');
             promptButton.textContent = prompt;
-            promptButton.className = "bg-blue-100 text-blue-800 px-2 py-1 text-sm rounded hover:bg-blue-200 cursor-pointer";
+            promptButton.className = "bg-blue-100 text-blue-900 px-3 py-1 text-sm rounded-full shadow border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 transition hover:bg-blue-200";
+            promptButton.setAttribute('tabindex', '0');
+            promptButton.setAttribute('aria-label', `Suggested prompt: ${prompt}`);
             promptButton.addEventListener('click', () => {
                 chatInput.value = prompt;
                 sendMessage();
+            });
+            promptButton.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    chatInput.value = prompt;
+                    sendMessage();
+                }
             });
             suggestedPromptsContainer.appendChild(promptButton);
         });
@@ -300,9 +438,61 @@ document.addEventListener('DOMContentLoaded', () => {
         if (responses[lowerCaseMessage]) {
             return responses[lowerCaseMessage];
         } else {
-            pendingQuestion = message; // Store question for user to answer
-            return `I don't know the answer to "${message}". Can you tell me what it means?`;
+            // Try to fetch response from Gemini API
+            try {
+                const geminiResponse = await fetchGeminiResponse(message);
+                if (geminiResponse) {
+                    responses[lowerCaseMessage] = geminiResponse;
+                    localStorage.setItem('botResponses', JSON.stringify(responses));
+                    return geminiResponse;
+                } else {
+                    pendingQuestion = message; // Store question for user to answer if API fails
+                    return `I don't know the answer to "${message}". Can you tell me what it means?`;
+                }
+            } catch (error) {
+                console.error('Error fetching from Gemini API:', error);
+                pendingQuestion = message; // Store question for user to answer if API fails
+                return `I don't know the answer to "${message}". Can you tell me what it means?`;
+            }
         }
+    }
+
+    async function fetchGeminiResponse(message) {
+        const apiKey = 'AIzaSyDHGFBVBC1EhgK_c8i4fHFso04iKWKPMUE';
+        const model = 'gemini-2.0-flash';
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+        
+        // Restrict the response to content from user's pages
+        const contextPrompt = "You are a chatbot for my personal portfolio website. Only provide information related to my content, projects, skills, and pages. Do not reference external sources or information beyond my website content.";
+        
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: `${contextPrompt}\nUser query: ${message}`
+                    }]
+                }]
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
+        }
+        
+        const data = await response.json();
+        if (data.candidates && data.candidates.length > 0 && data.candidates[0].content) {
+            const responseText = data.candidates[0].content.parts[0].text || 'Sorry, I could not generate a response.';
+            // Basic check to filter out responses that might reference external sources
+            if (responseText.toLowerCase().includes('external') || responseText.toLowerCase().includes('outside') || responseText.toLowerCase().includes('other source')) {
+                return 'Sorry, I can only provide information related to my portfolio. This response was blocked as it may reference external sources.';
+            }
+            return responseText;
+        }
+        return null;
     }
 
     function saveAnalyticsData() {
@@ -383,7 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function showTypingIndicator() {
         const typingIndicator = document.createElement('div');
         typingIndicator.id = 'typing-indicator';
-        typingIndicator.classList.add('p-2', 'rounded', 'mb-2', 'bg-gray-200', 'italic', 'text-gray-600');
+        typingIndicator.classList.add('p-2', 'rounded-xl', 'mb-2', 'bg-gray-100', 'italic', 'text-gray-600', 'shadow', 'max-w-[60%]');
+        typingIndicator.setAttribute('role', 'status');
         typingIndicator.textContent = 'Bot is typing...';
         chatMessages.appendChild(typingIndicator);
         chatMessages.scrollTop = chatMessages.scrollHeight;

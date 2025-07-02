@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Aditya</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        @keyframes progress {
+        0% { width: 0; }
+        100% { width: 100%; }
+    }
+    .animate-progress {
+        animation: progress 1.5s ease-in-out forwards;
+    }
+    @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        .animate-slide-in {
+            animation: slide-in 1s ease-out forwards;
+        }
+      /* General Styles */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Base Styles */
+.dark {
+    background-color: #121212; /* Overall dark background */
+    color: #e4e4e4; /* General light text for readability */
+}
+
+/* Background and Text Color Adjustments */
+.dark .bg-yellow-50,
+.dark .bg-gray-50 {
+    background-color: #1e1e1e; /* Darker background for sections in dark mode */
+}
+
+.dark .text-gray-800,
+.dark .text-gray-700 {
+    color: #d1d5db; /* Lighter gray text for higher contrast */
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500 {
+    color: #9ca3af; /* Muted text for less prominent areas */
+}
+
+.dark .text-blue-600 {
+    color: #60a5fa; /* Highlighted text for links */
+}
+
+.dark .hover\:text-yellow-300:hover {
+    color: #facc15; /* Bright yellow for important hover text */
+}
+
+.dark .hover\:text-gray-200:hover {
+    color: #e4e4e4; /* Light gray for subtle hover text */
+}
+
+.dark .text-white {
+    color: #f9fafb; /* For highlighted white text */
+}
+
+/* Background Colors */
+.dark .bg-white {
+    background-color: #262626; /* Dark card and container background */
+}
+
+.dark .bg-blue-600 {
+    background-color: #2563eb; /* Navbar and primary buttons */
+}
+
+.dark .hover\:bg-blue-600:hover {
+    background-color: #1d4ed8; /* Button hover background */
+}
+
+.dark .bg-blue-400 {
+    background-color: #60a5fa; /* Lighter blue for secondary buttons */
+}
+
+.dark .bg-blue-700 {
+    background-color: #1e3a8a; /* Darker blue for CTA buttons */
+}
+
+.dark .bg-gray-200 {
+    background-color: #374151; /* Muted background for low emphasis areas */
+}
+
+.dark .hover\:bg-gray-200:hover {
+    background-color: #2d2d2d; /* Card hover background in dark mode */
+}
+
+/* Gradients */
+.dark .bg-gradient-to-r {
+    background-image: linear-gradient(to right, #1d4ed8, #2563eb);
+}
+
+.dark .bg-gradient-to-b {
+    background-image: linear-gradient(to bottom, #1e293b, #111827);
+}
+
+/* Borders */
+.dark .border-blue-500 {
+    border-color: #3b82f6; /* Blue border for emphasized elements */
+}
+
+.dark .border-gray-200 {
+    border-color: #4b5563; /* Gray border for subtle separation */
+}
+
+/* Shadows */
+.dark .shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Strong shadow for depth */
+}
+
+.dark .hover\:shadow-lg:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Enhanced hover shadow */
+}
+
+/* Footer Dark Mode Styles - Higher Specificity */
+html.dark footer,
+html.dark footer.bg-yellow-50,
+.dark footer,
+.dark footer.bg-yellow-50,
+body.dark footer,
+body.dark footer.bg-yellow-50 {
+    background-color: #1e1e1e !important; /* Ensure footer background changes in dark mode */
+    color: #e4e4e4 !important; /* Ensure footer text is light in dark mode */
+}
+
+/* Additional specificity for Tailwind override */
+.dark .bg-yellow-50 {
+    background-color: #1e1e1e !important;
+}
+
+/* Dark footer class for JavaScript enforcement */
+.dark-footer {
+    background-color: #1e1e1e !important;
+    color: #e4e4e4 !important;
+}
+
+.dark-footer .text-gray-600,
+.dark-footer .text-gray-800 {
+    color: #9ca3af !important;
+}
+
+.dark-footer a {
+    color: #9ca3af !important;
+}
+
+.dark-footer a:hover {
+    color: #e4e4e4 !important;
+}
+
+/* Light mode footer enforcement */
+.light-footer {
+    background-color: #fefce8 !important;
+    color: #374151 !important;
+}
+
+.light-footer .text-gray-600,
+.light-footer .text-gray-800 {
+    color: #4b5563 !important;
+}
+
+.light-footer a {
+    color: #4b5563 !important;
+}
+
+html.dark footer .text-gray-600,
+html.dark footer .text-gray-800,
+.dark footer .text-gray-600,
+.dark footer .text-gray-800 {
+    color: #9ca3af !important; /* Ensure footer text is visible in dark mode */
+}
+
+html.dark footer a,
+html.dark footer a.text-gray-600,
+.dark footer a,
+.dark footer a.text-gray-600 {
+    color: #9ca3af !important; /* Ensure footer links are visible in dark mode */
+}
+
+html.dark footer a:hover,
+.dark footer a:hover {
+    color: #e4e4e4 !important; /* Brighter color on hover */
+}
+
+/* Social media icon specific colors in dark mode */
+html.dark footer a:hover i.fa-linkedin-in,
+.dark footer a:hover i.fa-linkedin-in {
+    color: #0077b5 !important; /* LinkedIn blue */
+}
+
+html.dark footer a:hover i.fa-instagram,
+.dark footer a:hover i.fa-instagram {
+    color: #e1306c !important; /* Instagram pink */
+}
+
+html.dark footer a:hover i.fa-github,
+.dark footer a:hover i.fa-github {
+    color: #f0f6fc !important; /* GitHub light */
+}
+
+/* Animations */
+body, button, input, iframe {
+    transition: all 0.3s ease-in-out; /* Smooth transition for all interactive elements */
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out forwards; /* Fade in animation for elements */
+}
+
+/* Progress Bar Glow Effect */
+.dark .skill-item:hover .progress-bar {
+    animation: glow 1s infinite alternate; /* Glowing effect for skill bars on hover */
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(96, 165, 250, 0.5), 0 0 20px rgba(96, 165, 250, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(96, 165, 250, 0.7), 0 0 30px rgba(96, 165, 250, 0.7);
+    }
+}
+
+
+/* Improved Hover Animations */
+button:hover, iframe:hover {
+    transform: scale(1.05); /* Slight enlargement */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+ /* General Scrollbar Customization */
+.custom-scrollbar {
+    scrollbar-width: thin; /* Standard for modern browsers */
+    scrollbar-color: linear-gradient(90deg, #63b3ed, #4299e1) #e5e5e5; /* Thumb and track colors */
+}
+
+/* Scrollbar Customization for Webkit Browsers */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Slightly smaller width for a cleaner look */
+    height: 8px; /* For horizontal scrollbars if needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #63b3ed, #4299e1); /* Gradient scrollbar for a modern look */
+    border-radius: 6px; /* Smooth thumb edges */
+    border: 2px solid #f9f9f9; /* Contrast border with track background */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Slightly lighter track for better contrast */
+    border-radius: 6px; /* Match track radius with thumb */
+}
+
+/* Specific Scrollbar Customization for #chat-messages */
+#chat-messages {
+    background-color: #ffffff; /* Light background */
+    color: #000000; /* Black text color */
+}
+#chat-messages::-webkit-scrollbar {
+    width: 10px; /* Wider scrollbar for accessibility */
+    height: 10px; /* Allow horizontal scrolling if needed */
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #63b3ed, #4299e1); /* Maintain modern gradient */
+    border-radius: 6px; /* Rounded scrollbar thumb */
+    border: 2px solid #f9f9f9; /* Adds border for improved visibility */
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background-color: #e5e5e5; /* Light background for contrast */
+    border-radius: 6px; /* Rounded edges for consistency */
+}
+
+/* Testimonials Animation */
+.testimonial-slide {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition with an ease-out effect */
+}
+
+/* Fade-In Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in {
+    animation: fade-in 1.2s ease-out forwards;
+}
+
+/* Bounce-In Animation for Chat Button */
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.animate-bounce-in {
+    animation: bounce-in 0.8s ease-out forwards;
+}
+
+/* Button Hover Effects */
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    #chat-messages {
+        background-color: #ffffff; /* Light background */
+        color: #000000; /* Black text color */
+    }
+    #chat-messages::-webkit-scrollbar {
+        width: 6px; /* Narrow scrollbar for mobile */
+    }
+    #chat-messages::-webkit-scrollbar-thumb {
+        background: #4299e1; /* Simpler scrollbar on smaller screens */
+    }
+    .testimonial-slide {
+        transition: all 0.4s ease-in-out; /* Faster animations for smaller devices */
+    }
+}
+
+    
+/* Dark Mode Gradient Backgrounds */
+.dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, #1e1e1e, #2d2d2d);
+}
+
+.dark .bg-white\/90 {
+    background-color: rgba(38, 38, 38, 0.9);
+}
+
+.dark .border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+    </style>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+   <!-- Enhanced Stylish Navbar -->
+<nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
+        <!-- Brand Name with Neon Glow -->
+        <a href="index.html" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+            <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
+        </a>
+
+        <!-- Links for Desktop -->
+        <ul class="hidden md:flex space-x-6 text-lg">
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+            <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+            <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+            <li><a href="index.html#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="index.html#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="videos.html" class="nav-link">Videos</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
+        <div class="flex items-center space-x-4">
+            <!-- Dark Mode Toggle with Glow -->
+            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+                <span id="toggle-icon">🌙</span>
+            </button>
+
+            <!-- Hamburger Menu -->
+            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110 rotate-infinite">
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <!-- Animated Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
+        <ul class="space-y-6 text-lg">
+            <li><a href="index.html#about" class="mobile-link">About</a></li>
+            <li><a href="index.html#skills" class="mobile-link">Skills</a></li>
+            <li><a href="index.html#experience" class="mobile-link">Experience</a></li>
+            <li><a href="index.html#projects" class="mobile-link">Projects</a></li>
+            <li><a href="index.html#blog" class="mobile-link">Blog</a></li>
+            <li><a href="index.html#achievements" class="mobile-link">Achievements</a></li>
+            <li><a href="index.html#certifications" class="mobile-link">Certifications</a></li>
+            <li><a href="videos.html" class="mobile-link">Videos</a></li>
+            <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Toggle mobile menu visibility with animation
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
+            mobileMenu.classList.add('animate-slide-in');
+        } else {
+            mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
+        }
+    });
+
+    // Dark mode toggle functionality with localStorage support
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    // Function to apply the correct theme
+    const applyTheme = () => {
+        const isDark = localStorage.getItem('theme') === 'dark';
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '🌙';
+            }
+        }
+        
+        // Force footer style update will be handled by enforceFooterStyles
+    };
+
+    // Apply theme on initial load
+    applyTheme();
+    updateFooter();
+
+    // Event listener for the dark mode toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            // Save the user's preference to local storage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Update the toggle icon and apply theme
+            applyTheme();
+            updateFooter();
+        });
+    }
+
+    // Simple footer update function
+    function updateFooter() {
+        const footer = document.querySelector('footer');
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        if (footer) {
+            if (isDark) {
+                footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
+            } else {
+                footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
+            }
+        }
+    }
+
+    // Apply on page load
+    document.addEventListener('DOMContentLoaded', updateFooter);
+</script>
+
+<style>
+    /* Gradient border for navbar */
+    .navbar {
+        border-bottom: 3px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, #ff00ff, #ffcc00);
+    }
+
+    /* Link hover effect with neon glow */
+    .nav-link {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        transition: all 0.4s ease;
+    }
+
+    .nav-link:hover {
+        color: yellow;
+        text-shadow: 0 0 15px yellow, 0 0 25px yellow, 0 0 35px yellow;
+        transform: scale(1.1);
+    }
+
+    /* Mobile menu link hover effect */
+    .mobile-link {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mobile-link:hover {
+        color: yellow;
+        text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+        transform: translateX(10px);
+    }
+
+    /* Mobile menu slide-in animation */
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .animate-slide-in {
+        animation: slide-in 0.3s ease-out;
+    }
+
+    /* Infinite rotation for Hamburger icon on activity */
+    .rotate-infinite {
+        animation: rotate-infinite 4s infinite linear;
+    }
+
+    @keyframes rotate-infinite {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+    <!-- Main Content -->
+    <main class="pt-20 page-enter">
+        <!-- Videos Section -->
+        <section class="p-10 bg-gradient-to-br from-yellow-50 to-orange-50 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute top-10 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-30 animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-pink-200 rounded-full opacity-20 animate-float-delayed"></div>
+            
+            <div class="relative z-10">
+                <h1 class="text-6xl font-bold text-center text-gray-800 mb-4 animate-slide-down">
+                    My Videos
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-blue-500 mx-auto mb-12 rounded-full animate-expand"></div>
+                
+                <!-- Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                    <!-- Video 1 - Work Introduction -->
+                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+                            <h3 class="text-2xl font-semibold text-gray-800">Work Introduction</h3>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+                            <iframe 
+                                src="https://www.youtube.com/embed/ScMzIvxBSi4" 
+                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
+                                allowfullscreen>
+                            </iframe>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">An introduction to my work and professional journey in cybersecurity and web development.</p>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-2">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                            <h3 class="text-2xl font-semibold text-gray-800">Project Showcase</h3>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+                            <iframe 
+                                src="https://www.youtube.com/embed/NlNcC5f47lI" 
+                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
+                                allowfullscreen>
+                            </iframe>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">A detailed showcase of my latest projects and technical implementations.</p>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-3">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
+                            <h3 class="text-2xl font-semibold text-gray-800">Tech Talk</h3>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+                            <iframe 
+                                src="https://www.youtube.com/embed/CF-G6f5qoUQ" 
+                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
+                                allowfullscreen>
+                            </iframe>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Insights and discussions about the latest trends in technology and cybersecurity.</p>
+                    </div>
+                </div>
+
+                <!-- Back to Home Button -->
+                <div class="text-center mt-12 stagger-4">
+                    <a href="index.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg btn-pulse">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-10 bg-yellow-50 shadow-2xl mt-10">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
+            <!-- Social Media Icons -->
+            <div class="flex space-x-6 justify-center md:justify-start">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+            </div>
+
+            <!-- Copyright Text -->
+            <div class="text-center md:text-right mt-4 md:mt-0 text-gray-600">
+                &copy; <span id="currentYear"></span> Aditya. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-update year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
