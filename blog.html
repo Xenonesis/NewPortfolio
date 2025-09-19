@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Aditya Kumar Tiwari</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./blog-style.css">
     <script src="./blog-script.js" defer></script>
-    <script src="./dark-mode.js" defer></script>
 </head>
 <body class="bg-yellow-50 text-gray-800">
-    <link rel="stylesheet" href="./blog-style.css">
     <style>
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(20px); }
@@ -36,26 +38,153 @@
         .animate-slide-in {
             animation: slide-in 1s ease-out forwards;
         }
+        
+        /* Include all the dark mode styles from main site */
+        /* General Styles */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Dark Mode Base Styles */
+        .dark {
+            background-color: #121212;
+            color: #e4e4e4;
+        }
+
+        .dark .bg-yellow-50,
+        .dark .bg-gray-50,
+        .dark .bg-gray-100 {
+            background-color: #1e1e1e;
+        }
+
+        .dark .text-gray-800,
+        .dark .text-gray-700,
+        .dark .text-gray-900 {
+            color: #d1d5db;
+        }
+
+        .dark .text-gray-600,
+        .dark .text-gray-500 {
+            color: #9ca3af;
+        }
+
+        .dark .text-blue-600 {
+            color: #60a5fa;
+        }
+
+        .dark .bg-white {
+            background-color: #262626;
+        }
+
+        .dark .bg-blue-600 {
+            background-color: #2563eb;
+        }
+
+        .dark .hover\:bg-blue-700:hover {
+            background-color: #1d4ed8;
+        }
+
+        .dark .bg-blue-700 {
+            background-color: #1e3a8a;
+        }
+
+        .dark .shadow-lg {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .dark .hover\:shadow-2xl:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Footer Dark Mode Styles */
+        html.dark footer,
+        .dark footer,
+        .dark footer.bg-yellow-50 {
+            background-color: #1e1e1e !important;
+            color: #e4e4e4 !important;
+        }
+
+        .dark footer .text-gray-600 {
+            color: #9ca3af !important;
+        }
+
+        .dark footer a {
+            color: #9ca3af !important;
+        }
+
+        .dark footer a:hover {
+            color: #e4e4e4 !important;
+        }
+
+        /* Filter button styles */
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: 2px solid transparent;
+            border-radius: 9999px;
+            background: #f3f4f6;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .dark .filter-btn {
+            background: #374151;
+            color: #d1d5db;
+        }
+
+        .dark .filter-btn:hover {
+            background: #4b5563;
+        }
+
+        .dark .filter-btn.active {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            color: #1f2937;
+        }
+
+        /* Expand underline animation */
+        @keyframes expand-underline {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        .animate-expand-underline {
+            animation: expand-underline 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
     </style>
 
     <!-- Enhanced Stylish Navbar -->
     <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
             <!-- Brand Name with Neon Glow -->
-            <a href="/" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
+            <a href="index.html" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
                 <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
             </a>
 
             <!-- Links for Desktop -->
             <ul class="hidden md:flex space-x-6 text-lg">
-                <li><a href="/#about" class="nav-link">About</a></li>
-                <li><a href="/#skills" class="nav-link">Skills</a></li>
-                <li><a href="/#experience" class="nav-link">Experience</a></li>
-                <li><a href="/#projects" class="nav-link">Projects</a></li>
-                <li><a href="/blog.html" class="nav-link">Blog</a></li>
-                <li><a href="/#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="/#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="/#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="index.html#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="videos.html" class="nav-link">Videos</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
 
             <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
@@ -75,44 +204,210 @@
         <!-- Animated Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
             <ul class="space-y-6 text-lg">
-                <li><a href="/#about" class="mobile-link">About</a></li>
-                <li><a href="/#skills" class="mobile-link">Skills</a></li>
-                <li><a href="/#experience" class="mobile-link">Experience</a></li>
-                <li><a href="/#projects" class="mobile-link">Projects</a></li>
-                <li><a href="/blog.html" class="mobile-link">Blog</a></li>
-                <li><a href="/#achievements" class="mobile-link">Achievements</a></li>
-                <li><a href="/#certifications" class="mobile-link">Certifications</a></li>
-                <li><a href="/#contact" class="mobile-link">Contact</a></li>
+                <li><a href="index.html#about" class="mobile-link">About</a></li>
+                <li><a href="index.html#skills" class="mobile-link">Skills</a></li>
+                <li><a href="index.html#experience" class="mobile-link">Experience</a></li>
+                <li><a href="index.html#projects" class="mobile-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-link">Blog</a></li>
+                <li><a href="index.html#achievements" class="mobile-link">Achievements</a></li>
+                <li><a href="index.html#certifications" class="mobile-link">Certifications</a></li>
+                <li><a href="videos.html" class="mobile-link">Videos</a></li>
+                <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <script>
+        // Toggle mobile menu visibility with animation
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
+        menuToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
+                mobileMenu.classList.add('animate-slide-in');
+            } else {
+                mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
+            }
+        });
+
+        // Dark mode toggle functionality with localStorage support
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const toggleIcon = document.getElementById('toggle-icon');
+
+        // Function to apply the correct theme
+        const applyTheme = () => {
+            const isDark = localStorage.getItem('theme') === 'dark';
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                if (toggleIcon) {
+                    toggleIcon.textContent = '☀️';
+                }
+            } else {
+                document.documentElement.classList.remove('dark');
+                if (toggleIcon) {
+                    toggleIcon.textContent = '🌙';
+                }
+            }
+            updateFooter();
+        };
+
+        // Apply theme on initial load
+        applyTheme();
+
+        // Event listener for the dark mode toggle button
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                
+                // Save the user's preference to local storage
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+                
+                // Update the toggle icon and apply theme
+                applyTheme();
+            });
+        }
+
+        // Simple footer update function
+        function updateFooter() {
+            const footer = document.querySelector('footer');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (footer) {
+                if (isDark) {
+                    footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
+                } else {
+                    footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
+                }
+            }
+        }
+
+        // Apply on page load
+        document.addEventListener('DOMContentLoaded', updateFooter);
+    </script>
+
+    <style>
+        /* Gradient border for navbar */
+        .navbar {
+            border-bottom: 3px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to right, #ff00ff, #ffcc00);
+        }
+
+        /* Link hover effect with neon glow */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover {
+            color: yellow;
+            text-shadow: 0 0 15px yellow, 0 0 25px yellow, 0 0 35px yellow;
+            transform: scale(1.1);
+        }
+
+        /* Mobile menu link hover effect */
+        .mobile-link {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-link:hover {
+            color: yellow;
+            text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+            transform: translateX(10px);
+        }
+
+        /* Mobile menu slide-in animation */
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slide-in 0.3s ease-out;
+        }
+
+        /* Infinite rotation for Hamburger icon on activity */
+        .rotate-infinite {
+            animation: rotate-infinite 4s infinite linear;
+        }
+
+        @keyframes rotate-infinite {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+<!-- Blog Hero Header -->
+<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900 mt-16">
+    <!-- Dynamic Background Effects -->
+    <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
+    <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
+    <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full opacity-10 blur-2xl dark:bg-gradient-to-br dark:from-gray-800 dark:to-blue-700"></div>
+    <div class="absolute top-20 right-20 w-24 h-24 bg-pink-500 rounded-full opacity-40 animate-pulse dark:bg-blue-700"></div>
+
+    <!-- Main Content Section -->
+    <div class="relative z-10">
+        <!-- Heading -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold drop-shadow-lg animate-fade-in transform hover:scale-110 hover:text-pink-400 dark:text-gray-100 dark:hover:text-pink-500 transition-all duration-500 ease-out tracking-wide">
+            My Blog
+        </h1>
+
+        <!-- Subheading -->
+        <p class="mt-4 text-base md:text-lg lg:text-2xl animate-fade-in delay-200 text-opacity-80 dark:text-gray-300 font-medium">
+            Insights on Cybersecurity, Web Development & Technology Trends
+        </p>
+
+        <!-- Call-to-Action Button -->
+        <a href="#blog-content" class="bg-blue-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-800 px-6 md:px-8 py-3 md:py-4 mt-8 rounded-full inline-block text-sm md:text-lg font-semibold shadow-lg transition-all transform hover:scale-110 hover:rotate-2 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100 dark:shadow-2xl hover:shadow-xl hover:text-white">
+            Explore Articles
+        </a>
+    </div>
+</header>
 
 <!-- Blog Section -->
-<section id="blog" class="py-16 bg-gray-100">
+<section id="blog-content" class="py-16 bg-yellow-50 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-4 relative blog-title">
+        <h2 class="text-4xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-4 relative blog-title">
             <span class="relative inline-block pb-3">
-                Blog by Aditya Kumar Tiwari
+                Latest Articles
                 <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-full transform scale-x-0 origin-left transition-transform duration-500 ease-out animate-expand-underline"></span>
             </span>
         </h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
             Explore insights on cybersecurity, web development, and technology trends
         </p>
         <!-- Search Bar -->
         <div class="flex justify-center mb-8">
-            <input type="text" id="blog-search" placeholder="Search blog posts..." class="w-full max-w-md px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+            <input type="text" id="blog-search" placeholder="Search blog posts..." class="w-full max-w-md px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-800 dark:text-gray-100" />
         </div>
         <!-- Category Filter Buttons -->
-        <div class="flex justify-center space-x-4 mb-12">
-            <button class="filter-btn all active btn-glow">All</button>
-            <button class="filter-btn cybersecurity btn-glow">Cybersecurity</button>
-            <button class="filter-btn devops btn-glow">DevOps</button>
-            <button class="filter-btn web-development btn-glow">Web Development</button>
-            <button class="filter-btn cloud btn-glow">Cloud</button>
-            <button class="filter-btn ai btn-glow">AI</button>
+        <div class="flex flex-wrap justify-center gap-2 mb-12">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="cybersecurity">Cybersecurity</button>
+            <button class="filter-btn" data-category="devops">DevOps</button>
+            <button class="filter-btn" data-category="web development">Web Development</button>
+            <button class="filter-btn" data-category="cloud">Cloud</button>
+            <button class="filter-btn" data-category="ai">AI</button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 blog-grid">
         <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
@@ -361,6 +656,101 @@
 <script>
     // Auto-update year
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Blog filtering and search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('blog-search');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            filterBlogPosts(searchTerm, getActiveCategory());
+        });
+
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                const searchTerm = searchInput.value.toLowerCase();
+                filterBlogPosts(searchTerm, category);
+            });
+        });
+
+        function getActiveCategory() {
+            const activeButton = document.querySelector('.filter-btn.active');
+            return activeButton ? activeButton.getAttribute('data-category') : 'all';
+        }
+
+        function filterBlogPosts(searchTerm, category) {
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const content = card.querySelector('p:last-of-type').textContent.toLowerCase();
+                const cardCategory = card.getAttribute('data-category').toLowerCase();
+                
+                const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
+                const matchesCategory = category === 'all' || cardCategory === category;
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'block';
+                    card.classList.add('animate-fade-in');
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('animate-fade-in');
+                }
+            });
+        }
+
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation delay to blog cards for staggered effect
+        blogCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Back to top button (already handled by blog-script.js, but ensure it works)
+        let backToTopButton = document.querySelector('.back-to-top');
+        if (!backToTopButton) {
+            backToTopButton = document.createElement('button');
+            backToTopButton.innerHTML = '↑';
+            backToTopButton.className = 'back-to-top fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl opacity-0 transition-opacity duration-300 hover:bg-blue-700 z-40';
+            backToTopButton.setAttribute('aria-label', 'Back to top');
+            document.body.appendChild(backToTopButton);
+        }
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.style.opacity = '1';
+            } else {
+                backToTopButton.style.opacity = '0';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
 </script>
 </body>
 </html>
