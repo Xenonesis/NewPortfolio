@@ -566,6 +566,59 @@ body:not(.dark) {
     background-color: #1e293b !important;
 }
 
+/* Dark mode for individual blog post pages */
+.dark body.bg-gray-100 {
+    background-color: #0f172a !important;
+}
+
+.dark .article-container {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+}
+
+.dark .article-title {
+    color: #f1f5f9 !important;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.dark .article-meta {
+    color: #94a3b8 !important;
+    border-bottom-color: #334155 !important;
+}
+
+.dark .article-header {
+    border-bottom-color: #334155 !important;
+}
+
+.dark .article-content {
+    color: #e2e8f0 !important;
+}
+
+.dark .article-content h2,
+.dark .article-content h3,
+.dark .article-content h4 {
+    color: #f1f5f9 !important;
+}
+
+.dark .article-content p {
+    color: #cbd5e1 !important;
+}
+
+.dark .article-content ul li {
+    color: #cbd5e1 !important;
+}
+
+.dark .back-to-blog {
+    color: #60a5fa !important;
+}
+
+.dark .back-to-blog:hover {
+    color: #93c5fd !important;
+}
+
 /* Override any remaining light backgrounds */
 .dark * {
     scrollbar-color: #475569 #1e293b;

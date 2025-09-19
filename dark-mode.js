@@ -15,7 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleIcon.textContent = '🌙';
             }
         }
+        updateFooter();
     };
+
+    // Function to update footer styling based on theme
+    function updateFooter() {
+        const footer = document.querySelector('footer');
+        if (footer) {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                footer.classList.add('dark-footer');
+            } else {
+                footer.classList.remove('dark-footer');
+            }
+        }
+    }
 
     // Apply theme on initial load
     applyTheme();
