@@ -16,6 +16,23 @@
     <script src="./blog-script.js" defer></script>
 </head>
 <body class="bg-yellow-50 text-gray-800">
+    <!-- Back to Home Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="index.html" class="back-to-home-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span class="font-medium">Home</span>
+        </a>
+    </div>
+
+    <!-- Dark Mode Toggle (Standalone) -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-lg transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+            <span id="toggle-icon">🌙</span>
+        </button>
+    </div>
+
     <style>
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(20px); }
@@ -166,199 +183,11 @@
         }
     </style>
 
-    <!-- Enhanced Stylish Navbar -->
-    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gradient-to-r from-pink-500 to-yellow-500">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
-            <!-- Brand Name with Neon Glow -->
-            <a href="index.html" class="text-3xl font-extrabold tracking-wide flex items-center space-x-2 group hover:scale-110 transition-all duration-500 ease-in-out">
-                <span class="group-hover:text-yellow-300 group-hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">Aditya</span>
-            </a>
 
-            <!-- Links for Desktop -->
-            <ul class="hidden md:flex space-x-6 text-lg">
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
-                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="index.html#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="index.html#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="videos.html" class="nav-link">Videos</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-
-            <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
-            <div class="flex items-center space-x-4">
-                <!-- Dark Mode Toggle with Glow -->
-                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
-                    <span id="toggle-icon">🌙</span>
-                </button>
-
-                <!-- Hamburger Menu -->
-                <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110 rotate-infinite">
-                    ☰
-                </button>
-            </div>
-        </div>
-
-        <!-- Animated Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
-            <ul class="space-y-6 text-lg">
-                <li><a href="index.html#about" class="mobile-link">About</a></li>
-                <li><a href="index.html#skills" class="mobile-link">Skills</a></li>
-                <li><a href="index.html#experience" class="mobile-link">Experience</a></li>
-                <li><a href="index.html#projects" class="mobile-link">Projects</a></li>
-                <li><a href="blog.html" class="mobile-link">Blog</a></li>
-                <li><a href="index.html#achievements" class="mobile-link">Achievements</a></li>
-                <li><a href="index.html#certifications" class="mobile-link">Certifications</a></li>
-                <li><a href="videos.html" class="mobile-link">Videos</a></li>
-                <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <script>
-        // Toggle mobile menu visibility with animation
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
-                mobileMenu.classList.add('animate-slide-in');
-            } else {
-                mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
-            }
-        });
-
-        // Dark mode toggle functionality with localStorage support
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const toggleIcon = document.getElementById('toggle-icon');
-
-        // Function to apply the correct theme
-        const applyTheme = () => {
-            const isDark = localStorage.getItem('theme') === 'dark';
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                if (toggleIcon) {
-                    toggleIcon.textContent = '☀️';
-                }
-            } else {
-                document.documentElement.classList.remove('dark');
-                if (toggleIcon) {
-                    toggleIcon.textContent = '🌙';
-                }
-            }
-            updateFooter();
-        };
-
-        // Apply theme on initial load
-        applyTheme();
-
-        // Event listener for the dark mode toggle button
-        if (darkModeToggle) {
-            darkModeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                
-                // Save the user's preference to local storage
-                if (document.documentElement.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-                
-                // Update the toggle icon and apply theme
-                applyTheme();
-            });
-        }
-
-        // Simple footer update function
-        function updateFooter() {
-            const footer = document.querySelector('footer');
-            const isDark = document.documentElement.classList.contains('dark');
-            
-            if (footer) {
-                if (isDark) {
-                    footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
-                } else {
-                    footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
-                }
-            }
-        }
-
-        // Apply on page load
-        document.addEventListener('DOMContentLoaded', updateFooter);
-    </script>
-
-    <style>
-        /* Gradient border for navbar */
-        .navbar {
-            border-bottom: 3px solid;
-            border-image-slice: 1;
-            border-image-source: linear-gradient(to right, #ff00ff, #ffcc00);
-        }
-
-        /* Link hover effect with neon glow */
-        .nav-link {
-            position: relative;
-            text-decoration: none;
-            color: white;
-            transition: all 0.4s ease;
-        }
-
-        .nav-link:hover {
-            color: yellow;
-            text-shadow: 0 0 15px yellow, 0 0 25px yellow, 0 0 35px yellow;
-            transform: scale(1.1);
-        }
-
-        /* Mobile menu link hover effect */
-        .mobile-link {
-            position: relative;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .mobile-link:hover {
-            color: yellow;
-            text-shadow: 0 0 15px yellow, 0 0 25px yellow;
-            transform: translateX(10px);
-        }
-
-        /* Mobile menu slide-in animation */
-        @keyframes slide-in {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .animate-slide-in {
-            animation: slide-in 0.3s ease-out;
-        }
-
-        /* Infinite rotation for Hamburger icon on activity */
-        .rotate-infinite {
-            animation: rotate-infinite 4s infinite linear;
-        }
-
-        @keyframes rotate-infinite {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 
 
 <!-- Blog Hero Header -->
-<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900 mt-16">
+<header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900">
     <!-- Dynamic Background Effects -->
     <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
     <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
@@ -751,6 +580,92 @@
             });
         });
     });
+
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    // Function to apply the correct theme
+    const applyTheme = () => {
+        const isDark = localStorage.getItem('theme') === 'dark';
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (toggleIcon) {
+                toggleIcon.textContent = '🌙';
+            }
+        }
+        updateFooter();
+    };
+
+    // Apply theme on initial load
+    applyTheme();
+
+    // Event listener for the dark mode toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            // Save the user's preference to local storage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Update the toggle icon and apply theme
+            applyTheme();
+        });
+    }
+
+    // Simple footer update function
+    function updateFooter() {
+        const footer = document.querySelector('footer');
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        if (footer) {
+            if (isDark) {
+                footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
+            } else {
+                footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
+            }
+        }
+    }
 </script>
+
+<style>
+    /* Back to Home Button Styles */
+    .back-to-home-btn {
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .back-to-home-btn:hover {
+        background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Dark mode adjustments for buttons */
+    .dark .back-to-home-btn {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .dark #dark-mode-toggle {
+        background-color: #1e3a8a;
+    }
+
+    .dark #dark-mode-toggle:hover {
+        background-color: #1e40af;
+    }
+
+    /* Smooth transitions for all elements */
+    * {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+</style>
 </body>
 </html>
