@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD SECTION -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Aditya Kumar Tiwari</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./blog-style.css">
+    <script src="./blog-script.js" defer></script>
+    <link rel="stylesheet" href="./components/blog-styles.css">
+</head>
+
+<body class="bg-yellow-50 text-gray-800">
+    <!-- NAVIGATION SECTION -->
+    <nav>
+        <!-- Back to Home Button -->
+        <div class="fixed top-4 left-4 z-50">
+            <a href="index.html" class="back-to-home-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group">
+                <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                <span class="font-medium">Home</span>
+            </a>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="fixed top-4 right-4 z-50">
+            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-lg transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+                <span id="toggle-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="bg-gradient-to-r from-pink-500 to-blue-500 text-white text-center py-20 relative overflow-hidden dark:bg-gradient-to-r dark:from-blue-800 dark:to-gray-900">
+        <!-- Dynamic Background Effects -->
+        <div class="absolute top-0 left-0 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-pulse dark:bg-blue-600"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-blue-400 rounded-full opacity-20 animate-bounce dark:bg-pink-600"></div>
+        <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full opacity-10 blur-2xl dark:bg-gradient-to-br dark:from-gray-800 dark:to-blue-700"></div>
+        <div class="absolute top-20 right-20 w-24 h-24 bg-pink-500 rounded-full opacity-40 animate-pulse dark:bg-blue-700"></div>
+
+        <!-- Main Content Section -->
+        <div class="relative z-10">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold drop-shadow-lg animate-fade-in transform hover:scale-110 hover:text-pink-400 dark:text-gray-100 dark:hover:text-pink-500 transition-all duration-500 ease-out tracking-wide">
+                My Blog
+            </h1>
+            <p class="mt-4 text-base md:text-lg lg:text-2xl animate-fade-in delay-200 text-opacity-80 dark:text-gray-300 font-medium">
+                Insights on Cybersecurity, Web Development & Technology Trends
+            </p>
+            <a href="#blog-content" class="bg-blue-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-800 px-6 md:px-8 py-3 md:py-4 mt-8 rounded-full inline-block text-sm md:text-lg font-semibold shadow-lg transition-all transform hover:scale-110 hover:rotate-2 animate-fade-in delay-400 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-gray-100 dark:shadow-2xl hover:shadow-xl hover:text-white">
+                Explore Articles
+            </a>
+        </div>
+    </header>
+
+    <!-- BLOG CONTENT SECTION -->
+    <section id="blog-content" class="py-16 bg-yellow-50 dark:bg-gray-900">
+        <!-- FILTERS SECTION -->
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-4 relative blog-title">
+                <span class="relative inline-block pb-3">
+                    Latest Articles
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-full transform scale-x-0 origin-left transition-transform duration-500 ease-out animate-expand-underline"></span>
+                </span>
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Explore insights on cybersecurity, web development, and technology trends
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="flex justify-center mb-8">
+                <input type="text" id="blog-search" placeholder="Search blog posts..." class="w-full max-w-md px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-800 dark:text-gray-100" />
+            </div>
+            
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="cybersecurity">Cybersecurity</button>
+                <button class="filter-btn" data-category="devops">DevOps</button>
+                <button class="filter-btn" data-category="web development">Web Development</button>
+                <button class="filter-btn" data-category="cloud">Cloud</button>
+                <button class="filter-btn" data-category="ai">AI</button>
+            </div>
+
+            <!-- BLOG CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 blog-grid">
+                <!-- Sample cards - in production, these would be loaded from components/blog-cards.html -->
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="Cybersecurity">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cybersecurity Basics: Protecting Your Digital Life</h3>
+                    <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+                    <p class="text-gray-600 text-base leading-relaxed">Understanding the basics of cybersecurity can significantly reduce your risk of falling victim to cyberattacks.</p>
+                    <a href="blog_posts/cybersecurity_basics.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+                </div>
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1" data-category="AI">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Rise of AI in Cybersecurity: A Double-Edged Sword</h3>
+                    <p class="text-gray-500 text-sm mb-2">By Aditya Kumar Tiwari</p>
+                    <p class="text-gray-600 text-base leading-relaxed">AI is revolutionizing cybersecurity defense but also presents new avenues for attackers to exploit.</p>
+                    <a href="blog_posts/the_rise_of_ai_in_cybersecurity.html" class="mt-4 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 text-sm font-medium">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer p-10 bg-yellow-50 shadow-2xl mt-10" style="transition: background-color 0.5s ease, color 0.5s ease;">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
+            <!-- Social Media Icons -->
+            <div class="flex space-x-6 justify-center md:justify-start">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" rel="noopener" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" rel="noopener" aria-label="GitHub" class="text-gray-600 hover:text-gray-800 transition duration-300 transform hover:scale-110 hover:shadow-lg p-3 rounded-full">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+            </div>
+            <div class="text-center md:text-right mt-4 md:mt-0 text-gray-600">
+                &copy; <span id="currentYear"></span> Aditya. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT SECTION -->
+    <script src="./components/blog-functionality.js"></script>
+</body>
+</html>
