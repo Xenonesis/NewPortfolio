@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Grid Vs Flexbox For Layouts</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="../dark-mode.js" defer></script>
+    <script src="../blog-script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Back to Blog Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="../blog.html" class="back-to-home-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span class="font-medium">Blog</span>
+        </a>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-lg transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+            <span id="toggle-icon">🌙</span>
+        </button>
+    </div>
+
+    <main class="article-container">
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Css Grid Vs Flexbox For Layouts</h1>
+                <div class="article-meta">
+                    <span>By Aditya Kumar Tiwari</span>
+                    <span>•</span>
+                    <span>April 29, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p>Modern web development has evolved significantly with the introduction of powerful frameworks, tools, and methodologies. Creating performant, accessible, and user-friendly web applications requires a deep understanding of both fundamental and advanced concepts. This guide explores key areas of modern web development that can help developers build better applications.</p>
+
+                <h2>Performance Optimization Techniques</h2>
+                <h3>Code Splitting and Lazy Loading</h3>
+                <p>Code splitting involves breaking down large bundles into smaller chunks that can be loaded on demand. Combined with lazy loading, this technique reduces initial load times and improves user experience. Modern build tools like Webpack and Vite provide built-in support for code splitting, making it easier to implement in web applications.</p>
+
+                <h3>Image Optimization Strategies</h3>
+                <p>Images often account for the largest portion of a webpage's total file size. Implementing responsive images, using modern formats like WebP and AVIF, lazy loading images, and implementing proper caching strategies can significantly improve page load performance and user experience.</p>
+
+                <h2>Accessibility and Inclusive Design</h2>
+                <h3>Semantic HTML and ARIA</h3>
+                <p>Using semantic HTML elements and appropriate ARIA attributes ensures that web content is accessible to users with disabilities. Proper heading structure, form labeling, landmark roles, and keyboard navigation support are fundamental aspects of creating accessible web applications.</p>
+
+                <h3>Color Contrast and Visual Design</h3>
+                <p>Ensuring sufficient color contrast between text and background is crucial for users with visual impairments. Following WCAG guidelines for contrast ratios, providing alternative color schemes, and testing with accessibility tools can help create more inclusive web experiences.</p>
+
+                <h2>Conclusion</h2>
+                <p>Modern web development requires a holistic approach that balances performance, accessibility, and user experience. By implementing performance optimization techniques, prioritizing accessibility, and staying updated with the latest web standards and technologies, developers can create web applications that are both technically sound and user-friendly. The key is to continuously learn and adapt to the ever-evolving web landscape.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/i__aditya7" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Xenonesis" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Aditya Kumar Tiwari. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
