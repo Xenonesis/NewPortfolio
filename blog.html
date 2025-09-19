@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./blog-style.css">
+    <script src="./dark-mode.js" defer></script>
     <script src="./blog-script.js" defer></script>
 </head>
 <body class="bg-yellow-50 text-gray-800">
@@ -606,64 +607,6 @@
         });
     });
 
-    // Dark mode toggle functionality
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const toggleIcon = document.getElementById('toggle-icon');
-
-    // Function to apply the correct theme
-    const applyTheme = () => {
-        const isDark = localStorage.getItem('theme') === 'dark';
-        if (isDark) {
-            document.documentElement.classList.add('dark');
-            if (toggleIcon) {
-                toggleIcon.textContent = '☀️';
-            }
-        } else {
-            document.documentElement.classList.remove('dark');
-            if (toggleIcon) {
-                toggleIcon.textContent = '🌙';
-            }
-        }
-        updateFooter();
-    };
-
-    // Apply theme on initial load
-    applyTheme();
-
-    // Event listener for the dark mode toggle button
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            
-            // Save the user's preference to local storage
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-            
-            // Update the toggle icon and apply theme
-            applyTheme();
-        });
-    }
-
-    // Simple footer update function
-    function updateFooter() {
-        const footer = document.querySelector('footer');
-        const isDark = document.documentElement.classList.contains('dark');
-        
-        if (footer) {
-            // Remove any inline styles to let CSS classes take effect
-            footer.removeAttribute('style');
-            
-            // Ensure proper classes are applied
-            if (isDark) {
-                footer.classList.add('dark-footer');
-            } else {
-                footer.classList.remove('dark-footer');
-            }
-        }
-    }
 </script>
 
 <style>
