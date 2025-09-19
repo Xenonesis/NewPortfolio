@@ -10,12 +10,6 @@ const blogPostsDir = path.join(__dirname, 'blog_posts');
 // Get all HTML files in the blog_posts directory
 const blogFiles = fs.readdirSync(blogPostsDir)
     .filter(file => file.endsWith('.html'))
-    // Skip files that have already been updated
-    .filter(file => !['web_security_fundamentals.html', 'web_dev_roadmap.html', 
-                      'web_assembly_wasm_intro.html', 'web_accessibility_basics.html',
-                      'understanding_zero_trust_security.html', 'understanding_threat_modeling.html',
-                      'understanding_software_supply_chain_security.html',
-                      'cybersecurity_basics.html', 'ethical_hacking_intro.html'].includes(file));
 
 console.log(`Found ${blogFiles.length} blog files to update`);
 
@@ -39,44 +33,25 @@ blogFiles.forEach(file => {
 </head>`
     );
     
-    // Update the header/navbar
+    // Update the header/navbar with simplified navigation
     content = content.replace(
         /<header[\s\S]*?<\/header>/,
-        `<!-- Enhanced Navbar -->
-    <nav class="navbar bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white fixed top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-90">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
-            <a href="../index.html" class="text-2xl font-bold tracking-wide hover:text-yellow-300 transition-all duration-300">
-                Aditya Kumar Tiwari
-            </a>
-            
-            <ul class="hidden md:flex space-x-6 text-sm font-medium">
-                <li><a href="../index.html" class="nav-link">Home</a></li>
-                <li><a href="../blog.html" class="nav-link">Blog</a></li>
-                <li><a href="../index.html#about" class="nav-link">About</a></li>
-                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
-                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
+        `<!-- Back to Home Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="../index.html" class="back-to-home-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span class="font-medium">Home</span>
+        </a>
+    </div>
 
-            <div class="flex items-center space-x-4">
-                <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transition duration-300">
-                    <span id="toggle-icon">🌙</span>
-                </button>
-                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
-                    ☰
-                </button>
-            </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4">
-            <ul class="space-y-4">
-                <li><a href="../index.html" class="mobile-link">Home</a></li>
-                <li><a href="../blog.html" class="mobile-link">Blog</a></li>
-                <li><a href="../index.html#about" class="mobile-link">About</a></li>
-                <li><a href="../index.html#projects" class="mobile-link">Projects</a></li>
-                <li><a href="../index.html#contact" class="mobile-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>`
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-lg transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+            <span id="toggle-icon">🌙</span>
+        </button>
+    </div>`
     );
     
     // Update the main container and article header
