@@ -116,21 +116,46 @@
         /* Footer Dark Mode Styles */
         html.dark footer,
         .dark footer,
-        .dark footer.bg-yellow-50 {
-            background-color: #1e1e1e !important;
+        .dark footer.bg-yellow-50,
+        footer.dark-footer {
+            background: #1e1e1e !important;
             color: #e4e4e4 !important;
         }
 
-        .dark footer .text-gray-600 {
+        .dark footer .text-gray-600,
+        footer.dark-footer .text-gray-600 {
             color: #9ca3af !important;
         }
 
-        .dark footer a {
+        .dark footer a,
+        footer.dark-footer a {
             color: #9ca3af !important;
+            transition: color 0.3s ease !important;
         }
 
-        .dark footer a:hover {
+        .dark footer a:hover,
+        footer.dark-footer a:hover {
             color: #e4e4e4 !important;
+        }
+
+        /* Light mode footer styles */
+        footer:not(.dark-footer) {
+            background: #fefce8 !important;
+            color: #374151 !important;
+        }
+
+        footer:not(.dark-footer) .text-gray-600 {
+            color: #4b5563 !important;
+            transition: color 0.3s ease !important;
+        }
+
+        footer:not(.dark-footer) a {
+            color: #4b5563 !important;
+            transition: color 0.3s ease !important;
+        }
+
+        footer:not(.dark-footer) a:hover {
+            color: #374151 !important;
         }
 
         /* Filter button styles */
@@ -460,7 +485,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer p-10 bg-yellow-50 shadow-2xl mt-10">
+<footer class="footer p-10 bg-yellow-50 shadow-2xl mt-10" style="transition: background-color 0.5s ease, color 0.5s ease;">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 px-4">
         <!-- Social Media Icons -->
         <div class="flex space-x-6 justify-center md:justify-start">
@@ -628,10 +653,14 @@
         const isDark = document.documentElement.classList.contains('dark');
         
         if (footer) {
+            // Remove any inline styles to let CSS classes take effect
+            footer.removeAttribute('style');
+            
+            // Ensure proper classes are applied
             if (isDark) {
-                footer.setAttribute('style', 'background-color: #1e1e1e !important; color: #e4e4e4 !important;');
+                footer.classList.add('dark-footer');
             } else {
-                footer.setAttribute('style', 'background-color: #fefce8 !important; color: #374151 !important;');
+                footer.classList.remove('dark-footer');
             }
         }
     }
