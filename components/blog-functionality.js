@@ -1,0 +1,152 @@
+// AUTO-UPDATE YEAR
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// BLOG FUNCTIONALITY
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('blog-search');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    // SEARCH FUNCTIONALITY
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            filterBlogPosts(searchTerm, getActiveCategory());
+        });
+    }
+
+    // FILTER FUNCTIONALITY
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-category');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+            filterBlogPosts(searchTerm, category);
+        });
+    });
+
+    // HELPER FUNCTIONS
+    function getActiveCategory() {
+        const activeButton = document.querySelector('.filter-btn.active');
+        return activeButton ? activeButton.getAttribute('data-category') : 'all';
+    }
+
+    function filterBlogPosts(searchTerm, category) {
+        blogCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const content = card.querySelector('p:last-of-type').textContent.toLowerCase();
+            const cardCategory = card.getAttribute('data-category').toLowerCase();
+            
+            const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
+            const matchesCategory = category === 'all' || cardCategory === category;
+            
+            if (matchesSearch && matchesCategory) {
+                card.style.display = 'block';
+                card.classList.add('animate-fade-in');
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('animate-fade-in');
+            }
+        });
+    }
+
+    // SMOOTH SCROLLING
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // STAGGERED ANIMATION
+    blogCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // BACK TO TOP BUTTON
+    let backToTopButton = document.querySelector('.back-to-top');
+    if (!backToTopButton) {
+        backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.className = 'back-to-top fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl opacity-0 transition-opacity duration-300 hover:bg-blue-700 z-40';
+        backToTopButton.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTopButton);
+    }
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopButton.style.opacity = '1';
+        } else {
+            backToTopButton.style.opacity = '0';
+        }
+    });
+
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// DARK MODE FUNCTIONALITY
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const toggleIcon = document.getElementById('toggle-icon');
+
+const applyTheme = () => {
+    const isDark = localStorage.getItem('theme') === 'dark';
+    if (isDark) {
+        document.documentElement.classList.add('dark');
+        if (toggleIcon) {
+            toggleIcon.textContent = '☀️';
+        }
+    } else {
+        document.documentElement.classList.remove('dark');
+        if (toggleIcon) {
+            toggleIcon.textContent = '🌙';
+        }
+    }
+    updateFooter();
+};
+
+// Apply theme on initial load
+applyTheme();
+
+// Dark mode toggle event listener
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+        
+        applyTheme();
+    });
+}
+
+// Footer update function
+function updateFooter() {
+    const footer = document.querySelector('footer');
+    const isDark = document.documentElement.classList.contains('dark');
+    
+    if (footer) {
+        footer.removeAttribute('style');
+        
+        if (isDark) {
+            footer.classList.add('dark-footer');
+        } else {
+            footer.classList.remove('dark-footer');
+        }
+    }
+}

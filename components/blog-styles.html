@@ -1,0 +1,202 @@
+<style>
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+    @keyframes progress {
+        0% { width: 0; }
+        100% { width: 100%; }
+    }
+    .animate-progress {
+        animation: progress 1.5s ease-in-out forwards;
+    }
+    @keyframes slide-in {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in {
+        animation: slide-in 1s ease-out forwards;
+    }
+    
+    /* General Styles */
+    body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    /* Dark Mode Base Styles */
+    .dark {
+        background-color: #121212;
+        color: #e4e4e4;
+    }
+
+    .dark .bg-yellow-50,
+    .dark .bg-gray-50,
+    .dark .bg-gray-100 {
+        background-color: #1e1e1e;
+    }
+
+    .dark .text-gray-800,
+    .dark .text-gray-700,
+    .dark .text-gray-900 {
+        color: #d1d5db;
+    }
+
+    .dark .text-gray-600,
+    .dark .text-gray-500 {
+        color: #9ca3af;
+    }
+
+    .dark .text-blue-600 {
+        color: #60a5fa;
+    }
+
+    .dark .bg-white {
+        background-color: #262626;
+    }
+
+    .dark .bg-blue-600 {
+        background-color: #2563eb;
+    }
+
+    .dark .hover\:bg-blue-700:hover {
+        background-color: #1d4ed8;
+    }
+
+    .dark .bg-blue-700 {
+        background-color: #1e3a8a;
+    }
+
+    .dark .shadow-lg {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .dark .hover\:shadow-2xl:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Footer Dark Mode Styles */
+    html.dark footer,
+    .dark footer,
+    .dark footer.bg-yellow-50,
+    footer.dark-footer {
+        background: #1e1e1e !important;
+        color: #e4e4e4 !important;
+    }
+
+    .dark footer .text-gray-600,
+    footer.dark-footer .text-gray-600 {
+        color: #9ca3af !important;
+    }
+
+    .dark footer a,
+    footer.dark-footer a {
+        color: #9ca3af !important;
+        transition: color 0.3s ease !important;
+    }
+
+    .dark footer a:hover,
+    footer.dark-footer a:hover {
+        color: #e4e4e4 !important;
+    }
+
+    /* Light mode footer styles */
+    footer:not(.dark-footer) {
+        background: #fefce8 !important;
+        color: #374151 !important;
+    }
+
+    footer:not(.dark-footer) .text-gray-600 {
+        color: #4b5563 !important;
+        transition: color 0.3s ease !important;
+    }
+
+    footer:not(.dark-footer) a {
+        color: #4b5563 !important;
+        transition: color 0.3s ease !important;
+    }
+
+    footer:not(.dark-footer) a:hover {
+        color: #374151 !important;
+    }
+
+    /* Filter button styles */
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        border: 2px solid transparent;
+        border-radius: 9999px;
+        background: #f3f4f6;
+        color: #374151;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .filter-btn:hover {
+        background: #e5e7eb;
+        transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        color: white;
+        border-color: #3b82f6;
+    }
+
+    .dark .filter-btn {
+        background: #374151;
+        color: #d1d5db;
+    }
+
+    .dark .filter-btn:hover {
+        background: #4b5563;
+    }
+
+    .dark .filter-btn.active {
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        color: #1f2937;
+    }
+
+    /* Expand underline animation */
+    @keyframes expand-underline {
+        0% { transform: scaleX(0); }
+        100% { transform: scaleX(1); }
+    }
+
+    .animate-expand-underline {
+        animation: expand-underline 1s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    /* Back to Home Button Styles */
+    .back-to-home-btn {
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .back-to-home-btn:hover {
+        background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Dark mode adjustments for buttons */
+    .dark .back-to-home-btn {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .dark #dark-mode-toggle {
+        background-color: #1e3a8a;
+    }
+
+    .dark #dark-mode-toggle:hover {
+        background-color: #1e40af;
+    }
+
+    /* Smooth transitions for all elements */
+    * {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+</style>
