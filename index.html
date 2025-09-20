@@ -301,9 +301,53 @@ button:hover, iframe:hover {
     border-radius: 6px; /* Rounded edges for consistency */
 }
 
-/* Testimonials Animation */
-.testimonial-slide {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition with an ease-out effect */
+/* Enhanced Testimonials Styles */
+.testimonial-card {
+    position: relative;
+    background: linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.1) 100%);
+    animation: testimonial-entrance 0.8s ease-out forwards;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+}
+
+@keyframes testimonial-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
 }
 
 /* Fade-In Animation */
@@ -362,8 +406,23 @@ html {
     #chat-messages::-webkit-scrollbar-thumb {
         background: #4299e1; /* Simpler scrollbar on smaller screens */
     }
-    .testimonial-slide {
-        transition: all 0.4s ease-in-out; /* Faster animations for smaller devices */
+    .testimonial-card {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .testimonial-card .bg-white {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-card h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
@@ -2102,63 +2161,154 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 
 
   <!-- Testimonials Section -->
-<section id="testimonials" class="p-10 bg-yellow-50">
-    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-500 inline-block mb-12">
-        Testimonials
+<section id="testimonials" class="p-10 bg-gradient-to-r from-blue-100 via-yellow-100 to-pink-100">
+    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-600 pb-2 mb-12 transform hover:scale-105 transition-all duration-300 text-center">
+        What People Say About Me
     </h2>
     
-    <!-- Carousel Container -->
-    <div class="relative bg-white rounded-lg shadow-xl p-8 mx-auto max-w-3xl">
-        <!-- Testimonials Wrapper -->
-        <div id="testimonial-carousel" class="overflow-hidden relative">
-            <!-- Testimonial Items -->
-            <div class="testimonial-slide animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya is a stellar student and proficient future technology professional..he has all the qualities to become an influential leader and a professional game changer... he is actively able to perform the most daunting tasks with enormous ease....as a mentor it is a privilege to impart professional skills to this stupendous future leader and top performer.... 11 on 10 to Aditya...keep rocking and kick ass..👍👍👍"
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - <a href="https://www.linkedin.com/in/siddhartth-anand-b175011b/" target="_blank" class="hover:underline">
-                        Siddharth Anand (Aditya's Teacher)
-                    </a>
-                </p>
-            </div>
-
-            <div class="testimonial-slide animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya exemplifies resilience, curiosity, and purpose-driven learning. With a rare blend of humility and leadership, he turns challenges into opportunities for growth, inspiring those around him. A lifelong learner, Aditya is destined to make a meaningful impact, reminding us that true success is built with purpose, Practice and heart..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - <a href="https://www.linkedin.com/in/pratik-yadav-1a769b90/" target="_blank" class="hover:underline">
-                        Prateek Yadav(Aditya's Teacher)
-                    </a>
-                </p>
-            </div>
-
-            <div class="testimonial-slide hidden animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya's dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - Rahul Sharma (Mentor)
-                </p>
-            </div>
-            <div class="testimonial-slide hidden animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - Hidden
-                </p>
+    <!-- Testimonials Grid Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonials Cards -->
+        <!-- Testimonial Card 1 -->
+        <div class="testimonial-card bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya is a stellar student and proficient future technology professional. He has all the qualities to become an influential leader and a professional game changer. He is actively able to perform the most daunting tasks with enormous ease. As a mentor it is a privilege to impart professional skills to this stupendous future leader and top performer. 11 on 10 to Aditya!"
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Siddharth Anand</p>
+                            <p class="text-sm text-gray-600">Aditya's Teacher</p>
+                            <a href="https://www.linkedin.com/in/siddhartth-anand-b175011b/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm hover:underline">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Navigation Buttons -->
-        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
-            ❮
-        </button>
-        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
-            ❯
-        </button>
+
+        <!-- Testimonial Card 2 -->
+        <div class="testimonial-card bg-gradient-to-br from-green-500 via-blue-600 to-purple-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-200">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya exemplifies resilience, curiosity, and purpose-driven learning. With a rare blend of humility and leadership, he turns challenges into opportunities for growth, inspiring those around him. A lifelong learner, Aditya is destined to make a meaningful impact, reminding us that true success is built with purpose, practice and heart."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Prateek Yadav</p>
+                            <p class="text-sm text-gray-600">Aditya's Teacher</p>
+                            <a href="https://www.linkedin.com/in/pratik-yadav-1a769b90/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm hover:underline">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="testimonial-card bg-gradient-to-br from-orange-500 via-red-600 to-pink-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-400">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya's dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination. His commitment to excellence and continuous growth makes him stand out as an exceptional professional."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Rahul Sharma</p>
+                            <p class="text-sm text-gray-600">Mentor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial Card 4 -->
+        <div class="testimonial-card bg-gradient-to-br from-indigo-500 via-purple-600 to-blue-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-600">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team. His analytical thinking and innovative approach to challenges consistently deliver outstanding results."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Anonymous</p>
+                            <p class="text-sm text-gray-600">Cybersecurity Professional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
