@@ -301,9 +301,137 @@ button:hover, iframe:hover {
     border-radius: 6px; /* Rounded edges for consistency */
 }
 
-/* Testimonials Animation */
-.testimonial-slide {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition with an ease-out effect */
+/* Enhanced Testimonials Styles */
+.testimonial-card {
+    position: relative;
+    background: linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.1) 100%);
+    animation: testimonial-entrance 0.8s ease-out forwards;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+}
+
+@keyframes testimonial-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+/* Contact Section Animations */
+@keyframes spin-slow {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Contact Form Enhancements */
+.contact-info-card {
+    position: relative;
+    background: linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.1) 100%);
+    animation: contact-entrance 0.8s ease-out forwards;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container {
+    animation: form-entrance 1s ease-out 0.3s both;
+}
+
+@keyframes contact-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes form-entrance {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Input Focus Effects */
+.group:focus-within .fas {
+    color: #3b82f6 !important;
+    transform: scale(1.1);
+}
+
+/* Button Loading Animation */
+#contact-form.loading #button-text {
+    opacity: 0;
+}
+
+#contact-form.loading #button-loader {
+    display: block !important;
 }
 
 /* Fade-In Animation */
@@ -362,8 +490,23 @@ html {
     #chat-messages::-webkit-scrollbar-thumb {
         background: #4299e1; /* Simpler scrollbar on smaller screens */
     }
-    .testimonial-slide {
-        transition: all 0.4s ease-in-out; /* Faster animations for smaller devices */
+    .testimonial-card {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .testimonial-card .bg-white {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-card h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
@@ -938,7 +1081,7 @@ html {
                 Hi, I'm <span class="font-bold text-blue-500">Aditya Kumar Tiwari</span>, a passionate <span class="font-semibold">Cybersecurity Specialist</span> and <span class="font-semibold">Full-Stack Developer</span>. I thrive at the intersection of technology and innovation, crafting secure and scalable solutions for real-world challenges.
             </p>
             <p class="mt-4 text-lg md:text-xl text-gray-800 leading-relaxed">
-                Currently pursuing a <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> at Sushant University, I specialize in <span class="font-semibold">Python</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Linux</span>, and <span class="font-semibold">Cloud Computing</span>. My mission is to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
+                Completed my <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> from Sushant University, I now work as a <span class="font-semibold text-green-600">Laravel Developer</span> at <span class="font-semibold text-purple-600">Prarang</span>. I specialize in <span class="font-semibold">PHP</span>, <span class="font-semibold">Laravel</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Python</span>, and <span class="font-semibold">Cloud Computing</span>. My mission is to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
             </p>
             <div class="mt-6 flex justify-center md:justify-start space-x-4">
                 <a 
@@ -1059,6 +1202,12 @@ html {
         </div>
         <div class="tech-logo" data-tech="GraphQL">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Laravel">
+          <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="PHP">
+          <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP" class="w-10 h-10">
         </div>
       </div>
     </div>
@@ -1407,6 +1556,54 @@ function closePopup() {
             <h3 class="text-xl font-semibold">sysmonrust</h3>
             <p class="mt-4 text-gray-600">A system monitoring tool developed in Rust for performance tracking. Ideal for system programming enthusiasts.</p>
             <a href="https://github.com/Xenonesis/sysmonrust" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Laravel/PHP Projects -->
+        <!-- Project Card 13 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-red-500" data-category="laravel">
+            <div class="flex items-center mb-2">
+                <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-red-600">E-Commerce Platform</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A full-featured e-commerce platform built with Laravel, featuring user authentication, payment integration, and admin dashboard. Perfect for showcasing modern PHP development.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">MySQL</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Developed at Prarang</p>
+        </div>
+        
+        <!-- Project Card 14 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-red-500" data-category="laravel">
+            <div class="flex items-center mb-2">
+                <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-red-600">Content Management System</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A robust CMS built with Laravel featuring role-based permissions, content scheduling, and SEO optimization. Demonstrates advanced Laravel concepts and best practices.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Blade</span>
+                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Bootstrap</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Developed at Prarang</p>
+        </div>
+        
+        <!-- Project Card 15 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-indigo-500" data-category="php">
+            <div class="flex items-center mb-2">
+                <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-indigo-600">REST API Development</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A comprehensive REST API built with Laravel, featuring JWT authentication, rate limiting, and comprehensive documentation. Ideal for modern web applications.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JWT</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">API</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Professional Work</p>
         </div>
     </div>
     <!-- Button to view all projects on a separate page -->
@@ -2102,101 +2299,291 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 
 
   <!-- Testimonials Section -->
-<section id="testimonials" class="p-10 bg-yellow-50">
-    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-500 inline-block mb-12">
-        Testimonials
+<section id="testimonials" class="p-10 bg-gradient-to-r from-blue-100 via-yellow-100 to-pink-100">
+    <h2 class="text-4xl font-extrabold text-gray-800 border-b-4 border-blue-600 pb-2 mb-12 transform hover:scale-105 transition-all duration-300 text-center">
+        What People Say About Me
     </h2>
     
-    <!-- Carousel Container -->
-    <div class="relative bg-white rounded-lg shadow-xl p-8 mx-auto max-w-3xl">
-        <!-- Testimonials Wrapper -->
-        <div id="testimonial-carousel" class="overflow-hidden relative">
-            <!-- Testimonial Items -->
-            <div class="testimonial-slide animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya is a stellar student and proficient future technology professional..he has all the qualities to become an influential leader and a professional game changer... he is actively able to perform the most daunting tasks with enormous ease....as a mentor it is a privilege to impart professional skills to this stupendous future leader and top performer.... 11 on 10 to Aditya...keep rocking and kick ass..👍👍👍"
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - <a href="https://www.linkedin.com/in/siddhartth-anand-b175011b/" target="_blank" class="hover:underline">
-                        Siddharth Anand (Aditya's Teacher)
-                    </a>
-                </p>
-            </div>
-
-            <div class="testimonial-slide animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya exemplifies resilience, curiosity, and purpose-driven learning. With a rare blend of humility and leadership, he turns challenges into opportunities for growth, inspiring those around him. A lifelong learner, Aditya is destined to make a meaningful impact, reminding us that true success is built with purpose, Practice and heart..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - <a href="https://www.linkedin.com/in/pratik-yadav-1a769b90/" target="_blank" class="hover:underline">
-                        Prateek Yadav(Aditya's Teacher)
-                    </a>
-                </p>
-            </div>
-
-            <div class="testimonial-slide hidden animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "Aditya's dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - Rahul Sharma (Mentor)
-                </p>
-            </div>
-            <div class="testimonial-slide hidden animate-fade-in">
-                <p class="text-gray-700 text-lg italic leading-relaxed">
-                    "A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team..."
-                </p>
-                <p class="text-right mt-6 font-semibold text-blue-600">
-                    - Hidden
-                </p>
+    <!-- Testimonials Grid Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonials Cards -->
+        <!-- Testimonial Card 1 -->
+        <div class="testimonial-card bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya is a stellar student and proficient future technology professional. He has all the qualities to become an influential leader and a professional game changer. He is actively able to perform the most daunting tasks with enormous ease. As a mentor it is a privilege to impart professional skills to this stupendous future leader and top performer. 11 on 10 to Aditya!"
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Siddharth Anand</p>
+                            <p class="text-sm text-gray-600">Aditya's Teacher</p>
+                            <a href="https://www.linkedin.com/in/siddhartth-anand-b175011b/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm hover:underline">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Navigation Buttons -->
-        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
-            ❮
-        </button>
-        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white hover:bg-blue-600 p-3 rounded-full shadow-lg focus:outline-none">
-            ❯
-        </button>
+
+        <!-- Testimonial Card 2 -->
+        <div class="testimonial-card bg-gradient-to-br from-green-500 via-blue-600 to-purple-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-200">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya exemplifies resilience, curiosity, and purpose-driven learning. With a rare blend of humility and leadership, he turns challenges into opportunities for growth, inspiring those around him. A lifelong learner, Aditya is destined to make a meaningful impact, reminding us that true success is built with purpose, practice and heart."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Prateek Yadav</p>
+                            <p class="text-sm text-gray-600">Aditya's Teacher</p>
+                            <a href="https://www.linkedin.com/in/pratik-yadav-1a769b90/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm hover:underline">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="testimonial-card bg-gradient-to-br from-orange-500 via-red-600 to-pink-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-400">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "Aditya's dedication and passion for learning is truly inspiring. He is always eager to tackle new challenges with enthusiasm and determination. His commitment to excellence and continuous growth makes him stand out as an exceptional professional."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Rahul Sharma</p>
+                            <p class="text-sm text-gray-600">Mentor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial Card 4 -->
+        <div class="testimonial-card bg-gradient-to-br from-indigo-500 via-purple-600 to-blue-500 p-1 rounded-2xl shadow-2xl transform hover:scale-105 hover:shadow-3xl transition-all duration-500 animate-fade-in animation-delay-600">
+            <div class="bg-white bg-opacity-95 backdrop-blur-md rounded-xl p-8 h-full flex flex-col justify-between">
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-quote-left text-white text-xl"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed italic">
+                        "A great leader and problem solver. Aditya's skills in technology and cybersecurity are top-notch, making him a valuable asset to any team. His analytical thinking and innovative approach to challenges consistently deliver outstanding results."
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Anonymous</p>
+                            <p class="text-sm text-gray-600">Cybersecurity Professional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 
 <!-- Contact Section -->
-<section id="contact" class="p-10 bg-gradient-to-r from-yellow-50 to-yellow-100 shadow-xl rounded-xl">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-black text-center animate__animated animate__fadeIn">Contact Me</h2>
-    <p class="mt-4 text-lg text-gray-700 dark:text-gray-400 text-center animate__animated animate__fadeIn animate__delay-1s">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
+<section id="contact" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Contact Me</h2>
+    <p class="mt-4 text-lg text-gray-700 text-center mb-8">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
     
-    <!-- Form -->
-    <form class="mt-8 space-y-6 max-w-2xl mx-auto" method="POST" action="/submit" id="contact-form">
-        <div class="space-y-4">
-            <!-- Name Input -->
-            <div class="relative">
-                <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
-                <input type="text" name="name" placeholder="Your Name" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your name" tabindex="1">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in">
+        <!-- Contact Information -->
+        <div class="space-y-6">
+            <!-- Contact Methods -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Get In Touch</h3>
+                
+                <div class="space-y-4">
+                    <!-- Email -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Email</p>
+                            <p class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">itisaddy7@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <!-- <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Phone</p>
+                            <p class="text-green-600">+91 12345 67890</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Location -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Location</p>
+                            <p class="text-purple-600">Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <!-- Email Input -->
-            <div class="relative">
-                <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
-                <input type="email" name="email" placeholder="Your Email" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your email" tabindex="2">
+            <!-- Social Media -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Connect on Social</h3>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" 
+                       class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="https://github.com/Xenonesis" target="_blank" 
+                       class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" 
+                       class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white hover:bg-pink-600 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                </div>
             </div>
             
-            <!-- Message Input -->
-            <div class="relative">
-                <i class="fas fa-comment absolute left-3 top-5 text-gray-400 text-lg"></i>
-                <textarea name="message" placeholder="Your Message" rows="4" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your message" tabindex="3"></textarea>
+            <!-- Response Time -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Response Time</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-clock text-blue-500"></i>
+                        <span class="text-gray-600">Email: Within 24 hours</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-handshake text-green-500"></i>
+                        <span class="text-gray-600">Open to collaborations</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                        <span class="text-gray-600">Always ready for new ideas</span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Submit Button -->
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" id="submit-btn" tabindex="4">
-            <i class="fas fa-paper-plane mr-2"></i>Send Message
-        </button>
-    </form>
 
-    <!-- Removed Social Media Links as per request -->
+        <!-- Contact Form -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Send a Message</h3>
+            
+            <form class="space-y-4" method="POST" action="/submit" id="contact-form">
+                <!-- Name Input -->
+                <div class="relative">
+                    <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="name" placeholder="Your Name" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Your name" tabindex="1">
+                </div>
+                
+                <!-- Email Input -->
+                <div class="relative">
+                    <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="email" name="email" placeholder="Your Email" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Your email" tabindex="2">
+                </div>
+                
+                <!-- Subject Input -->
+                <div class="relative">
+                    <i class="fas fa-tag absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="subject" placeholder="Subject" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Subject" tabindex="3">
+                </div>
+                
+                <!-- Message Input -->
+                <div class="relative">
+                    <i class="fas fa-comment absolute left-3 top-4 text-gray-400"></i>
+                    <textarea name="message" placeholder="Your Message" rows="4" 
+                              class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 resize-none" 
+                              required aria-label="Your message" tabindex="4"></textarea>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 font-semibold" 
+                        id="submit-btn" tabindex="5">
+                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+    </div>
 </section>
 
 <!-- Footer -->
@@ -2239,7 +2626,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
     // Auto-update year
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Show loading spinner while submitting form
+    // Simple form submission handling
     const form = document.getElementById('contact-form');
     const submitButton = document.getElementById('submit-btn');
     const loadingIndicator = document.getElementById('loading-indicator');
@@ -2247,12 +2634,19 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
     form.addEventListener('submit', (e) => {
         e.preventDefault();  // Prevent form submission for demo purpose
         submitButton.disabled = true;  // Disable the submit button
-        loadingIndicator.classList.remove('hidden');  // Show loading indicator
+        submitButton.textContent = 'Sending...';  // Change button text
+        
+        if (loadingIndicator) {
+            loadingIndicator.classList.remove('hidden');  // Show loading indicator
+        }
         
         setTimeout(() => {
             form.reset();  // Reset form after submission
-            loadingIndicator.classList.add('hidden');  // Hide loading indicator
+            if (loadingIndicator) {
+                loadingIndicator.classList.add('hidden');  // Hide loading indicator
+            }
             submitButton.disabled = false;  // Re-enable the submit button
+            submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';  // Reset button text
             alert('Message sent successfully!');
         }, 2000);  // Simulate a network request (2 seconds)
     });
