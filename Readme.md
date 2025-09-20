@@ -82,10 +82,10 @@ This portfolio serves multiple audiences:
 
 | Metric | Value |
 |--------|-------|
-| Lines of Code | ~15,000 |
-| Blog Posts | 50+ |
-| Components | 20+ |
-| Technologies | 15+ |
+| Lines of Code | ~17,793 |
+| Blog Posts | 86 |
+| Components | 10 |
+| Technologies | HTML5, CSS3, JavaScript (ES6+), TailwindCSS |
 | Performance Score | 98/100 |
 | Accessibility Score | 95/100 |
 | Security Score | 92/100 |
