@@ -12,33 +12,329 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Enhanced Video Page Animations */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
-        .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
         }
-        @keyframes progress {
-        0% { width: 0; }
-        100% { width: 100%; }
-    }
-    .animate-progress {
-        animation: progress 1.5s ease-in-out forwards;
-    }
-    @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
         }
-        @keyframes slide-in {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-        .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
+
+        @keyframes floatDelayed {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
-        .animate-slide-in {
-            animation: slide-in 1s ease-out forwards;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -468px 0; }
+            100% { background-position: 468px 0; }
+        }
+
+        /* Video Card Enhancements */
+        .video-card {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: left 0.6s;
+        }
+
+        .video-card:hover::before {
+            left: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+
+        /* Video Iframe Enhancements */
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container:hover::after {
+            opacity: 1;
+        }
+
+        .video-iframe {
+            transition: transform 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .video-container:hover .video-iframe {
+            transform: scale(1.05);
+        }
+
+        /* Loading States */
+        .video-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+            animation: pulse 2s infinite;
+        }
+
+        /* Floating Elements */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: floatDelayed 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        /* Staggered Animations */
+        .stagger-1 { animation: fadeInUp 0.6s ease-out 0.1s both; }
+        .stagger-2 { animation: fadeInUp 0.6s ease-out 0.3s both; }
+        .stagger-3 { animation: fadeInUp 0.6s ease-out 0.5s both; }
+        .stagger-4 { animation: fadeInUp 0.6s ease-out 0.7s both; }
+
+        /* Header Animations */
+        .animate-slide-down { animation: slideInLeft 0.8s ease-out; }
+        .animate-expand { animation: scaleIn 0.8s ease-out 0.3s both; }
+
+        /* Button Enhancements */
+        .btn-pulse {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-pulse::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-pulse:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Video Category Tags */
+        .video-tag {
+            background: rgba(96, 165, 250, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .video-tag:hover {
+            background: rgba(96, 165, 250, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Progress Bar for Video Duration */
+        .video-progress {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s ease-out;
+        }
+
+        .video-card:hover .video-progress {
+            transform: scaleX(1);
+        }
+
+        /* Autoplay Video Enhancements */
+        .video-container {
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.02);
+        }
+
+        .timer-display {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: timerPulse 2s infinite;
+        }
+
+        @keyframes timerPulse {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(0.95);
+            }
+        }
+
+        /* Click overlay enhancements */
+        .video-container .absolute.inset-0 {
+            backdrop-filter: blur(2px);
+        }
+
+        .video-container:hover .bg-white\/90 {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Video loading indicator */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        /* Autoplay status indicator */
+        .autoplay-indicator {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            animation: pulse 2s infinite;
+        }
+
+        .autoplay-indicator::before {
+            content: "●";
+            color: #ef4444;
+            margin-right: 4px;
+            animation: pulse 1s infinite;
+        }
+
+        /* Sound Control Enhancements */
+        .sound-control-btn {
+            z-index: 50 !important;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            pointer-events: auto !important;
+            position: relative;
+        }
+
+        .sound-control-btn:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.9) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sound-control-btn.muted {
+            background: rgba(239, 68, 68, 0.8);
+        }
+
+        .sound-control-btn.unmuted {
+            background: rgba(34, 197, 94, 0.8);
+        }
+
+        .sound-control-btn i {
+            transition: all 0.3s ease;
+        }
+
+        .sound-control-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Volume slider (for future enhancement) */
+        .volume-slider {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .sound-control-btn:hover + .volume-slider,
+        .volume-slider:hover {
+            opacity: 1;
+            visibility: visible;
         }
       /* General Styles */
 body {
@@ -577,79 +873,274 @@ html {
     <!-- Main Content -->
     <main class="pt-20 page-enter">
         <!-- Videos Section -->
-        <section class="p-10 bg-gradient-to-br from-yellow-50 to-orange-50 relative overflow-hidden">
-            <!-- Background Animation Elements -->
-            <div class="absolute top-10 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-30 animate-float"></div>
-            <div class="absolute bottom-20 right-20 w-32 h-32 bg-pink-200 rounded-full opacity-20 animate-float-delayed"></div>
+        <section class="min-h-screen p-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+            <!-- Enhanced Background Animation Elements -->
+            <div class="absolute top-10 left-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-20 animate-float blur-sm"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-pink-400 to-red-500 rounded-full opacity-15 animate-float-delayed blur-sm"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full opacity-10 animate-float"></div>
+            <div class="absolute bottom-1/3 right-1/3 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-15 animate-float-delayed"></div>
             
-            <div class="relative z-10">
-                <h1 class="text-6xl font-bold text-center text-gray-800 mb-4 animate-slide-down">
-                    My Videos
-                </h1>
-                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-blue-500 mx-auto mb-12 rounded-full animate-expand"></div>
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <!-- Enhanced Header -->
+                <div class="text-center mb-16">
+                    <h1 class="text-7xl md:text-8xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6 animate-slide-down">
+                        My Videos
+                    </h1>
+                    <div class="w-32 h-1.5 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 mx-auto mb-8 rounded-full animate-expand shadow-lg"></div>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed stagger-1">
+                        Explore my journey through technology, cybersecurity insights, and project showcases. 
+                        Each video represents a milestone in my professional growth and expertise.
+                    </p>
+                </div>
+
+                <!-- Video Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 stagger-2">
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 text-center">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">3+</div>
+                        <div class="text-gray-600">Featured Videos</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 text-center">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">1K+</div>
+                        <div class="text-gray-600">Total Views</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 text-center">
+                        <div class="text-3xl font-bold text-pink-600 mb-2">100%</div>
+                        <div class="text-gray-600">Professional Content</div>
+                    </div>
+                </div>
                 
-                <!-- Videos Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Enhanced Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
                     <!-- Video 1 - Work Introduction -->
-                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-1">
-                        <div class="flex items-center mb-4">
-                            <div class="w-3 h-3 bg-red-500 rounded-full mr-2 animate-pulse"></div>
-                            <h3 class="text-2xl font-semibold text-gray-800">Work Introduction</h3>
+                    <div class="video-card bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 stagger-1 group">
+                        <!-- Video Header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-red-500 rounded-full mr-3 status-indicator"></div>
+                                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">Work Introduction</h3>
+                            </div>
+                            <div class="video-tag px-3 py-1 rounded-full text-sm font-medium">
+                                Professional
+                            </div>
                         </div>
-                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+
+                        <!-- Video Container - Work Introduction -->
+                        <div class="video-container mb-6 relative group" data-youtube-url="https://www.youtube.com/watch?v=ScMzIvxBSi4" data-video-title="Work Introduction" data-video-category="professional">
                             <iframe 
-                                src="https://www.youtube.com/embed/ScMzIvxBSi4" 
-                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
-                                allowfullscreen>
+                                src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&mute=1&start=0&end=15&loop=1&playlist=ScMzIvxBSi4&controls=0&modestbranding=1" 
+                                class="video-iframe w-full h-64"
+                                allowfullscreen
+                                loading="lazy"
+                                allow="autoplay; encrypted-media">
                             </iframe>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                            <!-- Click overlay for full video -->
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                                    <span class="text-gray-800 font-semibold flex items-center">
+                                        <i class="fab fa-youtube text-red-600 mr-2"></i>
+                                        Watch Full Video
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Autoplay indicator -->
+                            <div class="autoplay-indicator">
+                                AUTO
+                            </div>
+                            <!-- Sound control for Work Introduction -->
+                            <div class="absolute top-2 right-2 sound-control-btn bg-black/70 hover:bg-black/90 text-white p-2 rounded-full cursor-pointer transition-all duration-300" data-muted="true" data-video-id="ScMzIvxBSi4">
+                                <i class="fas fa-volume-mute text-sm"></i>
+                            </div>
+                            <!-- Timer indicator -->
+                            <div class="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs timer-display">
+                                15s
+                            </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">An introduction to my work and professional journey in cybersecurity and web development.</p>
+
+                        <!-- Video Info -->
+                        <div class="space-y-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                An engaging introduction to my professional journey in cybersecurity and web development, 
+                                showcasing my expertise and passion for technology.
+                            </p>
+                            
+                            <!-- Video Progress Bar -->
+                            <div class="video-progress"></div>
+                            
+                            <!-- Video Meta -->
+                            <div class="flex items-center justify-between text-sm text-gray-500 pt-2">
+                                <span class="flex items-center">
+                                    <i class="fas fa-play-circle mr-2"></i>
+                                    Watch on YouTube
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    4:32
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Video 2 -->
-                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-2">
-                        <div class="flex items-center mb-4">
-                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                            <h3 class="text-2xl font-semibold text-gray-800">Project Showcase</h3>
+                    <!-- Video 2 - Project Showcase -->
+                    <div class="video-card bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 stagger-2 group">
+                        <!-- Video Header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-green-500 rounded-full mr-3 status-indicator"></div>
+                                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">Project Showcase</h3>
+                            </div>
+                            <div class="video-tag px-3 py-1 rounded-full text-sm font-medium">
+                                Technical
+                            </div>
                         </div>
-                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+
+                        <!-- Video Container - Project Showcase -->
+                        <div class="video-container mb-6 relative group" data-youtube-url="https://www.youtube.com/watch?v=NlNcC5f47lI" data-video-title="Project Showcase" data-video-category="technical">
                             <iframe 
-                                src="https://www.youtube.com/embed/NlNcC5f47lI" 
-                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
-                                allowfullscreen>
+                                src="https://www.youtube.com/embed/NlNcC5f47lI?autoplay=1&mute=1&start=0&end=15&loop=1&playlist=NlNcC5f47lI&controls=0&modestbranding=1" 
+                                class="video-iframe w-full h-64"
+                                allowfullscreen
+                                loading="lazy"
+                                allow="autoplay; encrypted-media">
                             </iframe>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                            <!-- Click overlay for full video -->
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                                    <span class="text-gray-800 font-semibold flex items-center">
+                                        <i class="fab fa-youtube text-red-600 mr-2"></i>
+                                        Watch Full Video
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Autoplay indicator -->
+                            <div class="autoplay-indicator">
+                                AUTO
+                            </div>
+                            <!-- Sound control for Project Showcase -->
+                            <div class="absolute top-2 right-2 sound-control-btn bg-black/70 hover:bg-black/90 text-white p-2 rounded-full cursor-pointer transition-all duration-300" data-muted="true" data-video-id="NlNcC5f47lI">
+                                <i class="fas fa-volume-mute text-sm"></i>
+                            </div>
+                            <!-- Timer indicator -->
+                            <div class="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs timer-display">
+                                15s
+                            </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">A detailed showcase of my latest projects and technical implementations.</p>
+
+                        <!-- Video Info -->
+                        <div class="space-y-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                A comprehensive showcase of my latest projects, demonstrating technical implementations, 
+                                problem-solving approaches, and innovative solutions.
+                            </p>
+                            
+                            <!-- Video Progress Bar -->
+                            <div class="video-progress"></div>
+                            
+                            <!-- Video Meta -->
+                            <div class="flex items-center justify-between text-sm text-gray-500 pt-2">
+                                <span class="flex items-center">
+                                    <i class="fas fa-play-circle mr-2"></i>
+                                    Watch on YouTube
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    6:15
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Video 3 -->
-                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg card-hover border border-white/20 stagger-3">
-                        <div class="flex items-center mb-4">
-                            <div class="w-3 h-3 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
-                            <h3 class="text-2xl font-semibold text-gray-800">Tech Talk</h3>
+                    <!-- Video 3 - Tech Talk -->
+                    <div class="video-card bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 stagger-3 group">
+                        <!-- Video Header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-purple-500 rounded-full mr-3 status-indicator"></div>
+                                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">Tech Talk</h3>
+                            </div>
+                            <div class="video-tag px-3 py-1 rounded-full text-sm font-medium">
+                                Educational
+                            </div>
                         </div>
-                        <div class="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-xl">
+
+                        <!-- Video Container - Tech Talk -->
+                        <div class="video-container mb-6 relative group" data-youtube-url="https://www.youtube.com/watch?v=CF-G6f5qoUQ" data-video-title="Tech Talk" data-video-category="educational">
                             <iframe 
-                                src="https://www.youtube.com/embed/CF-G6f5qoUQ" 
-                                class="w-full h-64 rounded-xl shadow-xl transition-all duration-500 hover:scale-105"
-                                allowfullscreen>
+                                src="https://www.youtube.com/embed/CF-G6f5qoUQ?autoplay=1&mute=1&start=0&end=15&loop=1&playlist=CF-G6f5qoUQ&controls=0&modestbranding=1" 
+                                class="video-iframe w-full h-64"
+                                allowfullscreen
+                                loading="lazy"
+                                allow="autoplay; encrypted-media">
                             </iframe>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                            <!-- Click overlay for full video -->
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                                    <span class="text-gray-800 font-semibold flex items-center">
+                                        <i class="fab fa-youtube text-red-600 mr-2"></i>
+                                        Watch Full Video
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Autoplay indicator -->
+                            <div class="autoplay-indicator">
+                                AUTO
+                            </div>
+                            <!-- Sound control for Tech Talk -->
+                            <div class="absolute top-2 right-2 sound-control-btn bg-black/70 hover:bg-black/90 text-white p-2 rounded-full cursor-pointer transition-all duration-300" data-muted="true" data-video-id="CF-G6f5qoUQ">
+                                <i class="fas fa-volume-mute text-sm"></i>
+                            </div>
+                            <!-- Timer indicator -->
+                            <div class="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs timer-display">
+                                15s
+                            </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Insights and discussions about the latest trends in technology and cybersecurity.</p>
+
+                        <!-- Video Info -->
+                        <div class="space-y-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                Insightful discussions about emerging technology trends, cybersecurity best practices, 
+                                and industry developments that shape our digital future.
+                            </p>
+                            
+                            <!-- Video Progress Bar -->
+                            <div class="video-progress"></div>
+                            
+                            <!-- Video Meta -->
+                            <div class="flex items-center justify-between text-sm text-gray-500 pt-2">
+                                <span class="flex items-center">
+                                    <i class="fas fa-play-circle mr-2"></i>
+                                    Watch on YouTube
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    8:42
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Back to Home Button -->
-                <div class="text-center mt-12 stagger-4">
-                    <a href="index.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg btn-pulse">
-                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                        </svg>
-                        Back to Home
-                    </a>
+                <!-- Call to Action Section -->
+                <div class="text-center mt-20 stagger-4">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-3xl shadow-2xl max-w-4xl mx-auto">
+                        <h2 class="text-3xl font-bold text-white mb-4">
+                            Want to see more content?
+                        </h2>
+                        <p class="text-blue-100 mb-8 text-lg">
+                            Subscribe to my YouTube channel for the latest videos on technology, cybersecurity, and professional development.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="https://youtube.com/@yourusername" target="_blank" class="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg btn-pulse">
+                                <i class="fab fa-youtube mr-3 text-xl"></i>
+                                Subscribe on YouTube
+                            </a>
+                            <a href="index.html" class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg backdrop-blur-sm">
+                                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                Back to Home
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -681,6 +1172,511 @@ html {
     <script>
         // Auto-update year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Enhanced Video Page Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for enhanced animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all video cards for scroll animations
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Enhanced video card interactions
+            document.querySelectorAll('.video-card').forEach(card => {
+                // Add hover sound effect (optional)
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+
+                // Add click analytics (placeholder)
+                card.addEventListener('click', function() {
+                    const videoTitle = this.querySelector('h3').textContent;
+                    console.log(`Video card clicked: ${videoTitle}`);
+                    
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        pointer-events: none;
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: 20px;
+                        height: 20px;
+                        left: ${event.clientX - this.getBoundingClientRect().left - 10}px;
+                        top: ${event.clientY - this.getBoundingClientRect().top - 10}px;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Lazy loading for video thumbnails with intersection observer
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        if (iframe.dataset.src) {
+                            iframe.src = iframe.dataset.src;
+                            iframe.removeAttribute('data-src');
+                            videoObserver.unobserve(iframe);
+                        }
+                    }
+                });
+            });
+
+            // Video autoplay and timer functionality
+            let videoTimers = {};
+            
+            // Handle video containers for full YouTube watch with specific context
+            document.querySelectorAll('.video-container[data-youtube-url]').forEach(container => {
+                const iframe = container.querySelector('.video-iframe');
+                const timerDisplay = container.querySelector('.timer-display');
+                const youtubeUrl = container.getAttribute('data-youtube-url');
+                const videoTitle = container.getAttribute('data-video-title');
+                const videoCategory = container.getAttribute('data-video-category');
+                
+                // Only redirect to YouTube when clicking the overlay, not the entire container
+                const clickOverlay = container.querySelector('.absolute.inset-0');
+                if (clickOverlay) {
+                    clickOverlay.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Enhanced analytics with specific video context
+                        console.log(`Full video opened: ${videoTitle} (${videoCategory})`);
+                        console.log(`YouTube URL: ${youtubeUrl}`);
+                        
+                        // Add visual feedback for click
+                        this.style.opacity = '1';
+                        setTimeout(() => {
+                            this.style.opacity = '0';
+                        }, 200);
+                        
+                        window.open(youtubeUrl, '_blank');
+                    });
+                }
+                
+                // Enhanced countdown timer with video-specific styling
+                if (iframe && timerDisplay) {
+                    let timeLeft = 15;
+                    
+                    const startTimer = () => {
+                        videoTimers[youtubeUrl] = setInterval(() => {
+                            timeLeft--;
+                            timerDisplay.textContent = `${timeLeft}s`;
+                            
+                            // Add urgency styling for last 5 seconds
+                            if (timeLeft <= 5) {
+                                timerDisplay.style.background = 'rgba(239, 68, 68, 0.9)';
+                                timerDisplay.style.animation = 'timerPulse 0.5s infinite';
+                            } else {
+                                timerDisplay.style.background = 'rgba(0, 0, 0, 0.8)';
+                                timerDisplay.style.animation = 'timerPulse 2s infinite';
+                            }
+                            
+                            if (timeLeft <= 0) {
+                                timeLeft = 15; // Reset for loop
+                                timerDisplay.textContent = '15s';
+                                timerDisplay.style.background = 'rgba(0, 0, 0, 0.8)';
+                                timerDisplay.style.animation = 'timerPulse 2s infinite';
+                                
+                                // Log loop event for analytics
+                                console.log(`Video looped: ${videoTitle}`);
+                            }
+                        }, 1000);
+                    };
+                    
+                    // Start timer when video becomes visible with category-specific delay
+                    const timerObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const delay = videoCategory === 'professional' ? 500 : 
+                                            videoCategory === 'technical' ? 750 : 1000;
+                                            
+                                setTimeout(() => {
+                                    startTimer();
+                                    console.log(`Autoplay started: ${videoTitle} (${videoCategory})`);
+                                }, delay);
+                                
+                                timerObserver.unobserve(entry.target);
+                            }
+                        });
+                    });
+                    
+                    timerObserver.observe(iframe);
+                }
+                
+                // Enhanced hover effects with category-specific animations
+                container.addEventListener('mouseenter', function() {
+                    const scaleValue = videoCategory === 'professional' ? '1.03' : 
+                                     videoCategory === 'technical' ? '1.025' : '1.02';
+                    this.style.transform = `scale(${scaleValue})`;
+                    
+                    // Add category-specific hover feedback
+                    const autoplayIndicator = this.querySelector('.autoplay-indicator');
+                    if (autoplayIndicator) {
+                        autoplayIndicator.style.background = videoCategory === 'professional' ? 'rgba(59, 130, 246, 0.9)' :
+                                                           videoCategory === 'technical' ? 'rgba(34, 197, 94, 0.9)' :
+                                                           'rgba(147, 51, 234, 0.9)';
+                    }
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    
+                    // Reset autoplay indicator
+                    const autoplayIndicator = this.querySelector('.autoplay-indicator');
+                    if (autoplayIndicator) {
+                        autoplayIndicator.style.background = 'rgba(220, 38, 38, 0.9)';
+                    }
+                });
+                
+                // Remove container cursor pointer and click behavior
+                container.style.cursor = 'default';
+                
+                // Only the overlay should be clickable for YouTube navigation
+                if (clickOverlay) {
+                    clickOverlay.style.cursor = 'pointer';
+                    clickOverlay.setAttribute('tabindex', '0');
+                    clickOverlay.setAttribute('role', 'button');
+                    clickOverlay.setAttribute('aria-label', `Watch ${videoTitle} - ${videoCategory} video on YouTube`);
+                    
+                    clickOverlay.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            this.click();
+                        }
+                    });
+                }
+            });
+
+            // Sound control functionality for autoplay videos
+            document.querySelectorAll('.sound-control-btn').forEach(soundBtn => {
+                const videoId = soundBtn.getAttribute('data-video-id');
+                const container = soundBtn.closest('.video-container');
+                const iframe = container.querySelector('.video-iframe');
+                let isMuted = soundBtn.getAttribute('data-muted') === 'true';
+                
+                // Initialize button state
+                updateSoundButton(soundBtn, isMuted);
+                
+                // Make sure the sound button is properly clickable
+                soundBtn.style.pointerEvents = 'auto';
+                soundBtn.style.zIndex = '30';
+                
+                soundBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent any parent element clicks
+                    e.stopImmediatePropagation(); // Prevent other event listeners
+                    
+                    console.log('Sound button clicked!'); // Debug log
+                    
+                    isMuted = !isMuted;
+                    soundBtn.setAttribute('data-muted', isMuted.toString());
+                    
+                    // Update iframe src with mute parameter
+                    const currentSrc = iframe.src;
+                    const newSrc = updateVideoMuteParameter(currentSrc, isMuted);
+                    iframe.src = newSrc;
+                    
+                    // Update button appearance
+                    updateSoundButton(soundBtn, isMuted);
+                    
+                    // Log sound control action
+                    const videoTitle = container.getAttribute('data-video-title');
+                    console.log(`Sound ${isMuted ? 'muted' : 'unmuted'} for: ${videoTitle}`);
+                    
+                    // Enhanced visual feedback
+                    soundBtn.style.transform = 'scale(0.8)';
+                    soundBtn.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+                    setTimeout(() => {
+                        soundBtn.style.transform = 'scale(1)';
+                        soundBtn.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                    }, 150);
+                    
+                    return false; // Extra prevention
+                });
+                
+                // Prevent sound button from triggering any parent events
+                soundBtn.addEventListener('mousedown', function(e) {
+                    e.stopPropagation();
+                });
+                
+                soundBtn.addEventListener('mouseup', function(e) {
+                    e.stopPropagation();
+                });
+                
+                soundBtn.addEventListener('mouseenter', function(e) {
+                    e.stopPropagation();
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                soundBtn.addEventListener('mouseleave', function(e) {
+                    e.stopPropagation();
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Helper function to update sound button appearance
+            function updateSoundButton(button, isMuted) {
+                const icon = button.querySelector('i');
+                
+                if (isMuted) {
+                    button.classList.add('muted');
+                    button.classList.remove('unmuted');
+                    icon.className = 'fas fa-volume-mute text-sm';
+                    button.setAttribute('title', 'Click to unmute');
+                } else {
+                    button.classList.add('unmuted');
+                    button.classList.remove('muted');
+                    icon.className = 'fas fa-volume-up text-sm';
+                    button.setAttribute('title', 'Click to mute');
+                }
+            }
+            
+            // Helper function to update YouTube embed mute parameter
+            function updateVideoMuteParameter(src, shouldMute) {
+                const url = new URL(src);
+                const params = new URLSearchParams(url.search);
+                
+                if (shouldMute) {
+                    params.set('mute', '1');
+                } else {
+                    params.delete('mute');
+                }
+                
+                url.search = params.toString();
+                return url.toString();
+            }
+            
+            // Global sound control (optional - for all videos at once)
+            let globalMute = true;
+            
+            // Add keyboard shortcut for global mute toggle
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'm' || e.key === 'M') {
+                    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                        e.preventDefault();
+                        globalMute = !globalMute;
+                        
+                        // Toggle all video sound controls
+                        document.querySelectorAll('.sound-control-btn').forEach(btn => {
+                            const currentMuted = btn.getAttribute('data-muted') === 'true';
+                            if (currentMuted !== globalMute) {
+                                btn.click();
+                            }
+                        });
+                        
+                        console.log(`Global sound ${globalMute ? 'muted' : 'unmuted'}`);
+                        
+                        // Show temporary notification
+                        showSoundNotification(globalMute ? 'All videos muted' : 'All videos unmuted');
+                    }
+                }
+            });
+            
+            // Helper function to show sound notification
+            function showSoundNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    font-weight: 500;
+                    backdrop-filter: blur(4px);
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 2 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 2000);
+            }
+
+            // Modify lazy loading to work with autoplay videos
+            document.querySelectorAll('.video-iframe').forEach(iframe => {
+                // Videos will autoplay when they come into view
+                const autoplayObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Video is already loaded with autoplay parameters
+                            autoplayObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 }); // Start when 50% visible
+                
+                autoplayObserver.observe(iframe);
+            });
+
+            // Smooth scroll behavior for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Enhanced stats counter animation
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumber = entry.target.querySelector('.text-3xl');
+                        const finalNumber = statNumber.textContent;
+                        
+                        // Animate numbers counting up
+                        if (finalNumber.includes('+')) {
+                            const num = parseInt(finalNumber.replace(/\D/g, ''));
+                            let current = 0;
+                            const increment = num / 30;
+                            
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= num) {
+                                    statNumber.textContent = finalNumber;
+                                    clearInterval(timer);
+                                } else {
+                                    statNumber.textContent = Math.floor(current) + '+';
+                                }
+                            }, 50);
+                        } else if (finalNumber.includes('%')) {
+                            const num = parseInt(finalNumber.replace(/\D/g, ''));
+                            let current = 0;
+                            
+                            const timer = setInterval(() => {
+                                current += 2;
+                                if (current >= num) {
+                                    statNumber.textContent = finalNumber;
+                                    clearInterval(timer);
+                                } else {
+                                    statNumber.textContent = current + '%';
+                                }
+                            }, 30);
+                        }
+                        
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            // Observe stats cards
+            document.querySelectorAll('.bg-white\\/80.backdrop-blur-sm').forEach(stat => {
+                statsObserver.observe(stat);
+            });
+
+            // Add keyboard navigation support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    // Close any modals or reset focus
+                    document.activeElement.blur();
+                }
+            });
+
+            // Performance optimization: Preload critical resources
+            const preloadLink = document.createElement('link');
+            preloadLink.rel = 'preload';
+            preloadLink.as = 'image';
+            preloadLink.href = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+';
+            document.head.appendChild(preloadLink);
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .video-card {
+                will-change: transform;
+                transform: translateZ(0);
+            }
+            
+            .video-iframe {
+                will-change: transform;
+            }
+            
+            /* Accessibility improvements */
+            .video-card:focus-visible {
+                outline: 3px solid #3b82f6;
+                outline-offset: 2px;
+            }
+            
+            .btn-pulse:focus-visible {
+                outline: 3px solid #ffffff;
+                outline-offset: 2px;
+            }
+            
+            /* Reduced motion preferences */
+            @media (prefers-reduced-motion: reduce) {
+                .video-card,
+                .video-iframe,
+                .animate-float,
+                .animate-float-delayed,
+                .status-indicator {
+                    animation: none !important;
+                    transition: none !important;
+                }
+                
+                .video-card:hover {
+                    transform: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
