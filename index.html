@@ -350,6 +350,90 @@ button:hover, iframe:hover {
     animation-delay: 0.6s;
 }
 
+/* Contact Section Animations */
+@keyframes spin-slow {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Contact Form Enhancements */
+.contact-info-card {
+    position: relative;
+    background: linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.1) 100%);
+    animation: contact-entrance 0.8s ease-out forwards;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container {
+    animation: form-entrance 1s ease-out 0.3s both;
+}
+
+@keyframes contact-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes form-entrance {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Input Focus Effects */
+.group:focus-within .fas {
+    color: #3b82f6 !important;
+    transform: scale(1.1);
+}
+
+/* Button Loading Animation */
+#contact-form.loading #button-text {
+    opacity: 0;
+}
+
+#contact-form.loading #button-loader {
+    display: block !important;
+}
+
 /* Fade-In Animation */
 @keyframes fade-in {
     from {
@@ -997,7 +1081,7 @@ html {
                 Hi, I'm <span class="font-bold text-blue-500">Aditya Kumar Tiwari</span>, a passionate <span class="font-semibold">Cybersecurity Specialist</span> and <span class="font-semibold">Full-Stack Developer</span>. I thrive at the intersection of technology and innovation, crafting secure and scalable solutions for real-world challenges.
             </p>
             <p class="mt-4 text-lg md:text-xl text-gray-800 leading-relaxed">
-                Currently pursuing a <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> at Sushant University, I specialize in <span class="font-semibold">Python</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Linux</span>, and <span class="font-semibold">Cloud Computing</span>. My mission is to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
+                Completed my <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> from Sushant University, I now work as a <span class="font-semibold text-green-600">Laravel Developer</span> at <span class="font-semibold text-purple-600">Prarang</span>. I specialize in <span class="font-semibold">PHP</span>, <span class="font-semibold">Laravel</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Python</span>, and <span class="font-semibold">Cloud Computing</span>. My mission is to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
             </p>
             <div class="mt-6 flex justify-center md:justify-start space-x-4">
                 <a 
@@ -1118,6 +1202,12 @@ html {
         </div>
         <div class="tech-logo" data-tech="GraphQL">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="Laravel">
+          <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-10 h-10">
+        </div>
+        <div class="tech-logo" data-tech="PHP">
+          <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP" class="w-10 h-10">
         </div>
       </div>
     </div>
@@ -1466,6 +1556,54 @@ function closePopup() {
             <h3 class="text-xl font-semibold">sysmonrust</h3>
             <p class="mt-4 text-gray-600">A system monitoring tool developed in Rust for performance tracking. Ideal for system programming enthusiasts.</p>
             <a href="https://github.com/Xenonesis/sysmonrust" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+        </div>
+        
+        <!-- Laravel/PHP Projects -->
+        <!-- Project Card 13 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-red-500" data-category="laravel">
+            <div class="flex items-center mb-2">
+                <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-red-600">E-Commerce Platform</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A full-featured e-commerce platform built with Laravel, featuring user authentication, payment integration, and admin dashboard. Perfect for showcasing modern PHP development.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">MySQL</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Developed at Prarang</p>
+        </div>
+        
+        <!-- Project Card 14 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-red-500" data-category="laravel">
+            <div class="flex items-center mb-2">
+                <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-red-600">Content Management System</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A robust CMS built with Laravel featuring role-based permissions, content scheduling, and SEO optimization. Demonstrates advanced Laravel concepts and best practices.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Blade</span>
+                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Bootstrap</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Developed at Prarang</p>
+        </div>
+        
+        <!-- Project Card 15 -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-indigo-500" data-category="php">
+            <div class="flex items-center mb-2">
+                <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP" class="w-6 h-6 mr-2">
+                <h3 class="text-xl font-semibold text-indigo-600">REST API Development</h3>
+            </div>
+            <p class="mt-4 text-gray-600">A comprehensive REST API built with Laravel, featuring JWT authentication, rate limiting, and comprehensive documentation. Ideal for modern web applications.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Laravel</span>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JWT</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">API</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Professional Work</p>
         </div>
     </div>
     <!-- Button to view all projects on a separate page -->
@@ -2314,39 +2452,138 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 
 
 <!-- Contact Section -->
-<section id="contact" class="p-10 bg-gradient-to-r from-yellow-50 to-yellow-100 shadow-xl rounded-xl">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-black text-center animate__animated animate__fadeIn">Contact Me</h2>
-    <p class="mt-4 text-lg text-gray-700 dark:text-gray-400 text-center animate__animated animate__fadeIn animate__delay-1s">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
+<section id="contact" class="p-10 bg-yellow-50">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8">Contact Me</h2>
+    <p class="mt-4 text-lg text-gray-700 text-center mb-8">Feel free to reach out to me for collaborations, projects, or just a friendly chat.</p>
     
-    <!-- Form -->
-    <form class="mt-8 space-y-6 max-w-2xl mx-auto" method="POST" action="/submit" id="contact-form">
-        <div class="space-y-4">
-            <!-- Name Input -->
-            <div class="relative">
-                <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
-                <input type="text" name="name" placeholder="Your Name" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your name" tabindex="1">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in">
+        <!-- Contact Information -->
+        <div class="space-y-6">
+            <!-- Contact Methods -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Get In Touch</h3>
+                
+                <div class="space-y-4">
+                    <!-- Email -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Email</p>
+                            <p class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">itisaddy7@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <!-- <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Phone</p>
+                            <p class="text-green-600">+91 12345 67890</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Location -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Location</p>
+                            <p class="text-purple-600">Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <!-- Email Input -->
-            <div class="relative">
-                <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
-                <input type="email" name="email" placeholder="Your Email" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your email" tabindex="2">
+            <!-- Social Media -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Connect on Social</h3>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/itisaddy/" target="_blank" 
+                       class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="https://github.com/Xenonesis" target="_blank" 
+                       class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/i__aditya7?igsh=c2JzeHl2a2J6NGU=" target="_blank" 
+                       class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white hover:bg-pink-600 transition-colors shadow-md hover:shadow-lg">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                </div>
             </div>
             
-            <!-- Message Input -->
-            <div class="relative">
-                <i class="fas fa-comment absolute left-3 top-5 text-gray-400 text-lg"></i>
-                <textarea name="message" placeholder="Your Message" rows="4" class="w-full pl-10 p-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 focus:ring-opacity-50" required aria-label="Your message" tabindex="3"></textarea>
+            <!-- Response Time -->
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Response Time</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-clock text-blue-500"></i>
+                        <span class="text-gray-600">Email: Within 24 hours</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-handshake text-green-500"></i>
+                        <span class="text-gray-600">Open to collaborations</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                        <span class="text-gray-600">Always ready for new ideas</span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Submit Button -->
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" id="submit-btn" tabindex="4">
-            <i class="fas fa-paper-plane mr-2"></i>Send Message
-        </button>
-    </form>
 
-    <!-- Removed Social Media Links as per request -->
+        <!-- Contact Form -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Send a Message</h3>
+            
+            <form class="space-y-4" method="POST" action="/submit" id="contact-form">
+                <!-- Name Input -->
+                <div class="relative">
+                    <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="name" placeholder="Your Name" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Your name" tabindex="1">
+                </div>
+                
+                <!-- Email Input -->
+                <div class="relative">
+                    <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="email" name="email" placeholder="Your Email" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Your email" tabindex="2">
+                </div>
+                
+                <!-- Subject Input -->
+                <div class="relative">
+                    <i class="fas fa-tag absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="subject" placeholder="Subject" 
+                           class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" 
+                           required aria-label="Subject" tabindex="3">
+                </div>
+                
+                <!-- Message Input -->
+                <div class="relative">
+                    <i class="fas fa-comment absolute left-3 top-4 text-gray-400"></i>
+                    <textarea name="message" placeholder="Your Message" rows="4" 
+                              class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 resize-none" 
+                              required aria-label="Your message" tabindex="4"></textarea>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 font-semibold" 
+                        id="submit-btn" tabindex="5">
+                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+    </div>
 </section>
 
 <!-- Footer -->
@@ -2389,7 +2626,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
     // Auto-update year
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Show loading spinner while submitting form
+    // Simple form submission handling
     const form = document.getElementById('contact-form');
     const submitButton = document.getElementById('submit-btn');
     const loadingIndicator = document.getElementById('loading-indicator');
@@ -2397,12 +2634,19 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
     form.addEventListener('submit', (e) => {
         e.preventDefault();  // Prevent form submission for demo purpose
         submitButton.disabled = true;  // Disable the submit button
-        loadingIndicator.classList.remove('hidden');  // Show loading indicator
+        submitButton.textContent = 'Sending...';  // Change button text
+        
+        if (loadingIndicator) {
+            loadingIndicator.classList.remove('hidden');  // Show loading indicator
+        }
         
         setTimeout(() => {
             form.reset();  // Reset form after submission
-            loadingIndicator.classList.add('hidden');  // Hide loading indicator
+            if (loadingIndicator) {
+                loadingIndicator.classList.add('hidden');  // Hide loading indicator
+            }
             submitButton.disabled = false;  // Re-enable the submit button
+            submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';  // Reset button text
             alert('Message sent successfully!');
         }, 2000);  // Simulate a network request (2 seconds)
     });
