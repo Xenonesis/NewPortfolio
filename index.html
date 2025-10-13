@@ -9,7 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
 
 </head>
@@ -801,63 +800,9 @@ html {
 </nav>
 
 <script>
-    // Toggle mobile menu visibility with animation
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile menu functionality is handled by script.js to avoid conflicts
 
-    menuToggle.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
-        if (isHidden) {
-            mobileMenu.classList.remove('hidden', 'invisible', 'opacity-0');
-            mobileMenu.classList.add('animate-slide-in');
-        } else {
-            mobileMenu.classList.add('hidden', 'invisible', 'opacity-0');
-        }
-    });
-
-    // Dark mode toggle functionality with localStorage support
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const toggleIcon = document.getElementById('toggle-icon');
-
-    // Function to apply the correct theme
-    const applyTheme = () => {
-        const isDark = localStorage.getItem('theme') === 'dark';
-        if (isDark) {
-            document.documentElement.classList.add('dark');
-            if (toggleIcon) {
-                toggleIcon.textContent = '☀️';
-            }
-        } else {
-            document.documentElement.classList.remove('dark');
-            if (toggleIcon) {
-                toggleIcon.textContent = '🌙';
-            }
-        }
-        
-        // Force footer style update will be handled by enforceFooterStyles
-    };
-
-    // Apply theme on initial load
-    applyTheme();
-    updateFooter();
-
-    // Event listener for the dark mode toggle button
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            
-            // Save the user's preference to local storage
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-            
-            // Update the toggle icon and apply theme
-            applyTheme();
-            updateFooter();
-        });
-    }
+    // Dark mode functionality is handled by script.js to avoid conflicts
 
     // Simple footer update function
     function updateFooter() {
