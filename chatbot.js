@@ -446,29 +446,36 @@ document.addEventListener('DOMContentLoaded', () => {
             return responses[lowerCaseMessage];
         }
 
-        // Try to fetch response from Gemini API
-        try {
-            const geminiResponse = await fetchGeminiResponse(message);
-            if (geminiResponse) {
-                // Cache the response for future use
-                responses[lowerCaseMessage] = geminiResponse;
-                localStorage.setItem('botResponses', JSON.stringify(responses));
-                return geminiResponse;
-            } else {
-                return `I don't have information about "${message}" in my knowledge base. You can ask me about my skills, projects, work experience, or education. 🤔`;
-            }
-        } catch (error) {
-            console.error('Gemini API Error:', error);
+        // Try multiple AI providers in order of preference
+        const aiProviders = [
+            { name: 'OpenRouter', func: fetchOpenRouterResponse },
+            { name: 'Gemini', func: fetchGeminiResponse }
+        ];
 
-            // Provide helpful error messages based on error type
-            if (error.message.includes('API_KEY_INVALID') || error.message.includes('403')) {
-                return `🔑 It looks like there's an issue with the API configuration. You can still ask me about my predefined topics like 'skills', 'projects', or 'work'!`;
-            } else if (error.message.includes('QUOTA_EXCEEDED') || error.message.includes('429')) {
-                return `⏰ I've reached my daily API limit, but I can still help with basic questions about my skills, projects, and experience!`;
-            } else {
-                return `🤖 I'm having trouble connecting to my AI service right now, but I can answer questions about my skills, projects, work, and education using my built-in knowledge!`;
+        for (const provider of aiProviders) {
+            try {
+                console.log(`Trying ${provider.name} API...`);
+                const aiResponse = await provider.func(message);
+                if (aiResponse) {
+                    // Cache the response for future use
+                    responses[lowerCaseMessage] = aiResponse;
+                    localStorage.setItem('botResponses', JSON.stringify(responses));
+                    return aiResponse;
+                }
+            } catch (error) {
+                console.error(`${provider.name} API Error:`, error);
+
+                // If it's a quota/auth error, try next provider
+                if (error.message.includes('QUOTA_EXCEEDED') || error.message.includes('429') ||
+                    error.message.includes('API_KEY_INVALID') || error.message.includes('403')) {
+                    console.log(`${provider.name} unavailable, trying next provider...`);
+                    continue;
+                }
             }
         }
+
+        // If all AI providers fail, return helpful fallback message
+        return `🤖 I'm currently having trouble with my AI services, but I can still help with questions about my skills, projects, work experience, and education using my built-in knowledge! Try asking about 'skills', 'projects', or 'work'.`;
     }
 
     async function fetchGeminiResponse(message) {
@@ -543,6 +550,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error('Gemini API Error:', error);
+            throw error;
+        }
+    }
+
+    async function fetchOpenRouterResponse(message) {
+        // Get your OpenRouter API key from: https://openrouter.ai/keys
+        const apiKey = 'YOUR_OPENROUTER_API_KEY_HERE'; // Replace with your actual OpenRouter API key
+        const url = 'https://openrouter.ai/api/v1/chat/completions';
+
+        // Enhanced context prompt with portfolio information
+        const contextPrompt = `You are Aditya's personal portfolio chatbot. You should only answer questions about:
+        - Aditya's skills: Laravel, PHP, JavaScript, Python, Cybersecurity, Web Development
+        - His work at Prarang as a Laravel Developer
+        - His education: BCA in Cybersecurity from Sushant University
+        - His projects: Flappy Bird game, Cinesphere movie website, Innova e-commerce site
+        - His certifications and experience in cybersecurity, ethical hacking
+        - His leadership roles in NSS and university sports
+        Keep responses concise and professional. If asked about something outside this scope, politely redirect to portfolio-related topics.`;
+
+        try {
+            console.log('Sending request to OpenRouter API...');
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json',
+                    'HTTP-Referer': window.location.origin, // Required for OpenRouter
+                    'X-Title': 'Aditya Portfolio Chatbot' // Optional but recommended
+                },
+                body: JSON.stringify({
+                    model: 'meta-llama/llama-3.3-8b-instruct:free', // Free meta-llama/llama-3.3-8b-instruct:free model
+                    messages: [
+                        {
+                            role: 'system',
+                            content: contextPrompt
+                        },
+                        {
+                            role: 'user',
+                            content: message
+                        }
+                    ],
+                    max_tokens: 200,
+                    temperature: 0.7,
+                    top_p: 0.9,
+                    stream: false
+                })
+            });
+
+            console.log('OpenRouter Response status:', response.status);
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('OpenRouter API Error:', errorText);
+                throw new Error(`OpenRouter API request failed with status ${response.status}: ${errorText}`);
+            }
+
+            const data = await response.json();
+            console.log('OpenRouter API Response:', data);
+
+            if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+                const responseText = data.choices[0].message.content;
+                if (responseText && responseText.trim()) {
+                    return responseText.trim();
+                }
+            }
+
+            console.warn('No valid response from OpenRouter API');
+            return null;
+
+        } catch (error) {
+            console.error('OpenRouter API Error:', error);
             throw error;
         }
     }
