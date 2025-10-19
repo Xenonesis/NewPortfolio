@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Gemini API</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .container { background: #f5f5f5; padding: 20px; border-radius: 10px; }
+        input, button { padding: 10px; margin: 5px; border: 1px solid #ddd; border-radius: 5px; }
+        input { width: 300px; }
+        button { background: #007bff; color: white; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .response { margin-top: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #007bff; }
+        .error { border-left-color: #dc3545; background: #f8d7da; }
+        .loading { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Test Gemini API Integration</h1>
+        <p>This page helps you test if your Gemini API is working correctly.</p>
+        
+        <div>
+            <input type="text" id="apiKey" placeholder="Enter your Gemini API key here" style="width: 400px;">
+            <br><br>
+            <input type="text" id="question" placeholder="Ask a question..." value="What are your skills?">
+            <button onclick="testGemini()">Test API</button>
+        </div>
+        
+        <div id="result"></div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #e9ecef; border-radius: 5px;">
+            <h3>📋 Quick Test Questions:</h3>
+            <button onclick="setQuestion('What are your skills?')">Skills</button>
+            <button onclick="setQuestion('Tell me about your projects')">Projects</button>
+            <button onclick="setQuestion('What is your experience?')">Experience</button>
+            <button onclick="setQuestion('What technologies do you use?')">Technologies</button>
+        </div>
+    </div>
+
+    <script>
+        function setQuestion(question) {
+            document.getElementById('question').value = question;
+        }
+
+        async function testGemini() {
+            const apiKey = document.getElementById('apiKey').value.trim();
+            const question = document.getElementById('question').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!apiKey) {
+                resultDiv.innerHTML = '<div class="response error">❌ Please enter your API key first!</div>';
+                return;
+            }
+            
+            if (!question) {
+                resultDiv.innerHTML = '<div class="response error">❌ Please enter a question!</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="response loading">🔄 Testing API connection...</div>';
+            
+            try {
+                const model = 'gemini-1.5-flash';
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+                
+                const contextPrompt = `You are Aditya's personal portfolio chatbot. You should only answer questions about:
+                - Aditya's skills: Laravel, PHP, JavaScript, Python, Cybersecurity, Web Development
+                - His work at Prarang as a Laravel Developer
+                - His education: BCA in Cybersecurity from Sushant University
+                - His projects: Flappy Bird game, Cinesphere movie website, Innova e-commerce site
+                - His certifications and experience in cybersecurity, ethical hacking
+                - His leadership roles in NSS and university sports
+                Keep responses concise and professional.`;
+                
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `${contextPrompt}\n\nUser question: ${question}`
+                            }]
+                        }],
+                        generationConfig: {
+                            temperature: 0.7,
+                            maxOutputTokens: 200,
+                        }
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`API Error (${response.status}): ${errorText}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates.length > 0 && data.candidates[0].content) {
+                    const responseText = data.candidates[0].content.parts[0].text;
+                    resultDiv.innerHTML = `
+                        <div class="response">
+                            <strong>✅ Success! API is working</strong><br><br>
+                            <strong>Question:</strong> ${question}<br><br>
+                            <strong>Response:</strong> ${responseText}
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<div class="response error">❌ API returned empty response</div>';
+                }
+                
+            } catch (error) {
+                console.error('Test Error:', error);
+                resultDiv.innerHTML = `
+                    <div class="response error">
+                        <strong>❌ Test Failed</strong><br><br>
+                        <strong>Error:</strong> ${error.message}<br><br>
+                        <strong>Common fixes:</strong><br>
+                        • Check if your API key is correct<br>
+                        • Make sure you have API quota remaining<br>
+                        • Verify the API key has proper permissions
+                    </div>
+                `;
+            }
+        }
+        
+        // Auto-focus on API key input
+        document.getElementById('apiKey').focus();
+    </script>
+</body>
+</html>

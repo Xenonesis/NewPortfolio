@@ -32,117 +32,117 @@ document.addEventListener('DOMContentLoaded', () => {
         "help": "Sure, let me know what you need help with.",
         "default": "I'm not sure about that. Can you provide more details?",
         hy: 'Hanji😁',
-  hyy: 'Hanji😁',
-  hey: 'Hey there 🙌 How’s it going?',
-  greetings: 'Greetings 🎉 What can I do for you?',
-  hellothere: 'Hi 😊 How are you doing today?',
-  hithere: 'Hello 👋 What brings you here?',
-  heythere: 'Hey 🤗 How can I help you?',
-  greetingsfriend: 'Hello, friend 🌟 What’s new with you?',
-  howto: 'Here’s a guide on how to do that: 📚 Let me know if you need more details!',
-  tips: 'Here are some tips for you: 💡 Hope you find them helpful!',
-  guide: 'Check out this comprehensive guide: 📖 It should answer all your questions.',
-  website: 'You can find more information on our website: 🌐 Here’s the link: https://example.com',
-  contactus: 'Feel free to contact us for more information: ✉️ We’re here to help',
-  buy: 'You can purchase this product here: 🛒 Follow the link for more details.',
-  order: 'To place an order, follow these steps: 📝 Let me know if you need assistance.',
-  digitalmarketing: 'Here’s information on digital marketing: 🌐 It includes SEO, PPC, and more.',
-  onlinemarketing: 'Online marketing is a broad field: 📊 It covers social media, email marketing, and more.',
-  internetmarketing: 'Internet marketing involves various strategies: 📈 From SEO to content marketing.',
-  competitoranalysis: 'Analyzing competitors can help you find new keywords: 🔍 See what they’re ranking for and adjust your strategy.',
-  competitorkeywords: 'Check out the keywords your competitors are using: 📊 This can give you new ideas for your own campaign.',
-  productfeatures: 'Here are some features of our product: 🛠️ Let me know if you have any questions.',
-  servicebenefits: 'Our service offers several benefits: 🌟 Here are a few key ones.',
-  productattributes: 'Here are some attributes of our product: 📊 From size to color, we’ve got you covered.',
-  serviceattributes: 'Our service has several key attributes: 🌐 Here’s what you need to know.',
-  howtogroomadogathome: 'Here’s a guide on how to groom a dog at home: 🐶 Step-by-step instructions inside.',
-  bestdogroomingproducts: 'Here are the best dog grooming products: 🛒 Check out our recommendations.',
-  doggroomingtipsforbeginners: 'Here are some dog grooming tips for beginners: 🐾 Start with these basics.',
-  doggroomingtechniques: 'Here are some advanced dog grooming techniques: 🐶 For the pros and those looking to improve.',
-  keywordperformance: 'Keep an eye on your keyword performance: 📊 Adjust your strategy based on the data.',
-  searchtrends: 'Stay updated with the latest search trends: 🌐 This will help you refine your keyword list.',
-  keywordadjustment: 'Adjust your keyword strategy regularly: 🔧 This ensures you stay competitive and relevant.',
-  happy: 'That’s great 😄 What’s making you happy?',
-  sad: 'I’m sorry to hear that. 😔 If you’d like to talk, I’m here for you.',
-  skills: 'Here are some of my skills: 💻 Laravel Development, PHP, Web Development, Cybersecurity, Ethical Hacking, Data Analysis.',
-  projects: 'Check out my projects on GitHub: 👨‍💻 https://github.com/Xenonesis.',
-  contact: 'Feel free to email me at: ✉️ ffjawed@gmail.com.',
-  thank: 'You’re welcome 😊 I’m glad I could help.',
-  thanks: 'No problem Happy to assist 🙌',
-  help: 'I’m here to help 🤔 What do you need assistance with?',
-  bye: 'Goodbye 👋 Have a wonderful day!',
-  goodbye: 'See you later 🌟',
-  weather: 'I can’t check the weather, but you can look it up online ☀️🌧️',
-  joke: 'Why don’t scientists trust atoms? Because they make up everything 😄',
-  love: 'Love is a beautiful thing 💖 What about it?',
-  work: 'I currently work as a Laravel Developer at Prarang 💼 I love building web applications and working with PHP frameworks!',
-  favorite: 'I love chatting with you 🌈 What’s your favorite topic?',
-  movie: 'I enjoy movies 🎬 What’s your favorite one?',
-  music: 'Music is great 🎵 What’s your favorite song or artist?',
+        hyy: 'Hanji😁',
+        hey: 'Hey there 🙌 How’s it going?',
+        greetings: 'Greetings 🎉 What can I do for you?',
+        hellothere: 'Hi 😊 How are you doing today?',
+        hithere: 'Hello 👋 What brings you here?',
+        heythere: 'Hey 🤗 How can I help you?',
+        greetingsfriend: 'Hello, friend 🌟 What’s new with you?',
+        howto: 'Here’s a guide on how to do that: 📚 Let me know if you need more details!',
+        tips: 'Here are some tips for you: 💡 Hope you find them helpful!',
+        guide: 'Check out this comprehensive guide: 📖 It should answer all your questions.',
+        website: 'You can find more information on our website: 🌐 Here’s the link: https://example.com',
+        contactus: 'Feel free to contact us for more information: ✉️ We’re here to help',
+        buy: 'You can purchase this product here: 🛒 Follow the link for more details.',
+        order: 'To place an order, follow these steps: 📝 Let me know if you need assistance.',
+        digitalmarketing: 'Here’s information on digital marketing: 🌐 It includes SEO, PPC, and more.',
+        onlinemarketing: 'Online marketing is a broad field: 📊 It covers social media, email marketing, and more.',
+        internetmarketing: 'Internet marketing involves various strategies: 📈 From SEO to content marketing.',
+        competitoranalysis: 'Analyzing competitors can help you find new keywords: 🔍 See what they’re ranking for and adjust your strategy.',
+        competitorkeywords: 'Check out the keywords your competitors are using: 📊 This can give you new ideas for your own campaign.',
+        productfeatures: 'Here are some features of our product: 🛠️ Let me know if you have any questions.',
+        servicebenefits: 'Our service offers several benefits: 🌟 Here are a few key ones.',
+        productattributes: 'Here are some attributes of our product: 📊 From size to color, we’ve got you covered.',
+        serviceattributes: 'Our service has several key attributes: 🌐 Here’s what you need to know.',
+        howtogroomadogathome: 'Here’s a guide on how to groom a dog at home: 🐶 Step-by-step instructions inside.',
+        bestdogroomingproducts: 'Here are the best dog grooming products: 🛒 Check out our recommendations.',
+        doggroomingtipsforbeginners: 'Here are some dog grooming tips for beginners: 🐾 Start with these basics.',
+        doggroomingtechniques: 'Here are some advanced dog grooming techniques: 🐶 For the pros and those looking to improve.',
+        keywordperformance: 'Keep an eye on your keyword performance: 📊 Adjust your strategy based on the data.',
+        searchtrends: 'Stay updated with the latest search trends: 🌐 This will help you refine your keyword list.',
+        keywordadjustment: 'Adjust your keyword strategy regularly: 🔧 This ensures you stay competitive and relevant.',
+        happy: 'That’s great 😄 What’s making you happy?',
+        sad: 'I’m sorry to hear that. 😔 If you’d like to talk, I’m here for you.',
+        skills: 'Here are some of my skills: 💻 Laravel Development, PHP, Web Development, Cybersecurity, Ethical Hacking, Data Analysis.',
+        projects: 'Check out my projects on GitHub: 👨‍💻 https://github.com/Xenonesis.',
+        contact: 'Feel free to email me at: ✉️ ffjawed@gmail.com.',
+        thank: 'You’re welcome 😊 I’m glad I could help.',
+        thanks: 'No problem Happy to assist 🙌',
+        help: 'I’m here to help 🤔 What do you need assistance with?',
+        bye: 'Goodbye 👋 Have a wonderful day!',
+        goodbye: 'See you later 🌟',
+        weather: 'I can’t check the weather, but you can look it up online ☀️🌧️',
+        joke: 'Why don’t scientists trust atoms? Because they make up everything 😄',
+        love: 'Love is a beautiful thing 💖 What about it?',
+        work: 'I currently work as a Laravel Developer at Prarang 💼 I love building web applications and working with PHP frameworks!',
+        favorite: 'I love chatting with you 🌈 What’s your favorite topic?',
+        movie: 'I enjoy movies 🎬 What’s your favorite one?',
+        music: 'Music is great 🎵 What’s your favorite song or artist?',
 
-  cybersecurity: 'I am passionate about cybersecurity 🔒 I have experience with vulnerability assessments, security measures, and incident response.',
-  universitylife: 'I completed my BCA in Cybersecurity from Sushant University 🎓 It was a great experience and I learned a lot during my time there.',
-  techinterests: 'I’m really into tech and innovation 🚀 What about you? Do you have any favorite tech topics?',
-  communityservice: 'I believe in giving back to the community 🤝 I’m involved in several community service activities.',
-  favoriteclass: 'My favorite class is probably computer science 📚 I find it really interesting and challenging.',
-  projectideas: 'I have several project ideas in mind. From web development to AI, I am excited to explore different areas.',
-  careeradvice: 'If you need career advice, I am here to help! Just let me know what you are looking for.',
-  laravel: 'I love working with Laravel! It is an amazing PHP framework that makes web development so much easier and more enjoyable.',
-  php: 'PHP is a powerful server-side language. I use it daily in my work at Prarang for building robust web applications.',
-  prarang: 'I work at Prarang as a Laravel Developer. It is a great company where I get to work on exciting web development projects!',
-  job: 'I currently work as a Laravel Developer at Prarang. I love building web applications and working with PHP frameworks!',
-  company: 'Prarang is an amazing company to work for! I am grateful to be part of such an innovative team.',
-  name: 'My Name is Aditya.',
-    character: 'He is very good boy.',
+        cybersecurity: 'I am passionate about cybersecurity 🔒 I have experience with vulnerability assessments, security measures, and incident response.',
+        universitylife: 'I completed my BCA in Cybersecurity from Sushant University 🎓 It was a great experience and I learned a lot during my time there.',
+        techinterests: 'I’m really into tech and innovation 🚀 What about you? Do you have any favorite tech topics?',
+        communityservice: 'I believe in giving back to the community 🤝 I’m involved in several community service activities.',
+        favoriteclass: 'My favorite class is probably computer science 📚 I find it really interesting and challenging.',
+        projectideas: 'I have several project ideas in mind. From web development to AI, I am excited to explore different areas.',
+        careeradvice: 'If you need career advice, I am here to help! Just let me know what you are looking for.',
+        laravel: 'I love working with Laravel! It is an amazing PHP framework that makes web development so much easier and more enjoyable.',
+        php: 'PHP is a powerful server-side language. I use it daily in my work at Prarang for building robust web applications.',
+        prarang: 'I work at Prarang as a Laravel Developer. It is a great company where I get to work on exciting web development projects!',
+        job: 'I currently work as a Laravel Developer at Prarang. I love building web applications and working with PHP frameworks!',
+        company: 'Prarang is an amazing company to work for! I am grateful to be part of such an innovative team.',
+        name: 'My Name is Aditya.',
+        character: 'He is very good boy.',
 
-  //  Keywords from the PDF
-  cybersecurity: 'I am passionate about cybersecurity 🔒 I have experience with vulnerability assessments, security measures, and incident response.',
-  vulnerabilityassessments: 'I can help you understand your vulnerabilities 🔍 I can conduct assessments and recommend security improvements.',
-  securitymeasures: 'I know about implementing security measures to protect your systems 🛡️ I can help you choose the right ones.',
-  networktraffic: 'I can analyze network traffic to identify potential threats 🕵️‍♀️ I can also help you monitor your network for suspicious activity.',
-  incidentresponse: 'I can assist in incident response to minimize damage 🚨 I can help you contain, investigate, and recover from security incidents.',
-  remotework: 'I am comfortable working remotely 💻 I can work effectively from anywhere with a reliable internet connection.',
-  internship: 'I recently completed a cybersecurity internship 💼 I gained valuable experience in practical security concepts.',
-  universitysportsleader: 'I was a university sports leader 🏆 I have experience in organizing events and motivating others.',
-  nssleader: 'I am an NSS leader 🤝 I am committed to community service and social responsibility.',
-  googletechnicalsupport: 'I have learned technical support fundamentals from Google 📚 I have a strong understanding of troubleshooting and documentation.',
-  ciscotraining: 'I have completed Cisco training courses 🎓 I have knowledge of network security, ethical hacking, and endpoint security.',
-  osforensics: 'I am certified in OSForensics 💻 I have experience with digital investigations and forensic analysis.',
-  promptengineering: 'I am learning about prompt engineering for generative AI 🧠 I am interested in the intersection of AI and language.',
-  cybersecurityforeveryone: 'I have a certificate in cybersecurity for everyone 🔐 I am interested in educating others about cybersecurity best practices.',
-  excel: 'I am proficient in Excel 📊 I can use it for data analysis, visualization, and automation.',
-  datamapping: 'I understand how to map data effectively 🗺️ I can help you organize and structure your data.',
-  datavisualization: 'I can visualize data to make it easier to understand 📈 I can create charts, graphs, and dashboards.',
-  conditionalformatting: 'I am skilled in using conditional formatting in Excel 🎨 I can highlight important information and make spreadsheets more readable.',
-  linux: 'I have experience working with Linux 🐧 I am familiar with its command line interface and common tools.',
-  github: 'I use GitHub to manage my projects 💻 I am comfortable with version control and collaborating with others.',
-  flappybird: 'I built a Flappy Bird game using HTML, CSS, and JavaScript 🎮 You can find it on GitHub: https://github.com/Xenonesis/NS-Flappy-Bird.git',
-  moviewebsite: 'I developed a movie website called Cinesphere 🎬 You can check it out here: https://thecinesphere.netlify.app/',
-  ecommercewebsite: 'I built a modern e-commerce website called Innova 🛒 You can find it on GitHub: https://github.com/Xenonesis/Innova.git',
-  html: 'I am proficient in HTML 🌐 I can create web pages and structure content.',
-  css: 'I have experience with CSS 🎨 I can style web pages and create visually appealing designs.',
-  javascript: 'I am learning JavaScript 💻 I can use it to add interactivity and functionality to web pages.',
-  python: 'I am proficient in Python 🐍 I can use it for data analysis, web development, and automation.',
-  sql: 'I have experience working with SQL databases 🗃️ I can query and manage data.',
-  firebase: 'I am familiar with Firebase 🔥 I can use it for real-time databases, authentication, and more.',
-  vmware: 'I have experience using VMware 💻 I can create and manage virtual machines.',
-  apachecloudstack: 'I am familiar with Apache CloudStack ☁️ I can use it for cloud computing and infrastructure management.',
-  databasemanagement: 'I have experience with database management systems 🗃️ I can design, implement, and manage databases.',
-  datastructures: 'I understand data structures 💻 I can use them to efficiently organize and store data.',
-  git: 'I am familiar with Git 💻 I can use it for version control and collaboration.',
-  golang: 'I am learning Go 💻 I am interested in its efficiency and concurrency.',
-  mssqlserver: 'I am proficient in MS SQL Server 💻 I can use it for database management.',
-  msoffice: 'I am proficient in MS Office 💻 I can use it for productivity and collaboration.',
-  microsoftvisualstudio: 'I have experience using Microsoft Visual Studio 💻 I can use it for software development.',
-  mongodb: 'I am familiar with MongoDB 💻 I can use it for NoSQL database management.',
-  artificialintelligence: 'I am interested in artificial intelligence 🧠 I am learning about its applications and ethical considerations.',
-  networksecurity: 'I have knowledge of network security 🔒 I can help you protect your network from attacks.',
-  additionaldetails: 'I have experience in volunteering and leadership roles 🤝 I am a motivated and dedicated individual.',
-  nss: 'I am a member of the NSS 🤝 I am committed to community service and social responsibility.',
-  blaze: 'I participated in Blaze VII and Blaze VIII 🏆 I have experience in event organization and leadership.',
-  marchpast: 'I led the march past in Blaze VII and Blaze VIII 🏆 I have experience in leading teams and coordinating activities.',
-  goldmedal: 'I received a gold medal for the march past in Blaze VII and Blaze VIII 🏆 I am a dedicated and hard-working individual.',
-  nssleader: 'I am an NSS leader 🤝 I am committed to community service and social responsibility.',
+        //  Keywords from the PDF
+        cybersecurity: 'I am passionate about cybersecurity 🔒 I have experience with vulnerability assessments, security measures, and incident response.',
+        vulnerabilityassessments: 'I can help you understand your vulnerabilities 🔍 I can conduct assessments and recommend security improvements.',
+        securitymeasures: 'I know about implementing security measures to protect your systems 🛡️ I can help you choose the right ones.',
+        networktraffic: 'I can analyze network traffic to identify potential threats 🕵️‍♀️ I can also help you monitor your network for suspicious activity.',
+        incidentresponse: 'I can assist in incident response to minimize damage 🚨 I can help you contain, investigate, and recover from security incidents.',
+        remotework: 'I am comfortable working remotely 💻 I can work effectively from anywhere with a reliable internet connection.',
+        internship: 'I recently completed a cybersecurity internship 💼 I gained valuable experience in practical security concepts.',
+        universitysportsleader: 'I was a university sports leader 🏆 I have experience in organizing events and motivating others.',
+        nssleader: 'I am an NSS leader 🤝 I am committed to community service and social responsibility.',
+        googletechnicalsupport: 'I have learned technical support fundamentals from Google 📚 I have a strong understanding of troubleshooting and documentation.',
+        ciscotraining: 'I have completed Cisco training courses 🎓 I have knowledge of network security, ethical hacking, and endpoint security.',
+        osforensics: 'I am certified in OSForensics 💻 I have experience with digital investigations and forensic analysis.',
+        promptengineering: 'I am learning about prompt engineering for generative AI 🧠 I am interested in the intersection of AI and language.',
+        cybersecurityforeveryone: 'I have a certificate in cybersecurity for everyone 🔐 I am interested in educating others about cybersecurity best practices.',
+        excel: 'I am proficient in Excel 📊 I can use it for data analysis, visualization, and automation.',
+        datamapping: 'I understand how to map data effectively 🗺️ I can help you organize and structure your data.',
+        datavisualization: 'I can visualize data to make it easier to understand 📈 I can create charts, graphs, and dashboards.',
+        conditionalformatting: 'I am skilled in using conditional formatting in Excel 🎨 I can highlight important information and make spreadsheets more readable.',
+        linux: 'I have experience working with Linux 🐧 I am familiar with its command line interface and common tools.',
+        github: 'I use GitHub to manage my projects 💻 I am comfortable with version control and collaborating with others.',
+        flappybird: 'I built a Flappy Bird game using HTML, CSS, and JavaScript 🎮 You can find it on GitHub: https://github.com/Xenonesis/NS-Flappy-Bird.git',
+        moviewebsite: 'I developed a movie website called Cinesphere 🎬 You can check it out here: https://thecinesphere.netlify.app/',
+        ecommercewebsite: 'I built a modern e-commerce website called Innova 🛒 You can find it on GitHub: https://github.com/Xenonesis/Innova.git',
+        html: 'I am proficient in HTML 🌐 I can create web pages and structure content.',
+        css: 'I have experience with CSS 🎨 I can style web pages and create visually appealing designs.',
+        javascript: 'I am learning JavaScript 💻 I can use it to add interactivity and functionality to web pages.',
+        python: 'I am proficient in Python 🐍 I can use it for data analysis, web development, and automation.',
+        sql: 'I have experience working with SQL databases 🗃️ I can query and manage data.',
+        firebase: 'I am familiar with Firebase 🔥 I can use it for real-time databases, authentication, and more.',
+        vmware: 'I have experience using VMware 💻 I can create and manage virtual machines.',
+        apachecloudstack: 'I am familiar with Apache CloudStack ☁️ I can use it for cloud computing and infrastructure management.',
+        databasemanagement: 'I have experience with database management systems 🗃️ I can design, implement, and manage databases.',
+        datastructures: 'I understand data structures 💻 I can use them to efficiently organize and store data.',
+        git: 'I am familiar with Git 💻 I can use it for version control and collaboration.',
+        golang: 'I am learning Go 💻 I am interested in its efficiency and concurrency.',
+        mssqlserver: 'I am proficient in MS SQL Server 💻 I can use it for database management.',
+        msoffice: 'I am proficient in MS Office 💻 I can use it for productivity and collaboration.',
+        microsoftvisualstudio: 'I have experience using Microsoft Visual Studio 💻 I can use it for software development.',
+        mongodb: 'I am familiar with MongoDB 💻 I can use it for NoSQL database management.',
+        artificialintelligence: 'I am interested in artificial intelligence 🧠 I am learning about its applications and ethical considerations.',
+        networksecurity: 'I have knowledge of network security 🔒 I can help you protect your network from attacks.',
+        additionaldetails: 'I have experience in volunteering and leadership roles 🤝 I am a motivated and dedicated individual.',
+        nss: 'I am a member of the NSS 🤝 I am committed to community service and social responsibility.',
+        blaze: 'I participated in Blaze VII and Blaze VIII 🏆 I have experience in event organization and leadership.',
+        marchpast: 'I led the march past in Blaze VII and Blaze VIII 🏆 I have experience in leading teams and coordinating activities.',
+        goldmedal: 'I received a gold medal for the march past in Blaze VII and Blaze VIII 🏆 I am a dedicated and hard-working individual.',
+        nssleader: 'I am an NSS leader 🤝 I am committed to community service and social responsibility.',
     };
 
     let analyticsData = JSON.parse(localStorage.getItem('botAnalytics')) || {
@@ -287,19 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
         avatar.classList.add('w-4', 'h-4', 'flex-shrink-0', 'rounded-full', 'flex', 'items-center', 'justify-center', 'mr-2', 'mt-1');
         if (sender === 'Bot') {
             avatar.classList.add(
-              'bg-white/30', // glassmorphic background
-              'backdrop-blur-md',
-              'border', 'border-blue-300',
-              'shadow-lg',
-              'ring-2', 'ring-blue-400/60',
-              'relative',
-              'overflow-hidden',
-              'before:absolute', 'before:inset-0', 'before:rounded-full',
-              'before:bg-gradient-to-br', 'before:from-blue-400/40', 'before:to-blue-700/30',
-              'before:blur-md',
-              'after:absolute', 'after:inset-0', 'after:rounded-full',
-              'after:ring-2', 'after:ring-blue-400/40',
-              'justify-center', 'items-center'
+                'bg-white/30', // glassmorphic background
+                'backdrop-blur-md',
+                'border', 'border-blue-300',
+                'shadow-lg',
+                'ring-2', 'ring-blue-400/60',
+                'relative',
+                'overflow-hidden',
+                'before:absolute', 'before:inset-0', 'before:rounded-full',
+                'before:bg-gradient-to-br', 'before:from-blue-400/40', 'before:to-blue-700/30',
+                'before:blur-md',
+                'after:absolute', 'after:inset-0', 'after:rounded-full',
+                'after:ring-2', 'after:ring-blue-400/40',
+                'justify-center', 'items-center'
             );
             // Even smaller SVG robot face with subtle animation
             avatar.innerHTML = `
@@ -440,64 +440,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function generateBotResponse(message) {
         const lowerCaseMessage = message.toLowerCase();
+
+        // First check predefined responses
         if (responses[lowerCaseMessage]) {
             return responses[lowerCaseMessage];
-        } else {
-            // Try to fetch response from Gemini API
-            try {
-                const geminiResponse = await fetchGeminiResponse(message);
-                if (geminiResponse) {
-                    responses[lowerCaseMessage] = geminiResponse;
-                    localStorage.setItem('botResponses', JSON.stringify(responses));
-                    return geminiResponse;
-                } else {
-                    pendingQuestion = message; // Store question for user to answer if API fails
-                    return `I don't know the answer to "${message}". Can you tell me what it means?`;
-                }
-            } catch (error) {
-                console.error('Error fetching from Gemini API:', error);
-                pendingQuestion = message; // Store question for user to answer if API fails
-                return `I don't know the answer to "${message}". Can you tell me what it means?`;
+        }
+
+        // Try to fetch response from Gemini API
+        try {
+            const geminiResponse = await fetchGeminiResponse(message);
+            if (geminiResponse) {
+                // Cache the response for future use
+                responses[lowerCaseMessage] = geminiResponse;
+                localStorage.setItem('botResponses', JSON.stringify(responses));
+                return geminiResponse;
+            } else {
+                return `I don't have information about "${message}" in my knowledge base. You can ask me about my skills, projects, work experience, or education. 🤔`;
+            }
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+
+            // Provide helpful error messages based on error type
+            if (error.message.includes('API_KEY_INVALID') || error.message.includes('403')) {
+                return `🔑 It looks like there's an issue with the API configuration. You can still ask me about my predefined topics like 'skills', 'projects', or 'work'!`;
+            } else if (error.message.includes('QUOTA_EXCEEDED') || error.message.includes('429')) {
+                return `⏰ I've reached my daily API limit, but I can still help with basic questions about my skills, projects, and experience!`;
+            } else {
+                return `🤖 I'm having trouble connecting to my AI service right now, but I can answer questions about my skills, projects, work, and education using my built-in knowledge!`;
             }
         }
     }
 
     async function fetchGeminiResponse(message) {
-        const apiKey = 'AIzaSyDHGFBVBC1EhgK_c8i4fHFso04iKWKPMUE';
-        const model = 'gemini-2.0-flash';
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-        
-        // Restrict the response to content from user's pages
-        const contextPrompt = "You are a chatbot for my personal portfolio website. Only provide information related to my content, projects, skills, and pages. Do not reference external sources or information beyond my website content.";
-        
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: `${contextPrompt}\nUser query: ${message}`
-                    }]
-                }]
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`API request failed with status ${response.status}`);
-        }
-        
-        const data = await response.json();
-        if (data.candidates && data.candidates.length > 0 && data.candidates[0].content) {
-            const responseText = data.candidates[0].content.parts[0].text || 'Sorry, I could not generate a response.';
-            // Basic check to filter out responses that might reference external sources
-            if (responseText.toLowerCase().includes('external') || responseText.toLowerCase().includes('outside') || responseText.toLowerCase().includes('other source')) {
-                return 'Sorry, I can only provide information related to my portfolio. This response was blocked as it may reference external sources.';
+        // You need to get a valid API key from Google AI Studio: https://makersuite.google.com/app/apikey
+        const apiKey = 'AIzaSyBRX1zp4FOL2V_juBXnMZes2cF6YB8xi10'; // Replace with your actual API key
+        const model = 'models/gemini-2.5-flash'; // Using working model from API test
+        const url = `https://generativelanguage.googleapis.com/v1beta/${model}:generateContent?key=${apiKey}`;
+
+        // Enhanced context prompt with portfolio information
+        const contextPrompt = `You are Aditya's personal portfolio chatbot. You should only answer questions about:
+        - Aditya's skills: Laravel, PHP, JavaScript, Python, Cybersecurity, Web Development
+        - His work at Prarang as a Laravel Developer
+        - His education: BCA in Cybersecurity from Sushant University
+        - His projects: Flappy Bird game, Cinesphere movie website, Innova e-commerce site
+        - His certifications and experience in cybersecurity, ethical hacking
+        - His leadership roles in NSS and university sports
+        Keep responses concise and professional. If asked about something outside this scope, politely redirect to portfolio-related topics.`;
+
+        try {
+            console.log('Sending request to Gemini API...');
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: `${contextPrompt}\n\nUser question: ${message}`
+                        }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        topK: 40,
+                        topP: 0.95,
+                        maxOutputTokens: 200,
+                    },
+                    safetySettings: [
+                        {
+                            category: "HARM_CATEGORY_HARASSMENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_HATE_SPEECH",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        }
+                    ]
+                })
+            });
+
+            console.log('Response status:', response.status);
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('API Error:', errorText);
+                throw new Error(`API request failed with status ${response.status}: ${errorText}`);
             }
-            return responseText;
+
+            const data = await response.json();
+            console.log('API Response:', data);
+
+            if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts) {
+                const responseText = data.candidates[0].content.parts[0].text;
+                if (responseText && responseText.trim()) {
+                    return responseText.trim();
+                }
+            }
+
+            console.warn('No valid response from API');
+            return null;
+
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+            throw error;
         }
-        return null;
     }
 
     function saveAnalyticsData() {
