@@ -795,84 +795,218 @@ html {
 </style>
 
 <!-- Projects Section -->
-<section id="projects" class="p-10 bg-yellow-50">
+   <section id="projects" class="p-10 bg-yellow-50">
     <h2 class="text-3xl font-bold border-b-4 border-blue-500 inline-block mb-8"> Projects</h2>
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
         <!-- Project Card 1 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="game">
-            <h3 class="text-xl font-semibold">Flappy</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-blue-500" data-category="game">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-gamepad text-blue-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-blue-700">Flappy</h3>
+            </div>
             <p class="mt-4 text-gray-600">A 2D game built using HTML, CSS, and JavaScript. A fun project for game enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/NS-Flappy-Bird.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">HTML</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">CSS</span>
+                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
+            </div>
+            <a href="https://github.com/Xenonesis/NS-Flappy-Bird.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Game Development</p>
         </div>
         <!-- Project Card 2 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="movie">
-            <h3 class="text-xl font-semibold">Movie Website (Cinesphere)</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-purple-500" data-category="movie">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-film text-purple-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-purple-700">Movie Website (Cinesphere)</h3>
+            </div>
             <p class="mt-4 text-gray-600">A movie website developed to provide high-rated movies for free. Ideal for entertainment lovers.</p>
-            <a href="https://thecinesphere.netlify.app/" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">HTML</span>
+                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">CSS</span>
+                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
+            </div>
+            <a href="https://thecinesphere.netlify.app/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Entertainment Platform</p>
         </div>
         <!-- Project Card 3 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="e-commerce">
-            <h3 class="text-xl font-semibold">Innova</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-green-500" data-category="e-commerce">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-shopping-cart text-green-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-green-700">Innova</h3>
+            </div>
             <p class="mt-4 text-gray-600">A modern, responsive e-commerce website designed for a seamless shopping experience. Great for e-commerce enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/Innova.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded">E-Commerce</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Responsive UI</span>
+            </div>
+            <a href="https://github.com/Xenonesis/Innova.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Online Store</p>
         </div>
         <!-- Project Card 4 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="SEO">
-            <h3 class="text-xl font-semibold">SEO Optimized Website</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-indigo-500" data-category="SEO">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-chart-line text-indigo-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-indigo-700">SEO Optimized Website</h3>
+            </div>
             <p class="mt-4 text-gray-600">An SEO-optimized website to improve search engine visibility using best practices. Perfect for SEO and digital marketing enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/SEO-Website.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded">SEO</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Performance</span>
+            </div>
+            <a href="https://github.com/Xenonesis/SEO-Website.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · SEO & Marketing</p>
         </div>
         <!-- Project Card 5 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="API">
-            <h3 class="text-xl font-semibold">MovieVerse Explorer</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-teal-500" data-category="API">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-plug text-teal-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-teal-700">MovieVerse Explorer</h3>
+            </div>
             <p class="mt-4 text-gray-600">A movie exploration site with dynamic content fetched from APIs to provide the latest movie info. Great for API and movie lovers.</p>
-            <a href="https://github.com/Xenonesis/movieverse-explorer.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded">REST API</span>
+                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
+            </div>
+            <a href="https://github.com/Xenonesis/movieverse-explorer.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · API Integration</p>
         </div>
         <!-- Project Card 6 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="animation">
-            <h3 class="text-xl font-semibold">Animate Responsive Tales</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-pink-500" data-category="animation">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-magic text-pink-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-pink-700">Animate Responsive Tales</h3>
+            </div>
             <p class="mt-4 text-gray-600">A responsive and animated website showcasing creative storytelling techniques using animations. Perfect for animation and UI design enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/animate-responsive-tales.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded">Animations</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Responsive Design</span>
+            </div>
+            <a href="https://github.com/Xenonesis/animate-responsive-tales.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · UI & Storytelling</p>
         </div>
         <!-- Project Card 7 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="real-estate">
-            <h3 class="text-xl font-semibold">PropDekho</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-orange-500" data-category="real-estate">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-building text-orange-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-orange-700">PropDekho</h3>
+            </div>
             <p class="mt-4 text-gray-600">A real estate website that helps users find and explore properties easily. Ideal for those interested in real estate or property search.</p>
-            <a href="https://github.com/Xenonesis/Propdekho.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded">Real Estate</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Property Listings</span>
+            </div>
+            <a href="https://github.com/Xenonesis/Propdekho.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Real Estate Platform</p>
         </div>
         <!-- Project Card 8 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="chatbot">
-            <h3 class="text-xl font-semibold">Real Estate Chatbot</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-emerald-500" data-category="chatbot">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-robot text-emerald-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-emerald-700">Real Estate Chatbot</h3>
+            </div>
             <p class="mt-4 text-gray-600">A chatbot developed for real estate inquiries, offering users assistance in finding properties. Ideal for chatbot development enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/Real-state-BOT.git" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded">Chatbot</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Real Estate</span>
+            </div>
+            <a href="https://github.com/Xenonesis/Real-state-BOT.git" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Conversational Assistant</p>
         </div>
         <!-- Project Card 9 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="ai">
-            <h3 class="text-xl font-semibold">Juris.AI</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-sky-500" data-category="ai">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-brain text-sky-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-sky-700">Juris.AI</h3>
+            </div>
             <p class="mt-4 text-gray-600">An AI-driven legal assistance platform built with TypeScript. Ideal for exploring AI applications in legal tech.</p>
-            <a href="https://github.com/Xenonesis/Juris.AI" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded">AI</span>
+                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded">TypeScript</span>
+            </div>
+            <a href="https://github.com/Xenonesis/Juris.AI" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Legal Tech</p>
         </div>
         <!-- Project Card 10 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="team">
-            <h3 class="text-xl font-semibold">Team-Blitz</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-red-500" data-category="team">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-users text-red-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-red-700">Team-Blitz</h3>
+            </div>
             <p class="mt-4 text-gray-600">A collaborative platform for team projects, developed with TypeScript. Great for team collaboration tools.</p>
-            <a href="https://github.com/Xenonesis/Team-Blitz" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-red-100 text-red-800 px-2 py-1 rounded">Collaboration</span>
+                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded">TypeScript</span>
+            </div>
+            <a href="https://github.com/Xenonesis/Team-Blitz" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Team Tools</p>
         </div>
         <!-- Project Card 11 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="web">
-            <h3 class="text-xl font-semibold">webllm</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-cyan-500" data-category="web">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-globe text-cyan-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-cyan-700">webllm</h3>
+            </div>
             <p class="mt-4 text-gray-600">A web-based project focusing on language model integration. Perfect for web development and AI enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/webllm" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded">Web</span>
+                <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded">LLM</span>
+            </div>
+            <a href="https://github.com/Xenonesis/webllm" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Web & AI</p>
         </div>
         <!-- Project Card 12 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300" data-category="system">
-            <h3 class="text-xl font-semibold">sysmonrust</h3>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:-translate-y-2 transition duration-300 border-l-4 border-gray-500" data-category="system">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-microchip text-gray-500 w-6 h-6 mr-2"></i>
+                <h3 class="text-xl font-semibold text-gray-700">sysmonrust</h3>
+            </div>
             <p class="mt-4 text-gray-600">A system monitoring tool developed in Rust for performance tracking. Ideal for system programming enthusiasts.</p>
-            <a href="https://github.com/Xenonesis/sysmonrust" class="text-blue-500 hover:text-blue-700 mt-4 block">View Project</a>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded">Rust</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">System Monitoring</span>
+            </div>
+            <a href="https://github.com/Xenonesis/sysmonrust" class="inline-flex items-center text-blue-600 hover:text-blue-800 mt-4 font-medium">
+                View Project
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-2">Personal Project · Systems Programming</p>
         </div>
     </div>
-</section>
+    </section>
 
 <!-- Footer -->
 <footer class="p-10 bg-yellow-50 shadow-2xl mt-10">
