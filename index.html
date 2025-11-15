@@ -43,6 +43,14 @@
         .animate-slide-in {
             animation: slide-in 1s ease-out forwards;
         }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
       /* General Styles */
 body {
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -1029,11 +1037,11 @@ html {
             <p class="mt-4 text-lg md:text-xl text-gray-800 leading-relaxed">
                 Completed my <span class="font-semibold text-blue-500">BCA in Cybersecurity</span> from Sushant University, I worked as a <span class="font-semibold text-green-600">Laravel Developer</span> at <span class="font-semibold text-purple-600">Prarang</span>. I specialized in <span class="font-semibold">PHP</span>, <span class="font-semibold">Laravel</span>, <span class="font-semibold">JavaScript</span>, <span class="font-semibold">Python</span>, and <span class="font-semibold">Cloud Computing</span>. My mission was to combine <span class="font-semibold">security</span> and <span class="font-semibold">creativity</span> to build impactful digital experiences.
             </p>
-            <div class="mt-6 flex justify-center md:justify-start space-x-4 flex-wrap">
+            <div class="mt-6 flex justify-center md:justify-start gap-3 flex-wrap">
                 <a
                     href="https://github.com/Xenonesis"
                     target="_blank"
-                    class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out font-semibold flex items-center space-x-2">
+                    class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out font-semibold flex items-center space-x-2 hover:scale-105 hover:shadow-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.091-.748.083-.733.083-.733 1.205.084 1.838 1.238 1.838 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.333-5.466-5.93 0-1.312.469-2.384 1.236-3.227-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.292-1.552 3.299-1.23 3.299-1.23.653 1.649.241 2.872.118 3.176.77.843 1.233 1.915 1.233 3.227 0 4.61-2.803 5.624-5.472 5.92.43.372.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 22.092 24 17.593 24 12.297c0-6.627-5.373-12-12-12z"/>
                     </svg>
@@ -1042,7 +1050,7 @@ html {
                 <a
                     href="https://www.linkedin.com/in/itisaddy/"
                     target="_blank"
-                    class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition duration-300 ease-in-out font-semibold flex items-center space-x-2">
+                    class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition duration-300 ease-in-out font-semibold flex items-center space-x-2 hover:scale-105 hover:shadow-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 20h-3v-10h3v10zm-1.5-11.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.25h-3v-5.571c0-3.978-4-3.683-4 0v5.571h-3v-10h3v1.528c1.396-2.586 7-2.777 7 2.476v5.996z"/>
                     </svg>
@@ -1051,9 +1059,20 @@ html {
                 <a
                     href="Aditya.pdf"
                     target="_blank"
-                    class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out font-semibold flex items-center space-x-2">
+                    class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out font-semibold flex items-center space-x-2 hover:scale-105 hover:shadow-xl">
                     <i class="fas fa-download w-5 h-5"></i>
                     <span>Download Resume</span>
+                </a>
+                <a
+                    href="https://iaddy.my.canva.site"
+                    target="_blank"
+                    class="relative bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out font-bold flex items-center space-x-2 overflow-hidden group hover:scale-105 animate-gradient">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 relative z-10 group-hover:rotate-12 transition-transform duration-300">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span class="relative z-10 group-hover:tracking-wider transition-all duration-300">View Online Resume</span>
+                    <div class="absolute inset-0 -z-10 bg-white opacity-20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 </a>
             </div>
         </div>
@@ -1063,22 +1082,66 @@ html {
 
 <!-- Work Introduction Section -->
 <section class="p-10 bg-yellow-50">
-    <h2 class="text-5xl font-bold text-center text-gray-800 border-b-4 border-pink-500 inline-block mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold border-b-4 border-blue-500 inline-block mb-10 text-center">
         Work Introduction
     </h2>
-    <div class="text-center mt-8">
-        <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-            Welcome to my professional journey! I'm passionate about cybersecurity and web development, 
-            constantly learning and growing in the ever-evolving tech landscape. My work spans across 
-            various domains including security analysis, full-stack development, and innovative problem-solving.
-        </p>
-        <a href="videos.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pink-500 to-blue-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-blue-600 transition-all transform hover:scale-105 shadow-lg">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-7 4h12l-2 5H9l-2-5z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            Watch My Videos
-        </a>
+    
+    <div class="max-w-4xl mx-auto mt-8 animate-fade-in">
+        <!-- Introduction Text -->
+        <div class="text-center mb-8">
+            <p class="text-lg md:text-xl text-gray-800 leading-relaxed mb-6">
+                Welcome to my professional journey! I'm passionate about <span class="font-semibold text-pink-600">cybersecurity</span> and <span class="font-semibold text-blue-600">web development</span>, constantly learning and growing in the ever-evolving tech landscape.
+            </p>
+            <p class="text-lg md:text-xl text-gray-800 leading-relaxed">
+                My work spans across various domains including <span class="font-semibold text-purple-600">security analysis</span>, <span class="font-semibold text-green-600">full-stack development</span>, and <span class="font-semibold text-orange-600">innovative problem-solving</span>.
+            </p>
+        </div>
+
+        <!-- Key Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Security Analysis -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Security Analysis</h3>
+                <p class="text-gray-600 text-sm">Protecting systems and data with advanced security practices</p>
+            </div>
+
+            <!-- Full-Stack Development -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Full-Stack Development</h3>
+                <p class="text-gray-600 text-sm">Building end-to-end solutions with modern technologies</p>
+            </div>
+
+            <!-- Innovative Solutions -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Innovative Solutions</h3>
+                <p class="text-gray-600 text-sm">Creating unique approaches to complex challenges</p>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+            <a href="videos.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pink-500 to-blue-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
+                </svg>
+                Watch My Videos
+            </a>
+        </div>
     </div>
 </section>
 
