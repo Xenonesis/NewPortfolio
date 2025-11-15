@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Aditya</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Ctext y='16' x='4' font-size='16' fill='%23FFFFFF'%3E👁️%3C/text%3E%3C/svg%3E">
     <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -773,7 +773,7 @@ html {
         <!-- Actions: Dark Mode Toggle & Hamburger Menu -->
         <div class="flex items-center space-x-4">
             <!-- Dark Mode Toggle with Glow -->
-            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]">
+            <button id="dark-mode-toggle" class="text-xl bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-full shadow-md transform transition duration-500 hover:rotate-180 hover:shadow-[0_0_15px_rgba(0,212,255,0.8)]" aria-label="Toggle dark mode">
                 <span id="toggle-icon">🌙</span>
             </button>
 
@@ -2156,6 +2156,7 @@ function closePopup() {
 <button
 id="bot-toggle"
 class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none z-50"
+aria-label="Open chatbot"
 >
 💬
 </button>
@@ -2168,7 +2169,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 <!-- Chatbot Header -->
 <div class="bg-blue-600 text-white p-4 flex justify-between items-center rounded-t-lg">
     <span class="text-lg font-bold">Chatbot</span>
-    <button id="bot-close" class="text-2xl focus:outline-none hover:text-gray-200">✖️</button>
+    <button id="bot-close" class="text-2xl focus:outline-none hover:text-gray-200" aria-label="Close chatbot">✖️</button>
 </div>
 
 <!-- Chatbot Content Area -->
@@ -2588,7 +2589,7 @@ class="hidden fixed bottom-10 md:bottom-20 right-4 md:right-6 bg-white border bo
 </footer>
 
 <!-- Scroll-to-Top Button -->
-<button id="scrollToTopBtn" class="fixed bottom-10 left-10 bg-blue-500 text-white p-3 rounded-full shadow-lg hidden hover:bg-blue-700 transition duration-300 transform hover:scale-110">
+<button id="scrollToTopBtn" class="fixed bottom-10 left-10 bg-blue-500 text-white p-3 rounded-full shadow-lg hidden hover:bg-blue-700 transition duration-300 transform hover:scale-110" aria-label="Scroll to top of page">
     <i class="fas fa-arrow-up"></i>
 </button>
 
