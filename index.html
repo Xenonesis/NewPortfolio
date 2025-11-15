@@ -778,14 +778,14 @@ html {
             </button>
 
             <!-- Hamburger Menu -->
-            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110 rotate-infinite">
+            <button id="menu-toggle" class="md:hidden text-3xl focus:outline-none transition transform hover:scale-110">
                 ☰
             </button>
         </div>
     </div>
 
     <!-- Animated Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all opacity-0 invisible">
+    <div id="mobile-menu" class="hidden absolute left-0 top-full w-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white p-6 shadow-lg rounded-b-xl transform transition-all duration-300 ease-out opacity-0 invisible pointer-events-none">
         <ul class="space-y-6 text-lg">
             <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#skills" class="mobile-link">Skills</a></li>
@@ -861,11 +861,11 @@ html {
     @keyframes slide-in {
         from {
             opacity: 0;
-            transform: translateX(100%);
+            transform: translateY(-20px);
         }
         to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
     }
 

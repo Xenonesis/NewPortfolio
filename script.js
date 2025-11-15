@@ -48,7 +48,46 @@ if (darkModeToggle) {
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
-menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    menuToggle.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✖';
-});
+if (menuToggle && mobileMenu) {
+    menuToggle.setAttribute('aria-controls', 'mobile-menu');
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    // Function to close mobile menu
+    const closeMobileMenu = () => {
+        mobileMenu.classList.add('hidden', 'opacity-0', 'invisible', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto', 'animate-slide-in');
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    menuToggle.addEventListener('click', () => {
+        const willOpen = mobileMenu.classList.contains('hidden');
+
+        // Toggle display
+        mobileMenu.classList.toggle('hidden');
+
+        if (willOpen) {
+            // Ensure it becomes visible and animated when opening
+            mobileMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'visible', 'pointer-events-auto', 'animate-slide-in');
+            menuToggle.textContent = '✖';
+            menuToggle.setAttribute('aria-expanded', 'true');
+        } else {
+            // Hide it fully and reset animation classes when closing
+            closeMobileMenu();
+        }
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+            closeMobileMenu();
+        }
+    });
+}
