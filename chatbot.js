@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (pdfContent) {
                     responses = { ...responses, ...parsePDFContentToResponses(pdfContent) };
                     localStorage.setItem('botResponses', JSON.stringify(responses));
-                    appendMessage('Bot', 'I have processed and learned from the uploaded PDF!', 'bg-gray-200');
+                    appendMessage('Bot', 'I have processed and learned from the uploaded PDF!', 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
                     displaySuggestedPrompts();
                 } else {
                     appendMessage('Bot', 'The PDF did not contain readable text.', 'bg-red-200');
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageText = chatInput.value.trim();
         if (!messageText) return;
 
-        appendMessage(userPreferences.name, messageText, 'bg-blue-100');
+        appendMessage(userPreferences.name, messageText, 'bg-blue-100 dark:bg-blue-800 dark:text-gray-100');
         saveChatToLocalStorage(userPreferences.name, messageText);
 
         chatInput.value = '';
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 botResponse = await generateBotResponse(messageText);
             }
             hideTypingIndicator();
-            appendMessage('Bot', botResponse, 'bg-gray-200');
+            appendMessage('Bot', botResponse, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
             saveChatToLocalStorage('Bot', botResponse);
             if (botResponse !== responses.default) requestFeedback(botResponse); // Request feedback for known responses
         }, 1000);
@@ -336,11 +336,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const bubble = document.createElement('div');
-        bubble.classList.add('p-3', 'rounded-2xl', 'shadow', 'max-w-[80%]', 'relative', bgColor, 'transition-colors', 'duration-200');
+        // Split bgColor to handle multiple classes (e.g., 'bg-gray-200 dark:bg-gray-600')
+        const bgClasses = bgColor.split(' ');
+        bubble.classList.add('p-3', 'rounded-2xl', 'shadow', 'max-w-[80%]', 'relative', ...bgClasses, 'transition-colors', 'duration-200');
         if (sender === 'Bot') {
-            bubble.classList.add('rounded-bl-none', 'border', 'border-gray-200', 'ring-2', 'ring-blue-100');
+            bubble.classList.add('rounded-bl-none', 'border', 'border-gray-200', 'dark:border-gray-500', 'ring-2', 'ring-blue-100', 'dark:ring-blue-900', 'text-gray-800', 'dark:text-gray-100');
         } else {
-            bubble.classList.add('rounded-br-none', 'border', 'border-blue-200', 'ring-2', 'ring-blue-50');
+            bubble.classList.add('rounded-br-none', 'border', 'border-blue-200', 'dark:border-blue-600', 'ring-2', 'ring-blue-50', 'dark:ring-blue-900', 'text-gray-800', 'dark:text-gray-100');
         }
         // Prevent XSS by using textContent instead of innerHTML for user input
         const strongElement = document.createElement('strong');
@@ -349,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageText = document.createTextNode(` ${message}`);
         bubble.appendChild(messageText);
         const timestampDiv = document.createElement('div');
-        timestampDiv.classList.add('text-xs', 'text-gray-400', 'mt-1', 'text-right');
+        timestampDiv.classList.add('text-xs', 'text-gray-400', 'dark:text-gray-300', 'mt-1', 'text-right');
         timestampDiv.textContent = timestamp;
         bubble.appendChild(timestampDiv);
 
@@ -376,11 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function requestFeedback(botResponse) {
         const feedbackElement = document.createElement('div');
-        feedbackElement.classList.add('p-2', 'rounded-xl', 'bg-gray-50', 'flex', 'justify-between', 'items-center', 'mb-2', 'shadow', 'border', 'border-gray-200');
+        feedbackElement.classList.add('p-2', 'rounded-xl', 'bg-gray-50', 'dark:bg-gray-700', 'flex', 'justify-between', 'items-center', 'mb-2', 'shadow', 'border', 'border-gray-200', 'dark:border-gray-600');
 
         // Prevent XSS by using DOM elements instead of innerHTML
         const spanElement = document.createElement('span');
-        spanElement.classList.add('text-gray-700', 'font-medium');
+        spanElement.classList.add('text-gray-700', 'dark:text-gray-200', 'font-medium');
         spanElement.textContent = 'Was this response helpful?';
         feedbackElement.appendChild(spanElement);
 
@@ -676,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.innerHTML = '';
         const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
         chatHistory.forEach(({ sender, message, timestamp }) => {
-            const bgColor = sender === userPreferences.name ? 'bg-blue-100' : 'bg-gray-200';
+            const bgColor = sender === userPreferences.name ? 'bg-blue-100 dark:bg-blue-800 dark:text-gray-100' : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100';
             // Prevent XSS by passing message without HTML content, timestamp is handled separately in appendMessage
             appendMessage(sender, message, bgColor);
         });
@@ -689,23 +691,24 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadUserPreferences() {
         const { name, favoriteTopics } = userPreferences;
         if (name) {
-            appendMessage('Bot', `Welcome back, ${name}!`, 'bg-gray-200');
+            appendMessage('Bot', `Welcome back, ${name}!`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
         }
         if (favoriteTopics.length) {
-            appendMessage('Bot', `I remember you're interested in ${favoriteTopics.join(', ')}.`, 'bg-gray-200');
+            appendMessage('Bot', `I remember you're interested in ${favoriteTopics.join(', ')}.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
         }
     }
 
     function displayWelcomeMessage() {
-        appendMessage('Bot', `Hello ${userPreferences.name}! Let me know how I can assist you.`, 'bg-gray-200');
-        appendMessage('Bot', 'Here are some suggested prompts:', 'bg-gray-100');
-        displaySuggestedPrompts();
+        appendMessage('Bot', `Hello ${userPreferences.name}! Let me know how I can assist you.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
+        // Commented out - PDF quick action prompts
+        // appendMessage('Bot', 'Here are some suggested prompts:', 'bg-gray-100');
+        // displaySuggestedPrompts();
     }
 
     function showTypingIndicator() {
         const typingIndicator = document.createElement('div');
         typingIndicator.id = 'typing-indicator';
-        typingIndicator.classList.add('p-2', 'rounded-xl', 'mb-2', 'bg-gray-100', 'italic', 'text-gray-600', 'shadow', 'max-w-[60%]');
+        typingIndicator.classList.add('p-2', 'rounded-xl', 'mb-2', 'bg-gray-100', 'dark:bg-gray-600', 'italic', 'text-gray-600', 'dark:text-gray-300', 'shadow', 'max-w-[60%]');
         typingIndicator.setAttribute('role', 'status');
         typingIndicator.textContent = 'Bot is typing...';
         chatMessages.appendChild(typingIndicator);
