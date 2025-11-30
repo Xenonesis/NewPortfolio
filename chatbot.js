@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     sendMessageButton.setAttribute('aria-label', 'Send message');
     botClose.setAttribute('aria-label', 'Close chatbot');
 
-    suggestedPromptsContainer.id = "suggested-prompts";
-    suggestedPromptsContainer.className = "p-2 border-t border-gray-200 bg-gray-50 flex gap-2 flex-wrap overflow-x-auto";
-    chatbot.appendChild(suggestedPromptsContainer);
+    // Commented out - PDF quick action buttons
+    // suggestedPromptsContainer.id = "suggested-prompts";
+    // suggestedPromptsContainer.className = "p-2 border-t border-gray-200 bg-gray-50 flex gap-2 flex-wrap overflow-x-auto";
+    // chatbot.appendChild(suggestedPromptsContainer);
 
     // Add smooth open/close animation
     chatbot.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1)';
@@ -167,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadChatFromLocalStorage();
     loadUserPreferences();
-    displaySuggestedPrompts();
+    // displaySuggestedPrompts(); // Commented out - PDF quick action buttons
 
     botToggle.addEventListener('click', () => {
         const isHidden = chatbot.classList.toggle('hidden');
