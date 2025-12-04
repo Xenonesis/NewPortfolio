@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchGeminiResponse(message) {
         // You need to get a valid API key from Google AI Studio: https://makersuite.google.com/app/apikey
-        const apiKey = 'AIzaSyBRX1zp4FOL2V_juBXnMZes2cF6YB8xi10'; // Replace with your actual API key
+        const apiKey = 'AIzaSyANkpkZxHFk_bjIATBr5PkiXdWBKfSVz7w'; // Replace with your actual API key
         const model = 'models/gemini-2.5-flash'; // Using working model from API test
         const url = `https://generativelanguage.googleapis.com/v1beta/${model}:generateContent?key=${apiKey}`;
 
