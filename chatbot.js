@@ -392,24 +392,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function requestFeedback(botResponse) {
         const feedbackElement = document.createElement('div');
-        feedbackElement.classList.add('p-2', 'rounded-xl', 'bg-gray-50', 'dark:bg-gray-700', 'flex', 'justify-between', 'items-center', 'mb-2', 'shadow', 'border', 'border-gray-200', 'dark:border-gray-600');
+        feedbackElement.classList.add('p-2', 'rounded-xl', 'bg-gray-50', 'dark:bg-gray-800', 'flex', 'justify-between', 'items-center', 'mb-2', 'shadow', 'border', 'border-gray-200', 'dark:border-gray-600');
 
         // Prevent XSS by using DOM elements instead of innerHTML
         const spanElement = document.createElement('span');
-        spanElement.classList.add('text-gray-700', 'dark:text-gray-200', 'font-medium');
+        spanElement.classList.add('text-gray-700', 'dark:text-gray-200', 'font-medium', 'text-sm');
         spanElement.textContent = 'Was this response helpful?';
         feedbackElement.appendChild(spanElement);
 
         const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('flex', 'gap-2');
+        
         const yesButton = document.createElement('button');
-        yesButton.classList.add('feedback-btn', 'bg-green-200', 'text-green-900', 'px-3', 'py-1', 'rounded-full', 'mr-2', 'focus:outline-none', 'focus:ring-2', 'focus:ring-green-400', 'transition', 'hover:bg-green-300');
+        yesButton.classList.add(
+            'feedback-btn', 'px-3', 'py-1', 'rounded-full', 
+            'focus:outline-none', 'focus:ring-2', 'focus:ring-green-400', 
+            'transition', 'text-sm', 'font-medium',
+            // Light mode colors
+            'bg-green-100', 'text-green-700', 'hover:bg-green-200',
+            // Dark mode colors
+            'dark:bg-green-900/40', 'dark:text-green-300', 'dark:hover:bg-green-800/50'
+        );
         yesButton.setAttribute('data-feedback', 'yes');
         yesButton.setAttribute('aria-label', 'Mark response as helpful');
         yesButton.textContent = '👍 Yes';
         buttonContainer.appendChild(yesButton);
 
         const noButton = document.createElement('button');
-        noButton.classList.add('feedback-btn', 'bg-red-200', 'text-red-900', 'px-3', 'py-1', 'rounded-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-red-400', 'transition', 'hover:bg-red-300');
+        noButton.classList.add(
+            'feedback-btn', 'px-3', 'py-1', 'rounded-full', 
+            'focus:outline-none', 'focus:ring-2', 'focus:ring-red-400', 
+            'transition', 'text-sm', 'font-medium',
+            // Light mode colors
+            'bg-red-100', 'text-red-700', 'hover:bg-red-200',
+            // Dark mode colors
+            'dark:bg-red-900/40', 'dark:text-red-300', 'dark:hover:bg-red-800/50'
+        );
         noButton.setAttribute('data-feedback', 'no');
         noButton.setAttribute('aria-label', 'Mark response as not helpful');
         noButton.textContent = '👎 No';

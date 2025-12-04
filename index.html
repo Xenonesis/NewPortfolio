@@ -290,9 +290,16 @@ button:hover, iframe:hover {
 
 /* Specific Scrollbar Customization for #chat-messages */
 #chat-messages {
-    background-color: #ffffff; /* Light background */
+    background-color: transparent; /* Use parent's background */
     color: #000000; /* Black text color */
 }
+
+/* Dark mode for chat messages */
+.dark #chat-messages {
+    background-color: transparent; /* Use parent's background in dark mode */
+    color: #e5e7eb; /* Light gray text for dark mode */
+}
+
 #chat-messages::-webkit-scrollbar {
     width: 10px; /* Wider scrollbar for accessibility */
     height: 10px; /* Allow horizontal scrolling if needed */
@@ -304,9 +311,18 @@ button:hover, iframe:hover {
     border: 2px solid #f9f9f9; /* Adds border for improved visibility */
 }
 
+.dark #chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8); /* Darker gradient for dark mode */
+    border: 2px solid #374151; /* Dark border */
+}
+
 #chat-messages::-webkit-scrollbar-track {
     background-color: #e5e5e5; /* Light background for contrast */
     border-radius: 6px; /* Rounded edges for consistency */
+}
+
+.dark #chat-messages::-webkit-scrollbar-track {
+    background-color: #374151; /* Dark background for dark mode */
 }
 
 /* Enhanced Testimonials Styles */
@@ -489,14 +505,19 @@ html {
 /* Responsive Enhancements */
 @media (max-width: 768px) {
     #chat-messages {
-        background-color: #ffffff; /* Light background */
-        color: #000000; /* Black text color */
+        background-color: transparent; /* Use parent's background */
+    }
+    .dark #chat-messages {
+        background-color: transparent; /* Use parent's background in dark mode too */
     }
     #chat-messages::-webkit-scrollbar {
         width: 6px; /* Narrow scrollbar for mobile */
     }
     #chat-messages::-webkit-scrollbar-thumb {
         background: #4299e1; /* Simpler scrollbar on smaller screens */
+    }
+    .dark #chat-messages::-webkit-scrollbar-thumb {
+        background: #3b82f6; /* Blue scrollbar for dark mode on mobile */
     }
     .testimonial-card {
         padding: 0.5rem;
