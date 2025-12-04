@@ -4,9 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const botClose = document.getElementById('bot-close');
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
+    const chatScrollContainer = chatMessages?.parentElement; // Parent div for scrolling
     const sendMessageButton = document.getElementById('send-message');
-    const pdfUpload = document.getElementById('upload-pdf');
+    const pdfUpload = document.getElementById('upload-pdf'); // May be null if commented out
     const suggestedPromptsContainer = document.createElement('div');
+
+    // Guard against missing elements
+    if (!botToggle || !chatbot || !botClose || !chatInput || !chatMessages || !sendMessageButton) {
+        console.warn('Chatbot: Some required elements are missing from the DOM');
+        return;
+    }
 
     // Add ARIA roles for accessibility
     chatbot.setAttribute('role', 'dialog');
@@ -27,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     chatbot.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1)';
     chatbot.style.transform = chatbot.classList.contains('hidden') ? 'translateY(100%)' : 'translateY(0)';
     chatbot.style.opacity = chatbot.classList.contains('hidden') ? '0' : '1';
+
+    // Track if welcome message has been shown this session
+    let welcomeMessageShown = false;
 
     let responses = JSON.parse(localStorage.getItem('botResponses')) || {
         "hello": "Hi there! How can I assist you today?",
@@ -222,27 +232,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    pdfUpload.addEventListener('change', async (event) => {
-        const file = event.target.files[0];
-        if (file && file.type === "application/pdf") {
-            appendMessage('Bot', 'Processing PDF, please wait...', 'bg-yellow-200');
-            try {
-                pdfContent = await extractTextFromPDF(file);
-                if (pdfContent) {
-                    responses = { ...responses, ...parsePDFContentToResponses(pdfContent) };
-                    localStorage.setItem('botResponses', JSON.stringify(responses));
-                    appendMessage('Bot', 'I have processed and learned from the uploaded PDF!', 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
-                    displaySuggestedPrompts();
-                } else {
-                    appendMessage('Bot', 'The PDF did not contain readable text.', 'bg-red-200');
+    // Only add PDF upload listener if the element exists (it may be commented out in HTML)
+    if (pdfUpload) {
+        pdfUpload.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (file && file.type === "application/pdf") {
+                appendMessage('Bot', 'Processing PDF, please wait...', 'bg-yellow-200');
+                try {
+                    pdfContent = await extractTextFromPDF(file);
+                    if (pdfContent) {
+                        responses = { ...responses, ...parsePDFContentToResponses(pdfContent) };
+                        localStorage.setItem('botResponses', JSON.stringify(responses));
+                        appendMessage('Bot', 'I have processed and learned from the uploaded PDF!', 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
+                        displaySuggestedPrompts();
+                    } else {
+                        appendMessage('Bot', 'The PDF did not contain readable text.', 'bg-red-200');
+                    }
+                } catch (error) {
+                    appendMessage('Bot', `Error processing PDF: ${error.message}`, 'bg-red-200');
                 }
-            } catch (error) {
-                appendMessage('Bot', `Error processing PDF: ${error.message}`, 'bg-red-200');
+            } else {
+                appendMessage('Bot', 'Please upload a valid PDF file.', 'bg-red-200');
             }
-        } else {
-            appendMessage('Bot', 'Please upload a valid PDF file.', 'bg-red-200');
-        }
-    });
+        });
+    }
 
     async function sendMessage() {
         const messageText = chatInput.value.trim();
@@ -365,8 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         chatMessages.appendChild(messageElement);
-        // Smooth scroll to bottom
-        chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+        // Smooth scroll to bottom - use parent container which has overflow-y-auto
+        const scrollContainer = chatScrollContainer || chatMessages;
+        scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
         // Auto-focus input after message
         setTimeout(() => chatInput.focus(), 100);
         // Highlight new bot message
@@ -403,7 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         feedbackElement.appendChild(buttonContainer);
         chatMessages.appendChild(feedbackElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        // Use correct scroll container with smooth scrolling
+        const scrollContainer = chatScrollContainer || chatMessages;
+        scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
 
         feedbackElement.querySelectorAll('.feedback-btn').forEach((button) => {
             button.addEventListener('click', (e) => {
@@ -675,13 +691,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadChatFromLocalStorage() {
+        // Clear the static HTML welcome message and any existing messages
         chatMessages.innerHTML = '';
         const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
-        chatHistory.forEach(({ sender, message, timestamp }) => {
-            const bgColor = sender === userPreferences.name ? 'bg-blue-100 dark:bg-blue-800 dark:text-gray-100' : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100';
-            // Prevent XSS by passing message without HTML content, timestamp is handled separately in appendMessage
-            appendMessage(sender, message, bgColor);
-        });
+        
+        // If there's chat history, load it; otherwise show initial greeting
+        if (chatHistory.length > 0) {
+            chatHistory.forEach(({ sender, message, timestamp }) => {
+                const bgColor = sender === userPreferences.name ? 'bg-blue-100 dark:bg-blue-800 dark:text-gray-100' : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100';
+                // Prevent XSS by passing message without HTML content, timestamp is handled separately in appendMessage
+                appendMessage(sender, message, bgColor);
+            });
+            // Mark welcome message as already shown since we have history
+            welcomeMessageShown = true;
+        }
     }
 
     function saveUserPreferences() {
@@ -689,20 +712,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadUserPreferences() {
-        const { name, favoriteTopics } = userPreferences;
-        if (name) {
-            appendMessage('Bot', `Welcome back, ${name}!`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
-        }
-        if (favoriteTopics.length) {
-            appendMessage('Bot', `I remember you're interested in ${favoriteTopics.join(', ')}.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
-        }
+        // Don't show welcome messages here - they will be shown in displayWelcomeMessage()
+        // This function just loads preferences, not displays them
+        // The messages are only shown when the chatbot is opened
     }
 
     function displayWelcomeMessage() {
-        appendMessage('Bot', `Hello ${userPreferences.name}! Let me know how I can assist you.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
-        // Commented out - PDF quick action prompts
-        // appendMessage('Bot', 'Here are some suggested prompts:', 'bg-gray-100');
-        // displaySuggestedPrompts();
+        // Only show welcome message once per session
+        if (welcomeMessageShown) {
+            return;
+        }
+        welcomeMessageShown = true;
+        
+        const { name, favoriteTopics } = userPreferences;
+        
+        // Show welcome back message or initial greeting
+        if (name && name !== 'User') {
+            appendMessage('Bot', `Welcome back, ${name}! Let me know how I can assist you.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
+        } else {
+            appendMessage('Bot', `Hello! I'm Aditya's portfolio assistant. How can I help you today?`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
+        }
+        
+        // Only show favorite topics if they exist
+        if (favoriteTopics && favoriteTopics.length > 0) {
+            appendMessage('Bot', `I remember you're interested in ${favoriteTopics.join(', ')}.`, 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100');
+        }
     }
 
     function showTypingIndicator() {
@@ -712,7 +746,9 @@ document.addEventListener('DOMContentLoaded', () => {
         typingIndicator.setAttribute('role', 'status');
         typingIndicator.textContent = 'Bot is typing...';
         chatMessages.appendChild(typingIndicator);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        // Use correct scroll container with smooth scrolling
+        const scrollContainer = chatScrollContainer || chatMessages;
+        scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
     }
 
     function hideTypingIndicator() {
