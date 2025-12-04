@@ -349,22 +349,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const bubble = document.createElement('div');
-        // Split bgColor to handle multiple classes (e.g., 'bg-gray-200 dark:bg-gray-600')
-        const bgClasses = bgColor.split(' ');
-        bubble.classList.add('p-3', 'rounded-2xl', 'shadow', 'max-w-[80%]', 'relative', ...bgClasses, 'transition-colors', 'duration-200');
+        bubble.classList.add('p-3', 'rounded-2xl', 'shadow', 'max-w-[80%]', 'relative', 'transition-colors', 'duration-200');
+        
+        // Apply styling based on sender directly here to ensure consistency
         if (sender === 'Bot') {
-            bubble.classList.add('rounded-bl-none', 'border', 'border-gray-200', 'dark:border-gray-500', 'ring-2', 'ring-blue-100', 'dark:ring-blue-900', 'text-gray-800', 'dark:text-gray-100');
+            bubble.classList.add(
+                // Light mode
+                'bg-gray-200', 'text-gray-800', 'border-gray-200', 'ring-blue-100',
+                // Dark mode
+                'dark:bg-gray-700', 'dark:text-gray-100', 'dark:border-gray-600', 'dark:ring-blue-900',
+                // Shape
+                'rounded-bl-none', 'border', 'ring-2'
+            );
         } else {
-            bubble.classList.add('rounded-br-none', 'border', 'border-blue-200', 'dark:border-blue-600', 'ring-2', 'ring-blue-50', 'dark:ring-blue-900', 'text-gray-800', 'dark:text-gray-100');
+            bubble.classList.add(
+                // Light mode
+                'bg-blue-100', 'text-gray-800', 'border-blue-200', 'ring-blue-50',
+                // Dark mode - Using Blue-700 for better visibility
+                'dark:bg-blue-700', 'dark:text-gray-100', 'dark:border-blue-600', 'dark:ring-blue-900',
+                // Shape
+                'rounded-br-none', 'border', 'ring-2'
+            );
         }
+        
         // Prevent XSS by using textContent instead of innerHTML for user input
         const strongElement = document.createElement('strong');
         strongElement.textContent = `${sender}:`;
+        // Ensure sender label is visible in both modes
+        strongElement.classList.add('text-gray-900', 'dark:text-white');
         bubble.appendChild(strongElement);
-        const messageText = document.createTextNode(` ${message}`);
-        bubble.appendChild(messageText);
+        
+        // Message text with proper contrast
+        const messageSpan = document.createElement('span');
+        messageSpan.textContent = ` ${message}`;
+        messageSpan.classList.add('text-gray-800', 'dark:text-gray-100');
+        bubble.appendChild(messageSpan);
+        
         const timestampDiv = document.createElement('div');
-        timestampDiv.classList.add('text-xs', 'text-gray-400', 'dark:text-gray-300', 'mt-1', 'text-right');
+        timestampDiv.classList.add('text-xs', 'text-gray-500', 'dark:text-gray-300', 'mt-1', 'text-right');
         timestampDiv.textContent = timestamp;
         bubble.appendChild(timestampDiv);
 
@@ -383,8 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
         // Auto-focus input after message
         setTimeout(() => chatInput.focus(), 100);
-        // Highlight new bot message
-        if (sender === 'Bot') {
+        // Highlight new bot message (only in light mode to avoid conflict)
+        if (sender === 'Bot' && !document.documentElement.classList.contains('dark')) {
             bubble.classList.add('bg-gradient-to-br', 'from-blue-50', 'to-blue-100');
             setTimeout(() => bubble.classList.remove('bg-gradient-to-br', 'from-blue-50', 'to-blue-100'), 1200);
         }
