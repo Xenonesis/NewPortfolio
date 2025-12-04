@@ -551,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         - His projects: Flappy Bird game, Cinesphere movie website, Innova e-commerce site
         - His certifications and experience in cybersecurity, ethical hacking
         - His leadership roles in NSS and university sports
-        Keep responses concise and professional. If asked about something outside this scope, politely redirect to portfolio-related topics.`;
+        Keep responses concise and professional. Do not use markdown bolding (**). If asked about something outside this scope, politely redirect to portfolio-related topics.`;
 
         try {
             console.log('Sending request to Gemini API...');
@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts) {
                 const responseText = data.candidates[0].content.parts[0].text;
                 if (responseText && responseText.trim()) {
-                    return responseText.trim();
+                    return responseText.replace(/\*\*/g, '').trim();
                 }
             }
 
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
         - His projects: Flappy Bird game, Cinesphere movie website, Innova e-commerce site
         - His certifications and experience in cybersecurity, ethical hacking
         - His leadership roles in NSS and university sports
-        Keep responses concise and professional. If asked about something outside this scope, politely redirect to portfolio-related topics.`;
+        Keep responses concise and professional. Do not use markdown bolding (**). If asked about something outside this scope, politely redirect to portfolio-related topics.`;
 
         try {
             console.log('Sending request to OpenRouter API...');
@@ -672,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.choices && data.choices.length > 0 && data.choices[0].message) {
                 const responseText = data.choices[0].message.content;
                 if (responseText && responseText.trim()) {
-                    return responseText.trim();
+                    return responseText.replace(/\*\*/g, '').trim();
                 }
             }
 
